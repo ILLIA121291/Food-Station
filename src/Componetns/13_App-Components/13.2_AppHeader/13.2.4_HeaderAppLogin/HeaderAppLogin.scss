@@ -1,0 +1,13 @@
+.header-app {
+  &__login {
+    width: 200px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #000;
+    background-color: yellow;
+  }
+}

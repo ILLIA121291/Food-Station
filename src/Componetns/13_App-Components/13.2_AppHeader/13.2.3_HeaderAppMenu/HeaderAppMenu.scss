@@ -1,0 +1,29 @@
+.header-app {
+  &__menu-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__menu-item {
+    margin-right: 40px;
+    font-size: 30px;
+  }
+
+  &__menu-item:last-child {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header-app {
+    &__menu-list {
+      flex-direction: column;
+      margin: 15px 0px;
+    }
+
+    &__menu-item {
+      margin-right: 0px;
+    }
+  }
+}
