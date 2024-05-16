@@ -6,16 +6,31 @@ const HeaderAppMenu: FC = () => {
     <nav className="header-app__menu">
       <ul className="header-app__menu-list">
         <li className="header-app__menu-item">
-          <a href="#">Home</a>
+          <a href="#">Pizza</a>
         </li>
         <li className="header-app__menu-item">
-          <a href="#">About us</a>
+          <a href="#">Rolls</a>
         </li>
         <li className="header-app__menu-item">
-          <a href="#">Services</a>
+          <a href="#">Sushi</a>
         </li>
         <li className="header-app__menu-item">
-          <a href="#">News</a>
+          <a href="#">Soup</a>
+        </li>
+        <li className="header-app__menu-item">
+          <a href="#">Snacks</a>
+        </li>
+        <li className="header-app__menu-item">
+          <a href="#">Sauces</a>
+        </li>
+        <li className="header-app__menu-item">
+          <a href="#">Drinks</a>
+        </li>
+        <li className="header-app__menu-item">
+          <a href="#">Dessert</a>
+        </li>
+        <li className="header-app__menu-item">
+          <a href="#">Sets</a>
         </li>
       </ul>
     </nav>

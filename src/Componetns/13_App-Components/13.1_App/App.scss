@@ -1,5 +1,6 @@
 
 
+
 // General bloks style - gbs
 
 .gbs__border {
@@ -8,4 +9,21 @@
   margin: 0px auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.gbs__flc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// General style
+
+.f {
+  display: flex;
+}
+
+.fc{
+  display: flex;
+  flex-direction: column;
 }
