@@ -20,17 +20,25 @@
   }
 }
 
-// Media Queries---------------------------------------------------------------------------------------
+/* Media queries 1000 px ----------------------------- */
+@media (max-width: 1000px) {
+  .header-app {
+    &__menu-item {
+      margin-right: 20px;
+    }
+  }
+}
+
+// Media Queries 800px ---------------------------------------
 
 @media (max-width: 800px) {
   .header-app {
     &__menu-list {
       flex-direction: column;
-      margin: 15px 0px;
     }
 
     &__menu-item {
-      margin-right: 0px;
+      margin: 15px 0px;
     }
   }
 }

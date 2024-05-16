@@ -16,3 +16,23 @@
     letter-spacing: 1px;
   }
 }
+
+// Media queries 900 px -----------------------------
+
+@media (max-width: 900px) {
+  .phone-call {
+    &__phone {
+      font-size: 25px;
+    }
+  }
+}
+
+// Media queries 850 px -----------------------------
+
+@media (max-width: 850px) {
+  .phone-call {
+    &__phone {
+      font-size: 20px;
+    }
+  }
+}

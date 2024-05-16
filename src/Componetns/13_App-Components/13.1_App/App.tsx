@@ -7,8 +7,8 @@ import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
 
 const App: FC = () => {
   return (
-    <div className='app'>
-      <HeaderApp/>
+    <div className="app">
+      <HeaderApp />
       <HomePage />
     </div>
   );

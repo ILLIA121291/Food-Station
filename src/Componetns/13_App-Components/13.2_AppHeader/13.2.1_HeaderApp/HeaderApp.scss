@@ -29,6 +29,12 @@
     position: sticky;
     top: 0px;
     left: 0px;
+
+
+  }
+
+  &__menu-mobile {
+    display: none;
   }
 }
 
@@ -38,6 +44,7 @@
   .header-app {
     flex-direction: column;
     justify-content: flex-start;
+    overflow: auto;
 
     position: fixed;
     top: 0;
@@ -45,13 +52,26 @@
     bottom: 0;
 
     z-index: 100;
-    padding: 0px 70px;
 
     background-color: #f88b6a;
     align-items: center;
     justify-content: center;
 
     transition: all 0.5s;
+
+    &__control-panel {
+      display: none;
+    }
+
+    &__menue-panel {
+      display: none;
+    }
+
+    &__menu-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .no_display {

@@ -10,3 +10,13 @@
     cursor: pointer;
   }
 }
+
+// Media queries 800 px -----------------------------
+
+@media (max-width: 800px) {
+  .currency-panel {
+    &__select {
+      margin-top: 20px;
+    }
+  }
+}
