@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import useSetInitialLanguageApp from './useSetInitialLanguageApp';
 
-export interface ISateLangugePanel {
+export interface ILangugePanel {
   languageApp: string;
 }
 

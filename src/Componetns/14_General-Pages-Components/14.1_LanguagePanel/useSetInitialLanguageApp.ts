@@ -1,7 +1,7 @@
-import { ISateLangugePanel } from './sliceLanguagePanel';
+import { ILangugePanel } from './sliceLanguagePanel';
 
-const useSetInitialLanguageApp = (): ISateLangugePanel => {
-  let initialLanguage: ISateLangugePanel;
+const useSetInitialLanguageApp = (): ILangugePanel => {
+  let initialLanguage: ILangugePanel;
 
   if (!localStorage.getItem('language')) {
     localStorage.setItem('language', 'English');

@@ -2,13 +2,23 @@ import './PhoneCallMe.scss';
 
 import { FC } from 'react';
 
+import { useDispatch } from 'react-redux';
+import { onDisplayModalWindow } from '../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';
+
 const PhoneCallMe: FC = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="phone-call__container fc">
       <p className="phone-call__phone"> +1 (213) 452-150 </p>
-      <a className="phone-call__callme" href="#">
+      <button
+        className="phone-call__callme"
+        onClick={() => {
+          dispatch(onDisplayModalWindow({ component: 'CallMeForm' }));
+        }}
+      >
         Call me back
-      </a>
+      </button>
     </div>
   );
 };
