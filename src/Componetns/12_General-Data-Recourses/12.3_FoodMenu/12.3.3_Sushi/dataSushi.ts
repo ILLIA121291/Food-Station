@@ -26,7 +26,7 @@ interface ISushi {
   tages: string[];
 }
 
-const tagseSushi: string[] = ['spicy', 'vegetarian'];
+export const tagseSushi: string[] = ['spicy', 'vegetarian'];
 
 const dataSushi: ISushi[] = [
   {

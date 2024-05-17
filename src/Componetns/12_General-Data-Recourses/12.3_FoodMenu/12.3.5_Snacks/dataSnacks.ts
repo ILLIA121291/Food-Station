@@ -20,7 +20,7 @@ interface ISnacks {
   tages: string[];
 }
 
-const tagseSnacks: string[] = ['spicy', 'vegetarian', 'deep-frying'];
+export const tagseSnacks: string[] = ['spicy', 'vegetarian', 'deep-frying'];
 
 const dataSnacks: ISnacks[] = [
   {

@@ -20,7 +20,7 @@ interface IDrinks {
   tages: string[];
 }
 
-const tagseDrinks: string[] = ['juices', 'soft drinks', 'tea', 'alcohol', 'water'];
+export const tagseDrinks: string[] = ['juices', 'soft drinks', 'tea', 'alcohol', 'water'];
 
 const dataDrinks:IDrinks[] = [
   {

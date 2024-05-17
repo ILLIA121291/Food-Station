@@ -24,9 +24,9 @@ interface ISauces {
   tages: string[];
 }
 
-const tagseSauces: string[] = ['spicy', 'vegetarian'];
+export const tagseSauces: string[] = ['spicy', 'vegetarian'];
 
-const dataSauces: ISauces[] = [
+export const dataSauces: ISauces[] = [
   {
     name: 'spicy',
     img: Spicy,

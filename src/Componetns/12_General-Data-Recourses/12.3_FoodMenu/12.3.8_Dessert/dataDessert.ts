@@ -16,9 +16,9 @@ interface IDessert {
   tages: string[];
 }
 
-const tagseDessert: string[] = ['cake', 'ice cream', 'dessert'];
+export const tagseDessert: string[] = ['cake', 'ice cream', 'dessert'];
 
-const dataDessert: IDessert[] = [
+export const dataDessert: IDessert[] = [
   {
     name: 'cheesecake',
     img: Cheesecake,

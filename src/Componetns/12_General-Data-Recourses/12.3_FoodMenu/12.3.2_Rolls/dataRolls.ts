@@ -26,7 +26,7 @@ interface IRoll {
   tages: string[];
 }
 
-const tagesRoll: string[] = ['salmon roll', 'vegetarian', 'spicy', 'baked', 'beef roll'];
+export const tagesRoll: string[] = ['salmon roll', 'vegetarian', 'spicy', 'baked', 'beef roll'];
 
 const dataRoll: IRoll[] = [
   {

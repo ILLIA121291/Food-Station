@@ -22,9 +22,9 @@ interface ISet {
   tages: string[];
 }
 
-const tagseSets: string[] = ['pizza-set', 'sushi-set', 'lunch-set'];
+export const tagseSets: string[] = ['pizza-set', 'sushi-set', 'lunch-set'];
 
-const dataSets: ISet[] = [
+export const dataSets: ISet[] = [
   {
     name: 'pizza set 1',
     img: PizzaSet1,

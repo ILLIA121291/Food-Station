@@ -14,7 +14,7 @@ interface ISoup {
   tages: string[];
 }
 
-const tagseSoup: string[] = ['spicy', 'vegetarian'];
+export const tagseSoup: string[] = ['spicy', 'vegetarian'];
 
 const dataSoup: ISoup[] = [
   {

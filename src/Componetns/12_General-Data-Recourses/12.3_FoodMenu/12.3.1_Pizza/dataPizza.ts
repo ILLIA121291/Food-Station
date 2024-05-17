@@ -37,7 +37,7 @@ interface IPizza {
   tages: string[];
 }
 
-const tagsPizza: string[] = ['chicken', 'pork', 'beef', 'vegetarian', 'sausages', 'seafood', 'spicy'];
+export const tagsPizza: string[] = ['chicken', 'pork', 'beef', 'vegetarian', 'sausages', 'seafood', 'spicy'];
 
 const dataPizza: IPizza[] = [
   {
