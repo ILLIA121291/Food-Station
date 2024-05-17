@@ -2,13 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import useSetInitialLanguageApp from './useSetInitialLanguageApp';
 
+export interface ISateLangugePanel {
+  languageApp: string;
+}
+
 let initialState = useSetInitialLanguageApp();
 
 export const languagePanelSlice = createSlice({
   name: 'languagePanel',
   initialState,
   reducers: {
-    onChangeLanguage: (state, actions) => {
+    onChangeLanguage: (state, actions): void => {
       switch (actions.payload) {
         case 'Russian':
           state.languageApp = 'Russian';
