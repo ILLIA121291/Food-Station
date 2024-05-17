@@ -2,7 +2,8 @@ import './HeaderApp.scss';
 import HeaderAppMenu from '../13.2.3_HeaderAppMenu/HeaderAppMenu';
 import HeaderAppMobileButton from '../13.2.5_HeaderAppMobileButton/HeaderAppMobileButton';
 import HeaderAppMobileLogo from '../13.2.6_HeaderAppMobileLogo/HeaderAppMobileLogo';
-import { FC, useState, MouseEvent } from 'react';
+// import { FC, useState, MouseEvent } from 'react';
+import { FC, useState } from 'react';
 import HeaderAppCart from '../13.2.7_HeaderAppCart/HeaderAppCart';
 import LogoDelivery from '../13.2.8_LogoDeilvery/13.2.8.1_LogoDelivery/LogoDelivery';
 import PhoneCallMe from '../13.2.9_PhoneCallMe/PhoneCallMe';
@@ -29,11 +30,11 @@ const HeaderApp: FC = () => {
         <HeaderAppMobileButton mobileMenuState={mobileMenuState} setMobileMenuState={setMobileMenuState} />
         <div
           className={`gbs__border header-app${noDisplay}`}
-          onClick={(e: MouseEvent<HTMLDivElement>): void => {
-            if (window.innerWidth <= 800 && !(e.target as HTMLDivElement).classList.contains('header-app')) {
-              setMobileMenuState(false);
-            }
-          }}
+          // onClick={(e: MouseEvent<HTMLDivElement>): void => {
+          //   if (window.innerWidth <= 800 && !(e.target as HTMLDivElement).classList.contains('header-app')) {
+          //     setMobileMenuState(false);
+          //   }
+          // }}
         >
           <div className="header-app__control-panel">
             <LogoDelivery />
@@ -42,6 +43,7 @@ const HeaderApp: FC = () => {
           </div>
           <div className="header-app__menu-mobile">
             <HeaderAppMobileLogo />
+            <PhoneCallMe />
             <HeaderAppCart />
             <HeaderAppMenu />
             <LanguagePanel />

@@ -38,3 +38,11 @@
     }
   }
 }
+
+// Media queries 800 px -----------------------------
+
+@media (max-width: 800px) {
+  .phone-call__container {
+    margin: 20px 0px;
+  }
+}
