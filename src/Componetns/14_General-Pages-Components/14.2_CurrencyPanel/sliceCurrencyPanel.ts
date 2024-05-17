@@ -2,6 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import useSetInitialCurrencyApp from './useSetInitialCurrencyApp';
 
+export interface ICurrencyPanel {
+  currencyApp: string;
+}
+
 let initialState = useSetInitialCurrencyApp();
 
 export const currencyPanelSlice = createSlice({

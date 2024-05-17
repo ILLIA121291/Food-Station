@@ -3,17 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { onChangeCurrency } from './sliceCurrencyPanel';
 import textObjCurrencyPanel from './textObjCurrencyPanel';
 
-import {FC} from 'react'
+import { FC } from 'react';
+import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
 
-const CurrencyPanel:FC = () => {
-  // const dispatch = useDispatch();
-  // const currencyAppState = useSelector(state => state.currencyPanel.currencyApp);
+const CurrencyPanel: FC = () => {
+  const dispatch = useDispatch();
+  const currencyAppState = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
 
   return (
-    <select className="general-select currency-panel__select" 
-    // value={currencyAppState} 
-    // onChange={e => dispatch(onChangeCurrency(e.target.value))}
-    >
+    <select className="general-select currency-panel__select" value={currencyAppState} onChange={e => dispatch(onChangeCurrency(e.target.value))}>
       <option className="currency-panel__select-option" value="USD">
         {textObjCurrencyPanel.USD}
       </option>

@@ -1,5 +1,7 @@
-const useSetInitialCurrencyApp = () => {
-  let initialCurrency;
+import { ICurrencyPanel } from './sliceCurrencyPanel';
+
+const useSetInitialCurrencyApp = (): ICurrencyPanel => {
+  let initialCurrency: ICurrencyPanel;
 
   if (!localStorage.getItem('currency')) {
     localStorage.setItem('currency', 'USD');
@@ -20,7 +22,7 @@ const useSetInitialCurrencyApp = () => {
     }
   }
 
-  return initialCurrency;
+  return initialCurrency!;
 };
 
 export default useSetInitialCurrencyApp;

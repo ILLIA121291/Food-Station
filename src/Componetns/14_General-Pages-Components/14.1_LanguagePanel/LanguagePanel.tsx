@@ -7,11 +7,11 @@ import textObjLanguagePanel from './textObjLanguagePanel';
 import { useSelector, useDispatch } from 'react-redux';
 import { onChangeLanguage } from './sliceLanguagePanel';
 
-import { IstateStore } from '../../13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
 
 const LanguagePanel: FC = () => {
   const dispatch = useDispatch();
-  const languageAppState = useSelector<IstateStore, string>(state => state.languagePanel.languageApp);
+  const languageAppState = useSelector<IStateStore, string>(state => state.languagePanel.languageApp);
 
   return (
     <select className="general-select language-panel__select" name="language" value={languageAppState} onChange={e => dispatch(onChangeLanguage(e.target.value))}>
