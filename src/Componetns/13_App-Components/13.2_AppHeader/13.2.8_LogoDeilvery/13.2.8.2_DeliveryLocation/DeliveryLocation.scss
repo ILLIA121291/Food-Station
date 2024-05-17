@@ -1,4 +1,8 @@
 .location {
+  &__container {
+    position: relative;
+  }
+
   &__btn {
     background: transparent;
     font-size: 16px;
@@ -10,5 +14,16 @@
 
   &__btn:hover {
     color: red;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 25px;
+    left: 0px;
+
+    background: wheat;
+    z-index: 150;
+    overflow: hidden;
+    transition: height 300ms;
   }
 }
