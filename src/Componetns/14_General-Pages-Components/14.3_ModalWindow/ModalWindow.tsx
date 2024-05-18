@@ -9,12 +9,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { noCloseModalWindow, onCloseModalWindowClickOverlay, onCloseModalWindowEscape, resetStateModalWindow } from './sliceModalWindow';
 import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
 import { IModalWindow } from './sliceModalWindow';
+import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
-const ModalWindow: FC = () => {
+interface IProps {
+  langugeApp: typeof english;
+}
+
+const ModalWindow: FC<IProps> = ({ langugeApp }) => {
   const disptch = useDispatch();
   const { component, componentType, displayModal, closeOnOverlay, closeOnEscapeBtn } = useSelector<IStateStore, IModalWindow>(state => state.modalWindow);
 
-  let displayComponentInModalWindow = useModalWindowComponentsReducer(component, componentType);
+  let displayComponentInModalWindow = useModalWindowComponentsReducer(langugeApp, component, componentType);
 
   useEffect(() => {
     if (!displayModal && component != '') {

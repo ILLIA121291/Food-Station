@@ -42,7 +42,7 @@ const App: FC = () => {
     <div className="app">
       <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp}  />
       <HomePage />
-      <ModalWindow />
+      <ModalWindow langugeApp={langugeApp} />
     </div>
   );
 };

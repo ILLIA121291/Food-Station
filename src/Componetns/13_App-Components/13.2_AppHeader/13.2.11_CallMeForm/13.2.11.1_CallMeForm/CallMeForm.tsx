@@ -7,6 +7,8 @@ import useHttp from '../../../../11_Server-Components/11.1_useHttp/useHttp';
 
 import { useDispatch } from 'react-redux';
 import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';
+import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+
 
 interface IUserGetData {
   name: string;
@@ -23,7 +25,11 @@ interface IUserSendData {
   currency: string | null;
 }
 
-const CallMeForm: FC = () => {
+interface IProps {
+  langugeApp: typeof english
+}
+
+const CallMeForm: FC <IProps>= () => {
   const dispatch = useDispatch();
 
   const [btnInputsState, setBtnInputsState] = useState<boolean>(false);
