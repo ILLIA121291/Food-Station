@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux';
 import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
-
 interface IUserGetData {
   name: string;
   phone: string;
@@ -26,11 +25,12 @@ interface IUserSendData {
 }
 
 interface IProps {
-  langugeApp: typeof english
+  langugeApp: typeof english;
 }
 
-const CallMeForm: FC <IProps>= () => {
+const CallMeForm: FC<IProps> = ({ langugeApp }) => {
   const dispatch = useDispatch();
+  const text = langugeApp.textAppHeader.textCallMeForm;
 
   const [btnInputsState, setBtnInputsState] = useState<boolean>(false);
 
@@ -71,10 +71,13 @@ const CallMeForm: FC <IProps>= () => {
       }}
       validationSchema={Yup.object({
         name: Yup.string()
-          .matches(/^[aA-zZ]+$/, 'ТОЛЬКО БУКВЫ!!!')
-          .min(2, 'Имя должно содержать минемум 2 симавола!')
-          .required('Обязательное поле'),
-        phone: Yup.number().min(3, 'Немение 3').required('Обязательное поле'),
+          .matches(/^[aA-zZ]+$/, text.onlyletters)
+          .min(2, text.nameLength)
+          .required(text.requiredFields),
+        phone: Yup.string()
+          .matches(/^[0-9]+$/, text.onlynumbers)
+          .min(3, text.phonelength)
+          .required(text.requiredFields),
       })}
       onSubmit={(values, actions) => {
         postCustomerData(values);
@@ -91,7 +94,7 @@ const CallMeForm: FC <IProps>= () => {
     >
       <Form className="callmefrom__form fc">
         <label className="callmefrom__label" htmlFor="#name">
-          Name
+          {text.name}*
         </label>
         <Field className="callmefrom__input" id="name" name="name" type="text" disabled={btnInputsState} />
         <div className="callmefrom__error-contaner">
@@ -99,17 +102,17 @@ const CallMeForm: FC <IProps>= () => {
         </div>
 
         <label className="callmefrom__label" htmlFor="#phone">
-          Phone
+          {text.phone}*
         </label>
-        <Field className="callmefrom__input" id="phone" name="phone" type="number" disabled={btnInputsState} />
+        <Field className="callmefrom__input" id="phone" name="phone" type="text" disabled={btnInputsState} />
         <div className="callmefrom__error-contaner">
           <ErrorMessage className="callmefrom__error-message rc" name="phone" component="p" />
         </div>
 
         <button className="callmefrom__btn " type="submit" disabled={btnInputsState}>
-          Send
+          {text.send}
         </button>
-        <InformMassegeCallMeForm process={process} />
+        <InformMassegeCallMeForm process={process} langugeApp={langugeApp} />
       </Form>
     </Formik>
   );

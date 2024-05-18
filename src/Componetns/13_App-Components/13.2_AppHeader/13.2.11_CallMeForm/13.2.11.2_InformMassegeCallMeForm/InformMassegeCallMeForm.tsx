@@ -1,50 +1,43 @@
 import './InformMassegeCallMeForm.scss';
 
 import { FC } from 'react';
+import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 interface IProps {
   process: string;
+  langugeApp: typeof english;
 }
 
-const InformMassegeCallMeForm: FC<IProps> = ({ process }) => {
-  let displayInformMessage;
+const InformMassegeCallMeForm: FC<IProps> = ({ process, langugeApp }) => {
+  const text = langugeApp.textAppHeader.textInformMassegeCallMeForm;
+  let message;
+  let colorText;
 
   switch (process) {
     case 'loading':
-      displayInformMessage = (
-        <p className="callmefrom__info-message" style={{ color: 'orange' }}>
-          Please wait, your information is being sent
-          {/* {props.textContactForm.statusLoading} */}
-        </p>
-      );
+      message = text.loading;
+      colorText = 'orange';
+
       break;
     case 'success':
-      displayInformMessage = (
-        <p className="callmefrom__info-message" style={{ color: 'green' }}>
-          We have successfully received your details and will call you back soon.
-          {/* {props.textContactForm.statusSuccess} */}
-        </p>
-      );
+      message = text.success;
+      colorText = 'green';
       break;
     case 'error':
-      displayInformMessage = (
-        <p className="callmefrom__info-message" style={{ color: 'red' }}>
-          Oops, something went wrong, please try again in a few minutes.
-          {/* {props.textContactForm.statusError} */}
-        </p>
-      );
+      message = text.error;
+      colorText = 'red';
       break;
     default:
-      displayInformMessage = (
-        <p className="callmefrom__info-message">
-          We will call you back soon
-          {/* {props.formText.infoMassege} */}
-        </p>
-      );
+      message = text.waiting;
+      colorText = 'black';
       break;
   }
 
-  return displayInformMessage;
+  return (
+    <p className="callmefrom__info-message" style={{ color: colorText }}>
+      {message}
+    </p>
+  );
 };
 
 export default InformMassegeCallMeForm;

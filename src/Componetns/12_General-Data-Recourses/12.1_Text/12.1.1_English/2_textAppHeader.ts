@@ -2,7 +2,11 @@ const textCallMeForm = {
   name: 'Name',
   phone: 'Phone',
   send: 'Send',
+  onlyletters: 'Please use only letters A-z',
+  nameLength: 'The name should contain at least 2 characters',
   requiredFields: 'Required fields',
+  phonelength: 'The phone number must contain at least 3 digits',
+  onlynumbers: 'Please use only numbers 0-9',
 };
 
 const textInformMassegeCallMeForm = {

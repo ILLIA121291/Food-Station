@@ -28,19 +28,12 @@ if (!localStorage.getItem('language')) {
   }
 }
 
-
-
-
-
-
 const App: FC = () => {
-
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
-
 
   return (
     <div className="app">
-      <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp}  />
+      <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
       <HomePage />
       <ModalWindow langugeApp={langugeApp} />
     </div>
