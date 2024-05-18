@@ -1,5 +1,6 @@
 import CallMeForm from '../../13_App-Components/13.2_AppHeader/13.2.11_CallMeForm/13.2.11.1_CallMeForm/CallMeForm';
 import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import LoginForm from '../../13_App-Components/13.2_AppHeader/13.2.4_HeaderAppLogin/13.2.4.2_LoginForm/LoginForm';
 
 type TUMWCReducer = (langugeApp: typeof english, component: string, componentType?: string) => JSX.Element;
 
@@ -8,7 +9,7 @@ const useModalWindowComponentsReducer: TUMWCReducer = (langugeApp, component, co
 
   switch (component) {
     case 'LoginForm':
-      displayComponentInModalWindow = <p className="no-componet">LOGIN FORM</p>;
+      displayComponentInModalWindow = <LoginForm langugeApp={langugeApp} />;
       break;
     case 'CallMeForm':
       displayComponentInModalWindow = <CallMeForm langugeApp={langugeApp} />;

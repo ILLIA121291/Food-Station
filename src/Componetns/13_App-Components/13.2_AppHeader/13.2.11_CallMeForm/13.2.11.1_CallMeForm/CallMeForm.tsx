@@ -92,24 +92,25 @@ const CallMeForm: FC<IProps> = ({ langugeApp }) => {
         }, 4000);
       }}
     >
-      <Form className="callmefrom__form fc">
-        <label className="callmefrom__label" htmlFor="#name">
+      <Form className="fc f_ac fwt pt30 ht400">
+        <h4 className="ftit">{text.titel}</h4>
+        <label className="flab wt250 mt20" htmlFor="#name">
           {text.name}*
         </label>
-        <Field className="callmefrom__input" id="name" name="name" type="text" disabled={btnInputsState} />
-        <div className="callmefrom__error-contaner">
-          <ErrorMessage className="callmefrom__error-message rc" name="name" component="p" />
+        <Field className="finput" id="name" name="name" type="text" disabled={btnInputsState} />
+        <div className="wt250 ferror-contaner">
+          <ErrorMessage className=" rc ferror-message" name="name" component="p" />
         </div>
 
-        <label className="callmefrom__label" htmlFor="#phone">
+        <label className="flab wt250" htmlFor="#phone">
           {text.phone}*
         </label>
-        <Field className="callmefrom__input" id="phone" name="phone" type="text" disabled={btnInputsState} />
-        <div className="callmefrom__error-contaner">
-          <ErrorMessage className="callmefrom__error-message rc" name="phone" component="p" />
+        <Field className="finput" id="phone" name="phone" type="text" disabled={btnInputsState} />
+        <div className="wt250 ferror-contaner">
+          <ErrorMessage className="rc ferror-message" name="phone" component="p" />
         </div>
 
-        <button className="callmefrom__btn " type="submit" disabled={btnInputsState}>
+        <button className="fbtn fbtn__active wt250 " type="submit" disabled={btnInputsState}>
           {text.send}
         </button>
         <InformMassegeCallMeForm process={process} langugeApp={langugeApp} />

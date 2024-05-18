@@ -1,4 +1,12 @@
 import './App.scss';
+import './13.1.1_Scss/froms.scss';
+import './13.1.1_Scss/flex.scss';
+import './13.1.1_Scss/color.scss';
+import './13.1.1_Scss/width.scss';
+import './13.1.1_Scss/margin.scss';
+import './13.1.1_Scss/pading.scss';
+import './13.1.1_Scss/text.scss';
+import './13.1.1_Scss/height.scss';
 
 import { FC, useState } from 'react';
 

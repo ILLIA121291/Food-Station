@@ -1,0 +1,29 @@
+// FLEX ------------------------------------------------------------
+
+.f {
+  display: flex;
+}
+
+.f_jc {
+  justify-content: center;
+}
+
+.f_ac {
+  align-items: center;
+}
+
+.fc {
+  display: flex;
+  flex-direction: column;
+}
+
+.f_jc-ac {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// FLEX GAP -------------------------------------------
+.fg15 {
+  gap: 15px;
+}

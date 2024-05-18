@@ -34,7 +34,7 @@ const InformMassegeCallMeForm: FC<IProps> = ({ process, langugeApp }) => {
   }
 
   return (
-    <p className="callmefrom__info-message" style={{ color: colorText }}>
+    <p className="mt15 pl15 pr15 tx-al-c " style={{ color: colorText }}>
       {message}
     </p>
   );
