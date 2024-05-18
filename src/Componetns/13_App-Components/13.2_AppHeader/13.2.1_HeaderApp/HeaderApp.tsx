@@ -12,7 +12,15 @@ import LanguagePanel from '../../../14_General-Pages-Components/14.1_LanguagePan
 import CurrencyPanel from '../../../14_General-Pages-Components/14.2_CurrencyPanel/CurrencyPanel';
 import HeaderAppLogin from '../13.2.4_HeaderAppLogin/HeaderAppLogin';
 
-const HeaderApp: FC = () => {
+import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+
+interface IProps {
+  langugeApp: typeof english
+  setLangugeApp: React.Dispatch<React.SetStateAction<typeof english>>
+}
+
+
+const HeaderApp: FC <IProps>= ({langugeApp, setLangugeApp}) => {
   const [mobileMenuState, setMobileMenuState] = useState<boolean>(false);
 
   if (mobileMenuState) {
@@ -39,14 +47,14 @@ const HeaderApp: FC = () => {
           <div className="header-app__control-panel">
             <LogoDelivery />
             <PhoneCallMe />
-            <CurrencyLanguageLogin />
+            <CurrencyLanguageLogin langugeApp={langugeApp} setLangugeApp= {setLangugeApp} />
           </div>
           <div className="header-app__menu-mobile">
             <HeaderAppMobileLogo />
             <PhoneCallMe />
             <HeaderAppCart />
             <HeaderAppMenu />
-            <LanguagePanel />
+            <LanguagePanel langugeApp={langugeApp} setLangugeApp= {setLangugeApp} />
             <CurrencyPanel />
             <HeaderAppLogin />
           </div>

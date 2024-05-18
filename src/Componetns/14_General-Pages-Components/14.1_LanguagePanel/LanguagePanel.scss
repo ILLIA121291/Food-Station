@@ -6,16 +6,5 @@
     font-size: 14px;
     line-height: 34px;
     padding: 6px 0px 6px 12px;
-    cursor: pointer;
-  }
-}
-
-// Media queries 800 px -----------------------------
-
-@media (max-width: 800px) {
-  .language-panel {
-    &__select {
-      margin-top: 20px;
-    }
   }
 }

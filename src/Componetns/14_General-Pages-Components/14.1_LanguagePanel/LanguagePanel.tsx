@@ -1,28 +1,28 @@
 import './LanguagePanel.scss';
 
 import { FC } from 'react';
+import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import useChangeLanguage from './useChangeLanguage';
+import textLanguagePanel from './textLanguagePanel';
 
-import textObjLanguagePanel from './textObjLanguagePanel';
+interface IProps {
+  langugeApp: typeof english;
+  setLangugeApp: React.Dispatch<React.SetStateAction<typeof english>>;
+}
 
-import { useSelector, useDispatch } from 'react-redux';
-import { onChangeLanguage } from './sliceLanguagePanel';
-
-import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
-
-const LanguagePanel: FC = () => {
-  const dispatch = useDispatch();
-  const languageAppState = useSelector<IStateStore, string>(state => state.languagePanel.languageApp);
+const LanguagePanel: FC<IProps> = props => {
+  const { langugeApp, setLangugeApp } = props;
 
   return (
-    <select className="general-select language-panel__select" name="language" value={languageAppState} onChange={e => dispatch(onChangeLanguage(e.target.value))}>
+    <select className="general-select language-panel__select" name="language" value={langugeApp.language} onChange={e => useChangeLanguage(e, setLangugeApp)}>
       <option className="language-panel__select-option" value="English">
-        {textObjLanguagePanel.english}
+        {textLanguagePanel.english}
       </option>
       <option className="language-panel__select-option" value="Russian">
-        {textObjLanguagePanel.russian}
+        {textLanguagePanel.russian}
       </option>
       <option className="language-panel__select-option" value="Japan">
-        {textObjLanguagePanel.japan}
+        {textLanguagePanel.japan}
       </option>
     </select>
   );

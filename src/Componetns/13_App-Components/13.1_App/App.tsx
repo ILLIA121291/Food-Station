@@ -1,15 +1,46 @@
 import './App.scss';
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import HomePage from '../../15_Pages/15.1_Home-Page/15.1.1_HomePage/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
 import ModalWindow from '../../14_General-Pages-Components/14.3_ModalWindow/ModalWindow';
 
+import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+// import russian from '../../12_General-Data-Recourses/12.1_Text/12.1.2_Russian/1_russian';
+// import japan from '../../12_General-Data-Recourses/12.1_Text/12.1.3_Japan/1_japan';
+
+let initialLanguge: typeof english;
+if (!localStorage.getItem('language')) {
+  localStorage.setItem('language', 'English');
+  initialLanguge = english;
+} else {
+  switch (localStorage.getItem('language')) {
+    // case 'Russian':
+    //   initialLanguge = russian;
+    //   break;
+    // case 'Japan':
+    //   initialLanguge = japan;
+    //   break;
+    default:
+      initialLanguge = english;
+      break;
+  }
+}
+
+
+
+
+
+
 const App: FC = () => {
+
+  const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
+
+
   return (
     <div className="app">
-      <HeaderApp />
+      <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp}  />
       <HomePage />
       <ModalWindow />
     </div>
