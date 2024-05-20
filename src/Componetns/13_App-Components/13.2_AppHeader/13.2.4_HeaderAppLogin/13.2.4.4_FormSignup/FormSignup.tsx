@@ -2,20 +2,37 @@ import './FormSignup.scss';
 
 import { FC } from 'react';
 import { Formik, Form, Field } from 'formik';
+import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
-const FormSignup: FC = () => {
+export interface IUserSignup {
+  action: string;
+  name: string;
+  login: string;
+  passwordOne: string;
+  passwordTwo: string;
+}
+
+interface IProps {
+  langugeApp: typeof english;
+  postUserData: (userGetData: IUserSignup) => Promise<void>;
+  processHttp: string;
+}
+
+const FormSignup: FC<IProps> = ({ postUserData }) => {
   return (
     <Formik
       initialValues={{
+        action: 'User create account',
         name: '',
         login: '',
         passwordOne: '',
         passwordTwo: '',
       }}
-      onSubmit={(values, actions) => {
-        console.log(values);
+      onSubmit={(values: IUserSignup, actions) => {
+        postUserData(values);
         actions.resetForm({
           values: {
+            action: 'User create account',
             name: '',
             login: '',
             passwordOne: '',

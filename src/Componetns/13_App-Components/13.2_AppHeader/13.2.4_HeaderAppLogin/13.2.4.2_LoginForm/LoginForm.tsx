@@ -7,47 +7,120 @@ import FormSignup from '../13.2.4.4_FormSignup/FormSignup';
 import FormForgotPassword from '../13.2.4.3_FormLogin/13.2.4.3.2_FormForgotPassword/FormForgotPassword';
 import FromNewPassword from '../13.2.4.3_FormLogin/13.2.4.3.3_FromNewPassword/FromNewPassword';
 
+import useHttp from '../../../../11_Server-Components/11.1_useHttp/useHttp';
+
+import { IUserLogin } from '../13.2.4.3_FormLogin/13.2.4.3.1_FormLogin/FormLogin';
+import { IUserForotPassword } from '../13.2.4.3_FormLogin/13.2.4.3.2_FormForgotPassword/FormForgotPassword';
+import { IUserNewPassword } from '../13.2.4.3_FormLogin/13.2.4.3.3_FromNewPassword/FromNewPassword';
+import { IUserSignup } from '../13.2.4.4_FormSignup/FormSignup';
+
+// import { useDispatch } from 'react-redux';
+// import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';
+
+export interface IHttpResponseState {
+  isResponse: boolean;
+  isLogin: boolean;
+  login: string;
+  password: string;
+  loginStatus: boolean;
+  passwordStatus: boolean;
+}
+
+const initStatehttpResponse = {
+  isResponse: false, 
+  isLogin: false, 
+  login: '', 
+  password: '',
+  loginStatus: false,
+  passwordStatus: false,
+}
+
+
 interface IProps {
   langugeApp: typeof english;
 }
 
-const LoginForm: FC<IProps> = () => {
-  const [loginFormState, setLoginFormState] = useState<string>('Form Login');
+const LoginForm: FC<IProps> = ({ langugeApp }) => {
+  // const dispatch = useDispatch();
 
-  let displayForm;
+  const [displayFormState, setDisplayFormState] = useState<string>('Form forgot password');
+  const [httpResponseState, setHttpResponseState] = useState<IHttpResponseState>(initStatehttpResponse);
+
+  // Fetching ------------------------------------------------
+
+  const { request, process, setProcess } = useHttp();
+
+  const postUserData = async (userGetData: IUserLogin | IUserForotPassword | IUserNewPassword | IUserSignup) => {
+    const userSendData = {
+      ...userGetData,
+      role: 'User',
+      time: new Date().toLocaleString(),
+    };
+
+    const getResponse = await request('https://jsonplaceholder.typicode.com/posts3', 'POST', JSON.stringify(userSendData), { 'Content-type': 'application/json' });
+
+    if (getResponse.id) {
+      if (getResponse.save) {
+        localStorage.setItem('login', getResponse.login);
+        localStorage.setItem('password', getResponse.password);
+      }
+
+      setHttpResponseState({  isResponse: true, 
+                              isLogin: false, 
+                              login: getResponse.login, 
+                              password: getResponse.password,
+                              loginStatus: false,
+                              passwordStatus: false,
+                            });
+      // dispatch(noCloseModalWindow());
+    }
+
+    return console.log(getResponse), setProcess('success');
+  };
+
+  // Reducer ------------------------------------------------
+  let displayForm: JSX.Element;
   let btnStyleLogin: string;
   let btnStyleSignup: string;
+  let formTitel: string;
 
-  switch (loginFormState) {
+  switch (displayFormState) {
     case 'Form forgot password':
-      displayForm = <FormForgotPassword />;
+      formTitel = 'Login form';
+      displayForm = <FormForgotPassword httpResponseState={httpResponseState} postUserData={postUserData} processHttp={process} langugeApp={langugeApp} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
     case 'Form new password':
-      displayForm = <FromNewPassword />;
+      formTitel = 'Login form';
+      displayForm = <FromNewPassword postUserData={postUserData} processHttp={process} langugeApp={langugeApp} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
     case 'Form Signup':
-      displayForm = <FormSignup />;
+      formTitel = 'Signup form';
+      displayForm = <FormSignup postUserData={postUserData} processHttp={process} langugeApp={langugeApp} />;
       btnStyleLogin = 'fbtn__waiting';
       btnStyleSignup = 'fbtn__active';
       break;
     default:
-      displayForm = <FormLogin setLoginFormState={setLoginFormState} />;
+      formTitel = 'Login form';
+      displayForm = <FormLogin postUserData={postUserData} setDisplayFormState={setDisplayFormState} process={process} httpResponseState={httpResponseState} langugeApp={langugeApp} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
   }
 
+  // Component ------------------------------------------------------------------
+
   return (
     <div className="fc f_ac pt30 fwt login-form__container ">
-      <h4 className="ftit">Login form</h4>
+      <h4 className="ftit">{formTitel}</h4>
       <div className="mt20 f fg15">
-        <button className={`fbtn wt150 ${btnStyleLogin}`} onClick={() => setLoginFormState('Form Login')}>
+        <button className={`fbtn wt150 ${btnStyleLogin}`} onClick={() => setDisplayFormState('Form Login')}>
           Login
         </button>
-        <button className={`fbtn wt150 ${btnStyleSignup}`} onClick={() => setLoginFormState('Form Signup')}>
+        <div></div>
+        <button className={`fbtn wt150 ${btnStyleSignup}`} onClick={() => setDisplayFormState('Form Signup')}>
           Signup
         </button>
       </div>

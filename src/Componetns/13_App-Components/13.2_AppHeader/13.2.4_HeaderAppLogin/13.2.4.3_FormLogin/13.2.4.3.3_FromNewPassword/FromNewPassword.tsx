@@ -1,17 +1,32 @@
 import { FC } from 'react';
 import { Formik, Form, Field } from 'formik';
+import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
-const FromNewPassword: FC = () => {
+export interface IUserNewPassword {
+  action: string;
+  passwordOne: string;
+  passwordTwo: string;
+}
+
+interface IProps {
+  langugeApp: typeof english;
+  postUserData: (userGetData: IUserNewPassword) => Promise<void>;
+  processHttp: string;
+}
+
+const FromNewPassword: FC<IProps> = ({ postUserData }) => {
   return (
     <Formik
       initialValues={{
-        passwordOne: 'ввв',
+        action: 'User create new password',
+        passwordOne: '',
         passwordTwo: '',
       }}
-      onSubmit={(values, actions) => {
-        console.log(values);
+      onSubmit={(values: IUserNewPassword, actions) => {
+        postUserData(values);
         actions.resetForm({
           values: {
+            action: 'User create new password',
             passwordOne: '',
             passwordTwo: '',
           },
