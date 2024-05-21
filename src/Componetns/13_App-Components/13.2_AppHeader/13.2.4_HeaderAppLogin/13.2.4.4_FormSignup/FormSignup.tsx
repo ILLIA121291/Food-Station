@@ -13,6 +13,7 @@ export interface IUserSignup {
   login: string;
   password: string;
   passwordConfirmation: string;
+  save: boolean;
 }
 
 interface IProps {
@@ -32,6 +33,7 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
           login: '',
           password: '',
           passwordConfirmation: '',
+          save: false,
         }}
         validationSchema={Yup.object({
           name: Yup.string()
@@ -63,18 +65,23 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
             <ErrorMessage name="login" component="p" />
           </div>
 
-          <Field className="finput" name="password" type="text" placeholder="New password" />
+          <Field className="finput" name="password" type="text" placeholder="Password" />
           <div className="wt345 f__info-message rc">
             <ErrorMessage name="password" component="p" />
           </div>
 
-          <Field className="finput" name="passwordConfirmation" type="text" placeholder="Repeat new password" />
+          <Field className="finput" name="passwordConfirmation" type="text" placeholder="Repeat password" />
           <div className="wt345 f__info-message rc">
             <ErrorMessage name="passwordConfirmation" component="p" />
           </div>
 
-          <button className="fbtn fbtn__active" type="submit">
-            Create account
+          <label htmlFor="save">
+            <Field className="mr10" id="save" name="save" type="checkbox" />
+            Remember me
+          </label>
+
+          <button className="mt15 fbtn fbtn__active" type="submit">
+            Create account & login
           </button>
         </Form>
       </Formik>

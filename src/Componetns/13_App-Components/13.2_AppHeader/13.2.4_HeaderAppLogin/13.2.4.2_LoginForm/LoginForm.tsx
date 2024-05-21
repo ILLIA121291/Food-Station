@@ -72,7 +72,15 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         localStorage.setItem('password', (getResponse as IUserLogin).password);
       }
 
-      setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserLogin).login });
+      //setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserLogin).login });
+
+      if ((getResponse as IUserLogin).login === 'loginError') {
+        setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: true, login: (getResponse as IUserSignup).login });
+      } else if ((getResponse as IUserLogin).password === '1234') {
+        setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserSignup).login });
+      } else {
+        setHttpResponseState({ isResponse: true, isLogin: true, loginStatus: true, passwordStatus: true, login: (getResponse as IUserSignup).login });
+      }
 
       console.log('FORM LOGIN');
       console.log(getResponse);
@@ -119,9 +127,18 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     // Form Signup -------------------------------------------------------
 
     if (getResponse.action == 'User create account') {
-      setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: false, login: (getResponse as IUserSignup).login });
+      if ((getResponse as IUserSignup).login === 'loginError') {
+        setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: false, login: (getResponse as IUserSignup).login });
+      } else {
+        setHttpResponseState({ isResponse: true, isLogin: true, loginStatus: true, passwordStatus: false, login: (getResponse as IUserSignup).login });
+      }
 
       setProcess('success');
+
+      if ((getResponse as IUserSignup).save && (getResponse as IUserSignup).login != 'loginError') {
+        localStorage.setItem('login', (getResponse as IUserSignup).login);
+        localStorage.setItem('password', (getResponse as IUserSignup).password);
+      }
 
       console.log('FORM SIGNUP');
       console.log(getResponse);

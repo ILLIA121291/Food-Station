@@ -27,6 +27,7 @@ const textCallMeForm = {
 };
 
 const textFormLogin = {
+  waiting: 'Success login/pas: any; Error: loginError/1234 ',
   successLogin: 'Login successful',
   unsuccessfulLogin: 'Failed login',
 };
@@ -42,6 +43,7 @@ const textFormNewPassword = {
 };
 
 const textFormSignup = {
+  waiting: 'Success login: any ; Error login: loginError ',
   successLogin: 'Account created successfully',
   unsuccessfulLogin: 'Account was not created',
 };
