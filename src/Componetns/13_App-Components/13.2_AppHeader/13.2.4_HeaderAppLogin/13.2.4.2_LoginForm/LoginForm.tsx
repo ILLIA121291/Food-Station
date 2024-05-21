@@ -54,7 +54,7 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     
     // Data before sending to server --------------------------------
 
-    const userSendData = {
+    const getResponse = {
       ...userGetData,
       role: 'User',
       time: new Date().toLocaleString(),
@@ -62,13 +62,15 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
 
     // Sending data to server ----------------------------------------
     
-    const getResponse = await request('https://jsonplaceholder.typicode.com/posts', 'POST', JSON.stringify(userSendData), { 'Content-type': 'application/json' });
+    // const getResponse = await request('https://jsonplaceholder.typicode.com/posts', 'POST', JSON.stringify(userSendData), { 'Content-type': 'application/json' });
 
     // Get response from server -------------------------------------------------------------------------
 
     // Login -------------------------------------------------------------
     if (getResponse.action == 'User try login')  {
+      
       setProcess('success')
+
       if ((getResponse as IUserLogin).save ) {
         localStorage.setItem('login', (getResponse as IUserLogin).login);
         localStorage.setItem('password', (getResponse as IUserLogin).password);
@@ -76,32 +78,57 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
 
       setHttpResponseState({  isResponse: true, 
                               isLogin: false, 
-                              login: (getResponse as IUserLogin).login, 
-                              password: (getResponse as IUserLogin).password,
                               loginStatus: true,
                               passwordStatus: false,
+                              login: (getResponse as IUserLogin).login, 
+                              password: (getResponse as IUserLogin).password,
                             });
+
       console.log('FORM LOGIN')
       console.log(getResponse)
      }
 
     // Forgot password -------------------------------------------------
     if (getResponse.action == 'User forgot password') {
+      
       setProcess('success')
 
-      setHttpResponseState({  isResponse: true, 
-                              isLogin: true, 
-                              login: (getResponse as IUserForotPassword).login, 
-                              password: '',
-                              loginStatus: true,
-                              passwordStatus: false,
-      });
+      let controlLogin = true
 
+      setHttpResponseState({
+        isResponse: true,
+        isLogin: controlLogin,
+        loginStatus: controlLogin,
+        passwordStatus: false,
+        login: (getResponse as IUserForotPassword).login,
+        password: '',
+      });
+      
+        if(controlLogin) {
+          setInterval (() => {
+            setDisplayFormState('Form new password')
+            setProcess('waiting')
+          }, 1000)
+        }
+  
       console.log('FORM FORGOT PASSWORD')
       console.log(getResponse)
     }
 
 
+
+    // New passwoerd --------------------------------------------------
+
+    if (getResponse.action == 'User create new password') {
+      setProcess('success')
+
+      if (localStorage.getItem('password') ) {
+        localStorage.setItem('password', (getResponse as IUserNewPassword ).password);
+      }
+
+      console.log('FORM NEW PASSWORD')
+      console.log(getResponse)
+    }
 
 
 
@@ -129,7 +156,12 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
 
     case 'Form new password':
       formTitel = 'Login form';
-      displayForm = <FromNewPassword postUserData={postUserData} processHttp={process} langugeApp={langugeApp} />;
+      displayForm = <FromNewPassword 
+                      langugeApp={langugeApp}
+                      postUserData={postUserData} 
+                      process={process} 
+                      httpResponseState={httpResponseState} 
+                      />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;

@@ -14,7 +14,7 @@ const textValidation = {
 
 const textFormHttpInformMassege = {
   waiting: '???',
-  loading: '???',
+  loading: 'Please wait data is being sent',
   success: '???',
   error: 'Oops, something went wrong, please try again in a few minutes.',
 };
@@ -23,24 +23,21 @@ const textCallMeForm = {
   titel: 'Cal me back form',
 
   waiting: 'We will call you back soon',
-  loading: 'Please wait, your information is being sent',
   success: 'We have successfully received your details and will call you back soon.',
 };
 
 const textFormLogin = {
-  waiting: '',
-  loading: 'Please wait, your information is being sent',
-
   successLogin: 'Login successful',
   unsuccessfulLogin: 'Failed login',
 };
 
 const textFormForgotPassword = {
-  waiting: '',
-  loading: 'Please wait, your information is being sent',
-
   successLogin: 'Login iscorrect',
-  unsuccessfulLogin: '',
+  unsuccessfulLogin: '', 
+};
+
+const textFormNewPassword = {
+  success: 'The password has been successfully changed.',
 };
 
 const textForms = {
@@ -50,6 +47,7 @@ const textForms = {
   textCallMeForm,
   textFormLogin,
   textFormForgotPassword,
+  textFormNewPassword,
 };
 
 export default textForms;
