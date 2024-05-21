@@ -27,14 +27,13 @@ export interface IHttpResponseState {
 }
 
 const initStatehttpResponse = {
-  isResponse: false, 
-  isLogin: false, 
-  login: '', 
+  isResponse: false,
+  isLogin: false,
+  login: '',
   password: '',
   loginStatus: false,
   passwordStatus: false,
-}
-
+};
 
 interface IProps {
   langugeApp: typeof english;
@@ -51,7 +50,6 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
   const { request, process, setProcess } = useHttp();
 
   const postUserData = async (userGetData: IUserLogin | IUserForotPassword | IUserNewPassword | IUserSignup) => {
-    
     // Data before sending to server --------------------------------
 
     const getResponse = {
@@ -61,39 +59,31 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     };
 
     // Sending data to server ----------------------------------------
-    
+
     // const getResponse = await request('https://jsonplaceholder.typicode.com/posts', 'POST', JSON.stringify(userSendData), { 'Content-type': 'application/json' });
 
     // Get response from server -------------------------------------------------------------------------
 
-    // Login -------------------------------------------------------------
-    if (getResponse.action == 'User try login')  {
-      
-      setProcess('success')
+    // Form Login -------------------------------------------------------------
+    if (getResponse.action == 'User try login') {
+      setProcess('success');
 
-      if ((getResponse as IUserLogin).save ) {
+      if ((getResponse as IUserLogin).save) {
         localStorage.setItem('login', (getResponse as IUserLogin).login);
         localStorage.setItem('password', (getResponse as IUserLogin).password);
       }
 
-      setHttpResponseState({  isResponse: true, 
-                              isLogin: false, 
-                              loginStatus: true,
-                              passwordStatus: false,
-                              login: (getResponse as IUserLogin).login, 
-                              password: (getResponse as IUserLogin).password,
-                            });
+      setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserLogin).login, password: (getResponse as IUserLogin).password });
 
-      console.log('FORM LOGIN')
-      console.log(getResponse)
-     }
+      console.log('FORM LOGIN');
+      console.log(getResponse);
+    }
 
-    // Forgot password -------------------------------------------------
+    // Form Forgot Password -------------------------------------------------
     if (getResponse.action == 'User forgot password') {
-      
-      setProcess('success')
+      setProcess('success');
 
-      let controlLogin = true
+      let controlLogin = true;
 
       setHttpResponseState({
         isResponse: true,
@@ -103,36 +93,32 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         login: (getResponse as IUserForotPassword).login,
         password: '',
       });
-      
-        if(controlLogin) {
-          setInterval (() => {
-            setDisplayFormState('Form new password')
-            setProcess('waiting')
-          }, 1000)
-        }
-  
-      console.log('FORM FORGOT PASSWORD')
-      console.log(getResponse)
-    }
 
-
-
-    // New passwoerd --------------------------------------------------
-
-    if (getResponse.action == 'User create new password') {
-      setProcess('success')
-
-      if (localStorage.getItem('password') ) {
-        localStorage.setItem('password', (getResponse as IUserNewPassword ).password);
+      if (controlLogin) {
+        setTimeout(() => {
+          setDisplayFormState('Form new password');
+          setProcess('waiting');
+        }, 1000);
       }
 
-      console.log('FORM NEW PASSWORD')
-      console.log(getResponse)
+      console.log('FORM FORGOT PASSWORD');
+      console.log(getResponse);
     }
 
+    // Form New Passwoerd --------------------------------------------------
 
+    if (getResponse.action == 'User create new password') {
+      setProcess('success');
 
+      if (localStorage.getItem('password')) {
+        localStorage.setItem('password', (getResponse as IUserNewPassword).password);
+      }
 
+      console.log('FORM NEW PASSWORD');
+      console.log(getResponse);
+    }
+
+    // Form Signup -------------------------------------------------------
 
     // return console.log(getResponse), setProcess('success');
   };
@@ -144,8 +130,6 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
   let formTitel: string;
 
   switch (displayFormState) {
-
-
     case 'Form Signup':
       formTitel = 'Signup form';
       displayForm = <FormSignup postUserData={postUserData} processHttp={process} langugeApp={langugeApp} />;
@@ -153,43 +137,23 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
       btnStyleSignup = 'fbtn__active';
       break;
 
-
     case 'Form new password':
       formTitel = 'Login form';
-      displayForm = <FromNewPassword 
-                      langugeApp={langugeApp}
-                      postUserData={postUserData} 
-                      process={process} 
-                      httpResponseState={httpResponseState} 
-                      />;
+      displayForm = <FromNewPassword langugeApp={langugeApp} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
 
-
-      case 'Form forgot password':
-        formTitel = 'Login form';
-        displayForm = <FormForgotPassword 
-                        langugeApp={langugeApp} 
-                        httpResponseState={httpResponseState} 
-                        postUserData={postUserData} 
-                        process={process} 
-                        
-                        />;
-        btnStyleLogin = 'fbtn__active';
-        btnStyleSignup = 'fbtn__waiting';
-        break;
-
+    case 'Form forgot password':
+      formTitel = 'Login form';
+      displayForm = <FormForgotPassword langugeApp={langugeApp} httpResponseState={httpResponseState} postUserData={postUserData} process={process} />;
+      btnStyleLogin = 'fbtn__active';
+      btnStyleSignup = 'fbtn__waiting';
+      break;
 
     default:
       formTitel = 'Login form';
-      displayForm = <FormLogin 
-                      langugeApp={langugeApp} 
-                      setDisplayFormState={setDisplayFormState} 
-                      postUserData={postUserData} 
-                      process={process} 
-                      httpResponseState={httpResponseState} 
-                      />;
+      displayForm = <FormLogin langugeApp={langugeApp} setDisplayFormState={setDisplayFormState} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
   }

@@ -33,10 +33,11 @@ const textFormLogin = {
 
 const textFormForgotPassword = {
   successLogin: 'Login iscorrect',
-  unsuccessfulLogin: '', 
+  unsuccessfulLogin: '',
 };
 
 const textFormNewPassword = {
+  waiting: '',
   success: 'The password has been successfully changed.',
 };
 

@@ -34,7 +34,7 @@ const FormForgotPassword: FC<IProps> = ({ langugeApp, process, postUserData, htt
         }}
       >
         <Form className="fc ">
-          <h4 className="ftit mt30 tx-al-c">Password reset</h4>
+          <h4 className="ftit mt30 tx-al-c">Confirm your login</h4>
           <Field className="finput mt30" id="login" name="login" type="text" placeholder="Email address or telephone" />
           <div className="rc pl15 pr15 wt345 f__info-message ">
             {httpResponseState.isResponse && !httpResponseState.loginStatus ? 'This login was not found, please check the spelling' : null}
@@ -45,7 +45,7 @@ const FormForgotPassword: FC<IProps> = ({ langugeApp, process, postUserData, htt
           </button>
         </Form>
       </Formik>
-      <FormHttpInformMassege componentName="FormForgotPassword" langugeApp={langugeApp} process={process}  httpResponseState={httpResponseState} />
+      <FormHttpInformMassege componentName="FormForgotPassword" langugeApp={langugeApp} process={process} httpResponseState={httpResponseState} />
     </>
   );
 };
