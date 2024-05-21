@@ -16,7 +16,7 @@ interface ITextForm {
 }
 
 const FormHttpInformMassege: FC<IProps> = ({ langugeApp, componentName, process, httpResponseState }) => {
-  const textError: string = langugeApp.textForms.textFormHttpInformMassege.error;
+  const textErrorHTTP: string = langugeApp.textForms.textFormHttpInformMassege.error;
 
   let textForm: ITextForm;
   let message: string;
@@ -30,15 +30,20 @@ const FormHttpInformMassege: FC<IProps> = ({ langugeApp, componentName, process,
     case 'FormLogin':
       textForm = langugeApp.textForms.textFormLogin;
       break;
+    case 'Form Forgot Password':
+      textForm = langugeApp.textForms.textFormForgotPassword;
+      break;
     default:
       textForm = langugeApp.textForms.textFormHttpInformMassege;
   }
 
+  // Messages -------------------------------------------------
   switch (process) {
-    case 'loading':
-      message = textForm.loading;
-      colorText = 'orange';
+    case 'error':
+      message = textErrorHTTP;
+      colorText = 'red';
       break;
+
     case 'success':
       if (httpResponseState == undefined) {
         message = textForm.success;
@@ -51,10 +56,12 @@ const FormHttpInformMassege: FC<IProps> = ({ langugeApp, componentName, process,
         colorText = 'green';
       }
       break;
-    case 'error':
-      message = textError;
-      colorText = 'red';
+
+    case 'loading':
+      message = textForm.loading;
+      colorText = 'orange';
       break;
+
     default:
       message = textForm.waiting;
       colorText = 'black';

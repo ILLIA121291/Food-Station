@@ -26,18 +26,14 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
     <Formik
       initialValues={{
         action: 'User try login',
-        login: '',
-        password: '',
+        login: httpResponseState.login ?? '',
+        password: httpResponseState.password ?? '',
         save: false,
       }}
-
-      
       validationSchema={Yup.object({
         login: Yup.string().min(2, 'Миним 2 симвла').required('Введите логин'),
         password: Yup.string().min(2, 'Миним 2 симвла').required('Введите пароль'),
       })}
-
-
       onSubmit={(values: IUserLogin) => {
         postUserData(values);
       }}

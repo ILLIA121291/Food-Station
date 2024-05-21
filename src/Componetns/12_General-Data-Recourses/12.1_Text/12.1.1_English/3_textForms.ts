@@ -35,12 +35,21 @@ const textFormLogin = {
   unsuccessfulLogin: 'Failed login',
 };
 
+const textFormForgotPassword = {
+  waiting: '',
+  loading: 'Please wait, your information is being sent',
+
+  successLogin: 'Login iscorrect',
+  unsuccessfulLogin: '',
+};
+
 const textForms = {
   textGeneral,
   textValidation,
   textFormHttpInformMassege,
   textCallMeForm,
   textFormLogin,
+  textFormForgotPassword,
 };
 
 export default textForms;
