@@ -41,6 +41,11 @@ const textFormNewPassword = {
   success: 'The password has been successfully changed.',
 };
 
+const textFormSignup = {
+  successLogin: 'Account created successfully',
+  unsuccessfulLogin: 'Account was not created',
+};
+
 const textForms = {
   textGeneral,
   textValidation,
@@ -49,6 +54,7 @@ const textForms = {
   textFormLogin,
   textFormForgotPassword,
   textFormNewPassword,
+  textFormSignup,
 };
 
 export default textForms;

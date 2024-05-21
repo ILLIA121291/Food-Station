@@ -21,7 +21,6 @@ export interface IHttpResponseState {
   isResponse: boolean;
   isLogin: boolean;
   login: string;
-  password: string;
   loginStatus: boolean;
   passwordStatus: boolean;
 }
@@ -30,7 +29,6 @@ const initStatehttpResponse = {
   isResponse: false,
   isLogin: false,
   login: '',
-  password: '',
   loginStatus: false,
   passwordStatus: false,
 };
@@ -42,12 +40,13 @@ interface IProps {
 const LoginForm: FC<IProps> = ({ langugeApp }) => {
   // const dispatch = useDispatch();
 
-  const [displayFormState, setDisplayFormState] = useState<string>('Form login');
+  const [displayFormState, setDisplayFormState] = useState<string>('Form Login');
   const [httpResponseState, setHttpResponseState] = useState<IHttpResponseState>(initStatehttpResponse);
 
   // Fetching ------------------------------------------------
 
-  const { request, process, setProcess } = useHttp();
+  // const { request, process, setProcess } = useHttp();
+  const { process, setProcess } = useHttp();
 
   const postUserData = async (userGetData: IUserLogin | IUserForotPassword | IUserNewPassword | IUserSignup) => {
     // Data before sending to server --------------------------------
@@ -73,7 +72,7 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         localStorage.setItem('password', (getResponse as IUserLogin).password);
       }
 
-      setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserLogin).login, password: (getResponse as IUserLogin).password });
+      setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserLogin).login });
 
       console.log('FORM LOGIN');
       console.log(getResponse);
@@ -91,7 +90,6 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         loginStatus: controlLogin,
         passwordStatus: false,
         login: (getResponse as IUserForotPassword).login,
-        password: '',
       });
 
       if (controlLogin) {
@@ -120,6 +118,15 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
 
     // Form Signup -------------------------------------------------------
 
+    if (getResponse.action == 'User create account') {
+      setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: false, login: (getResponse as IUserSignup).login });
+
+      setProcess('success');
+
+      console.log('FORM SIGNUP');
+      console.log(getResponse);
+    }
+
     // return console.log(getResponse), setProcess('success');
   };
 
@@ -132,7 +139,7 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
   switch (displayFormState) {
     case 'Form Signup':
       formTitel = 'Signup form';
-      displayForm = <FormSignup postUserData={postUserData} processHttp={process} langugeApp={langugeApp} />;
+      displayForm = <FormSignup langugeApp={langugeApp} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__waiting';
       btnStyleSignup = 'fbtn__active';
       break;
@@ -164,11 +171,21 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     <div className="fc f_ac pt30 fwt login-form__container ">
       <h4 className="ftit">{formTitel}</h4>
       <div className="mt20 f fg15">
-        <button className={`fbtn wt150 ${btnStyleLogin}`} onClick={() => setDisplayFormState('Form Login')}>
+        <button
+          className={`fbtn wt150 ${btnStyleLogin}`}
+          onClick={() => {
+            setProcess('waiting'), setDisplayFormState('Form Login'), setHttpResponseState(initStatehttpResponse);
+          }}
+        >
           Login
         </button>
         <div></div>
-        <button className={`fbtn wt150 ${btnStyleSignup}`} onClick={() => setDisplayFormState('Form Signup')}>
+        <button
+          className={`fbtn wt150 ${btnStyleSignup}`}
+          onClick={() => {
+            setDisplayFormState('Form Signup'), setProcess('waiting'), setHttpResponseState(initStatehttpResponse);
+          }}
+        >
           Signup
         </button>
       </div>

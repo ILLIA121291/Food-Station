@@ -36,6 +36,9 @@ const FormHttpInformMassege: FC<IProps> = ({ langugeApp, componentName, process,
     case 'FormNewPassword':
       textForm = langugeApp.textForms.textFormNewPassword;
       break;
+    case 'FormSignup':
+      textForm = langugeApp.textForms.textFormSignup;
+      break;
     default:
       textForm = langugeApp.textForms.textFormHttpInformMassege;
   }
