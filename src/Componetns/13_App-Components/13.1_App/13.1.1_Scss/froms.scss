@@ -61,10 +61,12 @@
 // FORM ERROR MESSEGE ------------------------------------------------------
 
 .f__info-message {
+  width: 345px;
   height: 40px;
-  padding: 3px;
+  padding: 3px 15px;
   text-align: center;
   font-weight: 600;
+  border: 1px solid #000;
 }
 
 // FORM BUTTONS ------------------------------------------------------

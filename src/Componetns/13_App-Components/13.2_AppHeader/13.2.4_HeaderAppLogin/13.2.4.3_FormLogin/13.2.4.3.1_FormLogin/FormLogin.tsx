@@ -7,6 +7,7 @@ import FormHttpInformMassege from '../../../../../14_General-Pages-Components/14
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
 import RememberMeCheckbox from '../../../../../14_General-Pages-Components/14.5_FormsComponents/RememberMeCheckbox';
 import PasswordInput from '../../../../../14_General-Pages-Components/14.5_FormsComponents/PasswordInput';
+import BlockErrorMessages from '../../../../../14_General-Pages-Components/14.5_FormsComponents/BlockErrorMessages';
 
 export interface IUserLogin {
   action: string;
@@ -53,17 +54,11 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
       }}
     >
       <Form className="fc">
-        <Field className="finput mt30" name="login" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege({ ...httpInformMassege, loginInfoMessege: false })} />
-        <div className="f__info-message rc">
-          <ErrorMessage name="login" component="p" />
-          {httpInformMassege.loginInfoMessege ? 'Логин не верен' : null}
-        </div>
+        <Field name="login" className="finput mt30" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege({ ...httpInformMassege, loginInfoMessege: false })} />
+        <BlockErrorMessages name="login" httpMessage={httpInformMassege.loginInfoMessege ? 'Логин не верен' : null} />
 
         <PasswordInput name="password" placeholder="Password" onFocus={() => setHttpInformMassege({ ...httpInformMassege, passwordInfoMessege: false })} />
-        <div className="f__info-message rc">
-          <ErrorMessage name="password" component="p" />
-          {httpInformMassege.passwordInfoMessege ? 'Пароль не верен' : null}
-        </div>
+        <BlockErrorMessages name="password" httpMessage={httpInformMassege.passwordInfoMessege ? 'Пароль не верен' : null} />
 
         <button className="wt150 fbtn_text" type="button" onClick={() => setDisplayFormState('Form forgot password')}>
           Forgot password?
@@ -75,7 +70,7 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
           Login
         </button>
 
-        <FormHttpInformMassege langugeApp={langugeApp} componentName="FormLogin" process={process} httpResponseState={httpResponseState} />
+        <FormHttpInformMassege componentName="FormLogin" langugeApp={langugeApp} process={process} httpResponseState={httpResponseState} />
 
         <p className="tx-al-c us-se">
           Create an account{' '}

@@ -8,6 +8,7 @@ import { IHttpResponseState } from '../13.2.4.2_LoginForm/LoginForm';
 import * as Yup from 'yup';
 import RememberMeCheckbox from '../../../../14_General-Pages-Components/14.5_FormsComponents/RememberMeCheckbox';
 import PasswordInput from '../../../../14_General-Pages-Components/14.5_FormsComponents/PasswordInput';
+import BlockErrorMessages from '../../../../14_General-Pages-Components/14.5_FormsComponents/BlockErrorMessages';
 
 export interface IUserSignup {
   action: string;
@@ -64,26 +65,17 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
         }}
       >
         <Form className="fc">
-          <Field className="finput mt30" name="name" type="text" placeholder="Your name" />
-          <div className="wt345 f__info-message rc">
-            <ErrorMessage name="name" component="p" />
-          </div>
+          <Field name="name" className="finput mt30" type="text" placeholder="Your name" />
+          <BlockErrorMessages name="name" />
 
-          <Field className="finput" name="login" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege(false)} />
-          <div className="wt345 f__info-message rc">
-            {httpInformMassege ? 'This login is already registered' : null}
-            <ErrorMessage name="login" component="p" />
-          </div>
+          <Field name="login" className="finput" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege(false)} />
+          <BlockErrorMessages name="login" httpMessage={httpInformMassege ? 'This login is already registered' : null} />
 
           <PasswordInput name="password" placeholder="Password" />
-          <div className="wt345 f__info-message rc">
-            <ErrorMessage name="password" component="p" />
-          </div>
+          <BlockErrorMessages name="password" />
 
           <PasswordInput name="passwordConfirmation" placeholder="Repeat password" />
-          <div className="wt345 f__info-message rc">
-            <ErrorMessage name="passwordConfirmation" component="p" />
-          </div>
+          <BlockErrorMessages name="passwordConfirmation" />
 
           <RememberMeCheckbox name="save" langugeApp={langugeApp} />
 

@@ -5,6 +5,7 @@ import FormHttpInformMassege from '../../../../../14_General-Pages-Components/14
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
 import * as Yup from 'yup';
 import PasswordInput from '../../../../../14_General-Pages-Components/14.5_FormsComponents/PasswordInput';
+import BlockErrorMessages from '../../../../../14_General-Pages-Components/14.5_FormsComponents/BlockErrorMessages';
 
 export interface IUserNewPassword {
   action: string;
@@ -43,15 +44,12 @@ const FromNewPassword: FC<IProps> = ({ langugeApp, postUserData, process, httpRe
         <Form className="fc">
           <h4 className="ftit mt30 tx-al-c">Set a new password</h4>
 
-          <PasswordInput className="mt30" name="password" placeholder="New password" />
-          <div className="f__info-message rc">
-            <ErrorMessage name="password" component="p" />
-          </div>
+          <PasswordInput name="password" className="mt30" placeholder="New password" />
+          <BlockErrorMessages name="password" />
 
           <PasswordInput name="passwordConfirmation" placeholder="Confirmation password" />
-          <div className="f__info-message rc">
-            <ErrorMessage name="passwordConfirmation" component="p" />
-          </div>
+          <BlockErrorMessages name="passwordConfirmation" />
+
           <button className="fbtn fbtn__active" type="submit">
             Reset
           </button>

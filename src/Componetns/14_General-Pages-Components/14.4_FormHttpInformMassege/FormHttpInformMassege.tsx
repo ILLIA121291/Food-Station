@@ -75,7 +75,7 @@ const FormHttpInformMassege: FC<IProps> = ({ langugeApp, componentName, process,
   }
 
   return (
-    <div className="mt15 pl15 pr15 wt345 f__info-message" style={{ color: colorText! }}>
+    <div className="mt15 f__info-message" style={{ color: colorText! }}>
       {message!}
     </div>
   );
