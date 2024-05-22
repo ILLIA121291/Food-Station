@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import FormHttpInformMassege from '../../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
+import RememberMeCheckbox from '../../../../../14_General-Pages-Components/14.5_FormsComponents/RememberMeCheckbox';
 
 export interface IUserLogin {
   action: string;
@@ -67,10 +68,7 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
           Forgot password?
         </button>
 
-        <label className="mt20" htmlFor="save">
-          <Field className="mr10" id="save" name="save" type="checkbox" />
-          Remember me
-        </label>
+        <RememberMeCheckbox className="mt20" name="save" langugeApp={langugeApp} />
 
         <button className="fbtn fbtn__active mt20" type="submit" disabled={httpInformMassege.loginInfoMessege || httpInformMassege.passwordInfoMessege}>
           Login

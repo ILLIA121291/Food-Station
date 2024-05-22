@@ -2,6 +2,7 @@ const textGeneral = {
   name: 'Name',
   phone: 'Phone',
   send: 'Send',
+  rememberMe: 'Remember me',
 };
 
 const textValidation = {
@@ -47,6 +48,9 @@ const textFormSignup = {
   successLogin: 'Account created successfully',
   unsuccessfulLogin: 'Account was not created',
 };
+
+
+
 
 const textForms = {
   textGeneral,

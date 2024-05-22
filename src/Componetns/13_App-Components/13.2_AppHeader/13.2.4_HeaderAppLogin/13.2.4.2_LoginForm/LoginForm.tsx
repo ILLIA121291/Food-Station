@@ -69,12 +69,10 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     if (getResponse.action == 'User try login') {
       setProcess('success');
 
-      if ((getResponse as IUserLogin).save) {
+      if ((getResponse as IUserLogin).save && (getResponse as IUserLogin).login != 'loginError' && (getResponse as IUserLogin).password != '1234') {
         localStorage.setItem('login', (getResponse as IUserLogin).login);
         localStorage.setItem('password', (getResponse as IUserLogin).password);
       }
-
-      //setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserLogin).login });
 
       if ((getResponse as IUserLogin).login === 'loginError') {
         setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: true, login: (getResponse as IUserSignup).login });
@@ -141,13 +139,13 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     // Form Signup -------------------------------------------------------
 
     if (getResponse.action == 'User create account') {
+      setProcess('success');
+
       if ((getResponse as IUserSignup).login === 'loginError') {
         setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: false, login: (getResponse as IUserSignup).login });
       } else {
         setHttpResponseState({ isResponse: true, isLogin: true, loginStatus: true, passwordStatus: false, login: (getResponse as IUserSignup).login });
       }
-
-      setProcess('success');
 
       if ((getResponse as IUserSignup).save && (getResponse as IUserSignup).login != 'loginError') {
         localStorage.setItem('login', (getResponse as IUserSignup).login);
