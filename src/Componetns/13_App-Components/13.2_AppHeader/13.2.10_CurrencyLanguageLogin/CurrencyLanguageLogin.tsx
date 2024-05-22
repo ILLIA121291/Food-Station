@@ -10,14 +10,15 @@ import { FC } from 'react';
 interface IProps {
   langugeApp: typeof english;
   setLangugeApp: React.Dispatch<React.SetStateAction<typeof english>>;
+  isUserAuthorized: boolean;
 }
 
-const CurrencyLanguageLogin: FC<IProps> = ({ langugeApp, setLangugeApp }) => {
+const CurrencyLanguageLogin: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) => {
   return (
     <div className="cur-lang-log">
       <CurrencyPanel />
       <LanguagePanel langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
-      <HeaderAppLogin langugeApp={langugeApp} />
+      <HeaderAppLogin langugeApp={langugeApp} isUserAuthorized={isUserAuthorized} />
     </div>
   );
 };

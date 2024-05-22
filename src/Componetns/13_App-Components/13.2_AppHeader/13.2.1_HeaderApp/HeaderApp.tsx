@@ -15,12 +15,12 @@ import HeaderAppLogin from '../13.2.4_HeaderAppLogin/13.2.4.1_HeaderAppLogin/13.
 import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 interface IProps {
-  langugeApp: typeof english
-  setLangugeApp: React.Dispatch<React.SetStateAction<typeof english>>
+  langugeApp: typeof english;
+  setLangugeApp: React.Dispatch<React.SetStateAction<typeof english>>;
+  isUserAuthorized: boolean;
 }
 
-
-const HeaderApp: FC <IProps>= ({langugeApp, setLangugeApp}) => {
+const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) => {
   const [mobileMenuState, setMobileMenuState] = useState<boolean>(false);
 
   if (mobileMenuState) {
@@ -47,16 +47,16 @@ const HeaderApp: FC <IProps>= ({langugeApp, setLangugeApp}) => {
           <div className="header-app__control-panel">
             <LogoDelivery />
             <PhoneCallMe />
-            <CurrencyLanguageLogin langugeApp={langugeApp} setLangugeApp= {setLangugeApp} />
+            <CurrencyLanguageLogin langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
           </div>
           <div className="header-app__menu-mobile">
             <HeaderAppMobileLogo />
             <PhoneCallMe />
             <HeaderAppCart />
             <HeaderAppMenu />
-            <LanguagePanel langugeApp={langugeApp} setLangugeApp= {setLangugeApp} />
+            <LanguagePanel langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
             <CurrencyPanel />
-            <HeaderAppLogin />
+            <HeaderAppLogin langugeApp={langugeApp} isUserAuthorized={isUserAuthorized} />
           </div>
         </div>
       </header>

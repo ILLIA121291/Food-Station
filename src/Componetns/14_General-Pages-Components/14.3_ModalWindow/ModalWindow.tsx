@@ -13,13 +13,14 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 
 interface IProps {
   langugeApp: typeof english;
+  setUserAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ModalWindow: FC<IProps> = ({ langugeApp }) => {
+const ModalWindow: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
   const disptch = useDispatch();
   const { component, componentType, displayModal, closeOnOverlay, closeOnEscapeBtn } = useSelector<IStateStore, IModalWindow>(state => state.modalWindow);
 
-  let displayComponentInModalWindow = useModalWindowComponentsReducer(langugeApp, component, componentType);
+  let displayComponentInModalWindow = useModalWindowComponentsReducer(langugeApp, setUserAuthorized, component, componentType);
 
   useEffect(() => {
     if (!displayModal && component != '') {

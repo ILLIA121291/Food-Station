@@ -19,6 +19,8 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 // import russian from '../../12_General-Data-Recourses/12.1_Text/12.1.2_Russian/1_russian';
 // import japan from '../../12_General-Data-Recourses/12.1_Text/12.1.3_Japan/1_japan';
 
+// Language App ------------------------------------
+
 let initialLanguge: typeof english;
 if (!localStorage.getItem('language')) {
   localStorage.setItem('language', 'English');
@@ -37,14 +39,25 @@ if (!localStorage.getItem('language')) {
   }
 }
 
+// Login User -------------------------------------
+
+let initialIsLoginUser: boolean;
+
+if (localStorage.getItem('login') || sessionStorage.getItem('login')) {
+  initialIsLoginUser = true;
+} else {
+  initialIsLoginUser = false;
+}
+
 const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
+  const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
   return (
     <div className="app">
-      <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
+      <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
       <HomePage />
-      <ModalWindow langugeApp={langugeApp} />
+      <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />
     </div>
   );
 };

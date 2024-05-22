@@ -37,9 +37,10 @@ const initStatehttpResponse: IHttpResponseState = {
 
 interface IProps {
   langugeApp: typeof english;
+  setUserAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LoginForm: FC<IProps> = ({ langugeApp }) => {
+const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
   // const dispatch = useDispatch();
   const text = langugeApp.textForms.textGeneral;
   const [displayFormState, setDisplayFormState] = useState<string>('Form login');
@@ -74,12 +75,18 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         localStorage.setItem('password', (getResponse as IUserLogin).password);
       }
 
+      if (!(getResponse as IUserLogin).save && (getResponse as IUserLogin).login != 'loginError' && (getResponse as IUserLogin).password != '1234') {
+        sessionStorage.setItem('login', (getResponse as IUserLogin).login);
+        sessionStorage.setItem('password', (getResponse as IUserLogin).password);
+      }
+
       if ((getResponse as IUserLogin).login === 'loginError') {
         setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: true, login: (getResponse as IUserSignup).login });
       } else if ((getResponse as IUserLogin).password === '1234') {
         setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: true, passwordStatus: false, login: (getResponse as IUserSignup).login });
       } else {
         setHttpResponseState({ isResponse: true, isLogin: true, loginStatus: true, passwordStatus: true, login: (getResponse as IUserSignup).login });
+        setUserAuthorized(true);
       }
 
       console.log('FORM LOGIN');
@@ -145,11 +152,17 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: false, login: (getResponse as IUserSignup).login });
       } else {
         setHttpResponseState({ isResponse: true, isLogin: true, loginStatus: true, passwordStatus: false, login: (getResponse as IUserSignup).login });
+        setUserAuthorized(true);
       }
 
       if ((getResponse as IUserSignup).save && (getResponse as IUserSignup).login != 'loginError') {
         localStorage.setItem('login', (getResponse as IUserSignup).login);
         localStorage.setItem('password', (getResponse as IUserSignup).password);
+      }
+
+      if (!(getResponse as IUserSignup).save && (getResponse as IUserSignup).login != 'loginError') {
+        sessionStorage.setItem('login', (getResponse as IUserSignup).login);
+        sessionStorage.setItem('password', (getResponse as IUserSignup).password);
       }
 
       console.log('FORM SIGNUP');
