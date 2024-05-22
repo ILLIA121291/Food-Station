@@ -1,6 +1,6 @@
 import './CallMeForm.scss';
 import { FC, useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import FormHttpInformMassege from '../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import useHttp from '../../../../11_Server-Components/11.1_useHttp/useHttp';
@@ -8,6 +8,7 @@ import useHttp from '../../../../11_Server-Components/11.1_useHttp/useHttp';
 import { useDispatch } from 'react-redux';
 import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import BlockErrorMessages from '../../../../14_General-Pages-Components/14.5_FormsComponents/BlockErrorMessages';
 
 interface IUserGetData {
   name: string;
@@ -30,8 +31,7 @@ interface IProps {
 
 const CallMeForm: FC<IProps> = ({ langugeApp }) => {
   const dispatch = useDispatch();
-  const textForm = langugeApp.textForms.textCallMeForm;
-  const textGeneral = langugeApp.textForms.textGeneral;
+  const text = langugeApp.textForms.textGeneral;
   const textValidation = langugeApp.textForms.textValidation;
 
   const [btnInputsState, setBtnInputsState] = useState<boolean>(false);
@@ -74,12 +74,12 @@ const CallMeForm: FC<IProps> = ({ langugeApp }) => {
       validationSchema={Yup.object({
         name: Yup.string()
           .matches(/^[aA-zZ]+$/, textValidation.onlyletters)
-          .min(2, textValidation.nameLength)
-          .required(textValidation.requiredFields),
+          .min(2, textValidation.minimumSymbols)
+          .required(textValidation.enterName),
         phone: Yup.string()
           .matches(/^[0-9]+$/, textValidation.onlynumbers)
-          .min(3, textValidation.phonelength)
-          .required(textValidation.requiredFields),
+          .min(2, textValidation.minimumSymbols)
+          .required(textValidation.enterPhone),
       })}
       onSubmit={(values, actions) => {
         postUserData(values);
@@ -95,25 +95,16 @@ const CallMeForm: FC<IProps> = ({ langugeApp }) => {
       }}
     >
       <Form className="fc f_ac fwt pt30 ht400">
-        <h4 className="ftit">{textForm.titel}</h4>
-        <label className="flab wt250 mt20" htmlFor="#name">
-          {textGeneral.name}*
-        </label>
-        <Field className="finput" id="name" name="name" type="text" disabled={btnInputsState} />
-        <div className="wt250 rc f__info-message">
-          <ErrorMessage name="name" component="p" />
-        </div>
+        <h4 className="ftit">{text.callMebackForm}</h4>
 
-        <label className="flab wt250" htmlFor="#phone">
-          {textGeneral.phone}*
-        </label>
-        <Field className="finput" id="phone" name="phone" type="text" disabled={btnInputsState} />
-        <div className="wt250 rc f__info-message">
-          <ErrorMessage name="phone" component="p" />
-        </div>
+        <Field name="name" className="mt30 finput" id="name" type="text" disabled={btnInputsState} placeholder={text.yourName} />
+        <BlockErrorMessages name="name" />
+
+        <Field name="phone" className="finput" id="phone" type="text" disabled={btnInputsState} placeholder={text.yourPhone} />
+        <BlockErrorMessages name="phone" />
 
         <button className="fbtn fbtn__active wt250 " type="submit" disabled={btnInputsState}>
-          {textGeneral.send}
+          {text.send}
         </button>
         <FormHttpInformMassege componentName="CallMeForm" process={process} langugeApp={langugeApp} />
       </Form>

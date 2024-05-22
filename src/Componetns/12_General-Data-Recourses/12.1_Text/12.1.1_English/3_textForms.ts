@@ -1,9 +1,8 @@
 const textGeneral = {
-  name: 'Name',
-  phone: 'Phone',
   send: 'Send',
 
   yourName: 'Your name',
+  yourPhone: 'Your phone',
 
   loginForm: 'Login form',
   signupForm: 'Signup form',
@@ -24,16 +23,17 @@ const textGeneral = {
   confirmYourLogin: 'Confirm your login',
   newPassword: 'New password',
   setNewPassword: 'Set new password',
+  callMebackForm: 'Call me back form',
 };
 
 const textValidation = {
   onlyletters: 'Please use only letters A-z',
-  nameLength: 'The name should contain at least 2 characters',
-  requiredField: 'Required field',
-  phonelength: 'The phone number must contain at least 3 digits',
   onlynumbers: 'Please use only numbers 0-9',
+
+  requiredField: 'Required field',
   minimumSymbols: 'Minimum 2 symbols',
   enterName: 'Please enter your name',
+  enterPhone: 'Please enter your phone',
   enterLogin: 'Please enter your login',
   enterPassword: 'Please enter your password',
   enterNewPassword: 'Please enter your new password',
@@ -50,8 +50,6 @@ const textFormHttpInformMassege = {
 };
 
 const textCallMeForm = {
-  titel: 'Cal me back form',
-
   waiting: 'We will call you back soon',
   success: 'We have successfully received your details and will call you back soon.',
 };
