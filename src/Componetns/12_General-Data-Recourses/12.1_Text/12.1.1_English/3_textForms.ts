@@ -49,9 +49,6 @@ const textFormSignup = {
   unsuccessfulLogin: 'Account was not created',
 };
 
-
-
-
 const textForms = {
   textGeneral,
   textValidation,

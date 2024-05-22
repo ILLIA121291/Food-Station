@@ -6,6 +6,7 @@ import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_E
 import FormHttpInformMassege from '../../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
 import RememberMeCheckbox from '../../../../../14_General-Pages-Components/14.5_FormsComponents/RememberMeCheckbox';
+import PasswordInput from '../../../../../14_General-Pages-Components/14.5_FormsComponents/PasswordInput';
 
 export interface IUserLogin {
   action: string;
@@ -58,7 +59,7 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
           {httpInformMassege.loginInfoMessege ? 'Логин не верен' : null}
         </div>
 
-        <Field className="finput" name="password" type="text" placeholder="Password" onFocus={() => setHttpInformMassege({ ...httpInformMassege, passwordInfoMessege: false })} />
+        <PasswordInput name="password" placeholder="Password" onFocus={() => setHttpInformMassege({ ...httpInformMassege, passwordInfoMessege: false })} />
         <div className="f__info-message rc">
           <ErrorMessage name="password" component="p" />
           {httpInformMassege.passwordInfoMessege ? 'Пароль не верен' : null}

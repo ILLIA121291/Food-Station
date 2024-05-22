@@ -7,6 +7,7 @@ import FormHttpInformMassege from '../../../../14_General-Pages-Components/14.4_
 import { IHttpResponseState } from '../13.2.4.2_LoginForm/LoginForm';
 import * as Yup from 'yup';
 import RememberMeCheckbox from '../../../../14_General-Pages-Components/14.5_FormsComponents/RememberMeCheckbox';
+import PasswordInput from '../../../../14_General-Pages-Components/14.5_FormsComponents/PasswordInput';
 
 export interface IUserSignup {
   action: string;
@@ -74,12 +75,12 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
             <ErrorMessage name="login" component="p" />
           </div>
 
-          <Field className="finput" name="password" type="text" placeholder="Password" />
+          <PasswordInput name="password" placeholder="Password" />
           <div className="wt345 f__info-message rc">
             <ErrorMessage name="password" component="p" />
           </div>
 
-          <Field className="finput" name="passwordConfirmation" type="text" placeholder="Repeat password" />
+          <PasswordInput name="passwordConfirmation" placeholder="Repeat password" />
           <div className="wt345 f__info-message rc">
             <ErrorMessage name="passwordConfirmation" component="p" />
           </div>

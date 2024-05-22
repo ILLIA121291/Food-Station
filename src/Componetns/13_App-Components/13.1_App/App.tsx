@@ -7,6 +7,7 @@ import './13.1.1_Scss/margin.scss';
 import './13.1.1_Scss/pading.scss';
 import './13.1.1_Scss/text.scss';
 import './13.1.1_Scss/height.scss';
+import './13.1.1_Scss/background.scss';
 
 import { FC, useState } from 'react';
 
