@@ -2,15 +2,44 @@ const textGeneral = {
   name: 'Name',
   phone: 'Phone',
   send: 'Send',
+
+  yourName: 'Your name',
+
+  loginForm: 'Login form',
+  signupForm: 'Signup form',
   rememberMe: 'Remember me',
+  login: 'Login',
+  signup: 'Signup',
+  emailOrTelephone: 'Email address or telephone',
+  wrongLogin: 'Wrong login',
+  password: 'Password',
+  wrongPassword: 'Wrong password',
+  forgotPassword: 'Forgot password?',
+  createAnAccount: 'Create an account',
+  signupNow: 'Signup now',
+  loginAlreadyRegisterd: 'This login is already registered',
+  repeatPassword: 'Repeat password',
+  createAccount: 'Create account & login',
+  resetPassword: 'Reset password',
+  confirmYourLogin: 'Confirm your login',
+  newPassword: 'New password',
+  setNewPassword: 'Set new password',
 };
 
 const textValidation = {
   onlyletters: 'Please use only letters A-z',
   nameLength: 'The name should contain at least 2 characters',
-  requiredFields: 'Required fields',
+  requiredField: 'Required field',
   phonelength: 'The phone number must contain at least 3 digits',
   onlynumbers: 'Please use only numbers 0-9',
+  minimumSymbols: 'Minimum 2 symbols',
+  enterName: 'Please enter your name',
+  enterLogin: 'Please enter your login',
+  enterPassword: 'Please enter your password',
+  enterNewPassword: 'Please enter your new password',
+  enterPasswordConfirmation: 'Please repeat your password.',
+  enterNewPasswordConfirmation: 'Please repeat your new password.',
+  passwordsMustMatch: 'Passwords must match',
 };
 
 const textFormHttpInformMassege = {

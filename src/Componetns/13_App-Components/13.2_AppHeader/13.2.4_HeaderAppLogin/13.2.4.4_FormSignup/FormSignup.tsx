@@ -1,7 +1,7 @@
 import './FormSignup.scss';
 
 import { FC, useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import FormHttpInformMassege from '../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../13.2.4.2_LoginForm/LoginForm';
@@ -27,6 +27,9 @@ interface IProps {
 }
 
 const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpResponseState }) => {
+  const text = langugeApp.textForms.textGeneral;
+  const textValidation = langugeApp.textForms.textValidation;
+
   const [httpInformMassege, setHttpInformMassege] = useState<boolean>(false);
 
   useEffect(() => {
@@ -48,39 +51,39 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
         }}
         validationSchema={Yup.object({
           name: Yup.string()
-            .matches(/^[aA-zZ]+$/, 'ТОЛЬКО БУКВЫ!!!')
-            .min(2, 'Имя должно содержать минемум 2 симавола!')
-            .required('Обязательное поле'),
+            .matches(/^[aA-zZ]+$/, textValidation.onlyletters)
+            .min(2, textValidation.minimumSymbols)
+            .required(textValidation.enterName),
 
-          login: Yup.string().min(2, 'Миним 2 симвла').required('Введите логин'),
+          login: Yup.string().min(2, textValidation.minimumSymbols).required(textValidation.enterLogin),
 
-          password: Yup.string().min(2, 'Your password is too short.').required('Please enter new password.'),
+          password: Yup.string().min(2, textValidation.minimumSymbols).required(textValidation.enterPassword),
 
           passwordConfirmation: Yup.string()
-            .required('Please retype new password.')
-            .oneOf([Yup.ref('password')], 'Passwords must match'),
+            .required(textValidation.enterPasswordConfirmation)
+            .oneOf([Yup.ref('password')], textValidation.passwordsMustMatch),
         })}
         onSubmit={(values: IUserSignup) => {
           postUserData(values);
         }}
       >
         <Form className="fc">
-          <Field name="name" className="finput mt30" type="text" placeholder="Your name" />
+          <Field name="name" className="finput mt30" type="text" placeholder={text.yourName} />
           <BlockErrorMessages name="name" />
 
-          <Field name="login" className="finput" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege(false)} />
-          <BlockErrorMessages name="login" httpMessage={httpInformMassege ? 'This login is already registered' : null} />
+          <Field name="login" className="finput" type="text" placeholder={text.emailOrTelephone} onFocus={() => setHttpInformMassege(false)} />
+          <BlockErrorMessages name="login" httpMessage={httpInformMassege ? text.loginAlreadyRegisterd : null} />
 
-          <PasswordInput name="password" placeholder="Password" />
+          <PasswordInput name="password" placeholder={text.password} />
           <BlockErrorMessages name="password" />
 
-          <PasswordInput name="passwordConfirmation" placeholder="Repeat password" />
+          <PasswordInput name="passwordConfirmation" placeholder={text.repeatPassword} />
           <BlockErrorMessages name="passwordConfirmation" />
 
           <RememberMeCheckbox name="save" langugeApp={langugeApp} />
 
           <button className="mt15 fbtn fbtn__active" type="submit" disabled={httpInformMassege}>
-            Create account & login
+            {text.createAccount}
           </button>
         </Form>
       </Formik>

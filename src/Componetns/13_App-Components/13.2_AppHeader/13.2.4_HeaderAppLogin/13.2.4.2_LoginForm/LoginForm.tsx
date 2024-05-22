@@ -41,8 +41,8 @@ interface IProps {
 
 const LoginForm: FC<IProps> = ({ langugeApp }) => {
   // const dispatch = useDispatch();
-
-  const [displayFormState, setDisplayFormState] = useState<string>('Form login');
+  const text = langugeApp.textForms.textGeneral;
+  const [displayFormState, setDisplayFormState] = useState<string>('Form new password');
   const [httpResponseState, setHttpResponseState] = useState<IHttpResponseState>(initStatehttpResponse);
 
   // Fetching ------------------------------------------------
@@ -167,28 +167,28 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
 
   switch (displayFormState) {
     case 'Form Signup':
-      formTitel = 'Signup form';
+      formTitel = text.signupForm;
       displayForm = <FormSignup langugeApp={langugeApp} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__waiting';
       btnStyleSignup = 'fbtn__active';
       break;
 
     case 'Form new password':
-      formTitel = 'Login form';
+      formTitel = text.loginForm;
       displayForm = <FromNewPassword langugeApp={langugeApp} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
 
     case 'Form forgot password':
-      formTitel = 'Login form';
+      formTitel = text.loginForm;
       displayForm = <FormForgotPassword langugeApp={langugeApp} httpResponseState={httpResponseState} postUserData={postUserData} process={process} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
 
     default:
-      formTitel = 'Login form';
+      formTitel = text.loginForm;
       displayForm = <FormLogin langugeApp={langugeApp} setDisplayFormState={setDisplayFormState} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
@@ -206,7 +206,7 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
             setProcess('waiting'), setDisplayFormState('Form Login'), setHttpResponseState(initStatehttpResponse);
           }}
         >
-          Login
+          {text.login}
         </button>
         <button
           className={`fbtn wt150 ${btnStyleSignup}`}
@@ -214,7 +214,7 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
             setDisplayFormState('Form Signup'), setProcess('waiting'), setHttpResponseState(initStatehttpResponse);
           }}
         >
-          Signup
+          {text.signup}
         </button>
       </div>
       {displayForm}

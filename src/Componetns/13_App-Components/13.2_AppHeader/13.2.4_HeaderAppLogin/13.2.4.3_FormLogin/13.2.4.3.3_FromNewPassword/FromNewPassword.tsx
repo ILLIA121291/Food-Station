@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import FormHttpInformMassege from '../../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
@@ -21,6 +21,9 @@ interface IProps {
 }
 
 const FromNewPassword: FC<IProps> = ({ langugeApp, postUserData, process, httpResponseState }) => {
+  const text = langugeApp.textForms.textGeneral;
+  const textValidation = langugeApp.textForms.textValidation;
+
   return (
     <>
       <Formik
@@ -31,23 +34,23 @@ const FromNewPassword: FC<IProps> = ({ langugeApp, postUserData, process, httpRe
           passwordConfirmation: '',
         }}
         validationSchema={Yup.object({
-          password: Yup.string().min(2, 'Your password is too short.').required('Please enter new password.'),
+          password: Yup.string().min(2, textValidation.minimumSymbols).required(textValidation.enterNewPassword),
 
           passwordConfirmation: Yup.string()
-            .required('Please retype new password.')
-            .oneOf([Yup.ref('password')], 'Passwords must match'),
+            .required(textValidation.enterNewPasswordConfirmation)
+            .oneOf([Yup.ref('password')], textValidation.passwordsMustMatch),
         })}
         onSubmit={(values: IUserNewPassword) => {
           postUserData(values);
         }}
       >
         <Form className="fc">
-          <h4 className="ftit mt30 tx-al-c">Set a new password</h4>
+          <h4 className="ftit mt30 tx-al-c">{text.setNewPassword}</h4>
 
-          <PasswordInput name="password" className="mt30" placeholder="New password" />
+          <PasswordInput name="password" className="mt30" placeholder={text.newPassword} />
           <BlockErrorMessages name="password" />
 
-          <PasswordInput name="passwordConfirmation" placeholder="Confirmation password" />
+          <PasswordInput name="passwordConfirmation" placeholder={text.repeatPassword} />
           <BlockErrorMessages name="passwordConfirmation" />
 
           <button className="fbtn fbtn__active" type="submit">
