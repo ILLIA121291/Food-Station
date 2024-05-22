@@ -42,7 +42,7 @@ interface IProps {
 const LoginForm: FC<IProps> = ({ langugeApp }) => {
   // const dispatch = useDispatch();
   const text = langugeApp.textForms.textGeneral;
-  const [displayFormState, setDisplayFormState] = useState<string>('Form new password');
+  const [displayFormState, setDisplayFormState] = useState<string>('Form login');
   const [httpResponseState, setHttpResponseState] = useState<IHttpResponseState>(initStatehttpResponse);
 
   // Fetching ------------------------------------------------
