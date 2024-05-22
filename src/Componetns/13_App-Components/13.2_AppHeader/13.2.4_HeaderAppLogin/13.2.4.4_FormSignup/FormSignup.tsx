@@ -88,7 +88,7 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
             Remember me
           </label>
 
-          <button className="mt15 fbtn fbtn__active" type="submit">
+          <button className="mt15 fbtn fbtn__active" type="submit" disabled={httpInformMassege}>
             Create account & login
           </button>
         </Form>

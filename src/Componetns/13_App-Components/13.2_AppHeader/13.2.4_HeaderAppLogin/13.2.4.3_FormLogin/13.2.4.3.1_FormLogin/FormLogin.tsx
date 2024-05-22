@@ -72,7 +72,7 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
           Remember me
         </label>
 
-        <button className="fbtn fbtn__active mt20" type="submit">
+        <button className="fbtn fbtn__active mt20" type="submit" disabled={httpInformMassege.loginInfoMessege || httpInformMassege.passwordInfoMessege}>
           Login
         </button>
 
