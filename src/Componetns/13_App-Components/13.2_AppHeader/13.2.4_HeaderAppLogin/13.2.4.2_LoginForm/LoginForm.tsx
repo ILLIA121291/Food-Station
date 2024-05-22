@@ -21,14 +21,16 @@ export interface IHttpResponseState {
   isResponse: boolean;
   isLogin: boolean;
   login: string;
+  password?: string;
   loginStatus: boolean;
   passwordStatus: boolean;
 }
 
-const initStatehttpResponse = {
+const initStatehttpResponse:IHttpResponseState = {
   isResponse: false,
   isLogin: false,
   login: '',
+  password: '',
   loginStatus: false,
   passwordStatus: false,
 };
@@ -196,7 +198,6 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
         >
           Login
         </button>
-        <div></div>
         <button
           className={`fbtn wt150 ${btnStyleSignup}`}
           onClick={() => {

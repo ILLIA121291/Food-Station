@@ -1,6 +1,6 @@
 import './FormSignup.scss';
 
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import FormHttpInformMassege from '../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
@@ -24,6 +24,14 @@ interface IProps {
 }
 
 const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpResponseState }) => {
+  const [httpInformMassege, setHttpInformMassege] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (httpResponseState.isResponse && !httpResponseState.loginStatus) {
+      setHttpInformMassege(true);
+    }
+  }, [httpResponseState]);
+
   return (
     <>
       <Formik
@@ -59,9 +67,9 @@ const FormSignup: FC<IProps> = ({ postUserData, langugeApp, process, httpRespons
             <ErrorMessage name="name" component="p" />
           </div>
 
-          <Field className="finput" name="login" type="text" placeholder="Email address or telephone" />
+          <Field className="finput" name="login" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege(false)} />
           <div className="wt345 f__info-message rc">
-            {httpResponseState.isResponse && !httpResponseState.loginStatus ? 'This login is already registered' : null}
+            {httpInformMassege ? 'This login is already registered' : null}
             <ErrorMessage name="login" component="p" />
           </div>
 

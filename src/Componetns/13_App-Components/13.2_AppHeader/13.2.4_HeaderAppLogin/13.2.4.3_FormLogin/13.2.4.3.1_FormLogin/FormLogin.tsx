@@ -1,5 +1,5 @@
 import './FormLogin.scss';
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
@@ -22,6 +22,18 @@ interface IProps {
 }
 
 const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, process, httpResponseState }) => {
+  const [httpInformMassege, setHttpInformMassege] = useState({ loginInfoMessege: false, passwordInfoMessege: false });
+
+  useEffect(() => {
+    if (httpResponseState.isResponse) {
+      if (!httpResponseState.loginStatus) {
+        setHttpInformMassege({ ...httpInformMassege, loginInfoMessege: true });
+      } else if (!httpResponseState.passwordStatus) {
+        setHttpInformMassege({ ...httpInformMassege, passwordInfoMessege: true });
+      }
+    }
+  }, [httpResponseState]);
+
   return (
     <Formik
       initialValues={{
@@ -39,16 +51,16 @@ const FormLogin: FC<IProps> = ({ setDisplayFormState, postUserData, langugeApp, 
       }}
     >
       <Form className="fc">
-        <Field className="finput mt30" id="login" name="login" type="text" placeholder="Email address or telephone" />
+        <Field className="finput mt30" name="login" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege({ ...httpInformMassege, loginInfoMessege: false })} />
         <div className="f__info-message rc">
           <ErrorMessage name="login" component="p" />
-          {httpResponseState.isResponse && !httpResponseState.loginStatus ? 'Логин не верен' : null}
+          {httpInformMassege.loginInfoMessege ? 'Логин не верен' : null}
         </div>
 
-        <Field className="finput " id="password" name="password" type="text" placeholder="Password" />
+        <Field className="finput" name="password" type="text" placeholder="Password" onFocus={() => setHttpInformMassege({ ...httpInformMassege, passwordInfoMessege: false })} />
         <div className="f__info-message rc">
           <ErrorMessage name="password" component="p" />
-          {httpResponseState.isResponse && !httpResponseState.passwordStatus ? 'Пароль не верен' : null}
+          {httpInformMassege.passwordInfoMessege ? 'Пароль не верен' : null}
         </div>
 
         <button className="wt150 fbtn_text" type="button" onClick={() => setDisplayFormState('Form forgot password')}>
