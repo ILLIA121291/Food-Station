@@ -1,5 +1,5 @@
 import './FormForgotPassword.scss';
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
@@ -19,6 +19,14 @@ interface IProps {
 }
 
 const FormForgotPassword: FC<IProps> = ({ langugeApp, process, postUserData, httpResponseState }) => {
+  const [httpInformMassege, setHttpInformMassege] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (httpResponseState.isResponse && !httpResponseState.loginStatus) {
+      setHttpInformMassege(true);
+    }
+  }, [httpResponseState]);
+
   return (
     <>
       <Formik
@@ -35,12 +43,12 @@ const FormForgotPassword: FC<IProps> = ({ langugeApp, process, postUserData, htt
       >
         <Form className="fc ">
           <h4 className="ftit mt30 tx-al-c">Confirm your login</h4>
-          <Field className="finput mt30" id="login" name="login" type="text" placeholder="Email address or telephone" />
+          <Field className="finput mt30" name="login" type="text" placeholder="Email address or telephone" onFocus={() => setHttpInformMassege(false)} />
           <div className="rc pl15 pr15 wt345 f__info-message ">
-            {httpResponseState.isResponse && !httpResponseState.loginStatus ? 'This login was not found, please check the spelling' : null}
+            {httpInformMassege ? 'This login was not found, please check the spelling' : null}
             <ErrorMessage name="login" component="p" />
           </div>
-          <button className="fbtn fbtn__active" type="submit">
+          <button className="fbtn fbtn__active" type="submit" disabled={httpInformMassege}>
             Reset password
           </button>
         </Form>

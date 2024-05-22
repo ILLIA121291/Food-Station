@@ -26,7 +26,7 @@ export interface IHttpResponseState {
   passwordStatus: boolean;
 }
 
-const initStatehttpResponse:IHttpResponseState = {
+const initStatehttpResponse: IHttpResponseState = {
   isResponse: false,
   isLogin: false,
   login: '',
@@ -91,18 +91,30 @@ const LoginForm: FC<IProps> = ({ langugeApp }) => {
     // Form Forgot Password -------------------------------------------------
     if (getResponse.action == 'User forgot password') {
       setProcess('success');
+      let loginTrueFalse: boolean;
 
-      let controlLogin = true;
+      if ((getResponse as IUserForotPassword).login === 'loginError') {
+        loginTrueFalse = false;
 
-      setHttpResponseState({
-        isResponse: true,
-        isLogin: controlLogin,
-        loginStatus: controlLogin,
-        passwordStatus: false,
-        login: (getResponse as IUserForotPassword).login,
-      });
+        setHttpResponseState({
+          isResponse: true,
+          isLogin: false,
+          loginStatus: false,
+          passwordStatus: false,
+          login: (getResponse as IUserForotPassword).login,
+        });
+      } else {
+        loginTrueFalse = true;
+        setHttpResponseState({
+          isResponse: true,
+          isLogin: true,
+          loginStatus: true,
+          passwordStatus: false,
+          login: (getResponse as IUserForotPassword).login,
+        });
+      }
 
-      if (controlLogin) {
+      if (loginTrueFalse) {
         setTimeout(() => {
           setDisplayFormState('Form new password');
           setProcess('waiting');
