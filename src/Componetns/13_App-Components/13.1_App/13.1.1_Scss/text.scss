@@ -7,10 +7,30 @@
   text-align: center;
 }
 
+.tx-tr-cap {
+  text-transform: capitalize;
+}
+
 .bd {
   border: 1px solid #000;
 }
 
-.fs10{
+// FONT-SIZE --------------------------------------
+
+.fs10 {
   font-size: 10px;
+}
+
+.fs13 {
+  font-size: 13px;
+}
+
+.fs18 {
+  font-size: 18px;
+}
+
+// FONT-WEIGHT
+
+.fw600 {
+  font-weight: 600;
 }

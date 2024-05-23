@@ -1,7 +1,7 @@
 import Pepperoni from './img/pepperoni.jpg';
 import BBQ from './img/bbq.jpg';
 import FourCheeses from './img/4_cheeses.jpg';
-import MeatPlatter from './img/meat_platter.jpg';
+import MeatPlatter from './img/Meat_platter.jpg';
 import Chicken from './img/chicken.jpg';
 import Margarita from './img/margarita.jpg';
 import Beef from './img/beef.jpg';
@@ -41,7 +41,7 @@ export const tagsPizza: string[] = ['chicken', 'pork', 'beef', 'vegetarian', 'sa
 
 const dataPizza: IPizza[] = [
   {
-    name: 'pepperoni',
+    name: 'pizza pepperoni',
     img: Pepperoni,
     size: {
       small: {
@@ -67,7 +67,7 @@ const dataPizza: IPizza[] = [
     tages: ['sausages'],
   },
   {
-    name: 'bbq',
+    name: 'pizza bbq',
     img: BBQ,
     size: {
       small: {
@@ -93,7 +93,7 @@ const dataPizza: IPizza[] = [
     tages: ['sausages', 'chicken', 'pork', 'beef'],
   },
   {
-    name: 'Four cheeses',
+    name: 'pizza four cheeses',
     img: FourCheeses,
     size: {
       small: {
@@ -119,7 +119,7 @@ const dataPizza: IPizza[] = [
     tages: ['vegetarian'],
   },
   {
-    name: 'meat platter',
+    name: 'pizza meat platter',
     img: MeatPlatter,
     size: {
       small: {
@@ -145,7 +145,7 @@ const dataPizza: IPizza[] = [
     tages: ['sausages', 'chicken', 'pork', 'beef'],
   },
   {
-    name: 'chicken',
+    name: 'pizza chicken',
     img: Chicken,
     size: {
       small: {
@@ -171,7 +171,7 @@ const dataPizza: IPizza[] = [
     tages: ['chicken'],
   },
   {
-    name: 'margarita',
+    name: 'pizza margarita',
     img: Margarita,
     size: {
       small: {
@@ -197,7 +197,7 @@ const dataPizza: IPizza[] = [
     tages: ['vegetarian'],
   },
   {
-    name: 'beef',
+    name: 'pizza beef',
     img: Beef,
     size: {
       small: {
@@ -223,7 +223,7 @@ const dataPizza: IPizza[] = [
     tages: ['beef'],
   },
   {
-    name: 'pork',
+    name: 'pizza pork',
     img: Pork,
     size: {
       small: {
@@ -249,7 +249,7 @@ const dataPizza: IPizza[] = [
     tages: ['pork', 'spicy'],
   },
   {
-    name: 'hawaiian',
+    name: 'pizza hawaiian',
     img: Hawaiian,
     size: {
       small: {
@@ -275,7 +275,7 @@ const dataPizza: IPizza[] = [
     tages: ['pork', 'sausages'],
   },
   {
-    name: 'mexican',
+    name: 'pizza mexican',
     img: Mexican,
     size: {
       small: {
@@ -301,7 +301,7 @@ const dataPizza: IPizza[] = [
     tages: ['beef', 'spicy'],
   },
   {
-    name: 'seafood',
+    name: 'pizza seafood',
     img: Seafood,
     size: {
       small: {
@@ -327,7 +327,7 @@ const dataPizza: IPizza[] = [
     tages: ['seafood'],
   },
   {
-    name: 'carbonara',
+    name: 'pizza carbonara',
     img: Carbonara,
     size: {
       small: {
@@ -353,7 +353,7 @@ const dataPizza: IPizza[] = [
     tages: ['pork'],
   },
   {
-    name: 'classical',
+    name: 'pizza classical',
     img: Classical,
     size: {
       small: {
@@ -379,7 +379,7 @@ const dataPizza: IPizza[] = [
     tages: ['pork', 'sausages'],
   },
   {
-    name: 'sausages',
+    name: 'pizza sausages',
     img: Sausages,
     size: {
       small: {
@@ -405,7 +405,7 @@ const dataPizza: IPizza[] = [
     tages: ['sausages'],
   },
   {
-    name: 'mushrooms',
+    name: 'pizza mushrooms',
     img: Mushrooms,
     size: {
       small: {
@@ -429,6 +429,90 @@ const dataPizza: IPizza[] = [
     isPopular: false,
     dishType: 'pizza',
     tages: ['sausages'],
+  },
+];
+
+export interface IExtraIngredientsPizza {
+  name: string;
+  price: number;
+}
+
+export const extraIngredientsPizza: IExtraIngredientsPizza[] = [
+  {
+    name: 'Onion fries',
+    price: 0.69,
+  },
+  {
+    name: 'Country style potatoes',
+    price: 0.49,
+  },
+  {
+    name: 'Pineapple',
+    price: 0.49,
+  },
+  {
+    name: 'Champignon',
+    price: 0.49,
+  },
+  {
+    name: 'Olives',
+    price: 0.49,
+  },
+  {
+    name: 'Pickled cucumbers',
+    price: 0.49,
+  },
+  {
+    name: 'Bell pepper',
+    price: 0.49,
+  },
+  {
+    name: 'Jalopeno',
+    price: 0.49,
+  },
+  {
+    name: 'Tomatoes',
+    price: 0.49,
+  },
+  {
+    name: 'Mozzarella cheese',
+    price: 0.86,
+  },
+  {
+    name: 'Parmesan cheese',
+    price: 0.59,
+  },
+  {
+    name: 'Beef',
+    price: 0.89,
+  },
+  {
+    name: 'Pork',
+    price: 0.69,
+  },
+  {
+    name: 'Ham',
+    price: 0.59,
+  },
+  {
+    name: 'Bacon',
+    price: 0.69,
+  },
+  {
+    name: 'Pepperoni sausage',
+    price: 0.69,
+  },
+  {
+    name: 'Chicken',
+    price: 0.69,
+  },
+  {
+    name: 'Salmon',
+    price: 2.69,
+  },
+  {
+    name: 'Red onion',
+    price: 0.29,
   },
 ];
 

@@ -1,0 +1,35 @@
+
+// Image Panel ------------------------
+
+.card-product__img {
+  width: 90%;
+  height: 100%;
+  // object-fit: cover;
+}
+
+
+// Titel Panel ------------------------
+
+.card-product__titel {
+
+} 
+
+
+// Ingredients Panel ------------------------
+
+
+
+.extra-ingre__container {
+  position: absolute;
+  top: 35px;
+  left: 0px;
+
+  background: wheat;
+  z-index: 150;
+  overflow: hidden;
+  transition: height 300ms;
+}
+
+// Size Panel ------------------------
+// QuantityCostWeight Panel ------------------------
+// BtnAddToCart ------------------------

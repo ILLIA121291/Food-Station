@@ -8,6 +8,9 @@ import './13.1.1_Scss/pading.scss';
 import './13.1.1_Scss/text.scss';
 import './13.1.1_Scss/height.scss';
 import './13.1.1_Scss/background.scss';
+import './13.1.1_Scss/cardProduct.scss';
+import './13.1.1_Scss/position.scss';
+import './13.1.1_Scss/border_borderRadius.scss';
 
 import { FC, useState } from 'react';
 
