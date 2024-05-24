@@ -1,0 +1,32 @@
+// Disply Block Animation ------------------------------------
+
+.dis-bloc-anim {
+  animation: 300ms show ease both;
+}
+
+@keyframes show {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+// Disply None Animation -----------------------------------
+.dis-none-anim {
+  animation: 300ms notshow ease both;
+}
+
+@keyframes notshow {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}

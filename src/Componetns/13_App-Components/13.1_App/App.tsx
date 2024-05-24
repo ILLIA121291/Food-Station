@@ -8,9 +8,11 @@ import './13.1.1_Scss/pading.scss';
 import './13.1.1_Scss/text.scss';
 import './13.1.1_Scss/height.scss';
 import './13.1.1_Scss/background.scss';
-import './13.1.1_Scss/cardProduct.scss';
-import './13.1.1_Scss/position.scss';
-import './13.1.1_Scss/border_borderRadius.scss';
+import './13.1.1_Scss/card-product.scss';
+import './13.1.1_Scss/position_overflow.scss';
+import './13.1.1_Scss/border_border-radius.scss';
+import './13.1.1_Scss/opacity_visibility_z-index.scss';
+import './13.1.1_Scss/animation.scss';
 
 import { FC, useState } from 'react';
 
