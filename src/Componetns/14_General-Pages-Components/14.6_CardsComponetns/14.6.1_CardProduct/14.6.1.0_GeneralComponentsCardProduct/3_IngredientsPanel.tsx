@@ -16,11 +16,14 @@ const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
 
   const [listState, setListState] = useState<boolean>(false);
 
+  console.log(orderdPizza.extraIngredients);
+
   return (
     <div className="mt15 pos_rel bd ">
       <p className="tx-tr-cap tx-al-c">extra ingredients</p>
-      <div className="f_jc_sb">
-        <p>total</p>
+      <div className="f_jc_sb p5">
+        <p>total: {orderdPizza.extraIngredients.length}</p>
+        <p>+ {orderdPizza.costExtraIngredients} USD</p>
         <button className="extra-ingre__btn" onClick={() => setListState(!listState)}>
           + add
         </button>
@@ -53,7 +56,7 @@ interface IAddIngridientPanel {
 const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza, setOrderdPizza }) => {
   const [qty, setQty] = useState<number>(0);
 
-  let display: 'visible' | 'hidden' = qty > -10 ? 'visible' : 'hidden';
+  let display: 'visible' | 'hidden' = qty > 0 ? 'visible' : 'hidden';
 
   const ingredientObj = {
     name: name,
@@ -62,46 +65,42 @@ const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza,
   };
 
   const plusOne = () => {
-    if (orderdPizza.extraIngredients.length + 1 > 3) {
-      return;
-    } else {
+    if (orderdPizza.extraIngredients.length + 1 <= 6 && qty + 1 <= 3) {
       setQty(qty + 1);
       setOrderdPizza(orderdPizza => {
-        return { ...orderdPizza, extraIngredients: [...orderdPizza.extraIngredients, ingredientObj] };
+        return { ...orderdPizza, extraIngredients: [...orderdPizza.extraIngredients, ingredientObj], costExtraIngredients: +(orderdPizza.costExtraIngredients += price).toFixed(2) };
       });
+    } else {
+      return;
     }
   };
 
   const minusOne = () => {
-
-    if(orderdPizza.extraIngredients.length - 1 < 0) {
-      return
+    if (orderdPizza.extraIngredients.length - 1 < 0) {
+      return;
     } else {
       setQty(qty - 1);
 
       let indexIngrdient: number;
-  
+
       for (let i = 0; i < orderdPizza.extraIngredients.length; i++) {
         if (orderdPizza.extraIngredients[i].name == name) {
           indexIngrdient = i;
           break;
         }
       }
-  
+
       const newArrIngrdients = orderdPizza.extraIngredients.filter((value, i) => {
         if (i != indexIngrdient) {
           return value;
         }
       });
-  
+
       setOrderdPizza(orderdPizza => {
-        return { ...orderdPizza, extraIngredients: newArrIngrdients };
+        return { ...orderdPizza, extraIngredients: newArrIngrdients, costExtraIngredients: +(orderdPizza.costExtraIngredients -= price).toFixed(2) };
       });
     }
-
   };
-
-  console.log(orderdPizza.extraIngredients);
 
   return (
     <div className="f ">

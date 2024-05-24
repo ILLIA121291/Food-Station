@@ -13,7 +13,7 @@ import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCar
 
 export interface IExtraIngredient {
   name: string;
-  price: number;
+  price: number | string;
   quantity: number;
 }
 
@@ -21,6 +21,7 @@ export interface IOrderdPizza {
   name: string;
   size: number
   extraIngredients: IExtraIngredient[]
+  costExtraIngredients: number,
 }
 
 
@@ -30,7 +31,8 @@ const PizzaCardProduct:FC = () => {
   const inisialStatePizza = {
     name: pizza.name, 
     size: 0,
-    extraIngredients: []
+    costExtraIngredients: 0,
+    extraIngredients: [], 
   }
 
 
