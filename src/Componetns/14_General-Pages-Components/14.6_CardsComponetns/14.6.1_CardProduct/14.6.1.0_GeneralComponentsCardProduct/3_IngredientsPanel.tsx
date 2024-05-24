@@ -13,12 +13,23 @@ interface IProps {
 }
 
 const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
-  const refUl = useRef<HTMLUListElement>(null);
-
   const [listState, setListState] = useState<boolean>(false);
   const [displayInfoMessage, setDisplayInfoMessage] = useState({ display: false, message: '' });
 
-  let diplayImgBtnAdd = listState ? '- add' : '+ add';
+  const refUl = useRef<HTMLUListElement>(null);
+  let colorImgBtnAdd = listState ? 'red' : 'green';
+
+  const windowCloseList = (e: globalThis.MouseEvent) => {
+    if (!(e.target as HTMLButtonElement).classList.contains('r')) {
+      setListState(false);
+    }
+  };
+
+  useEffect(() => {
+    if (listState) {
+      window.addEventListener('click', e => windowCloseList(e), { once: true });
+    }
+  }, [listState]);
 
   const resetAllIngredients = () => {
     if (orderdPizza.extraIngredients.length != 0) {
@@ -32,27 +43,34 @@ const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
     }
   };
 
-  // console.log(orderdPizza.extraIngredients);
-
   return (
-    <div className="mt15 pos_rel bd ">
+    <div className="mt15 pos_rel bd bdr10 p5 fw600 us-se">
       <p className="tx-tr-cap tx-al-c">extra ingredients</p>
-      <div className="f_jc_sb p5">
-        <div>
-          total: {orderdPizza.extraIngredients.length}{' '}
-          <button onClick={resetAllIngredients}>
-            <IoIosCloseCircle size={15} />
+      <div className="f_jc_sb p5 ">
+        <div className="f_ac wt80">
+          <p className="wt60">Total: {orderdPizza.extraIngredients.length}</p>
+          <button className="bkgr__tra f_jc-ac ml5" onClick={resetAllIngredients}>
+            <IoIosCloseCircle size={20} color="red" />
           </button>
         </div>
-        <p>+ {orderdPizza.costExtraIngredients} USD</p>
-        <button className="extra-ingre__btn" onClick={() => setListState(!listState)}>
-          {diplayImgBtnAdd}
+
+        <div className=" f_jc-ac">+ {orderdPizza.costExtraIngredients} USD</div>
+
+        <button
+          style={{ color: colorImgBtnAdd }}
+          className="extra-ingre__btn fs16 wt45 bkgr__tra fw600 tx-al-l r"
+          onClick={e => {
+            e.stopPropagation(), setListState(!listState);
+          }}
+        >
+          + add
         </button>
-        <div className="extra-ingre__container bdr10 zindex150 bkgr__wh-bl fw600 over_hid" style={listState ? { height: refUl.current!.scrollHeight } : { height: '0px' }}>
+
+        <div className="extra-ingre__container bdr10 zindex150 bkgr__wh-bl fw600 over_hid" style={listState ? { height: refUl.current!.scrollHeight } : { height: '0px' }} onClick={e => e.stopPropagation()}>
           <ul ref={refUl} className="wt310 p5">
             {extraIngredientsPizza.map((item, index) => {
               return (
-                <li key={index} className="f_jc_sb p5 us-se">
+                <li key={index} className="f_jc_sb p5 ">
                   <p>{item.name}</p>
                   <AddIngridientPanel name={item.name} price={item.price} orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} displayInfoMessage={displayInfoMessage} setDisplayInfoMessage={setDisplayInfoMessage} />
                 </li>
@@ -148,19 +166,20 @@ const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza,
   };
 
   return (
-    <div className="f ">
-      <button onClick={minusOne} style={{ visibility: display }} className="bkgr__wh f_jc-ac">
+    <div className="f_ac">
+      <button onClick={minusOne} style={{ visibility: display }} className="bkgr__wh f_jc-ac bd bdr5">
         <LuMinus size={15} />
       </button>
 
-      <p style={{ visibility: display }} className="bkgr__wh  pl5 pr5">
+      <p style={{ visibility: display }} className="bkgr__wh pl5 pr5">
         {qty}
       </p>
 
-      <button onClick={plusOne} className="mr10 bkgr__wh f_jc-ac">
+      <button onClick={plusOne} className="mr10 bkgr__wh f_jc-ac bd bdr5">
         <HiOutlinePlusSm size={15} />
       </button>
-      <p>{price} USD</p>
+
+      <p className="wt85">{price} USD</p>
     </div>
   );
 };

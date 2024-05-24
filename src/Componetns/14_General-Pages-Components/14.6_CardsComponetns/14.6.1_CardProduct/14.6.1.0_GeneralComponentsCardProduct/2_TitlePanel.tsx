@@ -8,7 +8,7 @@ interface IProps {
 
 const TitlePanel:FC <IProps>= ({titel}) => {
   return (
-    <div className='card-product__titel tx-al-c fs18 mt15 fw600 tx-tr-cap bd '>
+    <div className='card-product__titel tx-al-c fs18 mt15 fw600 tx-tr-cap'>
       {titel}
     </div>
   )

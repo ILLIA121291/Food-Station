@@ -512,7 +512,7 @@ export const extraIngredientsPizza: IExtraIngredientsPizza[] = [
   },
   {
     name: 'Red onion',
-    price: 0.29,
+    price: 156.29,
   },
 ];
 
