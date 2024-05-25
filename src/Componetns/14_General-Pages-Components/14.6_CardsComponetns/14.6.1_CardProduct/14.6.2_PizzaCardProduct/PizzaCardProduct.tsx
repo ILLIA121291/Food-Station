@@ -24,6 +24,7 @@ export interface IOrderPizza {
     size: 26 | 30 | 40;
     weight: number;
     price: number;
+    priceExtraIngredients: number;
   };
 
   total: {
@@ -34,6 +35,7 @@ export interface IOrderPizza {
   cost: {
     pizza: number;
     extraIngredients: number;
+    total: number;
   };
 }
 
@@ -78,6 +80,7 @@ const PizzaCardProduct: FC<IProps> = ({ data }) => {
       basis,
       weight,
       price,
+      priceExtraIngredients: 0,
     },
 
     total: {
@@ -88,6 +91,7 @@ const PizzaCardProduct: FC<IProps> = ({ data }) => {
     cost: {
       pizza: 0,
       extraIngredients: 0,
+      total: 0,
     },
   };
 

@@ -6,6 +6,7 @@ import { HiOutlinePlusSm } from 'react-icons/hi';
 import { LuMinus } from 'react-icons/lu';
 import { IoIosCloseCircle } from 'react-icons/io';
 import BlockErrorMessages from '../../../14.5_FormsComponents/BlockErrorMessages';
+import toFixedNumber from '../../../../10_Utilities/toFixedNumber';
 
 interface IProps {
   order: IOrderPizza;
@@ -39,11 +40,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
           parameters: {
             ...order.parameters,
             extraIngredients: [],
-          },
-
-          cost: {
-            ...order.cost,
-            extraIngredients: 0,
+            priceExtraIngredients: 0,
           },
         };
       });
@@ -61,7 +58,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
           </button>
         </div>
 
-        <div className=" f_jc-ac">+ {order.cost.extraIngredients} USD</div>
+        <div className=" f_jc-ac">+ {order.parameters.priceExtraIngredients} USD</div>
 
         <button
           style={{ color: colorImgBtnAdd }}
@@ -134,15 +131,14 @@ const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, order, setOr
     if (order.parameters.extraIngredients.length + 1 <= 6 && qty + 1 <= 3) {
       setQty(qty + 1);
       setOrder(order => {
+        const priceExtraIngredients = toFixedNumber((order.parameters.priceExtraIngredients += price));
+
         return {
           ...order,
           parameters: {
             ...order.parameters,
             extraIngredients: [...order.parameters.extraIngredients, ingredientObj],
-          },
-          cost: {
-            ...order.cost,
-            extraIngredients: +(order.cost.extraIngredients += price).toFixed(2),
+            priceExtraIngredients,
           },
         };
       });
@@ -177,15 +173,14 @@ const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, order, setOr
       });
 
       setOrder(order => {
+        const priceExtraIngredients = toFixedNumber((order.parameters.priceExtraIngredients -= price));
+
         return {
           ...order,
           parameters: {
             ...order.parameters,
             extraIngredients: filterIngrdients,
-          },
-          cost: {
-            ...order.cost,
-            extraIngredients: +(order.cost.extraIngredients -= price).toFixed(2),
+            priceExtraIngredients,
           },
         };
       });

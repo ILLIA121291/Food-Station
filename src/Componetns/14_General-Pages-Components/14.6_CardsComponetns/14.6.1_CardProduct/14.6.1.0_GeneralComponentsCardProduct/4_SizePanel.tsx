@@ -1,6 +1,7 @@
 import { FC, MouseEvent } from 'react';
 import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
+import toFixedNumber from '../../../../10_Utilities/toFixedNumber';
 
 interface IProps {
   data: IPizza;
@@ -23,8 +24,9 @@ const SizePanel: FC<IProps> = ({ data, order, setOrder }) => {
         };
       });
     } else {
-      let price = +(e.target as HTMLButtonElement).dataset.pizzaPrice!;
-      let weight = +(e.target as HTMLButtonElement).dataset.pizzaWeight!;
+      let price = Number((e.target as HTMLButtonElement).dataset.pizzaPrice!);
+      let weight = Number((e.target as HTMLButtonElement).dataset.pizzaWeight!);
+
       setOrder(order => {
         return {
           ...order,
@@ -37,13 +39,7 @@ const SizePanel: FC<IProps> = ({ data, order, setOrder }) => {
 
           total: {
             ...order.total,
-            quantity: 1,
-            weight: weight,
-          },
-
-          cost: {
-            ...order.cost,
-            pizza: Number((order.total.quantity * price).toFixed(2)),
+            weight: weight * order.total.quantity,
           },
         };
       });
