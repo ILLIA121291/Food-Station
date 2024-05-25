@@ -1,18 +1,18 @@
 import { FC, useEffect, useState, useRef } from 'react';
 
 import { extraIngredientsPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
-import { IOrderdPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
+import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import { HiOutlinePlusSm } from 'react-icons/hi';
 import { LuMinus } from 'react-icons/lu';
 import { IoIosCloseCircle } from 'react-icons/io';
 import BlockErrorMessages from '../../../14.5_FormsComponents/BlockErrorMessages';
 
 interface IProps {
-  orderdPizza: IOrderdPizza;
-  setOrderdPizza: React.Dispatch<React.SetStateAction<IOrderdPizza>>;
+  order: IOrderPizza;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
 }
 
-const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
+const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
   const [listState, setListState] = useState<boolean>(false);
   const [displayInfoMessage, setDisplayInfoMessage] = useState({ display: false, message: '' });
 
@@ -32,12 +32,19 @@ const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
   }, [listState]);
 
   const resetAllIngredients = () => {
-    if (orderdPizza.extraIngredients.length != 0) {
-      setOrderdPizza(orderdPizza => {
+    if (order.parameters.extraIngredients.length != 0) {
+      setOrder(order => {
         return {
-          ...orderdPizza,
-          extraIngredients: [],
-          costExtraIngredients: 0,
+          ...order,
+          parameters: {
+            ...order.parameters,
+            extraIngredients: [],
+          },
+
+          cost: {
+            ...order.cost,
+            extraIngredients: 0,
+          },
         };
       });
     }
@@ -48,13 +55,13 @@ const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
       <p className="tx-tr-cap tx-al-c">extra ingredients</p>
       <div className="f_jc_sb p5 ">
         <div className="f_ac wt80">
-          <p className="wt60">Total: {orderdPizza.extraIngredients.length}</p>
+          <p className="wt60">Total: {order.parameters.extraIngredients.length}</p>
           <button className="bkgr__tra f_jc-ac ml5" onClick={resetAllIngredients}>
             <IoIosCloseCircle size={20} color="red" />
           </button>
         </div>
 
-        <div className=" f_jc-ac">+ {orderdPizza.costExtraIngredients} USD</div>
+        <div className=" f_jc-ac">+ {order.cost.extraIngredients} USD</div>
 
         <button
           style={{ color: colorImgBtnAdd }}
@@ -72,7 +79,7 @@ const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
               return (
                 <li key={index} className="f_jc_sb p5 ">
                   <p>{item.name}</p>
-                  <AddIngridientPanel name={item.name} price={item.price} orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} displayInfoMessage={displayInfoMessage} setDisplayInfoMessage={setDisplayInfoMessage} />
+                  <AddIngridientPanel name={item.name} price={item.price} order={order} setOrder={setOrder} displayInfoMessage={displayInfoMessage} setDisplayInfoMessage={setDisplayInfoMessage} />
                 </li>
               );
             })}
@@ -89,20 +96,20 @@ const IngredientsPanel: FC<IProps> = ({ orderdPizza, setOrderdPizza }) => {
 interface IAddIngridientPanel {
   name: string;
   price: number;
-  orderdPizza: IOrderdPizza;
-  setOrderdPizza: React.Dispatch<React.SetStateAction<IOrderdPizza>>;
+  order: IOrderPizza;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
   displayInfoMessage: { display: boolean; message: string };
   setDisplayInfoMessage: React.Dispatch<React.SetStateAction<{ display: boolean; message: string }>>;
 }
 
-const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza, setOrderdPizza, setDisplayInfoMessage }) => {
+const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, order, setOrder, setDisplayInfoMessage }) => {
   const [qty, setQty] = useState<number>(0);
 
   useEffect(() => {
-    if (orderdPizza.extraIngredients.length == 0) {
+    if (order.parameters.extraIngredients.length == 0) {
       setQty(0);
     }
-  }, [orderdPizza]);
+  }, [order]);
 
   let display: 'visible' | 'hidden' = qty > 0 ? 'visible' : 'hidden';
 
@@ -124,12 +131,22 @@ const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza,
   };
 
   const plusOne = () => {
-    if (orderdPizza.extraIngredients.length + 1 <= 6 && qty + 1 <= 3) {
+    if (order.parameters.extraIngredients.length + 1 <= 6 && qty + 1 <= 3) {
       setQty(qty + 1);
-      setOrderdPizza(orderdPizza => {
-        return { ...orderdPizza, extraIngredients: [...orderdPizza.extraIngredients, ingredientObj], costExtraIngredients: +(orderdPizza.costExtraIngredients += price).toFixed(2) };
+      setOrder(order => {
+        return {
+          ...order,
+          parameters: {
+            ...order.parameters,
+            extraIngredients: [...order.parameters.extraIngredients, ingredientObj],
+          },
+          cost: {
+            ...order.cost,
+            extraIngredients: +(order.cost.extraIngredients += price).toFixed(2),
+          },
+        };
       });
-    } else if (orderdPizza.extraIngredients.length + 1 > 6) {
+    } else if (order.parameters.extraIngredients.length + 1 > 6) {
       setDisplayInfoMessage({ display: true, message: 'You can add a maximum of 6 additional ingredients.' });
       disableInformationMessage();
     } else {
@@ -139,28 +156,38 @@ const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza,
   };
 
   const minusOne = () => {
-    if (orderdPizza.extraIngredients.length - 1 < 0) {
+    if (order.parameters.extraIngredients.length - 1 < 0) {
       return;
     } else {
       setQty(qty - 1);
 
       let indexIngrdient: number;
 
-      for (let i = 0; i < orderdPizza.extraIngredients.length; i++) {
-        if (orderdPizza.extraIngredients[i].name == name) {
+      for (let i = 0; i < order.parameters.extraIngredients.length; i++) {
+        if (order.parameters.extraIngredients[i].name == name) {
           indexIngrdient = i;
           break;
         }
       }
 
-      const newArrIngrdients = orderdPizza.extraIngredients.filter((value, i) => {
+      const filterIngrdients = order.parameters.extraIngredients.filter((value, i) => {
         if (i != indexIngrdient) {
           return value;
         }
       });
 
-      setOrderdPizza(orderdPizza => {
-        return { ...orderdPizza, extraIngredients: newArrIngrdients, costExtraIngredients: +(orderdPizza.costExtraIngredients -= price).toFixed(2) };
+      setOrder(order => {
+        return {
+          ...order,
+          parameters: {
+            ...order.parameters,
+            extraIngredients: filterIngrdients,
+          },
+          cost: {
+            ...order.cost,
+            extraIngredients: +(order.cost.extraIngredients -= price).toFixed(2),
+          },
+        };
       });
     }
   };

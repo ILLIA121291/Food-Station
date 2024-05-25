@@ -1,38 +1,49 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
-import { IOrderdPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
+import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import QuantityInput from '../../../14.5_FormsComponents/QuantityInput';
 
 interface IProps {
-  dataPizza: IPizza;
-  orderdPizza: IOrderdPizza;
-  setOrderdPizza: React.Dispatch<React.SetStateAction<IOrderdPizza>>;
+  data: IPizza;
+  order: IOrderPizza;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
 }
 
-const QuantityCostWeightPanel: FC<IProps> = ({ dataPizza, orderdPizza, setOrderdPizza }) => {
-  console.log(orderdPizza);
+const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder }) => {
+  const [qty, setQty] = useState<number>(1);
+
+  useEffect(() => {
+    setOrder(order => {
+      return {
+        ...order,
+        total: {
+          ...order.total,
+          quantity: qty,
+          weight: order.parameters.weight * qty,
+        },
+
+        cost: {
+          ...order.cost,
+          pizza: Number((order.parameters.price * qty).toFixed(2)),
+        },
+      };
+    });
+  }, [qty]);
+
   return (
     <div className=" mt15">
-      <PanelQuantity orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />
+      <QuantityInput qty={qty} setQty={setQty} />
+      ----------------------------------------
+      <p>Price: {order.parameters.price}</p>
+      <p>Weight: {order.parameters.weight}</p>
+      ----------------------------------------
+      <p>CostPizza: {order.cost.pizza}</p>
+      <p>CostExtraingridiens: {order.cost.extraIngredients}</p>
+      <p>WeightPizza: {order.total.weight}</p>
     </div>
   );
 };
 
 // PanelQuantity ----------------------------------------------------------
-
-interface IPanelQuantity {
-  orderdPizza: IOrderdPizza;
-  setOrderdPizza: React.Dispatch<React.SetStateAction<IOrderdPizza>>;
-}
-
-const PanelQuantity: FC<IPanelQuantity> = () => {
-  const [qty, setQty] = useState<number>(1);
-
-  return (
-    <div>
-      <QuantityInput qty={qty} setQty={setQty} />
-    </div>
-  );
-};
 
 export default QuantityCostWeightPanel;

@@ -7,7 +7,7 @@ import { FC } from 'react';
 const HomePage: FC = () => {
   return (
     <div className="gbs__border">
-      <CardProduct product={dataPizza[0]} />
+      <CardProduct data={dataPizza[0]} />
     </div>
   );
 };

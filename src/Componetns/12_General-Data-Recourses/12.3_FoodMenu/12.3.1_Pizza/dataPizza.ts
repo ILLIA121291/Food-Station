@@ -33,7 +33,7 @@ export interface IPizza {
 
 export const tagsPizza: string[] = ['chicken', 'pork', 'beef', 'vegetarian', 'sausages', 'seafood', 'spicy'];
 
-const dataPizza: IPizza[] = [
+const data: IPizza[] = [
   {
     name: 'pizza pepperoni',
     img: Pepperoni,
@@ -490,4 +490,4 @@ export const extraIngredientsPizza: IExtraIngredientsPizza[] = [
   },
 ];
 
-export default dataPizza;
+export default data;

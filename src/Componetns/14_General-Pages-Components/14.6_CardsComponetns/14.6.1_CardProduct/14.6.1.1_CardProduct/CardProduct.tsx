@@ -5,15 +5,15 @@ import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3
 import { FC } from 'react';
 
 interface IProps {
-  product: IPizza;
+  data: IPizza;
 }
 
-const CardProduct: FC<IProps> = ({ product }) => {
+const CardProduct: FC<IProps> = ({ data }) => {
   let displayCardProduct;
 
-  switch (product.dishType) {
+  switch (data.dishType) {
     default:
-      displayCardProduct = <PizzaCardProduct dataPizza={product} />;
+      displayCardProduct = <PizzaCardProduct data={data} />;
   }
 
   return <div>{displayCardProduct}</div>;
