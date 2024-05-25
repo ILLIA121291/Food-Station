@@ -29,7 +29,6 @@ const SizePanel: FC<IProps> = ({ dataPizza, orderdPizza, setOrderdPizza }) => {
     }
   };
 
-  console.log(orderdPizza);
   return (
     <div className=" mt15" onClick={onChangBasisSize}>
       <PanelBasis dataPizza={dataPizza} orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />

@@ -23,6 +23,9 @@ export interface IOrderdPizza {
   costExtraIngredients: number;
   basis: 'standard' | 'thin';
   size: 26 | 30 | 40;
+  quantity: number;
+  weight: number;
+  price: number;
 }
 
 interface IProps {
@@ -30,14 +33,20 @@ interface IProps {
 }
 
 const PizzaCardProduct: FC<IProps> = ({ dataPizza }) => {
-  let pizzaSize = 30;
+  let pizzaSize: 26 | 30 | 40 = 30;
+  let pizzaWeight: number = 0;
+  let pizzaPrice: number = 0;
 
   for (let i = 0; i < dataPizza.size.length; i++) {
     if (dataPizza.size[i].size == 30) {
       pizzaSize = 30;
+      pizzaWeight = dataPizza.size[i].weight;
+      pizzaPrice = dataPizza.size[i].price;
       break;
     } else {
-      pizzaSize = dataPizza.size[0].size;
+      pizzaSize = dataPizza.size[0].size as 26 | 30 | 40;
+      pizzaWeight = dataPizza.size[0].weight;
+      pizzaPrice = dataPizza.size[0].price;
     }
   }
 
@@ -54,10 +63,13 @@ const PizzaCardProduct: FC<IProps> = ({ dataPizza }) => {
 
   const inisialStatePizza: IOrderdPizza = {
     name: dataPizza.name,
-    size: pizzaSize as 26 | 30 | 40,
     costExtraIngredients: 0,
     extraIngredients: [],
+    size: pizzaSize as 26 | 30 | 40,
     basis: pizzaBasis as 'standard' | 'thin',
+    quantity: 1,
+    weight: pizzaWeight,
+    price: pizzaPrice,
   };
 
   const [orderdPizza, setOrderdPizza] = useState<IOrderdPizza>(inisialStatePizza);
@@ -68,8 +80,8 @@ const PizzaCardProduct: FC<IProps> = ({ dataPizza }) => {
       <TitlePanel titel={dataPizza.name} />
       <IngredientsPanel orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />
       <SizePanel dataPizza={dataPizza} orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />
-      {/* <QuantityCostWeightPanel/>
-      <BtnAddToCart/> */}
+      <QuantityCostWeightPanel dataPizza={dataPizza} orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />
+      {/* <BtnAddToCart/> */}
     </div>
   );
 };

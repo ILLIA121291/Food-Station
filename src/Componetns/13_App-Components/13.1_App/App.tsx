@@ -13,6 +13,7 @@ import './13.1.1_Scss/position_overflow.scss';
 import './13.1.1_Scss/border_border-radius.scss';
 import './13.1.1_Scss/opacity_visibility_z-index.scss';
 import './13.1.1_Scss/animation.scss';
+import './13.1.1_Scss/hover.scss';
 
 import { FC, useState } from 'react';
 
