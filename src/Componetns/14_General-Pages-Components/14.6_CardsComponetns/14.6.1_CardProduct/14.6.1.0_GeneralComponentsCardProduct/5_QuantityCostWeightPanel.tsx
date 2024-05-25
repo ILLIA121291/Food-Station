@@ -11,60 +11,34 @@ interface IProps {
 }
 
 const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder }) => {
-  const [qty, setQty] = useState<number>(1);
+  const onSetQuantity = (num: number): void => {
+    let quantity = order.total.quantity;
 
-  // const onSetQuantity = (num:number):void => {
-  //   let quantity = order.total.quantity
+    if (num < 1) {
+      quantity - 1 < 1 ? (quantity = 1) : (quantity -= 1);
+    } else {
+      quantity += 1;
+    }
 
-  //   if(quantity + num < 1) {
-  //     quantity = 1
-  //   } else {
-  //     quantity += 1
-  //   }
-
-
-  //   setOrder(order => {
-  //     return {
-  //       ...order,
-  //       total: {
-  //         ...order.total,
-  //         quantity,
-  //       },
-
-  //     };
-  //   });
-  // }
-
-  useEffect(() => {
     setOrder(order => {
       return {
         ...order,
         total: {
           ...order.total,
-          quantity: qty,
+          quantity,
         },
-
       };
     });
-  }, [qty]);
-
-
-
-
+  };
 
   return (
     <div className="mt15 f_jc_sb">
-      <QuantityInput qty={qty} setQty={setQty} />
-      
-      <div className=' wt150 tx-al-c'>
-      <p className= ''>{order.parameters.weight * order.total.quantity} g.</p>
-      <p className='mt10 fs20 fw900'>{toFixedNumber((order.parameters.price + order.parameters.priceExtraIngredients) * order.total.quantity)  } USD</p>
+      <QuantityInput calFunction={onSetQuantity} displayNumber={order.total.quantity} />
 
+      <div className=" wt150 tx-al-c">
+        <p className="">{order.parameters.weight * order.total.quantity} g.</p>
+        <p className="mt10 fs20 fw900">{toFixedNumber((order.parameters.price + order.parameters.priceExtraIngredients) * order.total.quantity)} USD</p>
       </div>
-
- 
- 
-
     </div>
   );
 };
