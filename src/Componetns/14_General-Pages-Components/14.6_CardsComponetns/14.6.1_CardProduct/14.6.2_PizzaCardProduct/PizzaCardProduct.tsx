@@ -2,6 +2,7 @@ import ImagePanel from '../14.6.1.0_GeneralComponentsCardProduct/1_ImagePanel';
 import './PizzaCardProduct.scss';
 
 import { FC, useState } from 'react';
+import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
 import dataPizza from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 import TitlePanel from '../14.6.1.0_GeneralComponentsCardProduct/2_TitlePanel';
@@ -18,30 +19,56 @@ export interface IExtraIngredient {
 
 export interface IOrderdPizza {
   name: string;
-  size: number;
   extraIngredients: IExtraIngredient[];
   costExtraIngredients: number;
+  basis: 'standard' | 'thin';
+  size: 26 | 30 | 40;
 }
 
-const PizzaCardProduct: FC = () => {
-  const pizza = dataPizza[0];
+interface IProps {
+  dataPizza: IPizza;
+}
 
-  const inisialStatePizza = {
-    name: pizza.name,
-    size: 0,
+const PizzaCardProduct: FC<IProps> = ({ dataPizza }) => {
+  let pizzaSize = 30;
+
+  for (let i = 0; i < dataPizza.size.length; i++) {
+    if (dataPizza.size[i].size == 30) {
+      pizzaSize = 30;
+      break;
+    } else {
+      pizzaSize = dataPizza.size[0].size;
+    }
+  }
+
+  let pizzaBasis = 'standard';
+
+  for (let i = 0; i < dataPizza.basis.length; i++) {
+    if (dataPizza.basis[i] == pizzaBasis) {
+      pizzaBasis = 'standard';
+      break;
+    } else {
+      pizzaBasis = dataPizza.basis[0];
+    }
+  }
+
+  const inisialStatePizza: IOrderdPizza = {
+    name: dataPizza.name,
+    size: pizzaSize as 26 | 30 | 40,
     costExtraIngredients: 0,
     extraIngredients: [],
+    basis: pizzaBasis as 'standard' | 'thin',
   };
 
   const [orderdPizza, setOrderdPizza] = useState<IOrderdPizza>(inisialStatePizza);
 
   return (
     <div className="wt310 pt30">
-      <ImagePanel image={pizza.img} alt={pizza.name} />
-      <TitlePanel titel={pizza.name} />
+      <ImagePanel image={dataPizza.img} alt={dataPizza.name} />
+      <TitlePanel titel={dataPizza.name} />
       <IngredientsPanel orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />
-      {/* <SizePanel/>
-      <QuantityCostWeightPanel/>
+      <SizePanel dataPizza={dataPizza} orderdPizza={orderdPizza} setOrderdPizza={setOrderdPizza} />
+      {/* <QuantityCostWeightPanel/>
       <BtnAddToCart/> */}
     </div>
   );

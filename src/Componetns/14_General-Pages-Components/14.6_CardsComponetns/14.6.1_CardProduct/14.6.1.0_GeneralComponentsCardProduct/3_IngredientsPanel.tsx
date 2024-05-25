@@ -95,7 +95,7 @@ interface IAddIngridientPanel {
   setDisplayInfoMessage: React.Dispatch<React.SetStateAction<{ display: boolean; message: string }>>;
 }
 
-const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza, setOrderdPizza, setDisplayInfoMessage, displayInfoMessage }) => {
+const AddIngridientPanel: FC<IAddIngridientPanel> = ({ name, price, orderdPizza, setOrderdPizza, setDisplayInfoMessage }) => {
   const [qty, setQty] = useState<number>(0);
 
   useEffect(() => {

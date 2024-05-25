@@ -15,22 +15,16 @@ import Sausages from './img/sausages.jpg';
 import Mushrooms from './img/mushrooms.jpg';
 
 interface IPizzaSize {
+  size: number;
   weight: number;
   price: number;
 }
 
-interface IPizza {
+export interface IPizza {
   name: string;
   img: string;
-  size: {
-    small: IPizzaSize;
-    medium: IPizzaSize;
-    large: IPizzaSize;
-  };
-  basis: {
-    standard: boolean;
-    thin: boolean;
-  };
+  size: IPizzaSize[];
+  basis: string[];
   ingredients: string[];
   isPopular: boolean;
   dishType: 'pizza';
@@ -43,24 +37,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza pepperoni',
     img: Pepperoni,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 430,
         price: 4.69,
       },
-      medium: {
+      {
+        size: 30,
         weight: 575,
         price: 6.59,
       },
-      large: {
+      {
+        size: 40,
         weight: 800,
         price: 8.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'pepperoni sausage'],
     isPopular: true,
     dishType: 'pizza',
@@ -69,24 +63,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza bbq',
     img: BBQ,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 520,
         price: 5.89,
       },
-      medium: {
+      {
+        size: 30,
         weight: 690,
         price: 7.59,
       },
-      large: {
+      {
+        size: 40,
         weight: 1010,
         price: 10.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['bbq sauce', 'mozzarella cheese', 'pepperoni sausage', 'ham', 'bacon', 'chicken'],
     isPopular: true,
     dishType: 'pizza',
@@ -95,24 +89,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza four cheeses',
     img: FourCheeses,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 470,
         price: 5.69,
       },
-      medium: {
+      {
+        size: 30,
         weight: 630,
         price: 7.99,
       },
-      large: {
+      {
+        size: 40,
         weight: 950,
         price: 10.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'dor blue cheese', 'cheddar cheese', 'emmental cheese'],
     isPopular: true,
     dishType: 'pizza',
@@ -121,24 +115,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza meat platter',
     img: MeatPlatter,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 560,
         price: 5.99,
       },
-      medium: {
+      {
+        size: 30,
         weight: 780,
         price: 8.59,
       },
-      large: {
+      {
+        size: 40,
         weight: 1170,
         price: 10.99,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'tomatoes', 'beef', 'pork', 'chicken', 'bacon'],
     isPopular: true,
     dishType: 'pizza',
@@ -147,24 +141,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza chicken',
     img: Chicken,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 530,
         price: 5.69,
       },
-      medium: {
+      {
+        size: 30,
         weight: 710,
         price: 7.59,
       },
-      large: {
+      {
+        size: 40,
         weight: 1080,
         price: 10.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'chicken'],
     isPopular: true,
     dishType: 'pizza',
@@ -173,24 +167,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza margarita',
     img: Margarita,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 450,
         price: 4.29,
       },
-      medium: {
+      {
+        size: 30,
         weight: 590,
         price: 5,
       },
-      large: {
+      {
+        size: 40,
         weight: 880,
         price: 6.89,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese'],
     isPopular: true,
     dishType: 'pizza',
@@ -199,24 +193,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza beef',
     img: Beef,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 540,
         price: 5.89,
       },
-      medium: {
+      {
+        size: 30,
         weight: 755,
         price: 8.29,
       },
-      large: {
+      {
+        size: 40,
         weight: 1115,
         price: 11.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['bbq sauce', 'mozzarella cheese', 'beef', 'pickled cucumbers'],
     isPopular: true,
     dishType: 'pizza',
@@ -225,24 +219,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza pork',
     img: Pork,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 540,
         price: 5.59,
       },
-      medium: {
+      {
+        size: 30,
         weight: 760,
         price: 7.99,
       },
-      large: {
+      {
+        size: 40,
         weight: 1180,
         price: 10.99,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['spicy sauce', 'mozzarella cheese', 'pork', 'pickled cucumbers', 'jalapeno pepper', 'tomatoes'],
     isPopular: true,
     dishType: 'pizza',
@@ -251,24 +245,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza hawaiian',
     img: Hawaiian,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 490,
         price: 4.29,
       },
-      medium: {
+      {
+        size: 30,
         weight: 680,
         price: 5.79,
       },
-      large: {
+      {
+        size: 40,
         weight: 1030,
         price: 8.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'ham', 'pineapples'],
     isPopular: false,
     dishType: 'pizza',
@@ -277,24 +271,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza mexican',
     img: Mexican,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 500,
         price: 4.69,
       },
-      medium: {
+      {
+        size: 30,
         weight: 700,
         price: 6.59,
       },
-      large: {
+      {
+        size: 40,
         weight: 1000,
         price: 9.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'spices', 'bell pepper', 'onion', 'chopped beef', 'beans', 'mozzarella cheese'],
     isPopular: false,
     dishType: 'pizza',
@@ -303,24 +297,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza seafood',
     img: Seafood,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 550,
         price: 8.99,
       },
-      medium: {
+      {
+        size: 30,
         weight: 730,
         price: 11.99,
       },
-      large: {
+      {
+        size: 40,
         weight: 1120,
         price: 16.99,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'garlic', 'octopus', 'tiger shrimp', 'cocktail shrimp', 'squid', 'lemon'],
     isPopular: false,
     dishType: 'pizza',
@@ -329,24 +323,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza carbonara',
     img: Carbonara,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 0,
         price: 0,
       },
-      medium: {
+      {
+        size: 30,
         weight: 635,
         price: 7.99,
       },
-      large: {
+      {
+        size: 40,
         weight: 1025,
         price: 11.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'mushrooms', 'bacon', 'parmesan cheese'],
     isPopular: false,
     dishType: 'pizza',
@@ -355,24 +349,24 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza classical',
     img: Classical,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 490,
         price: 469,
       },
-      medium: {
+      {
+        size: 30,
         weight: 670,
         price: 6.59,
       },
-      large: {
+      {
+        size: 40,
         weight: 1040,
         price: 8.49,
       },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard', 'thin'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'mushrooms', 'pepperoni sausage', 'ham'],
     isPopular: false,
     dishType: 'pizza',
@@ -381,24 +375,14 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza sausages',
     img: Sausages,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 430,
         price: 3.69,
       },
-      medium: {
-        weight: 0,
-        price: 0,
-      },
-      large: {
-        weight: 0,
-        price: 0,
-      },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'pepperoni sausage', 'ham', 'pork sausages'],
     isPopular: false,
     dishType: 'pizza',
@@ -407,24 +391,14 @@ const dataPizza: IPizza[] = [
   {
     name: 'pizza mushrooms',
     img: Mushrooms,
-    size: {
-      small: {
+    size: [
+      {
+        size: 26,
         weight: 450,
         price: 3.69,
       },
-      medium: {
-        weight: 0,
-        price: 0,
-      },
-      large: {
-        weight: 0,
-        price: 0,
-      },
-    },
-    basis: {
-      standard: true,
-      thin: true,
-    },
+    ],
+    basis: ['standard'],
     ingredients: ['pizza sauce', 'mozzarella cheese', 'mushrooms', 'red onion', 'ham'],
     isPopular: false,
     dishType: 'pizza',
