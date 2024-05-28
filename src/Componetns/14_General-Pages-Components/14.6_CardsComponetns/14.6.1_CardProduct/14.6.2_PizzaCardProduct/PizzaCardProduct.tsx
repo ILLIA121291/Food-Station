@@ -5,15 +5,16 @@ import { FC, useState } from 'react';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
 import TitlePanel from '../14.6.1.0_GeneralComponentsCardProduct/2_TitlePanel';
-import IngredientsPanel from '../14.6.1.0_GeneralComponentsCardProduct/3_IngredientsPanel';
+import IngredientsPanel from '../14.6.1.0_GeneralComponentsCardProduct/3_IngredientsPanel copy';
 import SizePanel from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanel';
 import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_QuantityCostWeightPanel';
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
 
 export interface IExtraIngredient {
-  name: string;
-  price: number | string;
+  name: string | undefined;
+  price: number;
   quantity: number;
+  cost: number
 }
 
 export interface IOrderPizza {

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, } from 'react';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import QuantityInput from '../../../14.5_FormsComponents/QuantityInput';
