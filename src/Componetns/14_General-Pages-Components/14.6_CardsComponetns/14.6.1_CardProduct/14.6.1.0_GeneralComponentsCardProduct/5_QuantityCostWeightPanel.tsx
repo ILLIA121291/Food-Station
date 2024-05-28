@@ -13,7 +13,6 @@ interface IProps {
 const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder }) => {
   const onSetQuantity = (num: number): void => {
     let quantity = order.total.quantity;
-    
 
     if (num < 1) {
       quantity - 1 < 1 ? (quantity = 1) : (quantity -= 1);
@@ -27,6 +26,7 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder }) => {
         total: {
           ...order.total,
           quantity,
+          weight: order.parameters.weight * quantity,
         },
         parameters: {
           ...order.parameters,
@@ -36,7 +36,7 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder }) => {
   };
 
   return (
-    <div className="mt15 f_jc_sb us-se">
+    <div className="mt15 f_jc_sb us-se wt270">
       <QuantityInput calFunction={onSetQuantity} displayNumber={order.total.quantity} />
 
       <div className=" wt150 tx-al-c">

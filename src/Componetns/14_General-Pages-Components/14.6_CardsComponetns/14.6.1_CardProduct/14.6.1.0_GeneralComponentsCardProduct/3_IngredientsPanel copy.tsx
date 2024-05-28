@@ -185,12 +185,12 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
 
   return (
     <div
-      className="mt15 pos_rel bd bdr10 p5 fw600 us-se cur-poi bkgr__br-lt "
+      className="mt15 pos_rel bd wt270 bdr10  fw600 us-se cur-poi bkgr__br-lt "
       onClick={e => {
         e.stopPropagation(), setListState(!listState);
       }}
     >
-      <p className="tx-tr-cap tx-al-c">extra ingredients</p>
+      <p className="tx-tr-cap mt5 tx-al-c">extra ingredients</p>
       <div className="f_jc_sb p5 ">
         <div className="f_ac wt80">
           <p className="wt60">Total: {displayTotalIngredientsQty}</p>
@@ -206,12 +206,12 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
         </p>
 
         <div className="extra-ingre__container bdr10 zindex150 bkgr__wh fw600 over_hid " style={listState ? { height: refUl.current!.scrollHeight, border: '1px solid #000' } : { height: '0px', border: '0px solid #000' }} onClick={e => e.stopPropagation()}>
-          <ul ref={refUl} className="wt310 p5" onClick={e => addRemoveIngredient(e)}>
+          <ul ref={refUl} className="wt270 p5" onClick={e => addRemoveIngredient(e)}>
             {extraIngredientsPizza.map((item, index) => {
               return <ItemIngridient key={index} name={item.name} price={item.price} order={order} />;
             })}
           </ul>
-          <BlockErrorMessages name="extra-ingredient" color="blc" className="wt300" message={displayInfoMessage.message} display={displayInfoMessage.display} />
+          <BlockErrorMessages name="extra-ingredient" color="blc" className="wt260" message={displayInfoMessage.message} display={displayInfoMessage.display} />
         </div>
       </div>
     </div>

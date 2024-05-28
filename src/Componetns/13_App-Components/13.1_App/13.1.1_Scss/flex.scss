@@ -5,6 +5,7 @@
 }
 
 .f_jc {
+  display: flex;
   justify-content: center;
 }
 
@@ -34,8 +35,18 @@
   gap: 15px;
 }
 
+.fg10 {
+  gap: 10px;
+}
+
 // FLEX GROW --------------------------------------------
 
-.f__gro1{
+.f__gro1 {
   flex-grow: 1;
+}
+
+// FLEX WRAP ---------------------
+
+.f__wrap {
+  flex-wrap: wrap;
 }

@@ -14,7 +14,7 @@ export interface IExtraIngredient {
   name: string | undefined;
   price: number;
   quantity: number;
-  cost: number
+  cost: number;
 }
 
 export interface IOrderPizza {
@@ -98,16 +98,14 @@ const PizzaCardProduct: FC<IProps> = ({ data }) => {
 
   const [order, setOrder] = useState<IOrderPizza>(inisialOrderPizza);
 
-  console.log(order);
-
   return (
-    <div className="wt310 pt30">
+    <div className="wt310 p15 bdr15 ">
       <ImagePanel image={data.img} alt={data.name} />
       <TitlePanel titel={data.name} />
       <IngredientsPanel order={order} setOrder={setOrder} />
       <SizePanel data={data} order={order} setOrder={setOrder} />
       <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} />
-      {/* <BtnAddToCart/> */}
+      <BtnAddToCart order={order} setOrder={setOrder} />
     </div>
   );
 };

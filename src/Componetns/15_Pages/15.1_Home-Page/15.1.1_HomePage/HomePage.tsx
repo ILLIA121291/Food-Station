@@ -6,8 +6,21 @@ import { FC } from 'react';
 
 const HomePage: FC = () => {
   return (
-    <div className="gbs__border">
-      <CardProduct data={dataPizza[0]} />
+    <div className="gbs__border f_jc_sb f__wrap fg10">
+      {
+        dataPizza.map((value, index) => {
+          return <CardProduct  key={index} data={value} />
+        })
+      }
+
+      {/* <CardProduct data={dataPizza[0]} />
+      <CardProduct data={dataPizza[1]} />
+      <CardProduct data={dataPizza[2]} />
+      <CardProduct data={dataPizza[14]} />
+      <CardProduct data={dataPizza[13]} />
+      <CardProduct data={dataPizza[12]} />
+      <CardProduct data={dataPizza[11]} />
+      <CardProduct data={dataPizza[10]} /> */}
     </div>
   );
 };

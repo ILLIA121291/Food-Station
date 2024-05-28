@@ -46,7 +46,7 @@ const SizePanel: FC<IProps> = ({ data, order, setOrder }) => {
   };
 
   return (
-    <div className=" mt15" onClick={onChangBasisSize}>
+    <div className="mt15 wt270 " onClick={onChangBasisSize}>
       <PanelBasis data={data} order={order} setOrder={setOrder} />
       <PanelSize data={data} order={order} setOrder={setOrder} />
     </div>
@@ -63,12 +63,12 @@ interface IPanelBasis {
 
 const PanelBasis: FC<IPanelBasis> = ({ data, order }) => {
   return (
-    <div className="f">
+    <div className="f_jc">
       {data.basis.sort().map((value, i) => {
         const activeBtn = value == order.parameters.basis ? 'btn__active' : 'bkgr__br-lt';
 
         return (
-          <button key={i} className={`fw600 wt155 fs16 bd bdr5  ${activeBtn}`}>
+          <button key={i} className={`fw600 wt133 fs16 bd bdr5  ${activeBtn}`}>
             {value}
           </button>
         );
@@ -87,15 +87,14 @@ interface IPanelSize {
 
 const PanelSize: FC<IPanelSize> = ({ data, order }) => {
   return (
-    <div className="f ">
+    <div className="f_jc">
       {data.size
         .sort((a, b) => a.size - b.size)
         .map((value, i) => {
           const activeBtn = value.size == order.parameters.size ? 'btn__active' : 'bkgr__br-lt';
 
           return (
-            <button key={i} data-pizza-size={value.size} data-pizza-price={value.price} data-pizza-weight={value.weight} 
-            className={`fs16 fw600 bd bdr5 wt103 f_jc-ac ${activeBtn}`}>
+            <button key={i} data-pizza-size={value.size} data-pizza-price={value.price} data-pizza-weight={value.weight} className={`fs16 fw600 bd bdr5 wt88 f_jc-ac ${activeBtn}`}>
               {value.size} cm
             </button>
           );
