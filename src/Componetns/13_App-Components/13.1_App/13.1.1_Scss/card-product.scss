@@ -13,7 +13,7 @@
 .extra-ingre__container {
   position: absolute;
   top: 59px;
-  left: 0px;
+  left: -1px;
   transition: height 300ms;
 }
 
@@ -24,5 +24,11 @@
 }
 
 // Size Panel ------------------------
+
+.btn__active {
+  background: #ee7b49;
+  color: white;
+}
+
 // QuantityCostWeight Panel ------------------------
 // BtnAddToCart ------------------------

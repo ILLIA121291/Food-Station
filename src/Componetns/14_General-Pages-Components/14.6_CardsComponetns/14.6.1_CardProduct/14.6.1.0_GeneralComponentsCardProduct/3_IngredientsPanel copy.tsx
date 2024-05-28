@@ -36,12 +36,10 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
   // Display Total Ingredients - Cost --------------------------------------------------
 
   let displayTotalIngredientsQty: number = 0;
-  let displayTotalIngredientsCost: number = 0;
 
   if (order.parameters.extraIngredients.length != 0) {
     order.parameters.extraIngredients.forEach(value => {
       displayTotalIngredientsQty += value.quantity;
-      displayTotalIngredientsCost += value.cost;
     });
   }
 
@@ -89,6 +87,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
             parameters: {
               ...order.parameters,
               extraIngredients: [{ name, price, quantity: 1, cost: price }],
+              priceExtraIngredients: toFixedNumber(price),
             },
           };
         });
@@ -119,6 +118,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
                 parameters: {
                   ...order.parameters,
                   extraIngredients: [...order.parameters.extraIngredients, { name, price, quantity: 1, cost: toFixedNumber(1 * price) }],
+                  priceExtraIngredients: toFixedNumber(order.parameters.priceExtraIngredients + price),
                 },
               };
             });
@@ -130,12 +130,17 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
 
             filterArr.push({ name, price, quantity: qtyThisIngredientInOrder, cost: toFixedNumber(qtyThisIngredientInOrder * price) });
 
+            let priceExtraIngredients: number = 0;
+
+            filterArr.forEach(value => (priceExtraIngredients += value.cost));
+
             setOrder(order => {
               return {
                 ...order,
                 parameters: {
                   ...order.parameters,
                   extraIngredients: filterArr,
+                  priceExtraIngredients: toFixedNumber(priceExtraIngredients),
                 },
               };
             });
@@ -146,25 +151,32 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
 
     // Remove One Ingridient ----------------------------------------------------
     if ((e.target as HTMLButtonElement).classList.contains('removeIngridient')) {
-      const newArr = order.parameters.extraIngredients.map(value => {
-        if (value.name == name) {
-          return {
-            name: value.name,
-            price: value.price,
-            quantity: value.quantity - 1,
-            cost: toFixedNumber((value.quantity - 1) * price),
-          };
-        } else {
-          return value;
-        }
-      });
+      const newArrIngridients = order.parameters.extraIngredients
+        .map(value => {
+          if (value.name == name) {
+            return {
+              name: value.name,
+              price: value.price,
+              quantity: value.quantity - 1,
+              cost: toFixedNumber((value.quantity - 1) * price),
+            };
+          } else {
+            return value;
+          }
+        })
+        .filter(value => value.quantity > 0);
+
+      let priceExtraIngredients: number = 0;
+
+      newArrIngridients.forEach(value => (priceExtraIngredients += value.cost));
 
       setOrder(order => {
         return {
           ...order,
           parameters: {
             ...order.parameters,
-            extraIngredients: newArr.filter(value => value.quantity > 0),
+            extraIngredients: newArrIngridients,
+            priceExtraIngredients: toFixedNumber(priceExtraIngredients),
           },
         };
       });
@@ -187,7 +199,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder }) => {
           </button>
         </div>
 
-        <div className=" f_jc-ac">+ {toFixedNumber(displayTotalIngredientsCost)} USD</div>
+        <div className=" f_jc-ac">+ {order.parameters.priceExtraIngredients} USD</div>
 
         <p style={{ color: colorImgBtnAdd }} className="extra-ingre__btn fs16 wt45 bkgr__tra fw600 tx-al-l r">
           + add

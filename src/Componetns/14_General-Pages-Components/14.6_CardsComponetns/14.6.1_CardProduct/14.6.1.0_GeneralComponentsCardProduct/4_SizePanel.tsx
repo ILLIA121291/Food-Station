@@ -1,7 +1,6 @@
 import { FC, MouseEvent } from 'react';
 import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
-import toFixedNumber from '../../../../10_Utilities/toFixedNumber';
 
 interface IProps {
   data: IPizza;
@@ -66,10 +65,10 @@ const PanelBasis: FC<IPanelBasis> = ({ data, order }) => {
   return (
     <div className="f">
       {data.basis.sort().map((value, i) => {
-        const activeBtn = value == order.parameters.basis ? 'rc' : '';
+        const activeBtn = value == order.parameters.basis ? 'btn__active' : 'bkgr__br-lt';
 
         return (
-          <button key={i} className={`wr155 fs16 p5 bd bdr5 ${activeBtn}`}>
+          <button key={i} className={`fw600 wt155 fs16 bd bdr5  ${activeBtn}`}>
             {value}
           </button>
         );
@@ -88,14 +87,15 @@ interface IPanelSize {
 
 const PanelSize: FC<IPanelSize> = ({ data, order }) => {
   return (
-    <div className="f">
+    <div className="f ">
       {data.size
         .sort((a, b) => a.size - b.size)
         .map((value, i) => {
-          const activeBtn = value.size == order.parameters.size ? 'rc' : '';
+          const activeBtn = value.size == order.parameters.size ? 'btn__active' : 'bkgr__br-lt';
 
           return (
-            <button key={i} data-pizza-size={value.size} data-pizza-price={value.price} data-pizza-weight={value.weight} className={`fs16 p5 bd bdr5 wt103 f_jc-ac ${activeBtn}`}>
+            <button key={i} data-pizza-size={value.size} data-pizza-price={value.price} data-pizza-weight={value.weight} 
+            className={`fs16 fw600 bd bdr5 wt103 f_jc-ac ${activeBtn}`}>
               {value.size} cm
             </button>
           );
