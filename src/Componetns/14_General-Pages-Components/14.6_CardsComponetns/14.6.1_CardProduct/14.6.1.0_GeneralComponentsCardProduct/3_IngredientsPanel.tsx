@@ -9,6 +9,10 @@ import toFixedNumber from '../../../../10_Utilities/toFixedNumber';
 import { IExtraIngredient } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
+import useDisplayPriceInCurrency from '../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
+import { useSelector } from 'react-redux';
+import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
+
 interface IProps {
   langugeApp: typeof english;
   order: IOrderPizza;
@@ -236,6 +240,8 @@ interface ItemIngridient {
 
 const ItemIngridient: FC<ItemIngridient> = ({ name, price, order, langugeApp }) => {
   const text: { [key: string]: string } = langugeApp.textCardProduct.textExtraIngredients;
+  const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
+
   let displayAddPanel: boolean = false;
   let displayQty: number = 0;
 
@@ -268,7 +274,7 @@ const ItemIngridient: FC<ItemIngridient> = ({ name, price, order, langugeApp }) 
         </button>
 
         <p data-name={name} data-price={price} className="wt85 addIngridient">
-          {price} USD
+          {useDisplayPriceInCurrency(currency, price)}
         </p>
       </div>
     </li>
