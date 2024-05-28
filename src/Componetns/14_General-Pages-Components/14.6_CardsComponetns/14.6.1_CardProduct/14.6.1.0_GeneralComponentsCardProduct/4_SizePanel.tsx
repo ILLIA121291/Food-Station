@@ -1,14 +1,16 @@
 import { FC, MouseEvent } from 'react';
 import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
+import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 interface IProps {
   data: IPizza;
   order: IOrderPizza;
   setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
+  langugeApp: typeof english;
 }
 
-const SizePanel: FC<IProps> = ({ data, order, setOrder }) => {
+const SizePanel: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
   const onChangBasisSize = (e: MouseEvent<HTMLDivElement>) => {
     const textInner = (e.target as HTMLButtonElement).innerText;
 
@@ -47,8 +49,8 @@ const SizePanel: FC<IProps> = ({ data, order, setOrder }) => {
 
   return (
     <div className="mt15 wt270 " onClick={onChangBasisSize}>
-      <PanelBasis data={data} order={order} setOrder={setOrder} />
-      <PanelSize data={data} order={order} setOrder={setOrder} />
+      <PanelBasis data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <PanelSize data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
     </div>
   );
 };
@@ -59,9 +61,12 @@ interface IPanelBasis {
   data: IPizza;
   order: IOrderPizza;
   setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
+  langugeApp: typeof english;
 }
 
-const PanelBasis: FC<IPanelBasis> = ({ data, order }) => {
+const PanelBasis: FC<IPanelBasis> = ({ data, order, langugeApp }) => {
+  const text: { [key: string]: string } = langugeApp.textCardProduct.textGeneral;
+
   return (
     <div className="f_jc">
       {data.basis.sort().map((value, i) => {
@@ -69,7 +74,7 @@ const PanelBasis: FC<IPanelBasis> = ({ data, order }) => {
 
         return (
           <button key={i} className={`fw600 wt133 fs16 bd bdr5  ${activeBtn}`}>
-            {value}
+            {text[value]}
           </button>
         );
       })}
@@ -83,9 +88,11 @@ interface IPanelSize {
   data: IPizza;
   order: IOrderPizza;
   setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
+  langugeApp: typeof english;
 }
 
-const PanelSize: FC<IPanelSize> = ({ data, order }) => {
+const PanelSize: FC<IPanelSize> = ({ data, order, langugeApp }) => {
+  const text = langugeApp.textCardProduct.textGeneral;
   return (
     <div className="f_jc">
       {data.size
@@ -95,7 +102,7 @@ const PanelSize: FC<IPanelSize> = ({ data, order }) => {
 
           return (
             <button key={i} data-pizza-size={value.size} data-pizza-price={value.price} data-pizza-weight={value.weight} className={`fs16 fw600 bd bdr5 wt88 f_jc-ac ${activeBtn}`}>
-              {value.size} cm
+              {value.size} {text.cm}
             </button>
           );
         })}

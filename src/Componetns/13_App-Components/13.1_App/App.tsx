@@ -63,7 +63,7 @@ const App: FC = () => {
   return (
     <div className="app">
       <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
-      <HomePage />
+      <HomePage langugeApp={langugeApp} />
       <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />
     </div>
   );

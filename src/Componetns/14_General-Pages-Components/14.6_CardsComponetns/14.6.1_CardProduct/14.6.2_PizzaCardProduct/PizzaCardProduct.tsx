@@ -5,10 +5,11 @@ import { FC, useState } from 'react';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
 import TitlePanel from '../14.6.1.0_GeneralComponentsCardProduct/2_TitlePanel';
-import IngredientsPanel from '../14.6.1.0_GeneralComponentsCardProduct/3_IngredientsPanel copy';
+import IngredientsPanel from '../14.6.1.0_GeneralComponentsCardProduct/3_IngredientsPanel';
 import SizePanel from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanel';
 import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_QuantityCostWeightPanel';
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
+import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 export interface IExtraIngredient {
   name: string | undefined;
@@ -42,9 +43,23 @@ export interface IOrderPizza {
 
 interface IProps {
   data: IPizza;
+  langugeApp: typeof english;
 }
 
-const PizzaCardProduct: FC<IProps> = ({ data }) => {
+const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
+  // Bassis Pizza Inisial ----------------------------------------------
+  let basis: 'standard' | 'thin' = 'standard';
+
+  for (let i = 0; i < data.basis.length; i++) {
+    if (data.basis[i] == basis) {
+      basis = 'standard';
+      break;
+    } else {
+      basis = data.basis[0] as 'standard' | 'thin';
+    }
+  }
+
+  // Size Weight Price Pizza Inisial ---------------------------
   let size: 26 | 30 | 40 = 30;
   let weight: number = 0;
   let price: number = 0;
@@ -62,17 +77,7 @@ const PizzaCardProduct: FC<IProps> = ({ data }) => {
     }
   }
 
-  let basis: 'standard' | 'thin' = 'standard';
-
-  for (let i = 0; i < data.basis.length; i++) {
-    if (data.basis[i] == basis) {
-      basis = 'standard';
-      break;
-    } else {
-      basis = data.basis[0] as 'standard' | 'thin';
-    }
-  }
-
+  // Order Inisial State ---------------------------------------------
   const inisialOrderPizza: IOrderPizza = {
     parameters: {
       name: data.name,
@@ -102,10 +107,10 @@ const PizzaCardProduct: FC<IProps> = ({ data }) => {
     <div className="wt310 p15 bdr15 ">
       <ImagePanel image={data.img} alt={data.name} />
       <TitlePanel titel={data.name} />
-      <IngredientsPanel order={order} setOrder={setOrder} />
-      <SizePanel data={data} order={order} setOrder={setOrder} />
-      <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} />
-      <BtnAddToCart order={order} setOrder={setOrder} />
+      <IngredientsPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <SizePanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
     </div>
   );
 };
