@@ -1,0 +1,13 @@
+.slider {
+  &__window {
+    max-width: 1270px;
+    overflow-x: clip;
+
+    user-select: none;
+  }
+
+  &__line {
+    display: flex;
+    transition: transform 0.5s;
+  }
+}

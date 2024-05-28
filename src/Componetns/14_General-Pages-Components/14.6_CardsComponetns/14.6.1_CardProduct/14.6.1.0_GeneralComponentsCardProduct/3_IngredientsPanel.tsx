@@ -194,7 +194,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
 
   return (
     <div
-      className="mt15 pos_rel bd wt270 bdr10  fw600 us-se cur-poi bkgr__br-lt "
+      className="mt15 pos_rel bd wt270 bdr10 fw600 us-se cur-poi bkgr__br-lt "
       onClick={e => {
         e.stopPropagation(), setListState(!listState);
       }}
