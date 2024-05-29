@@ -26,7 +26,7 @@ export interface ISushi {
   isPopular: boolean;
   dishType: 'sushi';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 // Tags ------------------------------------------------
 const tags: string[] = ['spicy', 'vegetarian'];
@@ -42,7 +42,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'lightly salted salmon'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'spicy syake',
@@ -53,7 +53,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'lightly salted salmon', 'spice sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'chuka',
@@ -64,7 +64,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'chuka salad'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'unagi',
@@ -75,7 +75,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'unagi sauce', 'smoked eel', 'sesame'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'Ebi',
@@ -86,7 +86,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'shrimp'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'tomago',
@@ -97,7 +97,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'unagi sauce', 'omelette', 'sesame'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'hot hotate',
@@ -108,7 +108,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'scallop', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'hotate',
@@ -119,7 +119,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'scallop'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'hot koonsei',
@@ -130,7 +130,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'smoked salmon', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'hot maguro',
@@ -141,7 +141,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'tuna', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'hot syake',
@@ -152,7 +152,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'lightly salted salmon', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'hot unagi',
@@ -163,7 +163,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'lightly salted eel', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'spice kunsei',
@@ -174,7 +174,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'smoked salmon', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'spice maguro',
@@ -185,7 +185,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'tuna', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'spice hotate',
@@ -196,7 +196,7 @@ const products: ISushi[] = [
     isPopular: false,
     dishType: 'sushi',
     ingredients: ['rice', 'nori', 'scallop', 'spicy sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
 ];
 

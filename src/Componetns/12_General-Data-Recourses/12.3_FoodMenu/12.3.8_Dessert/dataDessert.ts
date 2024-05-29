@@ -16,7 +16,7 @@ export interface IDessert {
   isPopular: boolean;
   dishType: 'dessert';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 
 // Tags ------------------------------------------------
@@ -32,7 +32,7 @@ const products: IDessert[] = [
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['shortbread', 'curd cheese', 'cream'],
-    tages: ['cake'],
+    tags: ['cake'],
   },
   {
     name: 'dessert "mango"',
@@ -42,7 +42,7 @@ const products: IDessert[] = [
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['mango', 'passion fruit', 'cream', 'white chocolate icing', 'cream cheese', 'gelatin', 'cocoa'],
-    tages: ['dessert'],
+    tags: ['dessert'],
   },
   {
     name: 'dessert "raspberries"',
@@ -52,7 +52,7 @@ const products: IDessert[] = [
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['raspberries', 'cream', 'white chocolate icing', 'cream cheese', 'gelatin', 'cocoa'],
-    tages: ['dessert'],
+    tags: ['dessert'],
   },
   {
     name: 'dessert "tiramisu"',
@@ -62,7 +62,7 @@ const products: IDessert[] = [
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['cream', 'liqueur', 'cookies', 'coffee'],
-    tages: ['dessert'],
+    tags: ['dessert'],
   },
   {
     name: 'chocolate ice cream',
@@ -72,7 +72,7 @@ const products: IDessert[] = [
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['chocolate ice cream', 'salted caramel', 'peanuts'],
-    tages: ['ice cream'],
+    tags: ['ice cream'],
   },
   {
     name: 'vanilla ice cream',
@@ -82,7 +82,7 @@ const products: IDessert[] = [
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['vanilla ice cream', 'salted caramel', 'peanuts', 'chocolate'],
-    tages: ['ice cream'],
+    tags: ['ice cream'],
   },
 ];
 

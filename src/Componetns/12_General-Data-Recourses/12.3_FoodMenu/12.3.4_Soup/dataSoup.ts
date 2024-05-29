@@ -14,7 +14,7 @@ export interface ISoup {
   isPopular: boolean;
   dishType: 'soup';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 // Tags ------------------------------------------------
 const tags: string[] = ['spicy', 'vegetarian'];
@@ -29,7 +29,7 @@ const products: ISoup[] = [
     isPopular: false,
     dishType: 'soup',
     ingredients: ['cream', 'lemongrass', 'coconut milk', 'chili pepper', 'garlic', 'shrimp', 'rice'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'miso-shiro',
@@ -39,7 +39,7 @@ const products: ISoup[] = [
     isPopular: false,
     dishType: 'soup',
     ingredients: ['wakame seaweed', 'soybeans', 'shiitake mushrooms', 'bean curd'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'tom kha',
@@ -49,7 +49,7 @@ const products: ISoup[] = [
     isPopular: false,
     dishType: 'soup',
     ingredients: ['vegetable oil', 'chili pepper', 'lemongrass', 'chicken broth', 'coconut milk', 'galangal'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'chicken broth',
@@ -59,7 +59,7 @@ const products: ISoup[] = [
     isPopular: false,
     dishType: 'soup',
     ingredients: ['chicken', 'broth', 'wheat croutons'],
-    tages: [],
+    tags: [],
   },
 ];
 

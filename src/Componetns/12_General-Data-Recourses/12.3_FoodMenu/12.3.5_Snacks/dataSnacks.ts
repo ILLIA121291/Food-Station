@@ -20,7 +20,7 @@ export interface ISnack {
   isPopular: boolean;
   dishType: 'snacks';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 
 // Tags ------------------------------------------------
@@ -36,7 +36,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken nuggets'],
-    tages: ['deep-frying'],
+    tags: ['deep-frying'],
   },
   {
     name: 'nuggets with country-style potatoes',
@@ -46,7 +46,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken nuggets', 'potato wedges', 'pickled cucumbers'],
-    tages: ['deep-frying'],
+    tags: ['deep-frying'],
   },
   {
     name: 'nuggets with potatoes',
@@ -56,7 +56,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken nuggets', 'french fries', 'pickled cucumbers'],
-    tages: ['deep-frying'],
+    tags: ['deep-frying'],
   },
   {
     name: 'french fries',
@@ -66,7 +66,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['french fries'],
-    tages: ['deep-frying', 'vegetarian'],
+    tags: ['deep-frying', 'vegetarian'],
   },
   {
     name: 'chicken teriyaki with rice',
@@ -76,7 +76,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['vegetable oil', 'chicken breast', 'teriyaki sauce', 'rice', 'sesame'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'country style potatoes',
@@ -86,7 +86,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['deep-frying potato'],
-    tages: ['deep-frying'],
+    tags: ['deep-frying'],
   },
   {
     name: 'buffalo wings',
@@ -96,7 +96,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken wings', 'bbq sauce'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'shrimp "lux"',
@@ -106,7 +106,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['shrimp', 'batter', 'breadcrumbs'],
-    tages: ['deep-frying'],
+    tags: ['deep-frying'],
   },
   {
     name: 'beef with potatoes and mushrooms',
@@ -116,7 +116,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['beef', 'champignons', 'potato', 'garlic sauce'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'sausages with French fries',
@@ -126,7 +126,7 @@ const products: ISnack[] = [
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['pork sausages', 'french fries', 'pickled cucumbers'],
-    tages: ['deep-frying'],
+    tags: ['deep-frying'],
   },
 ];
 

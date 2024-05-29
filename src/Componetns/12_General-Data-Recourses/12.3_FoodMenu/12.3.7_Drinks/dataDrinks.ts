@@ -20,7 +20,7 @@ export interface IDrink {
   isPopular: boolean;
   dishType: 'drink';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 
 // Tags ------------------------------------------------
@@ -36,7 +36,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: [],
-    tages: ['soft drinks'],
+    tags: ['soft drinks'],
   },
   {
     name: 'cranberrysaft',
@@ -46,7 +46,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: [],
-    tages: ['juices'],
+    tags: ['juices'],
   },
   {
     name: 'orange drink',
@@ -56,7 +56,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: [],
-    tages: ['soft drinks'],
+    tags: ['soft drinks'],
   },
   {
     name: 'green tea mango',
@@ -66,7 +66,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: [],
-    tages: ['tea'],
+    tags: ['tea'],
   },
   {
     name: 'cherry juice',
@@ -76,7 +76,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: ['cherry juice'],
-    tages: ['juices'],
+    tags: ['juices'],
   },
   {
     name: 'black tea lemon',
@@ -86,7 +86,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: [],
-    tages: ['tea'],
+    tags: ['tea'],
   },
   {
     name: 'orange juice',
@@ -96,7 +96,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: ['orange juice'],
-    tages: ['juices'],
+    tags: ['juices'],
   },
   {
     name: 'drinking water',
@@ -106,7 +106,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: ['drinking water'],
-    tages: ['soft drinks', 'water'],
+    tags: ['soft drinks', 'water'],
   },
   {
     name: 'apple juice',
@@ -116,7 +116,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: ['apple juice'],
-    tages: ['juices'],
+    tags: ['juices'],
   },
   {
     name: 'beer "Bud"',
@@ -126,7 +126,7 @@ const products: IDrink[] = [
     isPopular: false,
     dishType: 'drink',
     ingredients: ['nonalcoholic beer'],
-    tages: ['beer'],
+    tags: ['beer'],
   },
 ];
 

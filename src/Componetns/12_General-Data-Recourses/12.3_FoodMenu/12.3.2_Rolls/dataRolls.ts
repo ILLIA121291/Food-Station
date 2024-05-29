@@ -26,7 +26,7 @@ export interface IRoll {
   isPopular: boolean;
   dishType: 'roll';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 
 // Tags ------------------------------------------------
@@ -43,7 +43,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fresh cucumbers', 'snow crab', 'masago caviar', 'hot sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'tampur cheese',
@@ -54,7 +54,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'breadcrumbs'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'Kuppu make',
@@ -65,7 +65,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fresh cucumbers', 'sesame'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'philadelphia',
@@ -76,7 +76,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'fresh cucumbers', 'salmon'],
-    tages: ['salmon roll'],
+    tags: ['salmon roll'],
   },
   {
     name: 'California cheese',
@@ -87,7 +87,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'masago caviar'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'beef tumpur',
@@ -98,7 +98,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'bacon', 'spicy sauce', 'cream cheese', 'fresh cucumbers', 'breadcrumbs'],
-    tages: ['beef roll', 'spicy'],
+    tags: ['beef roll', 'spicy'],
   },
   {
     name: 'philadelphia with eel',
@@ -109,7 +109,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'smoked eel', 'unagi sauce', 'sesame'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'new york',
@@ -120,7 +120,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'mayonnaise', 'fresh cucumbers', 'fried salmon skin', 'sesame'],
-    tages: ['salmon roll'],
+    tags: ['salmon roll'],
   },
   {
     name: 'kyoto',
@@ -131,7 +131,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fried salmon skin', 'fresh cucumbers'],
-    tages: ['salmon roll'],
+    tags: ['salmon roll'],
   },
   {
     name: 'hokkaido',
@@ -142,7 +142,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'snow crab', 'smoked salmon', 'sesame'],
-    tages: ['salmon roll'],
+    tags: ['salmon roll'],
   },
   {
     name: 'yasai maki',
@@ -153,7 +153,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fresh cucumbers', 'tomatoes', 'bell pepper', 'iceberg lettuce', 'sesame'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'spicy eel',
@@ -164,7 +164,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'spice sauce', 'smoked eel'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'chile',
@@ -175,7 +175,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'tomatoes', 'snow crab', 'spice sauce'],
-    tages: ['spicy', 'baked'],
+    tags: ['spicy', 'baked'],
   },
   {
     name: 'luxury shrimp',
@@ -186,7 +186,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'shrimp', 'mayonnaise', 'batter', 'breadcrumbs', 'sesame'],
-    tages: ['baked'],
+    tags: ['baked'],
   },
   {
     name: 'tuna',
@@ -197,7 +197,7 @@ const products: IRoll[] = [
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'tuna'],
-    tages: [],
+    tags: [],
   },
 ];
 

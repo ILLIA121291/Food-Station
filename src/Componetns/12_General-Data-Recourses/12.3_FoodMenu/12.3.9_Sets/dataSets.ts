@@ -22,7 +22,7 @@ export interface ISet {
   isPopular: boolean;
   dishType: 'set';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 // Tags ------------------------------------------------
 const tags: string[] = ['pizza-set', 'sushi-set', 'lunch-set'];
@@ -37,7 +37,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza medium 2 ps', 'poll 6ps', 'coca-cola 0.5l'],
-    tages: ['pizza-set', 'sushi-set'],
+    tags: ['pizza-set', 'sushi-set'],
   },
   {
     name: 'pizza set 2',
@@ -47,7 +47,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza lage 1 ps', 'poll 16ps'],
-    tages: ['pizza-set', 'sushi-set'],
+    tags: ['pizza-set', 'sushi-set'],
   },
   {
     name: 'pizza set 3',
@@ -57,7 +57,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza medium 6 ps'],
-    tages: ['pizza-set'],
+    tags: ['pizza-set'],
   },
   {
     name: 'pizza set 4',
@@ -67,7 +67,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza medium 3 ps'],
-    tages: ['pizza-set'],
+    tags: ['pizza-set'],
   },
   {
     name: 'pizza set 5',
@@ -77,7 +77,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza small 1 ps', 'rolls 28pz'],
-    tages: ['pizza-set', 'sushi-set'],
+    tags: ['pizza-set', 'sushi-set'],
   },
   {
     name: 'pizza set 6',
@@ -87,7 +87,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza small 1 ps', 'rolls 26pz'],
-    tages: ['pizza-set', 'sushi-set'],
+    tags: ['pizza-set', 'sushi-set'],
   },
   {
     name: 'pizza set 7',
@@ -97,7 +97,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza small 1 ps', 'rolls 12pz'],
-    tages: ['pizza-set', 'sushi-set'],
+    tags: ['pizza-set', 'sushi-set'],
   },
   {
     name: 'pizza set 8',
@@ -107,7 +107,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['pizza small 2 ps'],
-    tages: ['pizza-set'],
+    tags: ['pizza-set'],
   },
   {
     name: 'lunch set 1',
@@ -117,7 +117,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['soup 1 ps', 'rolls 8px'],
-    tages: ['sushi-set', 'lunch-set'],
+    tags: ['sushi-set', 'lunch-set'],
   },
   {
     name: 'lunch set 2',
@@ -127,7 +127,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['soup 1 ps', 'rolls 8px'],
-    tages: ['sushi-set', 'lunch-set'],
+    tags: ['sushi-set', 'lunch-set'],
   },
   {
     name: 'lunch set 3',
@@ -137,7 +137,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['soup 1 ps', 'chicken noodles 1 ps'],
-    tages: ['lunch-set'],
+    tags: ['lunch-set'],
   },
   {
     name: 'lunch set 4',
@@ -147,7 +147,7 @@ const products: ISet[] = [
     isPopular: false,
     dishType: 'set',
     ingredients: ['soup 1 ps', 'chicken teriyaki rice 1 ps'],
-    tages: ['lunch-set'],
+    tags: ['lunch-set'],
   },
 ];
 

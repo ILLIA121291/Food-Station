@@ -55,7 +55,7 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
   return (
     <div className="wt310 p15 bdr15">
-      <ImagePanel image={data.img} alt={data.name} />
+      <ImagePanel image={data.img} alt={data.name} tags={data.tags} />
       <TitlePanel titel={data.name} />
       <SizePanelBasic data={data} langugeApp={langugeApp} />
       <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />

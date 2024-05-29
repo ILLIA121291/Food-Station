@@ -24,7 +24,7 @@ export interface ISauce {
   isPopular: boolean;
   dishType: 'sauce';
   ingredients: string[];
-  tages: string[];
+  tags: string[];
 }
 
 // Tags ------------------------------------------------
@@ -40,7 +40,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['spicy sauces'],
-    tages: ['spicy', 'vegetarian'],
+    tags: ['spicy', 'vegetarian'],
   },
   {
     name: 'Sweet & sour',
@@ -50,7 +50,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['sweet-sour sauce'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'Hot',
@@ -60,7 +60,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['hot sauce'],
-    tages: ['spicy'],
+    tags: ['spicy'],
   },
   {
     name: 'Chef',
@@ -70,7 +70,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['garlic', 'mayonnaise', 'soy sauce', 'greens'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'Caesar',
@@ -80,7 +80,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['caesar sauce'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'teriyaki',
@@ -90,7 +90,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['teriyaki sauce'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'cheesy',
@@ -100,7 +100,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['cheesy sauce'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'bbq',
@@ -110,7 +110,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['bbq sauce'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'sushi sauces set',
@@ -120,7 +120,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['ginger', 'soy sauce', 'wasabi'],
-    tages: [],
+    tags: [],
   },
   {
     name: 'garlic',
@@ -130,7 +130,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['garlic sauce'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'ginger',
@@ -140,7 +140,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['ginger'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'soy sauce',
@@ -150,7 +150,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['soy sauce'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'wasabi',
@@ -160,7 +160,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['wasabi'],
-    tages: ['spicy', 'vegetarian'],
+    tags: ['spicy', 'vegetarian'],
   },
   {
     name: 'walnut',
@@ -170,7 +170,7 @@ const products: ISauce[] = [
     isPopular: false,
     dishType: 'sauce',
     ingredients: ['walnut sauce'],
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
 ];
 

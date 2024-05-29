@@ -31,7 +31,7 @@ export interface IPizza {
   ingredients: string[];
   isPopular: boolean;
   dishType: 'pizza';
-  tages: string[];
+  tags: string[];
 }
 
 export interface IExtraIngredientsPizza {
@@ -68,7 +68,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'pepperoni sausage'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['sausages'],
+    tags: ['sausages'],
   },
   {
     name: 'pizza bbq',
@@ -94,7 +94,7 @@ const products: IPizza[] = [
     ingredients: ['bbq sauce', 'mozzarella cheese', 'pepperoni sausage', 'ham', 'bacon', 'chicken'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['sausages', 'chicken', 'pork', 'beef'],
+    tags: ['sausages', 'chicken', 'pork', 'beef'],
   },
   {
     name: 'pizza four cheeses',
@@ -120,7 +120,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'dor blue cheese', 'cheddar cheese', 'emmental cheese'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'pizza meat platter',
@@ -146,7 +146,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'tomatoes', 'beef', 'pork', 'chicken', 'bacon'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['sausages', 'chicken', 'pork', 'beef'],
+    tags: ['sausages', 'chicken', 'pork', 'beef'],
   },
   {
     name: 'pizza chicken',
@@ -172,7 +172,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'chicken'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['chicken'],
+    tags: ['chicken'],
   },
   {
     name: 'pizza margarita',
@@ -198,7 +198,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['vegetarian'],
+    tags: ['vegetarian'],
   },
   {
     name: 'pizza beef',
@@ -224,7 +224,7 @@ const products: IPizza[] = [
     ingredients: ['bbq sauce', 'mozzarella cheese', 'beef', 'pickled cucumbers'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['beef'],
+    tags: ['beef'],
   },
   {
     name: 'pizza pork',
@@ -250,7 +250,7 @@ const products: IPizza[] = [
     ingredients: ['spicy sauce', 'mozzarella cheese', 'pork', 'pickled cucumbers', 'jalapeno pepper', 'tomatoes'],
     isPopular: true,
     dishType: 'pizza',
-    tages: ['pork', 'spicy'],
+    tags: ['pork', 'spicy'],
   },
   {
     name: 'pizza hawaiian',
@@ -276,7 +276,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'ham', 'pineapples'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['pork', 'sausages'],
+    tags: ['pork', 'sausages'],
   },
   {
     name: 'pizza mexican',
@@ -302,7 +302,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'spices', 'bell pepper', 'onion', 'chopped beef', 'beans', 'mozzarella cheese'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['beef', 'spicy'],
+    tags: ['beef', 'spicy'],
   },
   {
     name: 'pizza seafood',
@@ -328,7 +328,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'garlic', 'octopus', 'tiger shrimp', 'cocktail shrimp', 'squid', 'lemon'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['seafood'],
+    tags: ['seafood'],
   },
   {
     name: 'pizza carbonara',
@@ -354,7 +354,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'mushrooms', 'bacon', 'parmesan cheese'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['pork'],
+    tags: ['pork'],
   },
   {
     name: 'pizza classical',
@@ -380,7 +380,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'mushrooms', 'pepperoni sausage', 'ham'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['pork', 'sausages'],
+    tags: ['pork', 'sausages'],
   },
   {
     name: 'pizza sausages',
@@ -396,7 +396,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'pepperoni sausage', 'ham', 'pork sausages'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['sausages'],
+    tags: ['sausages'],
   },
   {
     name: 'pizza mushrooms',
@@ -412,7 +412,7 @@ const products: IPizza[] = [
     ingredients: ['pizza sauce', 'mozzarella cheese', 'mushrooms', 'red onion', 'ham'],
     isPopular: false,
     dishType: 'pizza',
-    tages: ['sausages'],
+    tags: ['sausages'],
   },
 ];
 
