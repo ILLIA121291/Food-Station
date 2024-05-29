@@ -14,13 +14,13 @@ const HomePage: FC<IProps> = ({ langugeApp }) => {
     <div className="gbs__border">
       <SliderProduct titel="Pizza" products={dataProducts.pizza.products} langugeApp={langugeApp} />
       <SliderProduct titel="Rols" products={dataProducts.rolls.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.sushi.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.soup.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.snacks.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.sauces.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.drinks.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.dessert.products} langugeApp={langugeApp} />
-      <SliderProduct titel="Rols" products={dataProducts.sets.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Sushi" products={dataProducts.sushi.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Snacks" products={dataProducts.snacks.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Soup" products={dataProducts.soup.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Sauces" products={dataProducts.sauces.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Drinks" products={dataProducts.drinks.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Dessert" products={dataProducts.dessert.products} langugeApp={langugeApp} />
+      <SliderProduct titel="Sets" products={dataProducts.sets.products} langugeApp={langugeApp} />
     </div>
   );
 };

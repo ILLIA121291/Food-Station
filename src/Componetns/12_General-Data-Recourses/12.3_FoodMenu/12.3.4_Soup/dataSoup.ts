@@ -61,16 +61,6 @@ const products: ISoup[] = [
     ingredients: ['chicken', 'broth', 'wheat croutons'],
     tages: [],
   },
-  {
-    name: 'chicken broth',
-    img: ChickenBroth,
-    weight: 260,
-    price: 2,
-    isPopular: false,
-    dishType: 'soup',
-    ingredients: ['chicken', 'broth', 'wheat croutons'],
-    tages: [],
-  },
 ];
 
 const dataSoup: IDataProduct = {

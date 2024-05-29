@@ -11,9 +11,10 @@ import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3
 interface IProps {
   data: TAllProducts | IPizza;
   langugeApp: typeof english;
+  paddingLeft?: string;
 }
 
-const CardProduct: FC<IProps> = ({ data, langugeApp }) => {
+const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
   let displayCardProduct;
 
   switch (data.dishType) {
@@ -24,7 +25,7 @@ const CardProduct: FC<IProps> = ({ data, langugeApp }) => {
       displayCardProduct = <BasicCardProduct data={data} langugeApp={langugeApp} />;
   }
 
-  return <div>{displayCardProduct}</div>;
+  return <div style={{ paddingLeft: `${paddingLeft}px` }}>{displayCardProduct}</div>;
 };
 
 export default CardProduct;
