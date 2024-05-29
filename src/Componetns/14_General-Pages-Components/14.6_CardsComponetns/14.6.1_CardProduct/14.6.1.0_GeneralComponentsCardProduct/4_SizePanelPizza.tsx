@@ -10,7 +10,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
-const SizePanel: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
+const SizePanelPizza: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
   const onChangBasisSize = (e: MouseEvent<HTMLDivElement>) => {
     const textInner = (e.target as HTMLButtonElement).innerText;
 
@@ -110,4 +110,4 @@ const PanelSize: FC<IPanelSize> = ({ data, order, langugeApp }) => {
   );
 };
 
-export default SizePanel;
+export default SizePanelPizza;

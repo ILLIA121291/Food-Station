@@ -6,7 +6,7 @@ import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3
 
 import TitlePanel from '../14.6.1.0_GeneralComponentsCardProduct/2_TitlePanel';
 import IngredientsPanel from '../14.6.1.0_GeneralComponentsCardProduct/3_IngredientsPanel';
-import SizePanel from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanel';
+import SizePanelPizza from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanelPizza';
 import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_QuantityCostWeightPanel';
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
@@ -20,6 +20,7 @@ export interface IExtraIngredient {
 
 export interface IOrderPizza {
   parameters: {
+    dishType: string;
     name: string;
     extraIngredients: IExtraIngredient[];
     basis: 'standard' | 'thin';
@@ -80,6 +81,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   // Order Inisial State ---------------------------------------------
   const inisialOrderPizza: IOrderPizza = {
     parameters: {
+      dishType: data.dishType,
       name: data.name,
       extraIngredients: [],
       size,
@@ -108,7 +110,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       <ImagePanel image={data.img} alt={data.name} />
       <TitlePanel titel={data.name} />
       <IngredientsPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
-      <SizePanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <SizePanelPizza data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
     </div>

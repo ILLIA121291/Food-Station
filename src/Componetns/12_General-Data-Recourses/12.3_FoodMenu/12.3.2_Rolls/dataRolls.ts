@@ -14,7 +14,7 @@ import Chile from './img/chile.jpg';
 import LuxuryShrimp from './img/luxuryshrimp.jpg';
 import Tuna from './img/tuna.jpg';
 
-interface IRoll {
+export interface IRoll {
   name: string;
   img: string;
   quantity: number;
