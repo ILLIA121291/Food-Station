@@ -1,15 +1,15 @@
 import './SliderProduct.scss';
 import { FC, useRef, useState } from 'react';
-import { IPizza } from '../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
 import CardProduct from '../../14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
 import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
+import { TAllProducts } from '../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 
 interface IProps {
   titel?: string;
-  products: IPizza[];
+  products: TAllProducts[];
   langugeApp: typeof english;
 }
 

@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.2_Rolls/dataRolls';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 import ImagePanel from '../14.6.1.0_GeneralComponentsCardProduct/1_ImagePanel';
@@ -7,9 +6,10 @@ import TitlePanel from '../14.6.1.0_GeneralComponentsCardProduct/2_TitlePanel';
 import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_QuantityCostWeightPanel';
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
 import SizePanelBasic from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanelBasic';
+import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 
 interface IProps {
-  data: IRoll;
+  data: TAllProducts;
   langugeApp: typeof english;
 }
 

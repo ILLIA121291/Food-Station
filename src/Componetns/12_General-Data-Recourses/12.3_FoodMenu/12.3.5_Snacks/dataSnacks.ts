@@ -9,7 +9,10 @@ import ShrimpLux from './img/ShrimpLux.jpg';
 import BeefPotatoes from './img/beefpotatoes.jpg';
 import SausagesFrenchFries from './img/SausagesFrenchfries.jpg';
 
-interface ISnacks {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface ISnack {
   name: string;
   img: string;
   weight: number;
@@ -20,9 +23,11 @@ interface ISnacks {
   tages: string[];
 }
 
-export const tagseSnacks: string[] = ['spicy', 'vegetarian', 'deep-frying'];
+// Tags ------------------------------------------------
+const tags: string[] = ['spicy', 'vegetarian', 'deep-frying'];
 
-const dataSnacks: ISnacks[] = [
+// Products -----------------------------------------------
+const products: ISnack[] = [
   {
     name: 'chicken nuggets',
     img: ChickenNuggets,
@@ -124,5 +129,11 @@ const dataSnacks: ISnacks[] = [
     tages: ['deep-frying'],
   },
 ];
+
+const dataSnacks: IDataProduct = {
+  name: 'snacks',
+  products,
+  tags,
+};
 
 export default dataSnacks;

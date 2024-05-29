@@ -14,7 +14,10 @@ import SpiceKunsei from './img/SpiceKunsei.jpg';
 import SpiceMaguro from './img/Spicemaguro.jpg';
 import SpiceHotate from './img/Spicehotate.jpg';
 
-interface ISushi {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface ISushi {
   name: string;
   img: string;
   quantity: number;
@@ -25,10 +28,11 @@ interface ISushi {
   ingredients: string[];
   tages: string[];
 }
+// Tags ------------------------------------------------
+const tags: string[] = ['spicy', 'vegetarian'];
 
-export const tagseSushi: string[] = ['spicy', 'vegetarian'];
-
-const dataSushi: ISushi[] = [
+// Products -----------------------------------------------
+const products: ISushi[] = [
   {
     name: 'syake',
     img: Syake,
@@ -195,5 +199,11 @@ const dataSushi: ISushi[] = [
     tages: ['spicy'],
   },
 ];
+
+const dataSushi: IDataProduct = {
+  name: 'sushi',
+  products,
+  tags,
+};
 
 export default dataSushi;

@@ -3,7 +3,10 @@ import MisoShiro from './img/Miso-shiro.jpg';
 import TomKha from './img/TomKha.jpg';
 import ChickenBroth from './img/chickenbroth.jpg';
 
-interface ISoup {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface ISoup {
   name: string;
   img: string;
   weight: number;
@@ -13,10 +16,11 @@ interface ISoup {
   ingredients: string[];
   tages: string[];
 }
+// Tags ------------------------------------------------
+const tags: string[] = ['spicy', 'vegetarian'];
 
-export const tagseSoup: string[] = ['spicy', 'vegetarian'];
-
-const dataSoup: ISoup[] = [
+// Products -----------------------------------------------
+const products: ISoup[] = [
   {
     name: 'tom yum',
     img: TomYum,
@@ -68,5 +72,11 @@ const dataSoup: ISoup[] = [
     tages: [],
   },
 ];
+
+const dataSoup: IDataProduct = {
+  name: 'soup',
+  products,
+  tags,
+};
 
 export default dataSoup;

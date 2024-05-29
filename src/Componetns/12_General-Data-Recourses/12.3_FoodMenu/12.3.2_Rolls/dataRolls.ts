@@ -14,6 +14,9 @@ import Chile from './img/chile.jpg';
 import LuxuryShrimp from './img/luxuryshrimp.jpg';
 import Tuna from './img/tuna.jpg';
 
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
 export interface IRoll {
   name: string;
   img: string;
@@ -26,9 +29,11 @@ export interface IRoll {
   tages: string[];
 }
 
-export const tagesRoll: string[] = ['salmon roll', 'vegetarian', 'spicy', 'baked', 'beef roll'];
+// Tags ------------------------------------------------
+const tags: string[] = ['salmon roll', 'vegetarian', 'spicy', 'baked', 'beef roll'];
 
-const dataRoll: IRoll[] = [
+// Products -----------------------------------------------
+const products: IRoll[] = [
   {
     name: 'california',
     img: California,
@@ -196,4 +201,10 @@ const dataRoll: IRoll[] = [
   },
 ];
 
-export default dataRoll;
+const dataRolls: IDataProduct = {
+  name: 'rolls',
+  products,
+  tags,
+};
+
+export default dataRolls;

@@ -1,14 +1,15 @@
 import PizzaCardProduct from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import './CardProduct.scss';
-import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
 import { FC } from 'react';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+
 import BasicCardProduct from '../14.6.3_BasicCardProduct/BasicCardProduct';
-import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.2_Rolls/dataRolls';
+import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
 interface IProps {
-  data: IPizza | IRoll;
+  data: TAllProducts | IPizza;
   langugeApp: typeof english;
 }
 

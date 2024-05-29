@@ -9,7 +9,10 @@ import DrinkingWater from './img/drinkingwater.jpg';
 import AppleJuice from './img/Applejuice.jpg';
 import BeerBud from './img/beerBud.jpg';
 
-interface IDrinks {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface IDrink {
   name: string;
   img: string;
   weight: number;
@@ -20,9 +23,11 @@ interface IDrinks {
   tages: string[];
 }
 
-export const tagseDrinks: string[] = ['juices', 'soft drinks', 'tea', 'alcohol', 'water'];
+// Tags ------------------------------------------------
+const tags: string[] = ['juices', 'soft drinks', 'tea', 'alcohol', 'water'];
 
-const dataDrinks:IDrinks[] = [
+// Products -----------------------------------------------
+const products: IDrink[] = [
   {
     name: 'coca-cala',
     img: CocaCala,
@@ -125,4 +130,10 @@ const dataDrinks:IDrinks[] = [
   },
 ];
 
-export default dataDrinks
+const dataDrinks: IDataProduct = {
+  name: 'drinks',
+  products,
+  tags,
+};
+
+export default dataDrinks;

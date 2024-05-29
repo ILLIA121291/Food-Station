@@ -7,10 +7,11 @@ import useDisplayPriceInCurrency from '../../../14.2_CurrencyPanel/useDisplayPri
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
 import { IOrderBasic } from '../14.6.3_BasicCardProduct/BasicCardProduct';
-import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.2_Rolls/dataRolls';
+
+import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 
 interface IProps {
-  data: IPizza | IRoll;
+  data: IPizza | TAllProducts;
   order: IOrderPizza | IOrderBasic;
   setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>> | React.Dispatch<React.SetStateAction<IOrderBasic>>;
   langugeApp: typeof english;

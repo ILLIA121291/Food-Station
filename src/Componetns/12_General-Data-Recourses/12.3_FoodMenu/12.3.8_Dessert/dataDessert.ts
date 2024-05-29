@@ -5,7 +5,10 @@ import DessertTiramisu from './img/desserttiramisu.jpg';
 import ChocolateIceCream from './img/chocolateicecream.jpg';
 import VanillaIceCream from './img/vanillaicecream.jpg';
 
-interface IDessert {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface IDessert {
   name: string;
   img: string;
   weight: number;
@@ -16,9 +19,11 @@ interface IDessert {
   tages: string[];
 }
 
-export const tagseDessert: string[] = ['cake', 'ice cream', 'dessert'];
+// Tags ------------------------------------------------
+const tags: string[] = ['cake', 'ice cream', 'dessert'];
 
-export const dataDessert: IDessert[] = [
+// Products -----------------------------------------------
+const products: IDessert[] = [
   {
     name: 'cheesecake',
     img: Cheesecake,
@@ -80,3 +85,11 @@ export const dataDessert: IDessert[] = [
     tages: ['ice cream'],
   },
 ];
+
+const dataDessert: IDataProduct = {
+  name: 'dessert',
+  products,
+  tags,
+};
+
+export default dataDessert;

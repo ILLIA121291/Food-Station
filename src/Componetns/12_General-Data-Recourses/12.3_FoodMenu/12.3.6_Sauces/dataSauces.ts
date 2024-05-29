@@ -13,7 +13,10 @@ import SoySauce from './img/Soysauce.jpg';
 import Wasabi from './img/Wasabi.jpg';
 import Walnut from './img/Walnut.jpg';
 
-interface ISauces {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface ISauce {
   name: string;
   img: string;
   weight: number;
@@ -24,9 +27,11 @@ interface ISauces {
   tages: string[];
 }
 
-export const tagseSauces: string[] = ['spicy', 'vegetarian'];
+// Tags ------------------------------------------------
+const tags: string[] = ['spicy', 'vegetarian'];
 
-export const dataSauces: ISauces[] = [
+// Products -----------------------------------------------
+const products: ISauce[] = [
   {
     name: 'spicy',
     img: Spicy,
@@ -168,3 +173,11 @@ export const dataSauces: ISauces[] = [
     tages: ['vegetarian'],
   },
 ];
+
+const dataSauces: IDataProduct = {
+  name: 'sauces',
+  products,
+  tags,
+};
+
+export default dataSauces;

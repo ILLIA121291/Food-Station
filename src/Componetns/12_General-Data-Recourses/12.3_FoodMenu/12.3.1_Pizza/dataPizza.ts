@@ -14,6 +14,9 @@ import Classical from './img/classical.jpg';
 import Sausages from './img/sausages.jpg';
 import Mushrooms from './img/mushrooms.jpg';
 
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
 interface IPizzaSize {
   size: number;
   weight: number;
@@ -31,9 +34,16 @@ export interface IPizza {
   tages: string[];
 }
 
-export const tagsPizza: string[] = ['chicken', 'pork', 'beef', 'vegetarian', 'sausages', 'seafood', 'spicy'];
+export interface IExtraIngredientsPizza {
+  name: string;
+  price: number;
+}
 
-const data: IPizza[] = [
+// Tags ------------------------------------------------
+const tags: string[] = ['chicken', 'pork', 'beef', 'vegetarian', 'sausages', 'seafood', 'spicy'];
+
+// Products -----------------------------------------------
+const products: IPizza[] = [
   {
     name: 'pizza pepperoni',
     img: Pepperoni,
@@ -406,11 +416,7 @@ const data: IPizza[] = [
   },
 ];
 
-export interface IExtraIngredientsPizza {
-  name: string;
-  price: number;
-}
-
+// Extra Ingridients Pizza -----------------------------
 export const extraIngredientsPizza: IExtraIngredientsPizza[] = [
   {
     name: 'Onion fries',
@@ -490,4 +496,10 @@ export const extraIngredientsPizza: IExtraIngredientsPizza[] = [
   },
 ];
 
-export default data;
+const dataPizza: IDataProduct = {
+  name: 'pizza',
+  products,
+  tags,
+};
+
+export default dataPizza;

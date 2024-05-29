@@ -1,17 +1,20 @@
 import PizzaSet1 from './img/pizzaset1.jpg';
-import PizzaSet2 from './img/pizzaset2.jpg';
-import PizzaSet3 from './img/pizzaset3.jpg';
-import PizzaSet4 from './img/pizzaset4.jpg';
-import PizzaSet5 from './img/pizzaset5.jpg';
-import PizzaSet6 from './img/pizzaset6.jpg';
-import PizzaSet7 from './img/pizzaset7.jpg';
-import PizzaSet8 from './img/pizzaset8.jpg';
+import PizzaSet2 from './img/PizzaSet2.jpg';
+import PizzaSet3 from './img/PizzaSet3.jpg';
+import PizzaSet4 from './img/PizzaSet4.jpg';
+import PizzaSet5 from './img/PizzaSet5.jpg';
+import PizzaSet6 from './img/PizzaSet6.jpg';
+import PizzaSet7 from './img/PizzaSet7.jpg';
+import PizzaSet8 from './img/PizzaSet8.jpg';
 import LunchSet1 from './img/LunchSet1.jpg';
 import LunchSet2 from './img/LunchSet2.jpg';
 import LunchSet3 from './img/LunchSet3.jpg';
 import LunchSet4 from './img/LunchSet4.jpg';
 
-interface ISet {
+import { IDataProduct } from '../12.3.0_Products/dataProducts';
+
+// Interfaces ------------------------------
+export interface ISet {
   name: string;
   img: string;
   weight: number;
@@ -21,10 +24,11 @@ interface ISet {
   ingredients: string[];
   tages: string[];
 }
+// Tags ------------------------------------------------
+const tags: string[] = ['pizza-set', 'sushi-set', 'lunch-set'];
 
-export const tagseSets: string[] = ['pizza-set', 'sushi-set', 'lunch-set'];
-
-export const dataSets: ISet[] = [
+// Products -----------------------------------------------
+const products: ISet[] = [
   {
     name: 'pizza set 1',
     img: PizzaSet1,
@@ -146,3 +150,11 @@ export const dataSets: ISet[] = [
     tages: ['lunch-set'],
   },
 ];
+
+const dataSets: IDataProduct = {
+  name: 'sets',
+  products,
+  tags,
+};
+
+export default dataSets;
