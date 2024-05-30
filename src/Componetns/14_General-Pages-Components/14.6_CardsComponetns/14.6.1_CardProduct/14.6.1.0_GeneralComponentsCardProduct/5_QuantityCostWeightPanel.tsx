@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import QuantityInput from '../../../14.5_FormsComponents/QuantityInput';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
@@ -8,16 +7,12 @@ import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
 import { IOrderBasic } from '../14.6.3_BasicCardProduct/BasicCardProduct';
 
-import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-
+// Interface --------------------------------------------------------
 interface IProps {
-  data: IPizza | TAllProducts;
   order: IOrderPizza | IOrderBasic;
   setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>> | React.Dispatch<React.SetStateAction<IOrderBasic>>;
   langugeApp: typeof english;
 }
-
-type TOrder = IOrderPizza | IOrderBasic;
 
 const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
   const text = langugeApp.textCardProduct.textGeneral;
@@ -40,7 +35,7 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
       quantity += 1;
     }
 
-    setOrder((order: TOrder) => {
+    setOrder((order: any) => {
       return {
         ...order,
         total: {
@@ -57,7 +52,7 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
       <QuantityInput calFunction={onSetQuantity} displayNumber={order.total.quantity} />
 
       <div className=" wt150 tx-al-c">
-        <p className="">
+        <p>
           {order.parameters.weight * order.total.quantity} {text.grams}
         </p>
         <p className="mt10 fs20 fw900">{useDisplayPriceInCurrency(currency, culTotalPrice)}</p>
@@ -65,7 +60,5 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
     </div>
   );
 };
-
-// PanelQuantity ----------------------------------------------------------
 
 export default QuantityCostWeightPanel;

@@ -61,7 +61,7 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       <ImagePanel dishType={data.dishType} image={data.img} alt={data.name} tags={data.tags} ingredients={data.ingredients} />
       <TitlePanel titel={data.name} />
       {(data as IRoll | ISushi).quantity ? <SizePanelBasic data={data} langugeApp={langugeApp} /> : null}
-      <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <QuantityCostWeightPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
     </div>
   );

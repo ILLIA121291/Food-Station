@@ -111,7 +111,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       <TitlePanel titel={data.name} />
       <IngredientsPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <SizePanelPizza data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
-      <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <QuantityCostWeightPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
     </div>
   );

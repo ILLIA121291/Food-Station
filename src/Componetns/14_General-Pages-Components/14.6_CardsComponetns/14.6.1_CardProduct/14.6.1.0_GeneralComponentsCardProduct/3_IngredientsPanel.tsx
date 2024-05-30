@@ -13,6 +13,8 @@ import useDisplayPriceInCurrency from '../../../14.2_CurrencyPanel/useDisplayPri
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
 
+import onOffBodyScroll from '../../../../10_Utilities/onOffBodyScroll';
+
 interface IProps {
   langugeApp: typeof english;
   order: IOrderPizza;
@@ -192,6 +194,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
     }
   };
 
+
   return (
     <div
       className="mt15 pos_rel bd wt270 bdr10 fw600 us-se cur-poi bkgr__br-lt "
@@ -216,14 +219,20 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
           + {textGen.add}
         </p>
 
-        <div className="extra-ingre__container bdr10 zindex150 bkgr__wh fw600 over_hid " style={listState ? { height: refUl.current!.scrollHeight, border: '1px solid #000' } : { height: '0px', border: '0px solid #000' }} onClick={e => e.stopPropagation()}>
+        <div 
+        className="extra-ingre__container bdr10 zindex150 bkgr__wh fw600 " 
+        style={listState ? { height: '250px', border: '1px solid #000' } : { height: '0px', border: '0px solid #000' }}
+        onClick={e => e.stopPropagation()}
+        onMouseEnter={() => onOffBodyScroll ('hidden')}
+        onMouseLeave={() => onOffBodyScroll('auto')}
+        >
           <ul ref={refUl} className="wt270 p5" onClick={e => addRemoveIngredient(e)}>
             {extraIngredientsPizza.map((item, index) => {
               return <ItemIngridient key={index} name={item.name} price={item.price} order={order} langugeApp={langugeApp} />;
             })}
           </ul>
-          <BlockErrorMessages name="extra-ingredient" color="blc" className="wt260" message={displayInfoMessage.message} display={displayInfoMessage.display} />
         </div>
+          <BlockErrorMessages name="extra-ingredient" color="blc" className="wt260" message={displayInfoMessage.message} display={displayInfoMessage.display} />
       </div>
     </div>
   );

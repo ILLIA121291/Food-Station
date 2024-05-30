@@ -63,12 +63,18 @@
   top: 52px;
   left: -1px;
   transition: height 300ms;
+  overflow: auto;
+}
+
+.extra-ingre__container::-webkit-scrollbar {
+  display: none;
 }
 
 .extra-ingre__info-message {
   position: absolute;
-  top: 10px;
+  top: 65px;
   left: 5px;
+  z-index: 155;
 }
 
 // Size Panel ------------------------

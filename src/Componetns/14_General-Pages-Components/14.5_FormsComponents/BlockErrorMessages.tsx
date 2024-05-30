@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { ErrorMessage } from 'formik';
+import onOffBodyScroll from '../../10_Utilities/onOffBodyScroll';
 
 interface IProps {
   name: string;
@@ -12,12 +13,16 @@ interface IProps {
 
 const BlockErrorMessages: FC<IProps> = ({ className = '', color = 'rc', name, httpMessage, message, display }) => {
   let displayBlockErrorMessage: JSX.Element;
-  let animation: string;
+  let animationCalss: string;
 
   switch (name) {
     case 'extra-ingredient':
-      animation = display ? 'dis-bloc-anim' : 'dis-none-anim';
-      displayBlockErrorMessage = <div className={`extra-ingre__info-message bd bkgr__yel fw600 pr10 pl10 pt5 pb5 bdr15 tx-al-c us-se ${animation}  ${className} ${color}`}>{message}</div>;
+      animationCalss = display ? 'bd bkgr__yel dis-bloc-anim ' : 'dis-none-anim';
+      displayBlockErrorMessage = (
+        <div onClick={e => e.stopPropagation()} onMouseEnter={() => onOffBodyScroll('hidden')} onMouseLeave={() => onOffBodyScroll('auto')} className={`extra-ingre__info-message   fw600 pr10 pl10 pt5 pb5 bdr15 tx-al-c us-se ${animationCalss}  ${className} ${color}`}>
+          {message}
+        </div>
+      );
       break;
 
     default:
