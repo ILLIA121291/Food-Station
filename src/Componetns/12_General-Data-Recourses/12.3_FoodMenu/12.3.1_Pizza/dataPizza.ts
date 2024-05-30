@@ -94,7 +94,7 @@ const products: IPizza[] = [
     ingredients: ['bbq sauce', 'mozzarella cheese', 'pepperoni sausage', 'ham', 'bacon', 'chicken'],
     isPopular: true,
     dishType: 'pizza',
-    tags: ['sausages', 'chicken', 'pork', 'beef'],
+    tags: ['sausages', 'chicken', 'pork', 'beef', 'spicy'],
   },
   {
     name: 'pizza four cheeses',

@@ -10,7 +10,7 @@
     opacity: 0;
   }
   to {
-    display: block;
+    display: flex;
     opacity: 1;
   }
 }
@@ -23,10 +23,12 @@
 @keyframes notshow {
   from {
     opacity: 1;
-    display: block;
+    display: flex;
   }
   to {
     opacity: 0;
     display: none;
   }
 }
+
+

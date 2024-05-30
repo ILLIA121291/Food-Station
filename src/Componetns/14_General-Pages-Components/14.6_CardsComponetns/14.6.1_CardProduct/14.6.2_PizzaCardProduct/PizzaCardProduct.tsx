@@ -107,7 +107,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
   return (
     <div className="wt310 p15 bdr15 ">
-      <ImagePanel image={data.img} alt={data.name} tags={data.tags} />
+      <ImagePanel dishType={data.dishType} image={data.img} alt={data.name} tags={data.tags} ingredients={data.ingredients} basis={order.parameters.basis} size={order.parameters.size} />
       <TitlePanel titel={data.name} />
       <IngredientsPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <SizePanelPizza data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />

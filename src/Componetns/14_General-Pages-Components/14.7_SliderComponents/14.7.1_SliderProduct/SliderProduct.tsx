@@ -63,7 +63,7 @@ const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
   // Next Slide --------------------------------------------
   const nextSlide = () => {
     const notShowProduct = products.length * productCardWidth - refSliderWindow.current!.offsetWidth;
-    console.log(notShowProduct);
+
     if (offset + productCardWidth < notShowProduct) {
       setOffset((offset += productCardWidth));
 
