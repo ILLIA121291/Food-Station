@@ -7,12 +7,10 @@ import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
 import SizePanelBasic from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanelBasic';
 import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.2_Rolls/dataRolls';
+import { ISushi } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.3_Sushi/dataSushi';
 
-interface IProps {
-  data: TAllProducts;
-  langugeApp: typeof english;
-}
-
+// Interface --------------------------------------------------
 export interface IOrderBasic {
   parameters: {
     dishType: string;
@@ -29,6 +27,11 @@ export interface IOrderBasic {
   cost: {
     total: number;
   };
+}
+
+interface IProps {
+  data: TAllProducts;
+  langugeApp: typeof english;
 }
 
 const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
@@ -55,9 +58,9 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
   return (
     <div className="wt310 p15 bdr15">
-      <ImagePanel image={data.img} alt={data.name} tags={data.tags} ingredients={data.ingredients}/>
+      <ImagePanel dishType={data.dishType} image={data.img} alt={data.name} tags={data.tags} ingredients={data.ingredients} />
       <TitlePanel titel={data.name} />
-      <SizePanelBasic data={data} langugeApp={langugeApp} />
+      {(data as IRoll | ISushi).quantity ? <SizePanelBasic data={data} langugeApp={langugeApp} /> : null}
       <QuantityCostWeightPanel data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
     </div>
