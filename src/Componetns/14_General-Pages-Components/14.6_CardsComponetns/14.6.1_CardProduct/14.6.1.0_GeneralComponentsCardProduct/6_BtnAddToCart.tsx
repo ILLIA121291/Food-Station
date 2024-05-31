@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { IExtraIngredient, IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
+import { IExtraIngredient, } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-import { IOrderBasic } from '../14.6.3_BasicCardProduct/BasicCardProduct';
+import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
 interface IProps {
-  order: IOrderPizza | IOrderBasic;
+  order: IOrderItem
   langugeApp: typeof english;
 }
 
@@ -21,58 +21,49 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
       const arrOrder = JSON.parse(localStorage.getItem('order')!);
       let thisDishInArrOrder = false;
 
-      const checkingOrderArrMatches = arrOrder.map((value: IOrderPizza | IOrderBasic) => {
-        if (value.parameters.name == order.parameters.name) {
-          if (order.parameters.dishType != 'pizza') {
+      const checkingOrderArrMatches = arrOrder.map((value: IOrderItem) => {
+        if (value.name == order.name) {
+          if (order.dishType != 'pizza') {
             thisDishInArrOrder = true;
-            const quantity = value.total.quantity + order.total.quantity;
+            const quantity = value.quantity + order.quantity;
 
             return {
               ...value,
-              total: {
-                ...value.total,
-                quantity,
-              },
+              quantity,
             };
           } else {
-            const size = (order as IOrderPizza).parameters.size == (value as IOrderPizza).parameters.size;
-            const basis = (order as IOrderPizza).parameters.basis == (value as IOrderPizza).parameters.basis;
-            const extraIngredientsZero = (order as IOrderPizza).parameters.extraIngredients.length + (value as IOrderPizza).parameters.extraIngredients.length != 0;
-            const extraIngredientsLenght = (order as IOrderPizza).parameters.extraIngredients.length == (value as IOrderPizza).parameters.extraIngredients.length;
+            const size = (order as IOrderItem).parameters.size == (value as IOrderItem).parameters.size;
+            const basis = (order as IOrderItem).parameters.basis == (value as IOrderItem).parameters.basis;
+            const extraIngredientsZero = (order as IOrderItem).parameters.extraIngredients.length + (value as IOrderItem).parameters.extraIngredients.length != 0;
+            const extraIngredientsLenght = (order as IOrderItem).parameters.extraIngredients.length == (value as IOrderItem).parameters.extraIngredients.length;
 
             if (size && basis && extraIngredientsZero == false) {
               thisDishInArrOrder = true;
-              const quantity = value.total.quantity + order.total.quantity;
+              const quantity = value.quantity + order.quantity;
 
               return {
                 ...value,
-                total: {
-                  ...value.total,
-                  quantity,
-                },
+                quantity,
               };
             } else if (size && basis && extraIngredientsLenght) {
               const chekingArr = [];
 
-              (value as IOrderPizza).parameters.extraIngredients.forEach((value: IExtraIngredient) => {
-                for (let i = 0; i < (order as IOrderPizza).parameters.extraIngredients.length; i++) {
-                  const name = value.name == (order as IOrderPizza).parameters.extraIngredients[i].name;
-                  const qty = value.quantity == (order as IOrderPizza).parameters.extraIngredients[i].quantity;
+              (value as IOrderItem).parameters.extraIngredients.forEach((value: IExtraIngredient) => {
+                for (let i = 0; i < (order as IOrderItem).parameters.extraIngredients.length; i++) {
+                  const name = value.name == (order as IOrderItem).parameters.extraIngredients[i].name;
+                  const qty = value.quantity == (order as IOrderItem).parameters.extraIngredients[i].quantity;
 
                   if (name && qty) chekingArr.push(true);
                 }
               });
 
-              if (chekingArr.length == (order as IOrderPizza).parameters.extraIngredients.length) {
+              if (chekingArr.length == (order as IOrderItem).parameters.extraIngredients.length) {
                 thisDishInArrOrder = true;
-                const quantity = value.total.quantity + order.total.quantity;
+                const quantity = value.quantity + order.quantity;
 
                 return {
                   ...value,
-                  total: {
-                    ...value.total,
-                    quantity,
-                  },
+                  quantity,
                 };
               } else {
                 return value;

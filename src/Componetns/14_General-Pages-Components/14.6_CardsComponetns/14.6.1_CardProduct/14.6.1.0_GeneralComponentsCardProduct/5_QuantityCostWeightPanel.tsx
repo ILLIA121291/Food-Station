@@ -1,16 +1,15 @@
 import { FC } from 'react';
-import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import QuantityInput from '../../../14.5_FormsComponents/QuantityInput';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import useDisplayPriceInCurrency from '../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
-import { IOrderBasic } from '../14.6.3_BasicCardProduct/BasicCardProduct';
+import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
 // Interface --------------------------------------------------------
 interface IProps {
-  order: IOrderPizza | IOrderBasic;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>> | React.Dispatch<React.SetStateAction<IOrderBasic>>;
+  order: IOrderItem;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
   langugeApp: typeof english;
 }
 
@@ -20,14 +19,14 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
 
   let culTotalPrice;
 
-  if (order.parameters.dishType == 'pizza') {
-    culTotalPrice = (order.parameters.price + (order as IOrderPizza).parameters.priceExtraIngredients) * order.total.quantity;
+  if (order.dishType == 'pizza') {
+    culTotalPrice = (order.price + (order as IOrderItem).parameters.priceExtraIngredients) * order.quantity;
   } else {
-    culTotalPrice = order.parameters.price * order.total.quantity;
+    culTotalPrice = order.price * order.quantity;
   }
 
   const onSetQuantity = (num: number): void => {
-    let quantity = order.total.quantity;
+    let quantity = order.quantity;
 
     if (num < 1) {
       quantity - 1 < 1 ? (quantity = 1) : (quantity -= 1);
@@ -35,24 +34,21 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
       quantity += 1;
     }
 
-    setOrder((order: any) => {
+    setOrder(order => {
       return {
         ...order,
-        total: {
-          ...order.total,
-          quantity,
-        },
+        quantity,
       };
     });
   };
 
   return (
     <div className="mt15 f_jc_sb us-se wt270">
-      <QuantityInput calFunction={onSetQuantity} displayNumber={order.total.quantity} />
+      <QuantityInput calFunction={onSetQuantity} displayNumber={order.quantity} />
 
       <div className=" wt150 tx-al-c">
         <p>
-          {order.parameters.weight * order.total.quantity} {text.grams}
+          {order.parameters.weight * order.quantity} {text.grams}
         </p>
         <p className="mt10 fs20 fw900">{useDisplayPriceInCurrency(currency, culTotalPrice)}</p>
       </div>

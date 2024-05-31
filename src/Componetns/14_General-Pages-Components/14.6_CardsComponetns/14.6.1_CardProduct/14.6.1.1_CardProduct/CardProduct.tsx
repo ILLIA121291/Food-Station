@@ -8,6 +8,17 @@ import BasicCardProduct from '../14.6.3_BasicCardProduct/BasicCardProduct';
 import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 
+// Interface -------------------------------------------
+export interface IOrderItem {
+  name: string;
+  price: number;
+  quantity: number;
+  dishType: string;
+  parameters: {
+    [key: string]: any;
+  };
+}
+
 interface IProps {
   data: TAllProducts | IPizza;
   langugeApp: typeof english;

@@ -1,12 +1,12 @@
 import { FC, MouseEvent } from 'react';
-import { IOrderPizza } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
 interface IProps {
   data: IPizza;
-  order: IOrderPizza;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
+  order: IOrderItem;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
   langugeApp: typeof english;
 }
 
@@ -31,10 +31,10 @@ const SizePanelPizza: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
       setOrder(order => {
         return {
           ...order,
+          price,
           parameters: {
             ...order.parameters,
             size: +(e.target as HTMLButtonElement).dataset.pizzaSize! as 26 | 30 | 40,
-            price,
             weight,
           },
         };
@@ -54,8 +54,8 @@ const SizePanelPizza: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
 
 interface IPanelBasis {
   data: IPizza;
-  order: IOrderPizza;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
+  order: IOrderItem;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
   langugeApp: typeof english;
 }
 
@@ -81,8 +81,8 @@ const PanelBasis: FC<IPanelBasis> = ({ data, order, langugeApp }) => {
 
 interface IPanelSize {
   data: IPizza;
-  order: IOrderPizza;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderPizza>>;
+  order: IOrderItem;
+  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
   langugeApp: typeof english;
 }
 

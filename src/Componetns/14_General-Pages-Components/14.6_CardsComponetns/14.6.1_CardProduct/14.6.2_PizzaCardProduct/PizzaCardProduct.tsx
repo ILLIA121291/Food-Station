@@ -10,6 +10,7 @@ import SizePanelPizza from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanel
 import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_QuantityCostWeightPanel';
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
 export interface IExtraIngredient {
   name: string | undefined;
@@ -72,24 +73,21 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   }
 
   // Order Inisial State ---------------------------------------------
-  const inisialOrderPizza: IOrderPizza = {
+  const inisialOrderPizza: IOrderItem = {
+    name: data.name,
+    price,
+    quantity: 1,
+    dishType: data.dishType,
     parameters: {
-      dishType: data.dishType,
-      name: data.name,
-      extraIngredients: [],
-      size,
-      basis,
+      extraIngredients: [] as IExtraIngredient[],
+      basis: basis as 'standard' | 'thin',
+      size: size as 26 | 30 | 40,
       weight,
-      price,
       priceExtraIngredients: 0,
-    },
-
-    total: {
-      quantity: 1,
     },
   };
 
-  const [order, setOrder] = useState<IOrderPizza>(inisialOrderPizza);
+  const [order, setOrder] = useState<IOrderItem>(inisialOrderPizza);
 
   return (
     <div className="wt310 p15 bdr15 ">

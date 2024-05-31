@@ -9,20 +9,9 @@ import SizePanelBasic from '../14.6.1.0_GeneralComponentsCardProduct/4_SizePanel
 import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.2_Rolls/dataRolls';
 import { ISushi } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.3_Sushi/dataSushi';
+import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
 // Interface --------------------------------------------------
-export interface IOrderBasic {
-  parameters: {
-    dishType: string;
-    name: string;
-    weight: number;
-    price: number;
-  };
-
-  total: {
-    quantity: number;
-  };
-}
 
 interface IProps {
   data: TAllProducts;
@@ -31,20 +20,18 @@ interface IProps {
 
 const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   // Order Inisial State ---------------------------------------------
-  const inisialOrderPizza: IOrderBasic = {
-    parameters: {
-      dishType: data.dishType,
-      name: data.name,
-      weight: data.weight,
-      price: data.price,
-    },
+  const inisialOrderPizza: IOrderItem = {
+    name: data.name,
+    price: data.price,
+    quantity: 1,
+    dishType: data.dishType,
 
-    total: {
-      quantity: 1,
+    parameters: {
+      weight: data.weight,
     },
   };
 
-  const [order, setOrder] = useState<IOrderBasic>(inisialOrderPizza);
+  const [order, setOrder] = useState<IOrderItem>(inisialOrderPizza);
 
   return (
     <div className="wt310 p15 bdr15">
