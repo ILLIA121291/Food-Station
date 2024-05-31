@@ -12,7 +12,7 @@
     padding: 3px;
 
     font-weight: 900;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 110%;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -29,20 +29,4 @@
 
 // Medium queries - 800px --------------------------
 
-.header-app {
-  &__logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 3px solid #e9a434;
-    border-bottom: 3px solid #e9a434;
-    padding: 3px;
 
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 110%;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-}
