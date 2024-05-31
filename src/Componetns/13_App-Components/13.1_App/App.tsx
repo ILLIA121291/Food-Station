@@ -8,12 +8,16 @@ import './13.1.1_Scss/pading.scss';
 import './13.1.1_Scss/text.scss';
 import './13.1.1_Scss/height.scss';
 import './13.1.1_Scss/background.scss';
-import './13.1.1_Scss/position_overflow.scss';
-import './13.1.1_Scss/border_border-radius.scss';
-import './13.1.1_Scss/opacity_visibility_z-index.scss';
+import './13.1.1_Scss/position.scss';
+import './13.1.1_Scss/border-radius.scss';
+import './13.1.1_Scss/opacity.scss';
 import './13.1.1_Scss/animation.scss';
 import './13.1.1_Scss/hover.scss';
 import './13.1.1_Scss/different.scss';
+import './13.1.1_Scss/border.scss';
+import './13.1.1_Scss/z-index.scss';
+import './13.1.1_Scss/overflow.scss';
+import './13.1.1_Scss/visibility.scss';
 
 import { FC, useState } from 'react';
 
@@ -25,9 +29,8 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 // import russian from '../../12_General-Data-Recourses/12.1_Text/12.1.2_Russian/1_russian';
 // import japan from '../../12_General-Data-Recourses/12.1_Text/12.1.3_Japan/1_japan';
 
-import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
-
 
 // Language App ------------------------------------
 
@@ -65,18 +68,16 @@ const App: FC = () => {
 
   return (
     <Router>
-
-    <div className="app">
-      <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage langugeApp={langugeApp} />}/>
-          <Route path="/cart" element={<CartPage langugeApp={langugeApp} />}/>
-
-        </Routes>
-      </main>
-      <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />
-    </div>
+      <div className="app">
+        <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage langugeApp={langugeApp} />} />
+            <Route path="/cart" element={<CartPage langugeApp={langugeApp} />} />
+          </Routes>
+        </main>
+        <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />
+      </div>
     </Router>
   );
 };

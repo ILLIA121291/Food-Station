@@ -1,0 +1,29 @@
+.editor-order {
+  &__item-remove {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}
+
+@media (max-width: 620px) {
+  .editor-order {
+    &__item {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__item-description {
+      margin-bottom: 15px;
+    }
+
+    &__item-titel {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    &__item-cost {
+      margin: 15px;
+    }
+  }
+}

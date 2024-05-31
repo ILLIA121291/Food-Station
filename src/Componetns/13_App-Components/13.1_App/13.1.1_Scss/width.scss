@@ -1,3 +1,7 @@
+.wt100per {
+  width: 100%;
+}
+
 .wt15 {
   width: 15px;
 }
@@ -42,6 +46,10 @@
   width: 88px;
 }
 
+.wt100 {
+  width: 100px;
+}
+
 .wt103 {
   width: 103px;
 }
@@ -84,4 +92,12 @@
 
 .wt345 {
   width: 345px;
+}
+
+.mwt600 {
+  max-width: 600px;
+}
+
+.wt600 {
+  width: 600px;
 }
