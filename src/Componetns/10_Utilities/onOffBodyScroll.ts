@@ -1,4 +1,4 @@
-const onOffBodyScroll = (action: string): void => {
+const onOffBodyScroll = (action: 'hidden' | 'auto'): void => {
   if (action == 'hidden') {
     const paddingRight = window.innerWidth - document.documentElement.clientWidth;
 
