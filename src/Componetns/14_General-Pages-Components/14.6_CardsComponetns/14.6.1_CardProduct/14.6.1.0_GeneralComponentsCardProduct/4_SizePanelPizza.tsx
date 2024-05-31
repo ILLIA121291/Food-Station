@@ -37,11 +37,6 @@ const SizePanelPizza: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
             price,
             weight,
           },
-
-          total: {
-            ...order.total,
-            weight: weight * order.total.quantity,
-          },
         };
       });
     }

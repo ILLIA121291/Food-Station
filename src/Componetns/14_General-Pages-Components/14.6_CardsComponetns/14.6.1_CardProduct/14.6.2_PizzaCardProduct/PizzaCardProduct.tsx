@@ -32,13 +32,6 @@ export interface IOrderPizza {
 
   total: {
     quantity: number;
-    weight: number;
-  };
-
-  cost: {
-    pizza: number;
-    extraIngredients: number;
-    total: number;
   };
 }
 
@@ -93,13 +86,6 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
     total: {
       quantity: 1,
-      weight: weight,
-    },
-
-    cost: {
-      pizza: 0,
-      extraIngredients: 0,
-      total: 0,
     },
   };
 
@@ -112,7 +98,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       <IngredientsPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <SizePanelPizza data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <QuantityCostWeightPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
-      <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <BtnAddToCart order={order} langugeApp={langugeApp} />
     </div>
   );
 };

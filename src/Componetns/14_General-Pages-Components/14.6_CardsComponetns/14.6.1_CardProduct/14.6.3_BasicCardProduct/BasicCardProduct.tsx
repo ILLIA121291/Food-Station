@@ -21,11 +21,6 @@ export interface IOrderBasic {
 
   total: {
     quantity: number;
-    weight: number;
-  };
-
-  cost: {
-    total: number;
   };
 }
 
@@ -46,11 +41,6 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
     total: {
       quantity: 1,
-      weight: data.weight,
-    },
-
-    cost: {
-      total: 0,
     },
   };
 
@@ -62,7 +52,7 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       <TitlePanel titel={data.name} />
       {(data as IRoll | ISushi).quantity ? <SizePanelBasic data={data} langugeApp={langugeApp} /> : null}
       <QuantityCostWeightPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
-      <BtnAddToCart order={order} setOrder={setOrder} langugeApp={langugeApp} />
+      <BtnAddToCart order={order} langugeApp={langugeApp} />
     </div>
   );
 };

@@ -41,7 +41,6 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
         total: {
           ...order.total,
           quantity,
-          weight: order.parameters.weight * quantity,
         },
       };
     });
