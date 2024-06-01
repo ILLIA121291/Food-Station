@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { IExtraIngredient, } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
+import { IExtraIngredient } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
 interface IProps {
-  order: IOrderItem
+  order: IOrderItem;
   langugeApp: typeof english;
 }
 
@@ -12,13 +12,13 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
   const text = langugeApp.textCardProduct.textGeneral;
 
   const addOrderToCart = () => {
-    if (!localStorage.getItem('order')) {
+    if (!localStorage.getItem('orderList')) {
       const arrOrder = [];
       arrOrder.push(order);
 
-      localStorage.setItem('order', JSON.stringify(arrOrder));
+      localStorage.setItem('orderList', JSON.stringify(arrOrder));
     } else {
-      const arrOrder = JSON.parse(localStorage.getItem('order')!);
+      const arrOrder = JSON.parse(localStorage.getItem('orderList')!);
       let thisDishInArrOrder = false;
 
       const checkingOrderArrMatches = arrOrder.map((value: IOrderItem) => {
@@ -81,7 +81,7 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
         checkingOrderArrMatches.push(order);
       }
 
-      localStorage.setItem('order', JSON.stringify(checkingOrderArrMatches));
+      localStorage.setItem('orderList', JSON.stringify(checkingOrderArrMatches));
     }
   };
 
