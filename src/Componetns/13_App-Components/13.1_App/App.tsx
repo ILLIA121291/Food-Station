@@ -32,6 +32,10 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
+
 // Language App ------------------------------------
 
 let initialLanguge: typeof english;
@@ -63,8 +67,16 @@ if (localStorage.getItem('login') || sessionStorage.getItem('login')) {
 }
 
 const App: FC = () => {
+  const dispatch = useDispatch();
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
+
+  // Updating localStorage in different browser windows ----------------------------------------------------
+
+  window.addEventListener('storage', () => {
+    let newOrderList = JSON.parse(localStorage.getItem('orderList')!);
+    dispatch(updateOrderList(newOrderList));
+  });
 
   return (
     <Router>

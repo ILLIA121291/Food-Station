@@ -79,6 +79,7 @@ const ItemOrder: FC<IItemOrder> = ({ order, orderList, currency }) => {
     });
 
     dispatch(updateOrderList(newOrderList));
+    window.dispatchEvent(new Event('storage'));
   };
 
   return (

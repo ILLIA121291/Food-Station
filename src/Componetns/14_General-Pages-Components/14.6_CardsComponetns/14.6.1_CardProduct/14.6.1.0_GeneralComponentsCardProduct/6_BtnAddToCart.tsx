@@ -13,15 +13,13 @@ interface IProps {
 }
 
 const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
-  const dispatch = useDispatch()
-  const orderList = useSelector<IStateStore, IOrderItem[]>(state => state.cart.orderList)
+  const dispatch = useDispatch();
+  const orderList = useSelector<IStateStore, IOrderItem[]>(state => state.cart.orderList);
   const text = langugeApp.textCardProduct.textGeneral;
 
   const addOrderToCart = () => {
-
     if (orderList.length == 0) {
-
-      dispatch(addToOrderList([order]))
+      dispatch(addToOrderList([order]));
     } else {
       let thisDishInArrOrder = false;
 
@@ -83,10 +81,10 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
 
       if (!thisDishInArrOrder) {
         checkingOrderArrMatches.push(order);
-        dispatch(addToOrderList(checkingOrderArrMatches))
+        dispatch(addToOrderList(checkingOrderArrMatches));
       }
 
-      dispatch(addToOrderList(checkingOrderArrMatches))
+      dispatch(addToOrderList(checkingOrderArrMatches));
     }
   };
 
