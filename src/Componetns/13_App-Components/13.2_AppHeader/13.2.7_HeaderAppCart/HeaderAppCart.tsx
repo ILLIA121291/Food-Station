@@ -3,7 +3,6 @@ import './HeaderAppCart.scss';
 import { FC } from 'react';
 import { TiShoppingCart } from 'react-icons/ti';
 import { NavLink } from 'react-router-dom';
-import toFixedNumber from '../../../10_Utilities/toFixedNumber';
 
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../13.1_App/stateStore';
@@ -11,8 +10,6 @@ import { IOrderItem } from '../../../14_General-Pages-Components/14.6_CardsCompo
 
 const HeaderAppCart: FC = () => {
   const cartState = useSelector<IStateStore, IOrderItem[]>(state => state.cart.orderList);
-
-  console.log(cartState);
 
   let quantity: number = 0;
   let cost: number = 0;

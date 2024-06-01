@@ -10,6 +10,7 @@ import { TAllProducts } from '../../../../12_General-Data-Recourses/12.3_FoodMen
 import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.2_Rolls/dataRolls';
 import { ISushi } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.3_Sushi/dataSushi';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
+import { IDrink } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.7_Drinks/dataDrinks';
 
 // Interface --------------------------------------------------
 
@@ -20,18 +21,25 @@ interface IProps {
 
 const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   // Order Inisial State ---------------------------------------------
-  const inisialOrderPizza: IOrderItem = {
+  const volume: number | 0 = (data as Extract<TAllProducts, IDrink>).volume ? (data as Extract<TAllProducts, IDrink>).volume : 0;
+  const weight: number | 0 = (data as Exclude<TAllProducts, IDrink>).weight ? (data as Exclude<TAllProducts, IDrink>).weight : 0;
+  const quantity: number | 0 = (data as Extract<TAllProducts, IRoll | ISushi>).quantity ? (data as Extract<TAllProducts, IRoll | ISushi>).quantity : 0;
+
+  const inisialOrder: IOrderItem = {
     name: data.name,
     price: data.price,
+    priceExtra: 0,
     quantity: 1,
     dishType: data.dishType,
 
     parameters: {
-      weight: data.weight,
+      weight,
+      volume,
+      quantity,
     },
   };
 
-  const [order, setOrder] = useState<IOrderItem>(inisialOrderPizza);
+  const [order, setOrder] = useState<IOrderItem>(inisialOrder);
 
   return (
     <div className="wt310 p15 bdr15">

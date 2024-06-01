@@ -15,7 +15,7 @@ import { IDataProduct } from '../12.3.0_Products/dataProducts';
 export interface IDrink {
   name: string;
   img: string;
-  weight: number;
+  volume: number;
   price: number;
   isPopular: boolean;
   dishType: 'drink';
@@ -31,7 +31,7 @@ const products: IDrink[] = [
   {
     name: 'coca-cala',
     img: CocaCala,
-    weight: 1,
+    volume: 1,
     price: 2.49,
     isPopular: false,
     dishType: 'drink',
@@ -41,7 +41,8 @@ const products: IDrink[] = [
   {
     name: 'cranberrysaft',
     img: Cranberrysaft,
-    weight: 0.5,
+    volume: 0.5,
+
     price: 1.99,
     isPopular: false,
     dishType: 'drink',
@@ -51,7 +52,8 @@ const products: IDrink[] = [
   {
     name: 'orange drink',
     img: OrangeDrink,
-    weight: 0.45,
+    volume: 0.45,
+
     price: 0.99,
     isPopular: false,
     dishType: 'drink',
@@ -61,7 +63,8 @@ const products: IDrink[] = [
   {
     name: 'green tea mango',
     img: GreenTeaMango,
-    weight: 0.5,
+    volume: 0.5,
+
     price: 1.49,
     isPopular: false,
     dishType: 'drink',
@@ -71,7 +74,8 @@ const products: IDrink[] = [
   {
     name: 'cherry juice',
     img: CherryJuice,
-    weight: 1,
+    volume: 1,
+
     price: 2.69,
     isPopular: false,
     dishType: 'drink',
@@ -81,7 +85,8 @@ const products: IDrink[] = [
   {
     name: 'black tea lemon',
     img: BlackTeaLemon,
-    weight: 0.5,
+    volume: 0.5,
+
     price: 1.49,
     isPopular: false,
     dishType: 'drink',
@@ -91,7 +96,8 @@ const products: IDrink[] = [
   {
     name: 'orange juice',
     img: OrangeJuice,
-    weight: 1,
+    volume: 1,
+
     price: 2.69,
     isPopular: false,
     dishType: 'drink',
@@ -101,7 +107,8 @@ const products: IDrink[] = [
   {
     name: 'drinking water',
     img: DrinkingWater,
-    weight: 0.5,
+    volume: 0.5,
+
     price: 0.59,
     isPopular: false,
     dishType: 'drink',
@@ -111,7 +118,8 @@ const products: IDrink[] = [
   {
     name: 'apple juice',
     img: AppleJuice,
-    weight: 1,
+    volume: 1,
+
     price: 2.69,
     isPopular: false,
     dishType: 'drink',
@@ -121,7 +129,8 @@ const products: IDrink[] = [
   {
     name: 'beer "Bud"',
     img: BeerBud,
-    weight: 0.45,
+    volume: 0.45,
+
     price: 1.79,
     isPopular: false,
     dishType: 'drink',

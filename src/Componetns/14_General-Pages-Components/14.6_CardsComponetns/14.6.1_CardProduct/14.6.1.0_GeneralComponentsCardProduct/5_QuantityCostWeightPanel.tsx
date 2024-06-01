@@ -17,18 +17,12 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
   const text = langugeApp.textCardProduct.textGeneral;
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
 
-  let culTotalPrice;
-
-  if (order.dishType == 'pizza') {
-    culTotalPrice = (order.price + (order as IOrderItem).parameters.priceExtraIngredients) * order.quantity;
-  } else {
-    culTotalPrice = order.price * order.quantity;
-  }
+  const totalPrice = (order.price + order.priceExtra) * order.quantity;
 
   const onSetQuantity = (num: number): void => {
     let quantity = order.quantity;
 
-    if (num < 1) {
+    if (num == -1) {
       quantity - 1 < 1 ? (quantity = 1) : (quantity -= 1);
     } else {
       quantity += 1;
@@ -48,9 +42,10 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
 
       <div className=" wt150 tx-al-c">
         <p>
-          {order.parameters.weight * order.quantity} {text.grams}
+          {order.parameters.weight != 0 && `${order.parameters.weight * order.quantity} ${text.grams}`}
+          {order.parameters.volume != 0 && `${order.parameters.volume * order.quantity} ${text.letters}`}
         </p>
-        <p className="mt10 fs20 fw900">{useDisplayPriceInCurrency(currency, culTotalPrice)}</p>
+        <p className="mt10 fs20 fw900">{useDisplayPriceInCurrency(currency, totalPrice)}</p>
       </div>
     </div>
   );

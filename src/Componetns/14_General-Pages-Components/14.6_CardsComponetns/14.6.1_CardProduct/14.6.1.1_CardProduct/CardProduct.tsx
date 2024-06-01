@@ -1,4 +1,4 @@
-import PizzaCardProduct from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
+import PizzaCardProduct, { IExtraIngredient } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import './CardProduct.scss';
 
 import { FC } from 'react';
@@ -12,6 +12,7 @@ import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3
 export interface IOrderItem {
   name: string;
   price: number;
+  priceExtra: number;
   quantity: number;
   dishType: string;
   parameters: {
@@ -19,6 +20,7 @@ export interface IOrderItem {
   };
 }
 
+// Props Interface --------------------------------------
 interface IProps {
   data: TAllProducts | IPizza;
   langugeApp: typeof english;

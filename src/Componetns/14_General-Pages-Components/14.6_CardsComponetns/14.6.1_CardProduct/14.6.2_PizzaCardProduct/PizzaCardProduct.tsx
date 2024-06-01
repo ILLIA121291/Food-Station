@@ -19,23 +19,6 @@ export interface IExtraIngredient {
   cost: number;
 }
 
-export interface IOrderPizza {
-  parameters: {
-    dishType: string;
-    name: string;
-    extraIngredients: IExtraIngredient[];
-    basis: 'standard' | 'thin';
-    size: 26 | 30 | 40;
-    weight: number;
-    price: number;
-    priceExtraIngredients: number;
-  };
-
-  total: {
-    quantity: number;
-  };
-}
-
 interface IProps {
   data: IPizza;
   langugeApp: typeof english;
@@ -76,6 +59,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   const inisialOrderPizza: IOrderItem = {
     name: data.name,
     price,
+    priceExtra: 0,
     quantity: 1,
     dishType: data.dishType,
     parameters: {
@@ -91,7 +75,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
   return (
     <div className="wt310 p15 bdr15 ">
-      <ImagePanel dishType={data.dishType} image={data.img} alt={data.name} tags={data.tags} ingredients={data.ingredients} basis={order.parameters.basis} size={order.parameters.size} />
+      <ImagePanel dishType={data.dishType} image={data.img} alt={data.name} tags={data.tags} ingredients={data.ingredients} basis={order.parameters.basis} size={order.parameters.size!} />
       <TitlePanel titel={data.name} />
       <IngredientsPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
       <SizePanelPizza data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />

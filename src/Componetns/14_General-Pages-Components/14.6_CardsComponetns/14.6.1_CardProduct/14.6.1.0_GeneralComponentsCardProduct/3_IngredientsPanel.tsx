@@ -15,6 +15,7 @@ import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
 import onOffBodyScroll from '../../../../10_Utilities/onOffBodyScroll';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
+// Interface -------------------------------------------------------
 interface IProps {
   langugeApp: typeof english;
   order: IOrderItem;
@@ -24,12 +25,13 @@ interface IProps {
 const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
   const [listState, setListState] = useState<boolean>(false);
   const [displayInfoMessage, setDisplayInfoMessage] = useState({ display: false, message: '' });
+  const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
 
   const text = langugeApp.textCardProduct.textErrorMessage;
   const textGen = langugeApp.textCardProduct.textGeneral;
 
   const refUl = useRef<HTMLUListElement>(null);
-  let colorImgBtnAdd = order.parameters.extraIngredients.length != 0 ? 'green' : 'black';
+  let colorImgBtnAdd = order.parameters.extraIngredients!.length != 0 ? 'green' : 'black';
 
   // Click on Window Close Ingredients List ------------------------------------------------------------
   const windowCloseList = (e: globalThis.MouseEvent) => {
@@ -48,8 +50,8 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
 
   let displayTotalIngredientsQty: number = 0;
 
-  if (order.parameters.extraIngredients.length != 0) {
-    order.parameters.extraIngredients.forEach((value: IExtraIngredient) => {
+  if (order.parameters.extraIngredients!.length != 0) {
+    order.parameters.extraIngredients!.forEach((value: IExtraIngredient) => {
       displayTotalIngredientsQty += value.quantity;
     });
   }
@@ -58,14 +60,14 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
   const resetAllIngredients = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
 
-    if (order.parameters.extraIngredients.length != 0) {
+    if (order.parameters.extraIngredients!.length != 0) {
       setOrder(order => {
         return {
           ...order,
+          priceExtra: 0,
           parameters: {
             ...order.parameters,
             extraIngredients: [],
-            priceExtraIngredients: 0,
           },
         };
       });
@@ -91,21 +93,21 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
     const price = Number((e.target as HTMLButtonElement).dataset.price);
     // Add One Ingridient ----------------------------------------------------
     if ((e.target as HTMLButtonElement).classList.contains('addIngridient')) {
-      if (order.parameters.extraIngredients.length == 0) {
+      if (order.parameters.extraIngredients!.length == 0) {
         setOrder(order => {
           return {
             ...order,
+            priceExtra: toFixedNumber(price),
             parameters: {
               ...order.parameters,
               extraIngredients: [{ name, price, quantity: 1, cost: price }],
-              priceExtraIngredients: toFixedNumber(price),
             },
           };
         });
       } else {
         let totalAddedExtraIngredients: number = 1;
 
-        order.parameters.extraIngredients.forEach((value: IExtraIngredient) => {
+        order.parameters.extraIngredients!.forEach((value: IExtraIngredient) => {
           totalAddedExtraIngredients += value.quantity;
         });
 
@@ -115,9 +117,9 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
         } else {
           let qtyThisIngredientInOrder: number = 0;
 
-          for (let i = 0; i < order.parameters.extraIngredients.length; i++) {
-            if (order.parameters.extraIngredients[i].name == name) {
-              qtyThisIngredientInOrder = order.parameters.extraIngredients[i].quantity + 1;
+          for (let i = 0; i < order.parameters.extraIngredients!.length; i++) {
+            if (order.parameters.extraIngredients![i].name == name) {
+              qtyThisIngredientInOrder = order.parameters.extraIngredients![i].quantity + 1;
               break;
             }
           }
@@ -126,10 +128,10 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
             setOrder(order => {
               return {
                 ...order,
+                priceExtra: toFixedNumber(order.priceExtra + price),
                 parameters: {
                   ...order.parameters,
-                  extraIngredients: [...order.parameters.extraIngredients, { name, price, quantity: 1, cost: toFixedNumber(1 * price) }],
-                  priceExtraIngredients: toFixedNumber(order.parameters.priceExtraIngredients + price),
+                  extraIngredients: [...order.parameters.extraIngredients!, { name, price, quantity: 1, cost: toFixedNumber(1 * price) }],
                 },
               };
             });
@@ -137,7 +139,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
             setDisplayInfoMessage({ display: true, message: text.onlyThreeSameExtraIngredients });
             disableInformationMessage();
           } else {
-            let filterArr: IExtraIngredient[] = order.parameters.extraIngredients.filter((value: IExtraIngredient) => value.name != name);
+            let filterArr: IExtraIngredient[] = order.parameters.extraIngredients!.filter((value: IExtraIngredient) => value.name != name);
 
             filterArr.push({ name, price, quantity: qtyThisIngredientInOrder, cost: toFixedNumber(qtyThisIngredientInOrder * price) });
 
@@ -148,10 +150,10 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
             setOrder(order => {
               return {
                 ...order,
+                priceExtra: toFixedNumber(priceExtraIngredients),
                 parameters: {
                   ...order.parameters,
                   extraIngredients: filterArr,
-                  priceExtraIngredients: toFixedNumber(priceExtraIngredients),
                 },
               };
             });
@@ -162,8 +164,8 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
 
     // Remove One Ingridient ----------------------------------------------------
     if ((e.target as HTMLButtonElement).classList.contains('removeIngridient')) {
-      const newArrIngridients = order.parameters.extraIngredients
-        .map((value: IExtraIngredient) => {
+      const newArrIngridients = order.parameters
+        .extraIngredients!.map((value: IExtraIngredient) => {
           if (value.name == name) {
             return {
               name: value.name,
@@ -177,17 +179,17 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
         })
         .filter((value: IExtraIngredient) => value.quantity > 0);
 
-      let priceExtraIngredients: number = 0;
+      let priceExtra: number = 0;
 
-      newArrIngridients.forEach((value: IExtraIngredient) => (priceExtraIngredients += value.cost));
+      newArrIngridients.forEach((value: IExtraIngredient) => (priceExtra += value.cost));
 
       setOrder(order => {
         return {
           ...order,
+          priceExtra: toFixedNumber(priceExtra),
           parameters: {
             ...order.parameters,
             extraIngredients: newArrIngridients,
-            priceExtraIngredients: toFixedNumber(priceExtraIngredients),
           },
         };
       });
@@ -212,7 +214,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
           </button>
         </div>
 
-        <div className=" f_jc-ac">+ {order.parameters.priceExtraIngredients} USD</div>
+        <div className=" f_jc-ac">+ {useDisplayPriceInCurrency(currency, order.priceExtra)}</div>
 
         <p style={{ color: colorImgBtnAdd }} className="extra-ingre__btn fs16 wt45 bkgr__tra fw600 tx-al-l r">
           + {textGen.add}
@@ -221,7 +223,7 @@ const IngredientsPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
         <div className="extra-ingre__container bdr10 zindex150 bkgr__wh fw600 " style={listState ? { height: '250px', border: '1px solid #000' } : { height: '0px', border: '0px solid #000' }} onClick={e => e.stopPropagation()} onMouseEnter={() => onOffBodyScroll('hidden')} onMouseLeave={() => onOffBodyScroll('auto')}>
           <ul ref={refUl} className="wt270 p5" onClick={e => addRemoveIngredient(e)}>
             {extraIngredientsPizza.map((item, index) => {
-              return <ItemIngridient key={index} name={item.name} price={item.price} order={order} langugeApp={langugeApp} />;
+              return <ItemIngridient key={index} name={item.name} price={item.price} order={order} langugeApp={langugeApp} currency={currency} />;
             })}
           </ul>
         </div>
@@ -237,17 +239,17 @@ interface ItemIngridient {
   name: string;
   price: number;
   order: IOrderItem;
+  currency: string;
   langugeApp: typeof english;
 }
 
-const ItemIngridient: FC<ItemIngridient> = ({ name, price, order, langugeApp }) => {
+const ItemIngridient: FC<ItemIngridient> = ({ name, price, order, currency, langugeApp }) => {
   const text: { [key: string]: string } = langugeApp.textCardProduct.textExtraIngredients;
-  const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
 
   let displayAddPanel: boolean = false;
   let displayQty: number = 0;
 
-  order.parameters.extraIngredients.forEach((value: IExtraIngredient) => {
+  order.parameters.extraIngredients!.forEach((value: IExtraIngredient) => {
     if (value.name == name) {
       displayAddPanel = true;
       displayQty = value.quantity;

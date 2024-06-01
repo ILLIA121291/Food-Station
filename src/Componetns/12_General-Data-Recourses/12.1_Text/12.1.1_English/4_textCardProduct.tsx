@@ -6,6 +6,7 @@ const textGeneral = {
   thin: 'thin',
   cm: 'cm',
   grams: 'g.',
+  letters: 'l.',
   addToCar: '+ Add to Cart',
 };
 
