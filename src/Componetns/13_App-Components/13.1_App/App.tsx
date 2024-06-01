@@ -35,6 +35,7 @@ import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
+import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 
 // Language App ------------------------------------
 
@@ -74,8 +75,15 @@ const App: FC = () => {
   // Updating localStorage in different browser windows ----------------------------------------------------
 
   window.addEventListener('storage', () => {
-    let newOrderList = JSON.parse(localStorage.getItem('orderList')!);
+    // Updating Cart ---------------------------------------------------------------------------------------
+    const newOrderList = JSON.parse(localStorage.getItem('orderList')!);
     dispatch(updateOrderList(newOrderList));
+
+    // Updating Currency ---------------------------------------------------------------------------------
+    const newCurrency = localStorage.getItem('currency')!;
+    dispatch(onChangeCurrency(newCurrency));
+
+    console.log('Action in localstorage in main browser window');
   });
 
   return (
