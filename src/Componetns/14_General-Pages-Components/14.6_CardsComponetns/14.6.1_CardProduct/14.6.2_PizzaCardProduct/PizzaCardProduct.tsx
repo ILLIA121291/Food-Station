@@ -58,6 +58,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   // Order Inisial State ---------------------------------------------
   const inisialOrderPizza: IOrderItem = {
     name: data.name,
+    img: data.img,
     price,
     priceExtra: 0,
     quantity: 1,
@@ -68,6 +69,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       size: size as 26 | 30 | 40,
       weight,
       priceExtraIngredients: 0,
+      volume: 0,
     },
   };
 

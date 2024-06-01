@@ -5,6 +5,7 @@ import ConfirmationOrder from '../15.2.4_ConfirmationOrder/ConfirmationOrder';
 import './CartPage.scss';
 
 import { FC, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 // Interface -----------------------------------------
 interface IProps {
@@ -13,6 +14,7 @@ interface IProps {
 
 const CartPage: FC<IProps> = ({ langugeApp }) => {
   let [component, setComponent] = useState<string>('EditorOrder');
+  
 
   let displayComponent;
 

@@ -1,4 +1,4 @@
-import PizzaCardProduct, { IExtraIngredient } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
+import PizzaCardProduct from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import './CardProduct.scss';
 
 import { FC } from 'react';
@@ -11,6 +11,7 @@ import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3
 // Interface -------------------------------------------
 export interface IOrderItem {
   name: string;
+  img: string;
   price: number;
   priceExtra: number;
   quantity: number;

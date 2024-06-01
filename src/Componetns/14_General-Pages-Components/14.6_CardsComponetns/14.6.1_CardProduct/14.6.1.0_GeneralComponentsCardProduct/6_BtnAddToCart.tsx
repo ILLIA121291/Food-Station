@@ -2,26 +2,30 @@ import { FC } from 'react';
 import { IExtraIngredient } from '../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToOrderList } from '../../../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
+import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
 
+// Props Interface --------------------------------------------------
 interface IProps {
   order: IOrderItem;
   langugeApp: typeof english;
 }
 
 const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
+  const dispatch = useDispatch()
+  const orderList = useSelector<IStateStore, IOrderItem[]>(state => state.cart.orderList)
   const text = langugeApp.textCardProduct.textGeneral;
 
   const addOrderToCart = () => {
-    if (!localStorage.getItem('orderList')) {
-      const arrOrder = [];
-      arrOrder.push(order);
 
-      localStorage.setItem('orderList', JSON.stringify(arrOrder));
+    if (orderList.length == 0) {
+
+      dispatch(addToOrderList([order]))
     } else {
-      const arrOrder = JSON.parse(localStorage.getItem('orderList')!);
       let thisDishInArrOrder = false;
 
-      const checkingOrderArrMatches = arrOrder.map((value: IOrderItem) => {
+      const checkingOrderArrMatches = orderList.map((value: IOrderItem) => {
         if (value.name == order.name) {
           if (order.dishType != 'pizza') {
             thisDishInArrOrder = true;
@@ -79,9 +83,10 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
 
       if (!thisDishInArrOrder) {
         checkingOrderArrMatches.push(order);
+        dispatch(addToOrderList(checkingOrderArrMatches))
       }
 
-      localStorage.setItem('orderList', JSON.stringify(checkingOrderArrMatches));
+      dispatch(addToOrderList(checkingOrderArrMatches))
     }
   };
 

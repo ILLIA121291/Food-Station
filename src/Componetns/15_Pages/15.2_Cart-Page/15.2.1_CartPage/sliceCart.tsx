@@ -23,7 +23,31 @@ if (localStorage.getItem('orderList')) {
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
-  reducers: {},
+  reducers: {
+    addToOrderList: (state, action) => {
+      state.orderList = action.payload;
+      localStorage.setItem('orderList', JSON.stringify(action.payload));
+    },
+
+    removeFromOrderList: (state, action) => {
+      const newOrderList = state.orderList.filter(value => value.name != action.payload);
+
+      state.orderList = newOrderList;
+      localStorage.setItem('orderList', JSON.stringify(newOrderList));
+    },
+
+    updateOrderList: (state, action) => {
+      state.orderList = action.payload;
+      localStorage.setItem('orderList', JSON.stringify(action.payload));
+    },
+
+    clearOrderList: state => {
+      state.orderList = [];
+      localStorage.removeItem('orderList');
+    },
+  },
 });
+
+export const { addToOrderList, removeFromOrderList, clearOrderList, updateOrderList } = cartSlice.actions;
 
 export default cartSlice.reducer;

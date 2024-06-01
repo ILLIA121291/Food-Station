@@ -3,7 +3,7 @@ import { HiOutlinePlusSm } from 'react-icons/hi';
 import { LuMinus } from 'react-icons/lu';
 
 interface IProps {
-  calFunction: (num: number) => void;
+  calFunction: (num: 1 | -1) => void;
   displayNumber: number;
 }
 

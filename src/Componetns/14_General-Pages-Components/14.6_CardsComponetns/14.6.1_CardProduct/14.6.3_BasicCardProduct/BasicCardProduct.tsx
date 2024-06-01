@@ -27,6 +27,7 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
   const inisialOrder: IOrderItem = {
     name: data.name,
+    img: data.img,
     price: data.price,
     priceExtra: 0,
     quantity: 1,
