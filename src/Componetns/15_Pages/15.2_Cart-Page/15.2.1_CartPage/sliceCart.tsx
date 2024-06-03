@@ -43,7 +43,7 @@ export const cartSlice = createSlice({
 
     clearOrderList: state => {
       state.orderList = [];
-      localStorage.removeItem('orderList');
+      localStorage.setItem('orderList', JSON.stringify([]));
     },
   },
 });
