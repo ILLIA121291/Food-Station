@@ -19,7 +19,7 @@ const OrderList: FC<IProps> = ({ orderList, langugeApp, currency }) => {
     displayComponent = <div className="fs20 bd mt30 p5 fw900">Order list is empty</div>;
   } else {
     displayComponent = (
-      <ul className="mt30 mwt600 wt100per">
+      <ul className="mt30 mwt700 wt100per">
         {orderList.map(value => {
           return <OrderItem key={value.name} order={value} orderList={orderList} langugeApp={langugeApp} currency={currency} />;
         })}

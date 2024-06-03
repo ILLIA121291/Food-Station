@@ -23,7 +23,7 @@ const HeaderAppCart: FC = () => {
   } else {
     orderList.forEach(value => {
       quantity += value.quantity;
-      cost += value.price * value.quantity;
+      cost += (value.price + value.priceExtra) * value.quantity;
     });
   }
 

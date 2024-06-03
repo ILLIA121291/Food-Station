@@ -11,6 +11,7 @@ import QuantityCostWeightPanel from '../14.6.1.0_GeneralComponentsCardProduct/5_
 import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCart';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
+import { nanoid } from '@reduxjs/toolkit';
 
 // Interface --------------------------------------------------
 export interface IExtraIngredient {
@@ -59,8 +60,9 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
 
   // Order Initial State ---------------------------------------------
   const inisialOrderPizza: IOrderItem = {
+    id: nanoid(),
     name: data.name,
-    img: data.img,
+    data,
     price,
     priceExtra: 0,
     quantity: 1,
@@ -70,7 +72,6 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
       basis: basis as 'standard' | 'thin',
       size: size as 26 | 30 | 40,
       weight,
-      priceExtraIngredients: 0,
       volume: 0,
     },
   };

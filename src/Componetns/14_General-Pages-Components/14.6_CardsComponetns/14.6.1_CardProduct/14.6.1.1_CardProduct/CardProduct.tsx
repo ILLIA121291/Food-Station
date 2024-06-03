@@ -10,9 +10,10 @@ import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3
 
 // Interface -------------------------------------------
 export interface IOrderItem {
+  id: string;
   name: string;
-  img: string;
   price: number;
+  data: TAllProducts | IPizza;
   priceExtra: number;
   quantity: number;
   dishType: string;

@@ -1,7 +1,8 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import { IPizza } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
+import onChangBasisSizePizza from '../../../../10_Utilities/onChangBasisSizePizza';
 
 interface IProps {
   data: IPizza;
@@ -11,41 +12,10 @@ interface IProps {
 }
 
 const SizePanelPizza: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
-  const onChangBasisSize = (e: MouseEvent<HTMLDivElement>) => {
-    const textInner = (e.target as HTMLButtonElement).innerText;
-
-    if (textInner == 'standard' || textInner == 'thin') {
-      setOrder(order => {
-        return {
-          ...order,
-          parameters: {
-            ...order.parameters,
-            basis: (e.target as HTMLButtonElement).innerText as 'standard' | 'thin',
-          },
-        };
-      });
-    } else {
-      let price = Number((e.target as HTMLButtonElement).dataset.pizzaPrice!);
-      let weight = Number((e.target as HTMLButtonElement).dataset.pizzaWeight!);
-
-      setOrder(order => {
-        return {
-          ...order,
-          price,
-          parameters: {
-            ...order.parameters,
-            size: +(e.target as HTMLButtonElement).dataset.pizzaSize! as 26 | 30 | 40,
-            weight,
-          },
-        };
-      });
-    }
-  };
-
   return (
-    <div className="mt15 wt270 " onClick={onChangBasisSize}>
-      <PanelBasis data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
-      <PanelSize data={data} order={order} setOrder={setOrder} langugeApp={langugeApp} />
+    <div className="mt15 wt270 " onClick={e => onChangBasisSizePizza(e, setOrder)}>
+      <PanelBasis data={data} order={order} langugeApp={langugeApp} />
+      <PanelSize data={data} order={order} langugeApp={langugeApp} />
     </div>
   );
 };
@@ -55,20 +25,19 @@ const SizePanelPizza: FC<IProps> = ({ data, order, setOrder, langugeApp }) => {
 interface IPanelBasis {
   data: IPizza;
   order: IOrderItem;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
   langugeApp: typeof english;
 }
 
-const PanelBasis: FC<IPanelBasis> = ({ data, order, langugeApp }) => {
+export const PanelBasis: FC<IPanelBasis> = ({ data, order, langugeApp }) => {
   const text: { [key: string]: string } = langugeApp.textCardProduct.textGeneral;
 
   return (
     <div className="f_jc">
-      {data.basis.sort().map((value, i) => {
+      {data.basis.map((value, i) => {
         const activeBtn = value == order.parameters.basis ? 'btn__active' : 'bkgr__br-lt';
 
         return (
-          <button key={i} className={`fw600 wt133 fs16 bd bdr5  ${activeBtn}`}>
+          <button key={i} className={`fw600 wt133 fs16 bd bdr5  ${activeBtn}`} data-basis={value}>
             {text[value]}
           </button>
         );
@@ -82,16 +51,15 @@ const PanelBasis: FC<IPanelBasis> = ({ data, order, langugeApp }) => {
 interface IPanelSize {
   data: IPizza;
   order: IOrderItem;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
   langugeApp: typeof english;
 }
 
-const PanelSize: FC<IPanelSize> = ({ data, order, langugeApp }) => {
+export const PanelSize: FC<IPanelSize> = ({ data, order, langugeApp }) => {
   const text = langugeApp.textCardProduct.textGeneral;
   return (
     <div className="f_jc">
       {data.size
-        .sort((a, b) => a.size - b.size)
+        // .sort((a, b) => a.size - b.size)
         .map((value, i) => {
           const activeBtn = value.size == order.parameters.size ? 'btn__active' : 'bkgr__br-lt';
 

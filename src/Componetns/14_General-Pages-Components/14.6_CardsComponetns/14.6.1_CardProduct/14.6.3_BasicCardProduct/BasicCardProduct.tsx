@@ -11,6 +11,7 @@ import { IRoll } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.
 import { ISushi } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.3_Sushi/dataSushi';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 import { IDrink } from '../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.7_Drinks/dataDrinks';
+import { nanoid } from '@reduxjs/toolkit';
 
 // Interface --------------------------------------------------
 
@@ -26,8 +27,9 @@ const BasicCardProduct: FC<IProps> = ({ data, langugeApp }) => {
   const quantity: number | 0 = (data as Extract<TAllProducts, IRoll | ISushi>).quantity ? (data as Extract<TAllProducts, IRoll | ISushi>).quantity : 0;
 
   const inisialOrder: IOrderItem = {
+    id: nanoid(),
     name: data.name,
-    img: data.img,
+    data,
     price: data.price,
     priceExtra: 0,
     quantity: 1,

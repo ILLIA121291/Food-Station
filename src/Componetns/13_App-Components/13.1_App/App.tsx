@@ -37,6 +37,9 @@ import { useDispatch } from 'react-redux';
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 
+
+// localStorage.removeItem('orderList')
+
 // Language App ------------------------------------
 
 let initialLanguge: typeof english;
