@@ -29,17 +29,17 @@ interface IProps {
 }
 
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
-  let displayCardProduct;
+  let displayComponent;
 
   switch (data.dishType) {
     case 'pizza':
-      displayCardProduct = <PizzaCardProduct data={data} langugeApp={langugeApp} />;
+      displayComponent = <PizzaCardProduct data={data} langugeApp={langugeApp} />;
       break;
     default:
-      displayCardProduct = <BasicCardProduct data={data} langugeApp={langugeApp} />;
+      displayComponent = <BasicCardProduct data={data} langugeApp={langugeApp} />;
   }
 
-  return <div style={{ paddingLeft: `${paddingLeft}px` }}>{displayCardProduct}</div>;
+  return <div style={{ paddingLeft: `${paddingLeft}px` }}>{displayComponent}</div>;
 };
 
 export default CardProduct;

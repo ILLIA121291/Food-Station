@@ -23,6 +23,11 @@ interface IPizzaSize {
   price: number;
 }
 
+export interface IExtraIngredientsPizza {
+  name: string;
+  price: number;
+}
+
 export interface IPizza {
   name: string;
   img: string;
@@ -32,11 +37,6 @@ export interface IPizza {
   isPopular: boolean;
   dishType: 'pizza';
   tags: string[];
-}
-
-export interface IExtraIngredientsPizza {
-  name: string;
-  price: number;
 }
 
 // Tags ------------------------------------------------

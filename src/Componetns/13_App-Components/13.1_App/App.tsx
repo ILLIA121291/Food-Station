@@ -32,7 +32,7 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
@@ -83,7 +83,7 @@ const App: FC = () => {
     const newCurrency = localStorage.getItem('currency')!;
     dispatch(onChangeCurrency(newCurrency));
 
-    console.log('Action in localstorage in main browser window');
+    console.log('Action in localstorage in extra browser window');
   });
 
   return (

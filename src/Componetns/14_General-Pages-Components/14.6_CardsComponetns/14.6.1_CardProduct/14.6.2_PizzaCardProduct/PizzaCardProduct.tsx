@@ -12,6 +12,7 @@ import BtnAddToCart from '../14.6.1.0_GeneralComponentsCardProduct/6_BtnAddToCar
 import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
 
+// Interface --------------------------------------------------
 export interface IExtraIngredient {
   name: string | undefined;
   price: number;
@@ -19,13 +20,14 @@ export interface IExtraIngredient {
   cost: number;
 }
 
+// Props Interface ---------------------------------------------
 interface IProps {
   data: IPizza;
   langugeApp: typeof english;
 }
 
 const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
-  // Bassis Pizza Inisial ----------------------------------------------
+  // Bassis Pizza Inisial -------------------------------------
   let basis: 'standard' | 'thin' = 'standard';
 
   for (let i = 0; i < data.basis.length; i++) {
@@ -55,7 +57,7 @@ const PizzaCardProduct: FC<IProps> = ({ data, langugeApp }) => {
     }
   }
 
-  // Order Inisial State ---------------------------------------------
+  // Order Initial State ---------------------------------------------
   const inisialOrderPizza: IOrderItem = {
     name: data.name,
     img: data.img,
