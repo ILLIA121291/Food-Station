@@ -10,123 +10,202 @@ import BeefPotatoes from './img/beefpotatoes.jpg';
 import SausagesFrenchFries from './img/SausagesFrenchfries.jpg';
 
 import { IDataProduct } from '../12.3.0_Products/dataProducts';
-
-// Interfaces ------------------------------
-export interface ISnack {
-  name: string;
-  img: string;
-  weight: number;
-  price: number;
-  isPopular: boolean;
-  dishType: 'snacks';
-  ingredients: string[];
-  tags: string[];
-}
+import { IProduct } from '../12.3.0_Products/dataProducts';
 
 // Tags ------------------------------------------------
 const tags: string[] = ['spicy', 'vegetarian', 'deep-frying'];
 
 // Products -----------------------------------------------
-const products: ISnack[] = [
+const products: IProduct[] = [
   {
     name: 'chicken nuggets',
     img: ChickenNuggets,
-    weight: 110,
-    price: 1.69,
+
+    size: [
+      {
+        weight: 110,
+        price: 1.69,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken nuggets'],
     tags: ['deep-frying'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'nuggets with country-style potatoes',
     img: CountryStylePotatoes,
-    weight: 285,
-    price: 3.59,
+
+    size: [
+      {
+        weight: 285,
+        price: 3.59,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken nuggets', 'potato wedges', 'pickled cucumbers'],
     tags: ['deep-frying'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'nuggets with potatoes',
     img: Potatoes,
-    weight: 285,
-    price: 3.59,
+
+    size: [
+      {
+        weight: 285,
+        price: 3.59,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken nuggets', 'french fries', 'pickled cucumbers'],
     tags: ['deep-frying'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'french fries',
     img: FrenchFries,
-    weight: 150,
-    price: 1.99,
+
+    size: [
+      {
+        weight: 150,
+        price: 1.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['french fries'],
     tags: ['deep-frying', 'vegetarian'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'chicken teriyaki with rice',
     img: ChickenTeriyaki,
-    weight: 320,
-    price: 3.49,
+
+    size: [
+      {
+        weight: 320,
+        price: 3.49,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['vegetable oil', 'chicken breast', 'teriyaki sauce', 'rice', 'sesame'],
     tags: [],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'country style potatoes',
     img: CountryPotatoes,
-    weight: 170,
-    price: 1.99,
+
+    size: [
+      {
+        weight: 170,
+        price: 1.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['deep-frying potato'],
     tags: ['deep-frying'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'buffalo wings',
     img: BuffaloWings,
-    weight: 400,
-    price: 6.99,
+
+    size: [
+      {
+        weight: 400,
+        price: 6.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['chicken wings', 'bbq sauce'],
     tags: [],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'shrimp "lux"',
     img: ShrimpLux,
-    weight: 125,
-    price: 4.69,
+
+    size: [
+      {
+        weight: 125,
+        price: 4.69,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['shrimp', 'batter', 'breadcrumbs'],
     tags: ['deep-frying'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'beef with potatoes and mushrooms',
     img: BeefPotatoes,
-    weight: 300,
-    price: 4.29,
+
+    size: [
+      {
+        weight: 300,
+        price: 4.29,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['beef', 'champignons', 'potato', 'garlic sauce'],
     tags: [],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'sausages with French fries',
     img: SausagesFrenchFries,
-    weight: 300,
-    price: 4.59,
+
+    size: [
+      {
+        weight: 300,
+        price: 4.59,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'snacks',
     ingredients: ['pork sausages', 'french fries', 'pickled cucumbers'],
     tags: ['deep-frying'],
+    extraIngredients: [],
+    basis: [],
   },
 ];
 

@@ -6,83 +6,126 @@ import ChocolateIceCream from './img/chocolateicecream.jpg';
 import VanillaIceCream from './img/vanillaicecream.jpg';
 
 import { IDataProduct } from '../12.3.0_Products/dataProducts';
-
-// Interfaces ------------------------------
-export interface IDessert {
-  name: string;
-  img: string;
-  weight: number;
-  price: number;
-  isPopular: boolean;
-  dishType: 'dessert';
-  ingredients: string[];
-  tags: string[];
-}
+import { IProduct } from '../12.3.0_Products/dataProducts';
 
 // Tags ------------------------------------------------
 const tags: string[] = ['cake', 'ice cream', 'dessert'];
 
 // Products -----------------------------------------------
-const products: IDessert[] = [
+const products: IProduct[] = [
   {
     name: 'cheesecake',
     img: Cheesecake,
-    weight: 130,
-    price: 2.99,
+
+    size: [
+      {
+        weight: 130,
+        price: 2.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['shortbread', 'curd cheese', 'cream'],
     tags: ['cake'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'dessert "mango"',
     img: DessertMango,
-    weight: 120,
-    price: 2.99,
+
+    size: [
+      {
+        weight: 120,
+        price: 2.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['mango', 'passion fruit', 'cream', 'white chocolate icing', 'cream cheese', 'gelatin', 'cocoa'],
     tags: ['dessert'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'dessert "raspberries"',
     img: DessertRaspberries,
-    weight: 120,
-    price: 2.99,
+
+    size: [
+      {
+        weight: 120,
+        price: 2.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['raspberries', 'cream', 'white chocolate icing', 'cream cheese', 'gelatin', 'cocoa'],
     tags: ['dessert'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'dessert "tiramisu"',
     img: DessertTiramisu,
-    weight: 125,
-    price: 2.99,
+
+    size: [
+      {
+        weight: 125,
+        price: 2.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['cream', 'liqueur', 'cookies', 'coffee'],
     tags: ['dessert'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'chocolate ice cream',
     img: ChocolateIceCream,
-    weight: 120,
-    price: 2.99,
+
+    size: [
+      {
+        weight: 120,
+        price: 2.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['chocolate ice cream', 'salted caramel', 'peanuts'],
     tags: ['ice cream'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'vanilla ice cream',
     img: VanillaIceCream,
-    weight: 110,
-    price: 2.99,
+
+    size: [
+      {
+        weight: 110,
+        price: 2.99,
+
+        quantity: 1,
+      },
+    ],
     isPopular: false,
     dishType: 'dessert',
     ingredients: ['vanilla ice cream', 'salted caramel', 'peanuts', 'chocolate'],
     tags: ['ice cream'],
+    extraIngredients: [],
+    basis: [],
   },
 ];
 

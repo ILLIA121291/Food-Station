@@ -8,23 +8,44 @@ import dataDrinks from '../12.3.7_Drinks/dataDrinks';
 import dataDessert from '../12.3.8_Dessert/dataDessert';
 import dataSets from '../12.3.9_Sets/dataSets';
 
-import { IRoll } from '../12.3.2_Rolls/dataRolls';
-import { ISushi } from '../12.3.3_Sushi/dataSushi';
-import { ISoup } from '../12.3.4_Soup/dataSoup';
-import { ISnack } from '../12.3.5_Snacks/dataSnacks';
-import { ISauce } from '../12.3.6_Sauces/dataSauces';
-import { IDrink } from '../12.3.7_Drinks/dataDrinks';
-import { IDessert } from '../12.3.8_Dessert/dataDessert';
-import { ISet } from '../12.3.9_Sets/dataSets';
+// Basis Interface ------------------------------------
+interface IBasis {
+  name: string;
+  price: number;
+}
 
-// Types ------------------------------------
+// Size Interface ------------------------------------
+interface ISize {
+  price: number;
+  quantity: number;
+  weight: number;
+  volume?: number;
+  diameter?: number;
+}
 
-export type TAllProducts = IRoll | ISushi | ISoup | ISnack | ISauce | IDrink | IDessert | ISet;
+// Extra Ingredients Interface -------------------------
+export interface IExtraIngredient {
+  name: string;
+  price: number;
+}
 
-// Interfaces ------------------------------
+// Product Interfaces ------------------------------
+export interface IProduct {
+  name: string;
+  img: string;
+  size: ISize[];
+  basis: IBasis[];
+  ingredients: string[];
+  extraIngredients: IExtraIngredient[];
+  isPopular: boolean;
+  dishType: string;
+  tags: string[];
+}
+
+// Data Products Interface --------------------------
 export interface IDataProduct {
   name: string;
-  products: any[];
+  products: IProduct[];
   tags: string[];
 }
 

@@ -15,189 +15,282 @@ import LuxuryShrimp from './img/luxuryshrimp.jpg';
 import Tuna from './img/tuna.jpg';
 
 import { IDataProduct } from '../12.3.0_Products/dataProducts';
-
-// Interfaces ------------------------------
-export interface IRoll {
-  name: string;
-  img: string;
-  quantity: number;
-  weight: number;
-  price: number;
-  isPopular: boolean;
-  dishType: 'roll';
-  ingredients: string[];
-  tags: string[];
-}
+import { IProduct } from '../12.3.0_Products/dataProducts';
 
 // Tags ------------------------------------------------
 const tags: string[] = ['salmon roll', 'vegetarian', 'spicy', 'baked', 'beef roll'];
 
 // Products -----------------------------------------------
-const products: IRoll[] = [
+const products: IProduct[] = [
   {
     name: 'california',
     img: California,
-    quantity: 6,
-    weight: 182,
-    price: 3.69,
+    size: [
+      {
+        weight: 182,
+        price: 3.69,
+        quantity: 6,
+      },
+    ],
+
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fresh cucumbers', 'snow crab', 'masago caviar', 'hot sauce'],
     tags: ['spicy'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'tampur cheese',
     img: TampurCheese,
-    quantity: 8,
-    weight: 205,
-    price: 2.79,
+    size: [
+      {
+        weight: 205,
+        price: 2.79,
+        quantity: 8,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'breadcrumbs'],
     tags: ['vegetarian'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'Kuppu make',
     img: KuppuMake,
-    quantity: 6,
-    weight: 98,
-    price: 1.59,
+    size: [
+      {
+        weight: 98,
+        price: 1.59,
+        quantity: 6,
+      },
+    ],
+
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fresh cucumbers', 'sesame'],
     tags: ['vegetarian'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'philadelphia',
     img: Philadelphia,
-    quantity: 6,
-    weight: 228,
-    price: 7.99,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 228,
+        price: 7.99,
+      },
+    ],
+
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'fresh cucumbers', 'salmon'],
     tags: ['salmon roll'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'California cheese',
     img: CaliforniaCheese,
-    quantity: 6,
-    weight: 182,
-    price: 3.49,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 182,
+        price: 3.49,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'masago caviar'],
     tags: ['vegetarian'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'beef tumpur',
     img: BeefTumpur,
-    quantity: 8,
-    weight: 210,
-    price: 3.49,
+
+    size: [
+      {
+        quantity: 8,
+        weight: 210,
+        price: 3.49,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'bacon', 'spicy sauce', 'cream cheese', 'fresh cucumbers', 'breadcrumbs'],
     tags: ['beef roll', 'spicy'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'philadelphia with eel',
     img: PhiladelphiaWithEel,
-    quantity: 6,
-    weight: 182,
-    price: 4.59,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 182,
+        price: 4.59,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'smoked eel', 'unagi sauce', 'sesame'],
     tags: [],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'new york',
     img: NewYork,
-    quantity: 6,
-    weight: 168,
-    price: 2.39,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 168,
+        price: 2.39,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'mayonnaise', 'fresh cucumbers', 'fried salmon skin', 'sesame'],
     tags: ['salmon roll'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'kyoto',
     img: Kyoto,
-    quantity: 6,
-    weight: 101,
-    price: 1.99,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 101,
+        price: 1.99,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fried salmon skin', 'fresh cucumbers'],
     tags: ['salmon roll'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'hokkaido',
     img: Hokkaido,
-    quantity: 6,
-    weight: 168,
-    price: 3.59,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 168,
+        price: 3.59,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'cream cheese', 'snow crab', 'smoked salmon', 'sesame'],
     tags: ['salmon roll'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'yasai maki',
     img: YasaiMaki,
-    quantity: 8,
-    weight: 163,
-    price: 2.39,
+
+    size: [
+      {
+        quantity: 8,
+        weight: 163,
+        price: 2.39,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'fresh cucumbers', 'tomatoes', 'bell pepper', 'iceberg lettuce', 'sesame'],
     tags: ['vegetarian'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'spicy eel',
     img: SpicyEel,
-    quantity: 6,
-    weight: 96,
-    price: 2.99,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 96,
+        price: 2.99,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'spice sauce', 'smoked eel'],
     tags: ['spicy'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'chile',
     img: Chile,
-    quantity: 6,
-    weight: 189,
-    price: 2.69,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 189,
+        price: 2.69,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'tomatoes', 'snow crab', 'spice sauce'],
     tags: ['spicy', 'baked'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'luxury shrimp',
     img: LuxuryShrimp,
-    quantity: 8,
-    weight: 173,
-    price: 4.29,
+
+    size: [
+      {
+        quantity: 8,
+        weight: 173,
+        price: 4.29,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'shrimp', 'mayonnaise', 'batter', 'breadcrumbs', 'sesame'],
     tags: ['baked'],
+    extraIngredients: [],
+    basis: [],
   },
   {
     name: 'tuna',
     img: Tuna,
-    quantity: 6,
-    weight: 96,
-    price: 2.49,
+
+    size: [
+      {
+        quantity: 6,
+        weight: 96,
+        price: 2.49,
+      },
+    ],
     isPopular: false,
     dishType: 'roll',
     ingredients: ['rice', 'nori', 'tuna'],
     tags: [],
+    extraIngredients: [],
+    basis: [],
   },
 ];
 
