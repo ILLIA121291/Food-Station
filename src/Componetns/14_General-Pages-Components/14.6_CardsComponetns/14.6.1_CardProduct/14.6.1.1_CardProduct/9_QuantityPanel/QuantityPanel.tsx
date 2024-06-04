@@ -4,13 +4,13 @@ import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_E
 import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
-import { IOrderItem } from '../1_CardProduct/CardProduct';
+import { IOrder } from '../1_CardProduct/CardProduct';
 import onSetQuantity from './onSetQuantity';
 
 // Interface --------------------------------------------------------
 interface IProps {
-  order: IOrderItem;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
+  order: IOrder;
+  setOrder: React.Dispatch<React.SetStateAction<IOrder>>;
   langugeApp: typeof english;
 }
 

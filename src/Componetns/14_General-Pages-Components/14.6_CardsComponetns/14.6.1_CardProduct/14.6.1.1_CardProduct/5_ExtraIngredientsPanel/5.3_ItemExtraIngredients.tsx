@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-import { IOrderItem } from '../1_CardProduct/CardProduct';
+import { IOrder } from '../1_CardProduct/CardProduct';
 import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { IAddExtraIngredient } from '../1_CardProduct/CardProduct';
 
@@ -9,7 +9,7 @@ import { IAddExtraIngredient } from '../1_CardProduct/CardProduct';
 interface IProps {
   name: string;
   price: number;
-  order: IOrderItem;
+  order: IOrder;
   currency: string;
   langugeApp: typeof english;
 }

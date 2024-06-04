@@ -6,12 +6,12 @@ import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../13.1_App/stateStore';
-import { IOrderItem } from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
+import { IOrder } from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
 import useDisplayPriceInCurrency from '../../../14_General-Pages-Components/14.2_CurrencyPanel/useDisplayPriceInCurrency';
 
 const HeaderAppCart: FC = () => {
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
-  const orderList = useSelector<IStateStore, IOrderItem[]>(state => state.cart.orderList);
+  const orderList = useSelector<IStateStore, IOrder[]>(state => state.cart.orderList);
 
   // Cart Cost & Quantity -----------------
   let quantity: number = 0;

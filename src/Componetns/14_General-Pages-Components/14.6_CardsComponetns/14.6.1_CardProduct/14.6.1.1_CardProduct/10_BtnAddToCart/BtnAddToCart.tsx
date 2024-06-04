@@ -4,17 +4,17 @@ import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_E
 import { useSelector, useDispatch } from 'react-redux';
 import { addToOrderList } from '../../../../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
-import { IOrderItem } from '../1_CardProduct/CardProduct';
+import { IOrder } from '../1_CardProduct/CardProduct';
 
 // Props Interface --------------------------------------------------
 interface IProps {
-  order: IOrderItem;
+  order: IOrder;
   langugeApp: typeof english;
 }
 
 const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
   const dispatch = useDispatch();
-  const orderList = useSelector<IStateStore, IOrderItem[]>(state => state.cart.orderList);
+  const orderList = useSelector<IStateStore, IOrder[]>(state => state.cart.orderList);
   const text = langugeApp.textCardProduct.textGeneral;
 
   const addOrderToCart = () => {
@@ -23,7 +23,7 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
     } else {
       let thisDishInOrderList = false;
 
-      const checkingOrderList = orderList.map((value: IOrderItem) => {
+      const checkingOrderList = orderList.map((value: IOrder) => {
         if (value.name == order.name) {
           if (order.dishType != 'pizza') {
             thisDishInOrderList = true;

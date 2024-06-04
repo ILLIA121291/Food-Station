@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import english from '../../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-import { IOrderItem } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
+import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
 import useDisplayPriceInCurrency from '../../../../../../14_General-Pages-Components/14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { PanelBasis, PanelSize } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.0_GeneralComponentsCardProduct/4_SizePanelPizza';
 import { IPizza } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
@@ -9,8 +9,8 @@ import onChangBasisSizePizza from '../../../../../../10_Utilities/onChangBasisSi
 
 // Props Interface --------------------------------------------
 interface IProps {
-  updatedOrder: IOrderItem;
-  setUpdateOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
+  updatedOrder: IOrder;
+  setUpdateOrder: React.Dispatch<React.SetStateAction<IOrder>>;
   currency: string;
   langugeApp: typeof english;
 }
@@ -42,7 +42,7 @@ const DescriptionOrderItem: FC<IProps> = ({ updatedOrder, setUpdateOrder, curren
 // Basis ---------------------------------------------------------
 
 interface IBasis {
-  updatedOrder: IOrderItem;
+  updatedOrder: IOrder;
   langugeApp: typeof english;
 }
 
@@ -58,7 +58,7 @@ const Basis: FC<IBasis> = ({ updatedOrder, langugeApp }) => {
 // Size -------------------------------------------------------------
 
 interface ISize {
-  updatedOrder: IOrderItem;
+  updatedOrder: IOrder;
   langugeApp: typeof english;
 }
 
@@ -74,8 +74,8 @@ const Size: FC<ISize> = ({ updatedOrder, langugeApp }) => {
 //  Ingredients Extra --------------------------------------------------
 
 interface IIngredientsExtra {
-  updatedOrder: IOrderItem;
-  setUpdateOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
+  updatedOrder: IOrder;
+  setUpdateOrder: React.Dispatch<React.SetStateAction<IOrder>>;
   langugeApp: typeof english;
 }
 

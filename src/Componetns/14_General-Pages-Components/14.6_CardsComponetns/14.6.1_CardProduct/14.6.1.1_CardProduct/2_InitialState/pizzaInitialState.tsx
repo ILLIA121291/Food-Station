@@ -1,6 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IOrderItem } from '../1_CardProduct/CardProduct';
+import { IOrder } from '../1_CardProduct/CardProduct';
 
 const pizzaInisialState = (data: IProduct) => {
   // Bassis Pizza Inisial -------------------------------------
@@ -34,7 +34,7 @@ const pizzaInisialState = (data: IProduct) => {
   }
 
   // Order Initial State ---------------------------------------------
-  const inisialOrderPizza: IOrderItem = {
+  const inisialOrderPizza: IOrder = {
     id: nanoid(),
     name: data.name,
     data,

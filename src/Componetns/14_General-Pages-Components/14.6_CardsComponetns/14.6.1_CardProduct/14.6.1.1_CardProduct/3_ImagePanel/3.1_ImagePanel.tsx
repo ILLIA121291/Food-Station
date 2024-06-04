@@ -1,14 +1,14 @@
 import { FC } from 'react';
 
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IOrderItem } from '../1_CardProduct/CardProduct';
+import { IOrder } from '../1_CardProduct/CardProduct';
 import InfoImages from './3.2_InfoImages';
 import InfoIngredients from './3.3_InfoIngredients';
 
 // Interface -----------------------------------
 interface IProps {
   data: IProduct;
-  order: IOrderItem;
+  order: IOrder;
 }
 
 const ImagePanel: FC<IProps> = ({ data, order }) => {

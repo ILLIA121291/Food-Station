@@ -26,7 +26,7 @@ export interface IAddExtraIngredient {
 }
 
 // Interface -------------------------------------------
-export interface IOrderItem {
+export interface IOrder {
   id: string;
   name: string;
   price: number;

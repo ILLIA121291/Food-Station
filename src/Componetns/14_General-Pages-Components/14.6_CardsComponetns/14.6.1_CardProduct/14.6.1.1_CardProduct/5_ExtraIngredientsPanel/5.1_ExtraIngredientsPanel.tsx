@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
 
 import onOffBodyScroll from '../../../../../10_Utilities/onOffBodyScroll';
-import { IOrderItem } from '../1_CardProduct/CardProduct';
+import { IOrder } from '../1_CardProduct/CardProduct';
 import ListExtraIngredients from './5.2_ListExtraIngredients';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IAddExtraIngredient } from '../1_CardProduct/CardProduct';
@@ -22,8 +22,8 @@ import { IAddExtraIngredient } from '../1_CardProduct/CardProduct';
 interface IProps {
   data: IProduct;
   langugeApp: typeof english;
-  order: IOrderItem;
-  setOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
+  order: IOrder;
+  setOrder: React.Dispatch<React.SetStateAction<IOrder>>;
 }
 
 const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }) => {
@@ -244,7 +244,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }
 // interface ItemIngridient {
 //   name: string;
 //   price: number;
-//   order: IOrderItem;
+//   order: IOrder;
 //   currency: string;
 //   langugeApp: typeof english;
 // }

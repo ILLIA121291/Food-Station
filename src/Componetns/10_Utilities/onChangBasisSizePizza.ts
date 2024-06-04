@@ -1,9 +1,9 @@
 import { MouseEvent } from 'react';
-import { IOrderItem } from '../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
+import { IOrder } from '../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
 // Types ------------------------------------------
 
 type TE = MouseEvent<HTMLDivElement> | MouseEvent<HTMLUListElement>;
-type TSetOrder = React.Dispatch<React.SetStateAction<IOrderItem>>;
+type TSetOrder = React.Dispatch<React.SetStateAction<IOrder>>;
 
 // Function --------------------------------------
 

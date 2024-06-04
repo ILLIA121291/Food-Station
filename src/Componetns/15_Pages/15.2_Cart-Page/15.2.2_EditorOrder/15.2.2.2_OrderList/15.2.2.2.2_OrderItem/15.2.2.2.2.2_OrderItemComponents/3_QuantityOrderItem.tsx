@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { IOrderItem } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
+import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
 import QuantityInput from '../../../../../../14_General-Pages-Components/14.5_FormsComponents/QuantityInput';
 
 // Props Interface -----------------------------------
 
 interface IProps {
-  updatedOrder: IOrderItem;
-  setUpdateOrder: React.Dispatch<React.SetStateAction<IOrderItem>>;
+  updatedOrder: IOrder;
+  setUpdateOrder: React.Dispatch<React.SetStateAction<IOrder>>;
 }
 
 const QuantityOrderItem: FC<IProps> = ({ updatedOrder, setUpdateOrder }) => {
