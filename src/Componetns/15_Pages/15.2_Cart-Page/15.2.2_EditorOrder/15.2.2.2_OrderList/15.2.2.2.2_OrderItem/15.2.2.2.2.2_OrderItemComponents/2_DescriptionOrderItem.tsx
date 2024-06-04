@@ -4,7 +4,7 @@ import { IOrderItem } from '../../../../../../14_General-Pages-Components/14.6_C
 import useDisplayPriceInCurrency from '../../../../../../14_General-Pages-Components/14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { PanelBasis, PanelSize } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.0_GeneralComponentsCardProduct/4_SizePanelPizza';
 import { IPizza } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
-import IngredientsPanel from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.0_GeneralComponentsCardProduct/3_IngredientsPanel';
+import IngredientsPanel from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
 import onChangBasisSizePizza from '../../../../../../10_Utilities/onChangBasisSizePizza';
 
 // Props Interface --------------------------------------------

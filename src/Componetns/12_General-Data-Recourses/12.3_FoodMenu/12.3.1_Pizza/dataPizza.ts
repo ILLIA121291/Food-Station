@@ -110,20 +110,17 @@ const products: IProduct[] = [
       {
         diameter: 26,
         weight: 430,
-
         price: 4.69,
         quantity: 1,
       },
       {
         diameter: 30,
-
         weight: 575,
         price: 6.59,
         quantity: 1,
       },
       {
         diameter: 40,
-
         weight: 800,
         price: 8.49,
         quantity: 1,

@@ -96,7 +96,7 @@ const App: FC = () => {
         <main>
           <Routes>
             <Route path="/" element={<HomePage langugeApp={langugeApp} />} />
-            <Route path="/cart" element={<CartPage langugeApp={langugeApp} />} />
+            {/* <Route path="/cart" element={<CartPage langugeApp={langugeApp} />} /> */}
           </Routes>
         </main>
         <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />

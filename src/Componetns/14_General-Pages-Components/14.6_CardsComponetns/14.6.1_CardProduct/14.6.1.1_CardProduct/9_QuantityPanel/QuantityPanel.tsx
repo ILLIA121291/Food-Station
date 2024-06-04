@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import QuantityInput from '../../../14.5_FormsComponents/QuantityInput';
-import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-import useDisplayPriceInCurrency from '../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
+import QuantityInput from '../../../../14.5_FormsComponents/QuantityInput';
+import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
-import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
-import { IOrderItem } from '../14.6.1.1_CardProduct/CardProduct';
+import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
+import { IOrderItem } from '../1_CardProduct/CardProduct';
+import onSetQuantity from './onSetQuantity';
 
 // Interface --------------------------------------------------------
 interface IProps {
@@ -13,7 +14,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
-const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
+const QuantityPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
   const text = langugeApp.textCardProduct.textGeneral;
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
 
@@ -51,4 +52,4 @@ const QuantityCostWeightPanel: FC<IProps> = ({ order, setOrder, langugeApp }) =>
   );
 };
 
-export default QuantityCostWeightPanel;
+export default QuantityPanel;

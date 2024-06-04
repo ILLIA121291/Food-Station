@@ -9,13 +9,13 @@ import dataDessert from '../12.3.8_Dessert/dataDessert';
 import dataSets from '../12.3.9_Sets/dataSets';
 
 // Basis Interface ------------------------------------
-interface IBasis {
+export interface IBasis {
   name: string;
   price: number;
 }
 
 // Size Interface ------------------------------------
-interface ISize {
+export interface ISize {
   price: number;
   quantity: number;
   weight: number;
