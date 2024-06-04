@@ -1,18 +1,14 @@
 import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 
-import { extraIngredientsPizza } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
 import { IoIosCloseCircle } from 'react-icons/io';
-import BlockErrorMessages from '../../../../14.5_FormsComponents/BlockErrorMessages';
 import toFixedNumber from '../../../../../10_Utilities/toFixedNumber';
 
-import { IExtraIngredient } from '../../14.6.2_PizzaCardProduct/PizzaCardProduct';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
 
-import onOffBodyScroll from '../../../../../10_Utilities/onOffBodyScroll';
 import { IOrder } from '../1_CardProduct/CardProduct';
 import ListExtraIngredients from './5.2_ListExtraIngredients';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
@@ -93,7 +89,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }
   // Add-Remove Ingredient ------------------------------------------------------------------------
 
   const addRemoveIngredient = (e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLUListElement>) => {
-    const name = (e.target as HTMLButtonElement).dataset.name;
+    const name = (e.target as HTMLButtonElement).dataset.name!;
     const price = Number((e.target as HTMLButtonElement).dataset.price);
     // Add One Ingridient ----------------------------------------------------
     if ((e.target as HTMLButtonElement).classList.contains('addIngridient')) {
@@ -202,7 +198,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }
 
   return (
     <div
-      className="mt15 pos_rel bd wt280 bdr10 fw600 us-se cur-poi bkgr__br-lt "
+      className=" pos_rel bd wt280 bdr10 fw600 us-se cur-poi bkgr__br-lt "
       onClick={e => {
         e.stopPropagation(), setListState(!listState);
       }}
@@ -225,70 +221,9 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }
         </p>
 
         <ListExtraIngredients data={data} listState={listState} order={order} langugeApp={langugeApp} currency={currency} refUl={refUl} displayInfoMessage={displayInfoMessage} addRemoveIngredient={addRemoveIngredient} />
-
-        {/* <div className="extra-ingre__container bdr10 zindex150 bkgr__wh fw600 " style={listState ? { height: '250px', border: '1px solid #000' } : { height: '0px', border: '0px solid #000' }} onClick={e => e.stopPropagation()} onMouseEnter={() => onOffBodyScroll('hidden')} onMouseLeave={() => onOffBodyScroll('auto')}>
-          <ul ref={refUl} className="wt270 p5" onClick={e => addRemoveIngredient(e)}>
-            {extraIngredientsPizza.map((item, index) => {
-              return <ItemIngridient key={index} name={item.name} price={item.price} order={order} langugeApp={langugeApp} currency={currency} />;
-            })}
-          </ul>
-        </div>
-        <BlockErrorMessages name="extra-ingredient" color="blc" className="wt260" message={displayInfoMessage.message} display={displayInfoMessage.display} /> */}
       </div>
     </div>
   );
 };
-
-// AddIngridientPanel -----------------------------------------------------------------------
-
-// interface ItemIngridient {
-//   name: string;
-//   price: number;
-//   order: IOrder;
-//   currency: string;
-//   langugeApp: typeof english;
-// }
-
-// const ItemIngridient: FC<ItemIngridient> = ({ name, price, order, currency, langugeApp }) => {
-//   const text: { [key: string]: string } = langugeApp.textCardProduct.textExtraIngredients;
-
-//   let displayAddPanel: boolean = false;
-//   let displayQty: number = 0;
-
-//   order.parameters.extraIngredients!.forEach((value: IExtraIngredient) => {
-//     if (value.name == name) {
-//       displayAddPanel = true;
-//       displayQty = value.quantity;
-//     }
-//   });
-
-//   let display: 'visible' | 'hidden' = displayAddPanel ? 'visible' : 'hidden';
-
-//   return (
-//     <li data-name={name} data-price={price} className="addIngridient f_jc_sb p5 bkgr__br-lt-hov">
-//       <p data-name={name} data-price={price} className="addIngridient">
-//         {text[name]}
-//       </p>
-
-//       <div className="f_ac">
-//         <button data-name={name} data-price={price} style={{ visibility: display }} className="removeIngridient bkgr__wh f_jc-ac wt18 ht18 fs18 fw600 bd bdr5">
-//           -
-//         </button>
-
-//         <p style={{ visibility: display }} className="bkgr__wh pl5 pr5">
-//           {displayQty}
-//         </p>
-
-//         <button data-name={name} data-price={price} className="addIngridient mr10 bkgr__wh f_jc-ac wt18 ht18 fs18 fw600 bd bdr5">
-//           +
-//         </button>
-
-//         <p data-name={name} data-price={price} className="wt85 addIngridient">
-//           {useDisplayPriceInCurrency(currency, price)}
-//         </p>
-//       </div>
-//     </li>
-//   );
-// };
 
 export default ExtraIngredientsPanel;

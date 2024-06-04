@@ -38,7 +38,7 @@ const QuantityPanel: FC<IProps> = ({ order, setOrder, langugeApp }) => {
   };
 
   return (
-    <div className="mt15 f_jc_sb us-se wt270">
+    <div className="f_jc_sb us-se wt270">
       <QuantityInput calFunction={onSetQuantity} displayNumber={order.quantity} />
 
       <div className=" wt150 tx-al-c">

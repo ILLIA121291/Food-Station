@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import english from '../../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
 import useDisplayPriceInCurrency from '../../../../../../14_General-Pages-Components/14.2_CurrencyPanel/useDisplayPriceInCurrency';
-import { PanelBasis, PanelSize } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.0_GeneralComponentsCardProduct/4_SizePanelPizza';
-import { IPizza } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.1_Pizza/dataPizza';
-import IngredientsPanel from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
 import onChangBasisSizePizza from '../../../../../../10_Utilities/onChangBasisSizePizza';
+import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
+import BasisPanel from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/6_BasisPanel/BasisPanel';
+import SizePanel from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/7_SizePanel/SizePanel';
+import ExtraIngredientsPanel from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
 
 // Props Interface --------------------------------------------
 interface IProps {
@@ -49,8 +49,8 @@ interface IBasis {
 const Basis: FC<IBasis> = ({ updatedOrder, langugeApp }) => {
   return (
     <li className="mt5">
-      <p>Basis: {updatedOrder.parameters.basis}</p>
-      <PanelBasis data={updatedOrder.data as IPizza} order={updatedOrder} langugeApp={langugeApp} />
+      <p>Basis: {updatedOrder.parameters.basis.name}</p>
+      <BasisPanel data={updatedOrder.data} order={updatedOrder} langugeApp={langugeApp} />
     </li>
   );
 };
@@ -66,7 +66,7 @@ const Size: FC<ISize> = ({ updatedOrder, langugeApp }) => {
   return (
     <li className="mt5">
       <p>Size: {updatedOrder.parameters.size}</p>
-      <PanelSize data={updatedOrder.data as IPizza} order={updatedOrder} langugeApp={langugeApp} />
+      <SizePanel data={updatedOrder.data} order={updatedOrder} langugeApp={langugeApp} />
     </li>
   );
 };
@@ -83,7 +83,7 @@ const IngredientsExtra: FC<IIngredientsExtra> = ({ updatedOrder, setUpdateOrder,
   return (
     <li>
       <p>Ingredients Extra</p>
-      <IngredientsPanel order={updatedOrder} setOrder={setUpdateOrder} langugeApp={langugeApp} />
+      <ExtraIngredientsPanel order={updatedOrder} setOrder={setUpdateOrder} data={updatedOrder.data} langugeApp={langugeApp} />
     </li>
   );
 };

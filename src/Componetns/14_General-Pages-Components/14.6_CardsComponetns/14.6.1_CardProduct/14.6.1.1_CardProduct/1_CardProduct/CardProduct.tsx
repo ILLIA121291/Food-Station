@@ -41,7 +41,6 @@ export interface IOrder {
     weight: number;
     volume: number;
     diameter: number;
-
     [key: string]: any;
   };
 }
@@ -85,10 +84,13 @@ const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
       <div className="wt310 p15 bdr15 " onClick={e => onChange(e)}>
         <ImagePanel data={data} order={order} />
         <TitlePanel titel={data.name} />
+        <div className="mt15"></div>
         {extraIngredientsPanel}
+        <div className="mt15"></div>
         {basisPanel}
         {sizePanel}
         {infoPanel}
+        <div className="mt15"></div>
         <QuantityPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
         <BtnAddToCart order={order} langugeApp={langugeApp} />
       </div>
