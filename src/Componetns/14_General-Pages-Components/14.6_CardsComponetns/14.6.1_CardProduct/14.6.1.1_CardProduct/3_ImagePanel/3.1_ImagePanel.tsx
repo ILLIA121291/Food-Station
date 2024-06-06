@@ -14,7 +14,7 @@ interface IProps {
 const ImagePanel: FC<IProps> = ({ data, order }) => {
   const { dishType, img, name, tags, ingredients } = data;
   const basis = order.parameters.basis;
-  const diameter = order.parameters.diameter;
+  const size = order.parameters.size;
 
   const infoImagesComponent = tags.includes('spicy') || tags.includes('vegetarian') ? <InfoImages tags={tags} /> : null;
   const infoIngredientsComponent = ingredients.length != 0 ? <InfoIngredients ingredients={ingredients} /> : null;
@@ -31,8 +31,8 @@ const ImagePanel: FC<IProps> = ({ data, order }) => {
   // Display Pizza Size -----------------------------------
   let pizzaSiza: string = '';
 
-  if (diameter) {
-    switch (diameter) {
+  if (size) {
+    switch (size) {
       case 26:
         pizzaSiza = 'pizza-size26';
         break;

@@ -8,15 +8,13 @@ import { IBasis, IProduct } from '../../../../../12_General-Data-Recourses/12.3_
 import ImagePanel from '../3_ImagePanel/3.1_ImagePanel';
 import TitlePanel from '../4_TitlePanel/4.1_TitlePanel';
 import ExtraIngredientsPanel from '../5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
-import BtnAddToCart from '../10_BtnAddToCart/BtnAddToCart';
-import pizzaInisialState from '../2_InitialState/pizzaInitialState';
-import basicInitialState from '../2_InitialState/basicInitialState';
+import BtnAddToCart from '../9_BtnAddToCart/BtnAddToCart';
 import BasisPanel from '../6_BasisPanel/BasisPanel';
-import SizePanel from '../7_SizePanel/SizePanel';
-import InfoPanel from '../8_InfoPanel/InfoPanel';
+import SizePanel from '../7_SizePanel/7.1_SizePanel';
 import onChangeBasis from '../6_BasisPanel/onChangeBasis';
-import onChangeSize from '../7_SizePanel/onChangeSize';
-import QuantityPanel from '../9_QuantityPanel/QuantityPanel';
+import onChangeSize from '../7_SizePanel/7.0_onChangeSize';
+import QuantityPanel from '../8_QuantityPanel/QuantityPanel';
+import orderInitialState from '../2_InitialState/orderInitialState';
 
 export interface IAddExtraIngredient {
   name: string;
@@ -39,8 +37,8 @@ export interface IOrder {
     basis: IBasis;
     quantity: number;
     weight: number;
-    volume: number;
-    diameter: number;
+    size: number;
+    units: string;
     [key: string]: any;
   };
 }
@@ -53,54 +51,34 @@ interface IProps {
 }
 
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
-  let initialState;
-
-  if (data.dishType == 'pizza') {
-    initialState = pizzaInisialState(data);
-  } else {
-    initialState = basicInitialState(data);
-  }
+  let initialState = orderInitialState(data);
 
   let [order, setOrder] = useState(initialState);
 
   // Change Order -------------------------------
   type TE = MouseEvent<HTMLDivElement> | MouseEvent<HTMLUListElement>;
 
-  const onChange = (e: TE) => {
+  const onChangeOrder = (e: TE) => {
     if ((e.target as HTMLButtonElement).dataset.basis) {
       onChangeBasis(e, setOrder);
-    } else if ((e.target as HTMLButtonElement).dataset.diameter) {
+    } else if ((e.target as HTMLButtonElement).dataset.size) {
       onChangeSize(e, setOrder);
     }
   };
 
-  const extraIngredientsPanel =
-    data.extraIngredients.length != 0 ? (
-      <div className="mt15">
-        <ExtraIngredientsPanel order={order} setOrder={setOrder} data={data} langugeApp={langugeApp} />
-      </div>
-    ) : null;
-  const basisPanel =
-    data.basis.length != 0 ? (
-      <div className="mt15">
-        <BasisPanel data={data} order={order} langugeApp={langugeApp} />
-      </div>
-    ) : null;
-  const sizePanel = data.size.length > 1 ? <SizePanel data={data} order={order} langugeApp={langugeApp} /> : null;
-  const infoPanel = data.size[0].quantity > 1 ? <InfoPanel data={data} order={order} langugeApp={langugeApp} /> : null;
+  const extraIngredientsPanel = data.extraIngredients.length != 0 ? <ExtraIngredientsPanel order={order} setOrder={setOrder} data={data} langugeApp={langugeApp} className="mt15" /> : null;
+
+  const basisPanel = data.basis.length != 0 ? <BasisPanel data={data} order={order} langugeApp={langugeApp} className="mt15" /> : null;
 
   return (
     <div style={{ paddingLeft: `${paddingLeft}px` }}>
-      <div className="wt310 p15 bdr15 " onClick={e => onChange(e)}>
+      <div className="wt310 p15 bdr15 " onClick={e => onChangeOrder(e)}>
         <ImagePanel data={data} order={order} />
         <TitlePanel titel={data.name} />
         {extraIngredientsPanel}
         {basisPanel}
-        {sizePanel}
-        {infoPanel}
-        <div className="mt15">
-          <QuantityPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
-        </div>
+        <SizePanel data={data} order={order} langugeApp={langugeApp} />
+        <QuantityPanel order={order} setOrder={setOrder} langugeApp={langugeApp} className={'mt15'} />
         <BtnAddToCart order={order} langugeApp={langugeApp} />
       </div>
     </div>

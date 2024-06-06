@@ -624,10 +624,7 @@ const products: IProduct[] = [
     dishType: 'pizza',
     tags: ['sausages'],
     extraIngredients: extraIngredientsPizza,
-    basis: [
-      { name: 'standard', price: 0 },
-      { name: 'thin', price: 0 },
-    ],
+    basis: [{ name: 'standard', price: 0 }],
   },
   {
     name: 'pizza mushrooms',
@@ -647,10 +644,7 @@ const products: IProduct[] = [
     dishType: 'pizza',
     tags: ['sausages'],
     extraIngredients: extraIngredientsPizza,
-    basis: [
-      { name: 'standard', price: 0 },
-      { name: 'thin', price: 0 },
-    ],
+    basis: [{ name: 'standard', price: 0 }],
   },
 ];
 

@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IOrder } from '../1_CardProduct/CardProduct';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import ManySizes from './7.3_ManySizes';
+import OneSize from './7.2_OneSize';
 
 //Props Interfase --------------------------------
 
@@ -13,21 +15,7 @@ interface IProps {
 }
 
 const SizePanel: FC<IProps> = ({ data, order, langugeApp, className = '' }) => {
-  const text = langugeApp.textCardProduct.textGeneral;
-
-  return (
-    <div className={`f_jc ${className}`}>
-      {data.size.map((value, i) => {
-        const activeBtn = value.price == order.price ? 'btn__active' : 'bkgr__br-lt';
-
-        return (
-          <button key={i} data-diameter={value.diameter} data-price={value.price} data-weight={value.weight} className={`fs16 fw600 bd bdr5 wt92 f_jc-ac ${activeBtn}`}>
-            {value.diameter} {text.cm}
-          </button>
-        );
-      })}
-    </div>
-  );
+  return <>{data.size.length > 1 ? <ManySizes data={data} order={order} langugeApp={langugeApp} className={className} /> : <OneSize data={data} order={order} langugeApp={langugeApp} className={'mt15'} />}</>;
 };
 
 export default SizePanel;

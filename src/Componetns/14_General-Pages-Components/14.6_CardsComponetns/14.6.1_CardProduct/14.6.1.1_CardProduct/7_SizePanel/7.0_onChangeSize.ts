@@ -9,10 +9,11 @@ type TSetOrder = React.Dispatch<React.SetStateAction<IOrder>>;
 // Function --------------------------------------
 
 const onChangeSize = (e: TE, setOrder: TSetOrder) => {
-  if ((e.target as HTMLButtonElement).dataset.diameter) {
+  if ((e.target as HTMLButtonElement).dataset.size) {
+    const size = Number((e.target as HTMLButtonElement).dataset.size);
+    const units = (e.target as HTMLButtonElement).dataset.units!;
     const price = Number((e.target as HTMLButtonElement).dataset.price);
     const weight = Number((e.target as HTMLButtonElement).dataset.weight);
-    const diameter = Number((e.target as HTMLButtonElement).dataset.diameter);
 
     setOrder(order => {
       return {
@@ -20,7 +21,8 @@ const onChangeSize = (e: TE, setOrder: TSetOrder) => {
         price,
         parameters: {
           ...order.parameters,
-          diameter,
+          size,
+          units,
           weight,
         },
       };
