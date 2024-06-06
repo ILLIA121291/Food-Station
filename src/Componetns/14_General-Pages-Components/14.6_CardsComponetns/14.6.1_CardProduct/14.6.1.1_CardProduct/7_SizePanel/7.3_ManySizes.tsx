@@ -1,3 +1,4 @@
+import './7.3_ManySizes.scss'
 import { FC } from 'react';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IOrder } from '../1_CardProduct/CardProduct';

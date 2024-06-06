@@ -41,7 +41,7 @@ const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
 
   return (
     <li className="f_jc_sb bd__b1-or p10 mt15 pos_rel editor-order__item">
-      <ImageOrderItem src={updatedOrder.data.img} alt={updatedOrder.name} />
+      <ImageOrderItem updatedOrder={updatedOrder}  />
       <DescriptionOrderItem updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} currency={currency} langugeApp={langugeApp} />
       <QuantityOrderItem updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} />
       <CostOrderItem currency={currency} price={(updatedOrder.price + updatedOrder.priceExtra) * updatedOrder.quantity} />

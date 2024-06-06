@@ -1,3 +1,4 @@
+import './3.1_ImagePanel.scss'
 import { FC } from 'react';
 
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
@@ -9,6 +10,8 @@ import InfoIngredients from './3.3_InfoIngredients';
 interface IProps {
   data: IProduct;
   order: IOrder;
+  wt: string;
+  ht: string
 }
 
 const ImagePanel: FC<IProps> = ({ data, order }) => {

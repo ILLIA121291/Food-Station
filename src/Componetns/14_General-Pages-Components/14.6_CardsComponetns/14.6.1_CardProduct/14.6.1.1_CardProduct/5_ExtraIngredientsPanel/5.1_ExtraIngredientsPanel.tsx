@@ -1,3 +1,4 @@
+import './5.1_ExtraIngredientsPanel.scss';
 import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 
 import { IoIosCloseCircle } from 'react-icons/io';
@@ -13,6 +14,7 @@ import { IOrder } from '../1_CardProduct/CardProduct';
 import ListExtraIngredients from './5.2_ListExtraIngredients';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IAddExtraIngredient } from '../1_CardProduct/CardProduct';
+import countingQuantityExtraIngredients from './countingQuantityExtraIngredients';
 
 // Interface -------------------------------------------------------
 interface IProps {
@@ -46,16 +48,6 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp, 
       window.addEventListener('click', e => windowCloseList(e), { once: true });
     }
   }, [listState]);
-
-  // Display Total Ingredients - Cost --------------------------------------------------
-
-  let displayTotalIngredientsQty: number = 0;
-
-  if (order.parameters.extraIngredients!.length != 0) {
-    order.parameters.extraIngredients!.forEach((value: IAddExtraIngredient) => {
-      displayTotalIngredientsQty += value.quantity;
-    });
-  }
 
   // Reset All Ingredients -----------------------------------------------------
   const resetAllIngredients = (e: MouseEvent<HTMLButtonElement>) => {
@@ -208,7 +200,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp, 
       <div className="f_jc_sb p5 ">
         <div className="f_ac wt80">
           <p className="wt60">
-            {textGen.total}: {displayTotalIngredientsQty}
+            {textGen.total}: {countingQuantityExtraIngredients(order.parameters.extraIngredients)}
           </p>
           <button className="bkgr__tra f_jc-ac ml5" onClick={e => resetAllIngredients(e)}>
             <IoIosCloseCircle size={20} color="red" />
