@@ -1,3 +1,4 @@
+import './3.2_TitelOrder.scss'
 import { FC } from 'react';
 import { FaPencil } from 'react-icons/fa6';
 import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';

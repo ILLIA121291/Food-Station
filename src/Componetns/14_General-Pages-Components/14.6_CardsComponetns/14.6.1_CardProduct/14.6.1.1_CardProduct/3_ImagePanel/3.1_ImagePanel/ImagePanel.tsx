@@ -1,17 +1,15 @@
-import './3.1_ImagePanel.scss'
+import './ImagePanel.scss';
 import { FC } from 'react';
 
-import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IOrder } from '../1_CardProduct/CardProduct';
-import InfoImages from './3.2_InfoImages';
-import InfoIngredients from './3.3_InfoIngredients';
+import InfoImages from '../3.2_InfoImages/3.2_InfoImages';
+import InfoIngredients from '../3.3_InfoIngredients/3.3_InfoIngredients';
+import { IProduct } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import { IOrder } from '../../1_CardProduct/CardProduct';
 
 // Interface -----------------------------------
 interface IProps {
   data: IProduct;
   order: IOrder;
-  wt: string;
-  ht: string
 }
 
 const ImagePanel: FC<IProps> = ({ data, order }) => {

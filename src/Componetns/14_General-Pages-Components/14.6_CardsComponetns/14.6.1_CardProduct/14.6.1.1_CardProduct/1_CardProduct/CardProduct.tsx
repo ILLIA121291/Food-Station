@@ -1,13 +1,13 @@
 import './CardProduct.scss';
 
-import { FC, useState, MouseEvent } from 'react';
+import { FC, useState } from 'react';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 import { IBasis, IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 
-import ImagePanel from '../3_ImagePanel/3.1_ImagePanel';
+import ImagePanel from '../3_ImagePanel/3.1_ImagePanel/ImagePanel';
 import TitlePanel from '../4_TitlePanel/4.1_TitlePanel';
-import ExtraIngredientsPanel from '../5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
+import ExtraIngredientsPanel from '../5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
 import BtnAddToCart from '../9_BtnAddToCart/BtnAddToCart';
 import BasisPanel from '../6_BasisPanel/BasisPanel';
 import SizePanel from '../7_SizePanel/7.1_SizePanel';

@@ -2,19 +2,18 @@ import './5.1_ExtraIngredientsPanel.scss';
 import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 
 import { IoIosCloseCircle } from 'react-icons/io';
-import toFixedNumber from '../../../../../10_Utilities/toFixedNumber';
+import toFixedNumber from '../../../../../../10_Utilities/toFixedNumber';
 
-import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-
-import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
+import useDisplayPriceInCurrency from '../../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
-import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../../../../../13_App-Components/13.1_App/stateStore';
 
-import { IOrder } from '../1_CardProduct/CardProduct';
-import ListExtraIngredients from './5.2_ListExtraIngredients';
-import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IAddExtraIngredient } from '../1_CardProduct/CardProduct';
+import ListExtraIngredients from '../5.2_ListExtraIngredients/5.2_ListExtraIngredients';
+import { IAddExtraIngredient } from '../../1_CardProduct/CardProduct';
 import countingQuantityExtraIngredients from './countingQuantityExtraIngredients';
+import { IProduct } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import { IOrder } from '../../1_CardProduct/CardProduct';
+import english from '../../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
 // Interface -------------------------------------------------------
 interface IProps {
