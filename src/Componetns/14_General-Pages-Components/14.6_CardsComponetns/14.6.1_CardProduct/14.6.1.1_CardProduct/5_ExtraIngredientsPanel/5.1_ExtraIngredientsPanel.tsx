@@ -20,9 +20,10 @@ interface IProps {
   langugeApp: typeof english;
   order: IOrder;
   setOrder: React.Dispatch<React.SetStateAction<IOrder>>;
+  className?: string;
 }
 
-const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }) => {
+const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp, className = '' }) => {
   const [listState, setListState] = useState<boolean>(false);
   const [displayInfoMessage, setDisplayInfoMessage] = useState({ display: false, message: '' });
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
@@ -51,7 +52,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }
   let displayTotalIngredientsQty: number = 0;
 
   if (order.parameters.extraIngredients!.length != 0) {
-    order.parameters.extraIngredients!.forEach((value: IExtraIngredient) => {
+    order.parameters.extraIngredients!.forEach((value: IAddExtraIngredient) => {
       displayTotalIngredientsQty += value.quantity;
     });
   }
@@ -198,7 +199,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp }
 
   return (
     <div
-      className=" pos_rel bd wt280 bdr10 fw600 us-se cur-poi bkgr__br-lt "
+      className={`pos_rel bd wt280 bdr10 fw600 us-se cur-poi bkgr__br-lt ${className}`}
       onClick={e => {
         e.stopPropagation(), setListState(!listState);
       }}

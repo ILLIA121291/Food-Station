@@ -29,8 +29,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 0.99,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
 
@@ -49,8 +50,9 @@ const products: IProduct[] = [
       {
         weight: 25,
         price: 0.49,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -68,8 +70,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 0.99,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -87,8 +90,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 0.99,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -106,8 +110,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 0.99,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -125,8 +130,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 0.99,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -144,8 +150,9 @@ const products: IProduct[] = [
       {
         weight: 25,
         price: 0.49,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -163,8 +170,9 @@ const products: IProduct[] = [
       {
         weight: 25,
         price: 0.49,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -182,8 +190,9 @@ const products: IProduct[] = [
       {
         weight: 90,
         price: 0.99,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -201,8 +210,9 @@ const products: IProduct[] = [
       {
         weight: 25,
         price: 0.49,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -220,8 +230,9 @@ const products: IProduct[] = [
       {
         weight: 30,
         price: 0.49,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -239,8 +250,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 0.49,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -258,8 +270,9 @@ const products: IProduct[] = [
       {
         weight: 10,
         price: 0.29,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -277,8 +290,9 @@ const products: IProduct[] = [
       {
         weight: 50,
         price: 1.39,
-
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,

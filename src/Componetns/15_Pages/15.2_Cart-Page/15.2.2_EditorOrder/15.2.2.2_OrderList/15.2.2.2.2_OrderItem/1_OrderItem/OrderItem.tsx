@@ -3,7 +3,7 @@ import { FC, useState, useEffect } from 'react';
 
 import english from '../../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import ImageOrderItem from '../2_ImageOrderItem/ImageOrderItem';
-import DescriptionOrderItem from '../3_DescriptionOrderItem/DescriptionOrderItem';
+import DescriptionOrderItem from '../3_DescriptionOrderItem/3.1_DescriptionOrderItem';
 import CostOrderItem from '../5_CostOrderItem/CostOrderItem';
 import RemoveOrderItem from '../6_RemoveOrderItem/RemoveOrderItem';
 import QuantityOrderItem from '../4_QuantityOrderItem/QuantityOrderItem';

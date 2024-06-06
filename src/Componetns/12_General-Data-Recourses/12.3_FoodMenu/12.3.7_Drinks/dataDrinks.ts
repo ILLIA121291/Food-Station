@@ -23,10 +23,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 1,
         price: 2.49,
-
         quantity: 1,
+        size: 1,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -42,10 +43,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 0.5,
         price: 1.99,
-
         quantity: 1,
+        size: 0.5,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -61,9 +63,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 0.45,
         price: 0.99,
         quantity: 1,
+        size: 0.45,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -79,10 +83,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 0.5,
         price: 1.49,
-
         quantity: 1,
+        size: 0.5,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -98,10 +103,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 1,
         price: 2.69,
-
         quantity: 1,
+        size: 1,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -117,10 +123,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 0.5,
         price: 1.49,
-
         quantity: 1,
+        size: 0.5,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -136,10 +143,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 1,
         price: 2.69,
-
         quantity: 1,
+        size: 1,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -155,10 +163,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 0.5,
         price: 0.59,
-
         quantity: 1,
+        size: 0.5,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -174,10 +183,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 1,
         price: 2.69,
-
         quantity: 1,
+        size: 1,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,
@@ -193,10 +203,11 @@ const products: IProduct[] = [
 
     size: [
       {
-        volume: 0.45,
         price: 1.79,
-
         quantity: 1,
+        size: 0.45,
+        units: 'liter',
+        weight: 0,
       },
     ],
     isPopular: false,

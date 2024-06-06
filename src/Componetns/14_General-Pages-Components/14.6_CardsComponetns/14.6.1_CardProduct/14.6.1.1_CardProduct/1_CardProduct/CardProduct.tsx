@@ -74,8 +74,18 @@ const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
     }
   };
 
-  const extraIngredientsPanel = data.extraIngredients.length != 0 ? <ExtraIngredientsPanel order={order} setOrder={setOrder} data={data} langugeApp={langugeApp} /> : null;
-  const basisPanel = data.basis.length != 0 ? <BasisPanel data={data} order={order} langugeApp={langugeApp} /> : null;
+  const extraIngredientsPanel =
+    data.extraIngredients.length != 0 ? (
+      <div className="mt15">
+        <ExtraIngredientsPanel order={order} setOrder={setOrder} data={data} langugeApp={langugeApp} />
+      </div>
+    ) : null;
+  const basisPanel =
+    data.basis.length != 0 ? (
+      <div className="mt15">
+        <BasisPanel data={data} order={order} langugeApp={langugeApp} />
+      </div>
+    ) : null;
   const sizePanel = data.size.length > 1 ? <SizePanel data={data} order={order} langugeApp={langugeApp} /> : null;
   const infoPanel = data.size[0].quantity > 1 ? <InfoPanel data={data} order={order} langugeApp={langugeApp} /> : null;
 
@@ -84,14 +94,13 @@ const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
       <div className="wt310 p15 bdr15 " onClick={e => onChange(e)}>
         <ImagePanel data={data} order={order} />
         <TitlePanel titel={data.name} />
-        <div className="mt15"></div>
         {extraIngredientsPanel}
-        <div className="mt15"></div>
         {basisPanel}
         {sizePanel}
         {infoPanel}
-        <div className="mt15"></div>
-        <QuantityPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
+        <div className="mt15">
+          <QuantityPanel order={order} setOrder={setOrder} langugeApp={langugeApp} />
+        </div>
         <BtnAddToCart order={order} langugeApp={langugeApp} />
       </div>
     </div>

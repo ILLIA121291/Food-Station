@@ -29,6 +29,8 @@ const products: IProduct[] = [
         price: 12.19,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -48,6 +50,8 @@ const products: IProduct[] = [
         price: 11.39,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -67,6 +71,8 @@ const products: IProduct[] = [
         price: 19.79,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -86,6 +92,8 @@ const products: IProduct[] = [
         price: 14.19,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -105,6 +113,8 @@ const products: IProduct[] = [
         price: 17.59,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -124,6 +134,8 @@ const products: IProduct[] = [
         price: 17.0,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -143,6 +155,8 @@ const products: IProduct[] = [
         price: 10.99,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -162,6 +176,8 @@ const products: IProduct[] = [
         price: 10.99,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -181,6 +197,8 @@ const products: IProduct[] = [
         price: 5.69,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -200,6 +218,8 @@ const products: IProduct[] = [
         price: 5.39,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -219,6 +239,8 @@ const products: IProduct[] = [
         price: 4.89,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,
@@ -238,6 +260,8 @@ const products: IProduct[] = [
         price: 4.49,
 
         quantity: 1,
+        size: 1,
+        units: 'set',
       },
     ],
     isPopular: false,

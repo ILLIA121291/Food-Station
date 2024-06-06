@@ -18,6 +18,7 @@ import './13.1.1_Scss/border.scss';
 import './13.1.1_Scss/z-index.scss';
 import './13.1.1_Scss/overflow.scss';
 import './13.1.1_Scss/visibility.scss';
+import './13.1.1_Scss/transition.scss';
 
 import { FC, useState } from 'react';
 
@@ -36,7 +37,6 @@ import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
-
 
 // localStorage.removeItem('orderList')
 

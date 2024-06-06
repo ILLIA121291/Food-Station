@@ -27,6 +27,8 @@ const products: IProduct[] = [
         price: 1.69,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -46,6 +48,8 @@ const products: IProduct[] = [
         price: 3.59,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -65,6 +69,8 @@ const products: IProduct[] = [
         price: 3.59,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -84,6 +90,8 @@ const products: IProduct[] = [
         price: 1.99,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -103,6 +111,8 @@ const products: IProduct[] = [
         price: 3.49,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -122,6 +132,8 @@ const products: IProduct[] = [
         price: 1.99,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -141,6 +153,8 @@ const products: IProduct[] = [
         price: 6.99,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -160,6 +174,8 @@ const products: IProduct[] = [
         price: 4.69,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -179,6 +195,8 @@ const products: IProduct[] = [
         price: 4.29,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,
@@ -198,6 +216,8 @@ const products: IProduct[] = [
         price: 4.59,
 
         quantity: 1,
+        size: 1,
+        units: 'qty',
       },
     ],
     isPopular: false,

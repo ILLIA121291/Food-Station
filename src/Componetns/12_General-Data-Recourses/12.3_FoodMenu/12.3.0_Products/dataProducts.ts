@@ -16,11 +16,13 @@ export interface IBasis {
 
 // Size Interface ------------------------------------
 export interface ISize {
+  size: number;
+  units: string;
+  
   price: number;
-  quantity: number;
+  
   weight: number;
-  volume?: number;
-  diameter?: number;
+  quantity: number;
 }
 
 // Extra Ingredients Interface -------------------------

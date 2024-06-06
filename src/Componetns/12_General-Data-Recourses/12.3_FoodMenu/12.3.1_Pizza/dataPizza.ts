@@ -108,19 +108,22 @@ const products: IProduct[] = [
     img: Pepperoni,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 430,
         price: 4.69,
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 575,
         price: 6.59,
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 800,
         price: 8.49,
         quantity: 1,
@@ -142,24 +145,24 @@ const products: IProduct[] = [
     img: BBQ,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 520,
         price: 5.89,
-
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 690,
         price: 7.59,
-
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1010,
         price: 10.49,
-
         quantity: 1,
       },
     ],
@@ -178,21 +181,24 @@ const products: IProduct[] = [
     img: FourCheeses,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 470,
         price: 5.69,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 630,
         price: 7.99,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 950,
         price: 10.49,
 
@@ -215,21 +221,24 @@ const products: IProduct[] = [
     img: MeatPlatter,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 560,
         price: 5.99,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 780,
         price: 8.59,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1170,
         price: 10.99,
 
@@ -251,21 +260,24 @@ const products: IProduct[] = [
     img: Chicken,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 530,
         price: 5.69,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 710,
         price: 7.59,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1080,
         price: 10.49,
 
@@ -287,21 +299,24 @@ const products: IProduct[] = [
     img: Margarita,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 450,
         price: 4.29,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 590,
         price: 5,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 880,
         price: 6.89,
 
@@ -323,21 +338,24 @@ const products: IProduct[] = [
     img: Beef,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 540,
         price: 5.89,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 755,
         price: 8.29,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1115,
         price: 11.49,
 
@@ -359,21 +377,24 @@ const products: IProduct[] = [
     img: Pork,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 540,
         price: 5.59,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 760,
         price: 7.99,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1180,
         price: 10.99,
 
@@ -395,21 +416,24 @@ const products: IProduct[] = [
     img: Hawaiian,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 490,
         price: 4.29,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 680,
         price: 5.79,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1030,
         price: 8.49,
 
@@ -431,21 +455,24 @@ const products: IProduct[] = [
     img: Mexican,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 500,
         price: 4.69,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 700,
         price: 6.59,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1000,
         price: 9.49,
 
@@ -467,21 +494,24 @@ const products: IProduct[] = [
     img: Seafood,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 550,
         price: 8.99,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 730,
         price: 11.99,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1120,
         price: 16.99,
 
@@ -503,21 +533,24 @@ const products: IProduct[] = [
     img: Carbonara,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 0,
         price: 0,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 635,
         price: 7.99,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1025,
         price: 11.49,
 
@@ -539,21 +572,24 @@ const products: IProduct[] = [
     img: Classical,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 490,
         price: 469,
 
         quantity: 1,
       },
       {
-        diameter: 30,
+        size: 30,
+        units: 'cm',
         weight: 670,
         price: 6.59,
 
         quantity: 1,
       },
       {
-        diameter: 40,
+        size: 40,
+        units: 'cm',
         weight: 1040,
         price: 8.49,
 
@@ -575,7 +611,8 @@ const products: IProduct[] = [
     img: Sausages,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 430,
         price: 3.69,
 
@@ -597,7 +634,8 @@ const products: IProduct[] = [
     img: Mushrooms,
     size: [
       {
-        diameter: 26,
+        size: 26,
+        units: 'cm',
         weight: 450,
         price: 3.69,
 

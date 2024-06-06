@@ -9,24 +9,23 @@ interface IProps {
   data: IProduct;
   order: IOrder;
   langugeApp: typeof english;
+  className?: string;
 }
 
-const SizePanel: FC<IProps> = ({ data, order, langugeApp }) => {
+const SizePanel: FC<IProps> = ({ data, order, langugeApp, className = '' }) => {
   const text = langugeApp.textCardProduct.textGeneral;
 
   return (
-    <div className="f_jc">
-      {data.size
-        .sort((a, b) => a.price - b.price)
-        .map((value, i) => {
-          const activeBtn = value.price == order.price ? 'btn__active' : 'bkgr__br-lt';
+    <div className={`f_jc ${className}`}>
+      {data.size.map((value, i) => {
+        const activeBtn = value.price == order.price ? 'btn__active' : 'bkgr__br-lt';
 
-          return (
-            <button key={i} data-diameter={value.diameter} data-price={value.price} data-weight={value.weight} className={`fs16 fw600 bd bdr5 wt92 f_jc-ac ${activeBtn}`}>
-              {value.diameter} {text.cm}
-            </button>
-          );
-        })}
+        return (
+          <button key={i} data-diameter={value.diameter} data-price={value.price} data-weight={value.weight} className={`fs16 fw600 bd bdr5 wt92 f_jc-ac ${activeBtn}`}>
+            {value.diameter} {text.cm}
+          </button>
+        );
+      })}
     </div>
   );
 };

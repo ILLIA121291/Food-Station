@@ -9,13 +9,14 @@ interface IProps {
   data: IProduct;
   order: IOrder;
   langugeApp: typeof english;
+  className?: string;
 }
 
-const BasisPanel: FC<IProps> = ({ data, order, langugeApp }) => {
+const BasisPanel: FC<IProps> = ({ data, order, langugeApp, className = '' }) => {
   const text: { [key: string]: string } = langugeApp.textCardProduct.textGeneral;
 
   return (
-    <div className="f_jc">
+    <div className={`f_jc ${className}`}>
       {data.basis.map((value, i) => {
         const activeBtn = value.name == order.parameters.basis.name ? 'btn__active' : 'bkgr__br-lt';
 
