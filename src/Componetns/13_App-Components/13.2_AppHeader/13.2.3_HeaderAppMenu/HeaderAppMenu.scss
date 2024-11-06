@@ -18,6 +18,10 @@
   &__menu-item:last-child {
     margin-right: 0px;
   }
+
+  &__link{
+    text-transform: capitalize;
+  }
 }
 
 /* Media queries 1000 px ----------------------------- */

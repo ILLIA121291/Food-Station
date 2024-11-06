@@ -1,37 +1,22 @@
 import './HeaderAppMenu.scss';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
+
+const productListNamse = ['pizza', 'rolls', 'sushi', 'soup', 'snacks', 'sauces', 'drinks', 'dessert', 'sets'];
 
 const HeaderAppMenu: FC = () => {
   return (
     <nav className="header-app__menu">
       <ul className="header-app__menu-list">
-        <li className="header-app__menu-item">
-          <a href="#">Pizza</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Rolls</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Sushi</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Soup</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Snacks</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Sauces</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Drinks</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Dessert</a>
-        </li>
-        <li className="header-app__menu-item">
-          <a href="#">Sets</a>
-        </li>
+        {productListNamse.map(productName => {
+          return (
+            <li className="header-app__menu-item" key={productName}>
+              <Link className="header-app__link"  to={`/${productName}`}>
+                {productName}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

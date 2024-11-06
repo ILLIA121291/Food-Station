@@ -50,6 +50,7 @@ interface IProps {
 }
 
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
+
   let initialState = orderInitialState(data);
 
   let [order, setOrder] = useState(initialState);
