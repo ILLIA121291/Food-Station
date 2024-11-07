@@ -37,7 +37,7 @@ import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
-import ProductListDynamicPage from '../../15_Pages/15.3_ProductList-Dynamic-Page/15.3.1_ProductListDynamicPage/ProductListDynamicPage';
+import DishListDynamicPage from '../../15_Pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
 
 // localStorage.removeItem('orderList')
 
@@ -98,7 +98,7 @@ const App: FC = () => {
           <Routes>
             <Route path="/" element={<HomePage langugeApp={langugeApp} />} />
             <Route path="/cart" element={<CartPage langugeApp={langugeApp} />} />
-            <Route path="/:productListName" element={ <ProductListDynamicPage langugeApp = {langugeApp} /> } />
+            <Route path="/menu/:dishListName" element={<DishListDynamicPage langugeApp={langugeApp} />} />
           </Routes>
         </main>
         <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />

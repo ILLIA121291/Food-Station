@@ -2,17 +2,18 @@ import './HeaderAppMenu.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-const productListNamse = ['pizza', 'rolls', 'sushi', 'soup', 'snacks', 'sauces', 'drinks', 'dessert', 'sets'];
+const productListNamse = ['pizzas', 'rolls', 'sushi', 'soups', 'snacks', 'sauces', 'drinks', 'desserts', 'sets'];
+const dishTypeNames = ['pizza', 'roll', 'sushi', 'soup', 'snack', 'sauce', 'drink', 'dessert', 'set'];
 
 const HeaderAppMenu: FC = () => {
   return (
     <nav className="header-app__menu">
       <ul className="header-app__menu-list">
-        {productListNamse.map(productName => {
+        {dishTypeNames.map(typeName => {
           return (
-            <li className="header-app__menu-item" key={productName}>
-              <Link className="header-app__link"  to={`/${productName}`}>
-                {productName}
+            <li className="header-app__menu-item" key={typeName}>
+              <Link className="header-app__link" to={`/menu/${typeName}_list`}>
+                {typeName}
               </Link>
             </li>
           );
