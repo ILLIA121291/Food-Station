@@ -39,8 +39,6 @@ import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/s
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../../15_Pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../10_Utilities/variables';
-import { IStateStore } from './stateStore';
-import { IProduct } from '../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { getAllProducts } from './sliceApp';
 
 // localStorage.removeItem('orderList')
