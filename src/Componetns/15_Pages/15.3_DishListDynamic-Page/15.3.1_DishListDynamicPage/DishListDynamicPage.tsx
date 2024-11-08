@@ -1,48 +1,38 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import classes from './DishListDynamicPage.module.css';
 import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { useParams } from 'react-router-dom';
-import { DOMAIN_NAME } from '../../../10_Utilities/variables';
+
 import CardProduct from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
 import { IProduct } from '../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import { useSelector } from 'react-redux';
+import { IStateStore } from '../../../13_App-Components/13.1_App/stateStore';
 
 // Props Interfase ----------------------------
 interface IProps {
   langugeApp: typeof english;
 }
 
+// COMPONENT -------------------------------
 const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
-  // Получение названия типа болюда из URL;
+  // Получение названия типа болюда из URL для фильтрации;
   const { dishListName } = useParams();
 
-  // Сохранение полученых продуквто из базы данных в состояние;
-  const [productList, setProductList] = useState<IProduct[]>();
+  // Получение всех продуктов из глобального состояния;
+  const allProducts = useSelector<IStateStore, IProduct[]>(state => state.app.products);
 
-  // Получение списка  из базы данных;
-  useEffect(() => {
-    fetch(`${DOMAIN_NAME}menu/${dishListName}`)
-      .then(response => response.json())
-      .then(getProductList => {
-        setProductList(getProductList);
-      });
-  }, [dishListName]);
-
+  // RENDERING COMPONENT -------------------------------------------
   return (
-    <>
-      <p className={classes.page_title}>Hello I am page: {dishListName}</p>
-      <div className={classes.div}>
-        {productList?.map(product => {
+    <div className={classes.div}>
+      {allProducts
+        // Фильтрация и получение только требуемых продуктов;
+        .filter(product => product.dishType == dishListName?.replace('_list', ''))
+        // Рендеринг отфельтрованях продуктов на странице;
+        .map(product => {
           return <CardProduct data={product} key={product.name} langugeApp={langugeApp} />;
         })}
-      </div>
-      ;
-    </>
+    </div>
   );
 };
 
 export default DishListDynamicPage;
-
-
-
-
-

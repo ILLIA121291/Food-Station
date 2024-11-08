@@ -33,7 +33,7 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
@@ -80,9 +80,7 @@ const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
-  const appState = useSelector<IStateStore, IProduct[]>(state => state.app.products);
-
-  // Полученеи из базы данных все меню;
+  // Полученеи из базы данных все продуктов и запись их в глобалньное состояние;
   useEffect(() => {
     fetch(`${DOMAIN_NAME}menu`)
       .then(res => res.json())
