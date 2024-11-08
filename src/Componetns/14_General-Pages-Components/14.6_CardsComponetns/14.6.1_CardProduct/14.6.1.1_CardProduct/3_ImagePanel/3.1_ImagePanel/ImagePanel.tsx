@@ -5,6 +5,7 @@ import InfoImages from '../3.2_InfoImages/3.2_InfoImages';
 import InfoIngredients from '../3.3_InfoIngredients/3.3_InfoIngredients';
 import { IProduct } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { IOrder } from '../../1_CardProduct/CardProduct';
+import { DOMAIN_NAME } from '../../../../../../10_Utilities/variables';
 
 // Interface -----------------------------------
 interface IProps {
@@ -45,9 +46,11 @@ const ImagePanel: FC<IProps> = ({ data, order }) => {
     }
   }
 
+  console.log(img);
+
   return (
     <div className="wt270 ht230 f_jc-ac pos_rel">
-      <img className={`card-product__img ${pizzaBasis} ${typeDish} ${pizzaSiza}`} src={img} alt={name} />
+      <img className={`card-product__img ${pizzaBasis} ${typeDish} ${pizzaSiza}`} src={`${DOMAIN_NAME}${img}`} alt={name} />
       {infoImagesComponent}
       {infoIngredientsComponent}
     </div>

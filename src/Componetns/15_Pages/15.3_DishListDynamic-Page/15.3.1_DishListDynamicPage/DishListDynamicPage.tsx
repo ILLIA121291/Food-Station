@@ -25,7 +25,7 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
       .then(getProductList => {
         setProductList(getProductList);
       });
-  }, [productList]);
+  }, [dishListName]);
 
   return (
     <>
@@ -41,3 +41,8 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
 };
 
 export default DishListDynamicPage;
+
+
+
+
+
