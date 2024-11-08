@@ -20,7 +20,7 @@ import './13.1.1_Scss/overflow.scss';
 import './13.1.1_Scss/visibility.scss';
 import './13.1.1_Scss/transition.scss';
 
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import HomePage from '../../15_Pages/15.1_Home-Page/15.1.1_HomePage/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
@@ -33,11 +33,15 @@ import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../../15_Pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
+import { DOMAIN_NAME } from '../../10_Utilities/variables';
+import { IStateStore } from './stateStore';
+import { IProduct } from '../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import { getAllProducts } from './sliceApp';
 
 // localStorage.removeItem('orderList')
 
@@ -76,6 +80,18 @@ const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
+  const appState = useSelector<IStateStore, IProduct[]>(state => state.app.products);
+
+  // Полученеи из базы данных все меню;
+  useEffect(() => {
+    fetch(`${DOMAIN_NAME}menu`)
+      .then(res => res.json())
+      .then(getData => {
+        //console.log(getData.length)
+        dispatch(getAllProducts(getData));
+      });
+  }, []);
+
   // Updating localStorage in different browser windows ----------------------------------------------------
 
   window.addEventListener('storage', () => {
@@ -90,6 +106,7 @@ const App: FC = () => {
     console.log('Action in localstorage in extra browser window');
   });
 
+  // APP ROUTER ------------------------------------
   return (
     <Router>
       <div className="app">

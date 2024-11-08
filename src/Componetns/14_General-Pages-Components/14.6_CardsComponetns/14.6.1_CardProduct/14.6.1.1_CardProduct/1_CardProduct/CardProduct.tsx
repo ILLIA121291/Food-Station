@@ -15,6 +15,7 @@ import QuantityPanel from '../8_QuantityPanel/QuantityPanel';
 import orderInitialState from './orderInitialState';
 import onChangeOrder from './onChangeOrder';
 
+// Extra Ingredient -----------------------------------
 export interface IAddExtraIngredient {
   name: string;
   price: number;
@@ -22,7 +23,7 @@ export interface IAddExtraIngredient {
   cost: number;
 }
 
-// Order Interface -------------------------------------------
+// Order Interface -------------------------------------
 export interface IOrder {
   id: string;
   name: string;
@@ -50,7 +51,6 @@ interface IProps {
 }
 
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
-
   let initialState = orderInitialState(data);
 
   let [order, setOrder] = useState(initialState);

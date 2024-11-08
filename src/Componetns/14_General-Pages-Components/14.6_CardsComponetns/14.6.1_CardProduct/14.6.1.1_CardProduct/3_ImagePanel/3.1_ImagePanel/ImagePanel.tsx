@@ -33,6 +33,7 @@ const ImagePanel: FC<IProps> = ({ data, order }) => {
   // Display Pizza Size -----------------------------------
   let pizzaSiza: string = '';
 
+  // Pizza IMGE size -----------------------------------
   if (size) {
     switch (size) {
       case 26:
@@ -45,8 +46,6 @@ const ImagePanel: FC<IProps> = ({ data, order }) => {
         pizzaSiza = 'pizza-size30';
     }
   }
-
-  console.log(img);
 
   return (
     <div className="wt270 ht230 f_jc-ac pos_rel">
