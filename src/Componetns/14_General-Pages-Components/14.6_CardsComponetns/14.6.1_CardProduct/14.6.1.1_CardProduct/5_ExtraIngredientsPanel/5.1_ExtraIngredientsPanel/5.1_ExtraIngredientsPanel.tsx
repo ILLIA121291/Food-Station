@@ -2,7 +2,7 @@ import './5.1_ExtraIngredientsPanel.scss';
 import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 
 import { IoIosCloseCircle } from 'react-icons/io';
-import toFixedNumber from '../../../../../../10_Utilities/toFixedNumber';
+import toFixedNumber from '../../../../../../../utilities/toFixedNumber';
 
 import useDisplayPriceInCurrency from '../../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';

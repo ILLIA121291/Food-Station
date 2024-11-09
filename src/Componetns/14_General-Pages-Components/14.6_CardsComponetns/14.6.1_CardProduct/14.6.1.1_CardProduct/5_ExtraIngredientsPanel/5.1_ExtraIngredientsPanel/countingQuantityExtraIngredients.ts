@@ -1,4 +1,4 @@
-import { IAddExtraIngredient } from '../../1_CardProduct/CardProduct';
+import IAddExtraIngredient from '../../../../../../../Interfaces/IAddExtraIngredient';
 
 type Arr = IAddExtraIngredient[];
 

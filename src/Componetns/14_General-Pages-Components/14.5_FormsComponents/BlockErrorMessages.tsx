@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ErrorMessage } from 'formik';
-import onOffBodyScroll from '../../10_Utilities/onOffBodyScroll';
+import onOffBodyScroll from '../../../utilities/onOffBodyScroll';
 
 interface IProps {
   name: string;

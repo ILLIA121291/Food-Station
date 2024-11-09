@@ -4,7 +4,7 @@ import english from '../../../../../../../language/english';
 import BlockErrorMessages from '../../../../../14.5_FormsComponents/BlockErrorMessages';
 import ItemExtraIngredients from '../5.3_ItemExtraIngredients/5.3_ItemExtraIngredients';
 import IProduct from '../../../../../../../Interfaces/IProduct';
-import onOffBodyScroll from '../../../../../../10_Utilities/onOffBodyScroll';
+import onOffBodyScroll from '../../../../../../../utilities/onOffBodyScroll';
 // Props Interface -----------------------------------
 
 interface IProps {
