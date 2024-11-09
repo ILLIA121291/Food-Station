@@ -39,7 +39,7 @@ import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/s
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../../15_Pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../10_Utilities/variables';
-import { getAllProducts } from './sliceApp';
+import { addAllProductsToState, addAllExtraIngredientsToSate } from './sliceApp';
 
 // localStorage.removeItem('orderList')
 
@@ -78,14 +78,29 @@ const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
-  // Получение всех продуктов из базы данных;
+  // Получение данных из базы данных;
   useEffect(() => {
+
+    // Received All Products;
     fetch(`${DOMAIN_NAME}products`)
       .then(res => res.json())
       .then(receivedProducts => {
-        // Запись полученых продуктов в глобальное состояние приложения;
-        dispatch(getAllProducts(receivedProducts));
+        // Save all products to state; 
+        dispatch(addAllProductsToState(receivedProducts));
       });
+    
+    // Received All Extra Ingredienst 
+    fetch(`${DOMAIN_NAME}extra_ingredients`)
+      .then(res => res.json())
+      .then(receivedExtraIngredients => {
+        console.log(receivedExtraIngredients)
+        // Save all extra ingredients to state;
+        dispatch(addAllExtraIngredientsToSate(receivedExtraIngredients))
+      })
+
+
+
+
   }, []);
 
   // Updating localStorage in different browser windows ----------------------------------------------------
