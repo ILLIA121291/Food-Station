@@ -8,7 +8,7 @@ import CostOrderItem from '../5_CostOrderItem/CostOrderItem';
 import RemoveOrderItem from '../6_RemoveOrderItem/RemoveOrderItem';
 import QuantityOrderItem from '../4_QuantityOrderItem/QuantityOrderItem';
 import { useDispatch } from 'react-redux';
-import { updateOrderList } from '../../../../15.2.1_CartPage/sliceCart';
+import { updateOrderList } from '../../../../2.1_CartPage/sliceCart';
 import IOrder from '../../../../../../../Interfaces/IOrder';
 
 // Props Interface ------------------------------------------------

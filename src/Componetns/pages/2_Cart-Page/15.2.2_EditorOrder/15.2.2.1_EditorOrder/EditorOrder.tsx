@@ -4,7 +4,7 @@ import english from '../../../../../language/english';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { IStateStore } from '../../../../13_App-Components/13.1_App/stateStore';
-import { clearOrderList } from '../../15.2.1_CartPage/sliceCart';
+import { clearOrderList } from '../../2.1_CartPage/sliceCart';
 import OrderList from '../15.2.2.2_OrderList/15.2.2.2.1_OrderList/OrderList';
 import IOrder from '../../../../../Interfaces/IOrder';
 

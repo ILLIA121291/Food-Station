@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { IExtraIngredient } from '../../14.6.2_PizzaCardProduct/PizzaCardProduct';
-import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../../language/english';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToOrderList } from '../../../../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
+import { addToOrderList } from '../../../../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
-import { IOrder } from '../1_CardProduct/CardProduct';
+import IOrder from '../../../../../../Interfaces/IOrder';
+import IAddExtraIngredient from '../../../../../../Interfaces/IAddExtraIngredient';
 
 // Props Interface --------------------------------------------------
 interface IProps {
@@ -50,7 +50,7 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
             } else if (size && basis && extraIngredientsLenght) {
               const chekingArr = [];
 
-              value.parameters.extraIngredients.forEach((value: IExtraIngredient) => {
+              value.parameters.extraIngredients.forEach((value: IAddExtraIngredient) => {
                 for (let i = 0; i < order.parameters.extraIngredients.length; i++) {
                   const name = value.name == order.parameters.extraIngredients[i].name;
                   const qty = value.quantity == order.parameters.extraIngredients[i].quantity;

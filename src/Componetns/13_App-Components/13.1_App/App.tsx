@@ -22,20 +22,20 @@ import './13.1.1_Scss/transition.scss';
 
 import { FC, useEffect, useState } from 'react';
 
-import HomePage from '../../15_Pages/15.1_Home-Page/15.1.1_HomePage/HomePage';
+import HomePage from '../../pages/1_HomePage/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
 import ModalWindow from '../../14_General-Pages-Components/14.3_ModalWindow/ModalWindow';
 
 import english from '../../../language/english';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';
+import CartPage from '../../pages/2_Cart-Page/2.1_CartPage/CartPage';
 
 import { useDispatch } from 'react-redux';
 
-import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/sliceCart';
+import { updateOrderList } from '../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
-import DishListDynamicPage from '../../15_Pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
+import DishListDynamicPage from '../../../pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../../utilities/variables';
 import { addAllAppProductsToState } from './sliceApp';
 
