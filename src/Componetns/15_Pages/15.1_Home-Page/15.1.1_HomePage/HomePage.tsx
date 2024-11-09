@@ -1,6 +1,6 @@
 import './HomePage.scss';
 import { FC } from 'react';
-import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../language/english';
 
 import SliderProduct from '../../../14_General-Pages-Components/14.7_SliderComponents/14.7.1_SliderProduct/SliderProduct';
 import { useSelector } from 'react-redux';

@@ -2,7 +2,7 @@ import './FormLogin.scss';
 import { FC, useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../../language/english';
 import FormHttpInformMassege from '../../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../../13.2.4.2_LoginForm/LoginForm';
 import RememberMeCheckbox from '../../../../../14_General-Pages-Components/14.5_FormsComponents/RememberMeCheckbox';

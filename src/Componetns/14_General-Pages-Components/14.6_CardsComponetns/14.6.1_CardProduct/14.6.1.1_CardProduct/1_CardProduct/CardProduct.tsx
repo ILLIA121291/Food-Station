@@ -1,7 +1,7 @@
 import './CardProduct.scss';
 
 import { FC, useState } from 'react';
-import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../../language/english';
 
 import IProduct from '../../../../../../Interfaces/IProduct';
 

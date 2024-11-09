@@ -1,6 +1,6 @@
 import './LoginForm.scss';
 import { FC, useState } from 'react';
-import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../language/english';
 
 import FormLogin from '../13.2.4.3_FormLogin/13.2.4.3.1_FormLogin/FormLogin';
 import FormSignup from '../13.2.4.4_FormSignup/FormSignup';

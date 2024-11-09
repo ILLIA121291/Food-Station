@@ -2,7 +2,7 @@ import './FormSignup.scss';
 
 import { FC, useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import english from '../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../language/english';
 import FormHttpInformMassege from '../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../13.2.4.2_LoginForm/LoginForm';
 import * as Yup from 'yup';

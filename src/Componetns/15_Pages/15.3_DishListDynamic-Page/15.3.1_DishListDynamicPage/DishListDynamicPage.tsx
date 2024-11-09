@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classes from './DishListDynamicPage.module.css';
-import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../language/english';
 import { useParams } from 'react-router-dom';
 
 import CardProduct from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';

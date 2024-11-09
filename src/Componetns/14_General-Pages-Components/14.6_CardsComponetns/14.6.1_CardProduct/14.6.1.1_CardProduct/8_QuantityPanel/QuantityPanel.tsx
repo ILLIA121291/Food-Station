@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import QuantityInput from '../../../../14.5_FormsComponents/QuantityInput';
-import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../../language/english';
 import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
-import { IOrder } from '../1_CardProduct/CardProduct';
+import IOrder from '../../../../../../Interfaces/IOrder';
 
 // Interface --------------------------------------------------------
 interface IProps {

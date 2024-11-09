@@ -26,9 +26,7 @@ import HomePage from '../../15_Pages/15.1_Home-Page/15.1.1_HomePage/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
 import ModalWindow from '../../14_General-Pages-Components/14.3_ModalWindow/ModalWindow';
 
-import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
-// import russian from '../../12_General-Data-Recourses/12.1_Text/12.1.2_Russian/1_russian';
-// import japan from '../../12_General-Data-Recourses/12.1_Text/12.1.3_Japan/1_japan';
+import english from '../../../language/english';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartPage from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/CartPage';

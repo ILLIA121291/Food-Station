@@ -9,9 +9,9 @@ import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../../13_App-Components/13.1_App/stateStore';
 
 import ListExtraIngredients from '../5.2_ListExtraIngredients/5.2_ListExtraIngredients';
-import { IAddExtraIngredient } from '../../1_CardProduct/CardProduct';
+import IAddExtraIngredient from '../../../../../../../Interfaces/IAddExtraIngredient';
 import countingQuantityExtraIngredients from './countingQuantityExtraIngredients';
-import english from '../../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../../../../language/english';
 import IProduct from '../../../../../../../Interfaces/IProduct';
 import IOrder from '../../../../../../../Interfaces/IOrder';
 

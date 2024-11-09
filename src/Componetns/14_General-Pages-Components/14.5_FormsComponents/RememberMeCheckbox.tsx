@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Field } from 'formik';
-import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../language/english';
 
 interface IProps {
   langugeApp: typeof english;

@@ -2,7 +2,7 @@ import './SliderProduct.scss';
 import { FC, useRef, useState } from 'react';
 
 import CardProduct from '../../14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
-import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../language/english';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
 import IProduct from '../../../../Interfaces/IProduct';

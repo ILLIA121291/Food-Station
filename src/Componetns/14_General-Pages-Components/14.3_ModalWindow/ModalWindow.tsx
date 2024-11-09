@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { noCloseModalWindow, onCloseModalWindowClickOverlay, onCloseModalWindowEscape, resetStateModalWindow } from './sliceModalWindow';
 import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
 import { IModalWindow } from './sliceModalWindow';
-import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../language/english';
 
 interface IProps {
   langugeApp: typeof english;

@@ -12,7 +12,7 @@ import LanguagePanel from '../../../14_General-Pages-Components/14.1_LanguagePan
 import CurrencyPanel from '../../../14_General-Pages-Components/14.2_CurrencyPanel/CurrencyPanel';
 import HeaderAppLogin from '../13.2.4_HeaderAppLogin/13.2.4.1_HeaderAppLogin/13.2.4.1.1_HeaderAppLogin/HeaderAppLogin';
 
-import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../language/english';
 
 interface IProps {
   langugeApp: typeof english;

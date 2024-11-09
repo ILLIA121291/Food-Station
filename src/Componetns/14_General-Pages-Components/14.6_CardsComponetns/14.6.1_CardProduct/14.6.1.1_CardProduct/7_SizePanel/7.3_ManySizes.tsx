@@ -1,8 +1,9 @@
 import './7.3_ManySizes.scss'
 import { FC } from 'react';
-import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IOrder } from '../1_CardProduct/CardProduct';
-import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+
+import IProduct from '../../../../../../Interfaces/IProduct';
+import IOrder from '../../../../../../Interfaces/IOrder';
+import english from '../../../../../../language/english';
 
 // Props Interface -----------------------------------
 interface IProps {

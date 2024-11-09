@@ -1,4 +1,4 @@
-import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../../language/english';
 import EditorOrder from '../15.2.2_EditorOrder/15.2.2.1_EditorOrder/EditorOrder';
 import DetailsOrder from '../15.2.3_DetailsOrder/DetailsOrder';
 import ConfirmationOrder from '../15.2.4_ConfirmationOrder/ConfirmationOrder';

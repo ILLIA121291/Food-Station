@@ -1,7 +1,7 @@
 import './LanguagePanel.scss';
 
 import { FC } from 'react';
-import english from '../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import english from '../../../language/english';
 import useChangeLanguage from './useChangeLanguage';
 import textLanguagePanel from './textLanguagePanel';
 

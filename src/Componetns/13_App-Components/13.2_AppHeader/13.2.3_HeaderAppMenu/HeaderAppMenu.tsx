@@ -2,7 +2,7 @@ import './HeaderAppMenu.scss';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-const productListNamse = ['pizzas', 'rolls', 'sushi', 'soups', 'snacks', 'sauces', 'drinks', 'desserts', 'sets'];
+//const productListNamse = ['pizzas', 'rolls', 'sushi', 'soups', 'snacks', 'sauces', 'drinks', 'desserts', 'sets'];
 const dishTypeNames = ['pizza', 'roll', 'sushi', 'soup', 'snack', 'sauce', 'drink', 'dessert', 'set'];
 
 const HeaderAppMenu: FC = () => {
