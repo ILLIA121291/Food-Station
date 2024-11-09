@@ -1,4 +1,3 @@
-import { nanoid } from '@reduxjs/toolkit';
 import { IOrder } from './CardProduct';
 import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 
@@ -29,7 +28,7 @@ const orderInitialState = (data: IProduct) => {
 
   // Order Inisial State ---------------------------------------------
   const inisialOrder: IOrder = {
-    id: nanoid(),
+    _id: data._id,
     name: data.name,
     data,
     price,

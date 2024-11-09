@@ -11,6 +11,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
+// COMPONENT -----------------------------------------
 const CartPage: FC<IProps> = ({ langugeApp }) => {
   let [component, setComponent] = useState<string>('EditorOrder');
 

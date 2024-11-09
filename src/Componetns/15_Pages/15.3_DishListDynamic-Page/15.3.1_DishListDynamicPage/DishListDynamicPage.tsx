@@ -25,9 +25,9 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
   return (
     <div className={classes.div}>
       {allProducts
-        // Фильтрация и получение только требуемых продуктов;
+        // Фильтрация и получение массива только с требуемыми продуктами;
         .filter(product => product.dishType == dishListName?.replace('_list', ''))
-        // Рендеринг отфельтрованях продуктов на странице;
+        // Рендеринг массива продуктов на странице;
         .map(product => {
           return <CardProduct data={product} key={product.name} langugeApp={langugeApp} />;
         })}

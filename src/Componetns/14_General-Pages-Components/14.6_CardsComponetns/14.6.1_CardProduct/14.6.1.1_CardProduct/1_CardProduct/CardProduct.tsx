@@ -25,7 +25,7 @@ export interface IAddExtraIngredient {
 
 // Order Interface -------------------------------------
 export interface IOrder {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   data: IProduct;
@@ -43,22 +43,28 @@ export interface IOrder {
   };
 }
 
-// Props Interface --------------------------------------
+// Component Props Interface --------------------------------------
 interface IProps {
   data: IProduct;
   langugeApp: typeof english;
   paddingLeft?: string;
 }
 
+// COMPONENT --------------------------------------------
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
-  let initialState = orderInitialState(data);
+  // CardProduct initial state-----------------------------------------------
+  const initialStateCardProduct = orderInitialState(data);
 
-  let [order, setOrder] = useState(initialState);
+  // State of product order --------------------------------------------------
+  let [order, setOrder] = useState(initialStateCardProduct);
 
+  // Added ExtraIngredientsPanel in CardProduct -----------------------------
   const extraIngredientsPanel = data.extraIngredients.length != 0 ? <ExtraIngredientsPanel order={order} setOrder={setOrder} data={data} langugeApp={langugeApp} className="mt15" /> : null;
 
+  // Added BasisPanel in CardProduct ----------------------------------------
   const basisPanel = data.basis.length != 0 ? <BasisPanel data={data} order={order} langugeApp={langugeApp} className="mt15" /> : null;
 
+  // RENDERING COMPONENT ------------------------------------------------------
   return (
     <div style={{ paddingLeft: `${paddingLeft}px` }}>
       <div className="wt310 p15 bdr15 " onClick={e => onChangeOrder(e, setOrder)}>

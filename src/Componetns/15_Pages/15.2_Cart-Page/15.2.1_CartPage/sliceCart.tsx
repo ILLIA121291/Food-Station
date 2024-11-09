@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IOrder } from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
+import { IOrder } from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
 
 // Interface ----------------------------------
 export interface ICart {

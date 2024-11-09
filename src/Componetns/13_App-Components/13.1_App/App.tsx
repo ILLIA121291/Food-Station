@@ -78,13 +78,13 @@ const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
-  // Полученеи из базы данных все продуктов и запись их в глобалньное состояние;
+  // Получение всех продуктов из базы данных;
   useEffect(() => {
-    fetch(`${DOMAIN_NAME}menu`)
+    fetch(`${DOMAIN_NAME}products`)
       .then(res => res.json())
-      .then(getData => {
-        //console.log(getData.length)
-        dispatch(getAllProducts(getData));
+      .then(receivedProducts => {
+        // Запись полученых продуктов в глобальное состояние приложения;
+        dispatch(getAllProducts(receivedProducts));
       });
   }, []);
 

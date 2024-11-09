@@ -19,6 +19,7 @@ interface IProps {
   currency: string;
 }
 
+// COMPONENT -----------------------------------------------------
 const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
   const dispatch = useDispatch();
   const [updatedOrder, setUpdateOrder] = useState<IOrder>(order);

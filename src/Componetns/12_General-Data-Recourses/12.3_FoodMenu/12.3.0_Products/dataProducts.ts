@@ -31,6 +31,7 @@ export interface IExtraIngredient {
 
 // Product Interfaces ------------------------------
 export interface IProduct {
+  _id: string;
   name: string;
   img: string;
   size: ISize[];
