@@ -15,6 +15,10 @@ import SizePanel from '../7_SizePanel/7.1_SizePanel';
 import QuantityPanel from '../8_QuantityPanel/QuantityPanel';
 import orderInitialState from './orderInitialState';
 import onChangeOrder from './onChangeOrder';
+import { useSelector } from 'react-redux';
+import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
+import IAllAppExtraIngredients from '../../../../../../Interfaces/IAllAppExtraIngredients';
+import IExtraIngredient from '../../../../../../Interfaces/IExtraIngredient';
 
 // Extra Ingredient -----------------------------------
 export interface IAddExtraIngredient {
@@ -53,7 +57,7 @@ interface IProps {
 
 // COMPONENT --------------------------------------------
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
-  // CardProduct initial state-----------------------------------------------
+  // CardProduct initial state -----------------------------------------------
   const initialStateCardProduct = orderInitialState(data);
 
   // State of product order --------------------------------------------------

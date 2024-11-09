@@ -11,9 +11,9 @@ import { IStateStore } from '../../../../../../13_App-Components/13.1_App/stateS
 import ListExtraIngredients from '../5.2_ListExtraIngredients/5.2_ListExtraIngredients';
 import { IAddExtraIngredient } from '../../1_CardProduct/CardProduct';
 import countingQuantityExtraIngredients from './countingQuantityExtraIngredients';
-import { IProduct } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IOrder } from '../../1_CardProduct/CardProduct';
 import english from '../../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
+import IProduct from '../../../../../../../Interfaces/IProduct';
+import IOrder from '../../../../../../../Interfaces/IOrder';
 
 // Interface -------------------------------------------------------
 interface IProps {
@@ -24,6 +24,7 @@ interface IProps {
   className?: string;
 }
 
+// COMPONENT --------------------------------------------------------
 const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp, className = '' }) => {
   const [listState, setListState] = useState<boolean>(false);
   const [displayInfoMessage, setDisplayInfoMessage] = useState({ display: false, message: '' });
@@ -188,6 +189,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp, 
     }
   };
 
+  // RENDERING COMPONENT --------------------------------------------------------------------
   return (
     <div
       className={`pos_rel bd wt280 bdr10 fw600 us-se cur-poi bkgr__br-lt ${className}`}

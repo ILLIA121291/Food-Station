@@ -4,9 +4,10 @@ import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English
 import { useParams } from 'react-router-dom';
 
 import CardProduct from '../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
-import { IProduct } from '../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../13_App-Components/13.1_App/stateStore';
+
+import IProduct from '../../../../Interfaces/IProduct';
 
 // Props Interfase ----------------------------
 interface IProps {
@@ -19,7 +20,7 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
   const { dishListName } = useParams();
 
   // Получение всех продуктов из глобального состояния;
-  const allProducts = useSelector<IStateStore, IProduct[]>(state => state.app.products);
+  const allProducts = useSelector<IStateStore, IProduct[]>(state => state.app.allAppProducts);
 
   // RENDERING COMPONENT -------------------------------------------
   return (

@@ -39,7 +39,7 @@ import { updateOrderList } from '../../15_Pages/15.2_Cart-Page/15.2.1_CartPage/s
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../../15_Pages/15.3_DishListDynamic-Page/15.3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../10_Utilities/variables';
-import { addAllProductsToState, addAllExtraIngredientsToSate } from './sliceApp';
+import { addAllAppProductsToState } from './sliceApp';
 
 // localStorage.removeItem('orderList')
 
@@ -81,27 +81,13 @@ const App: FC = () => {
 
   // Получение данных из базы данных;
   useEffect(() => {
-
     // Received All Products;
     fetch(`${DOMAIN_NAME}products`)
       .then(res => res.json())
-      .then(receivedProducts => {
-        // Save all products to state; 
-        dispatch(addAllProductsToState(receivedProducts));
+      .then(receivedAllAppProducts => {
+        // Save all products to state;
+        dispatch(addAllAppProductsToState(receivedAllAppProducts));
       });
-    
-    // Received All Extra Ingredienst 
-    fetch(`${DOMAIN_NAME}extra_ingredients`)
-      .then(res => res.json())
-      .then(receivedExtraIngredientsArrya => {
-        console.log(receivedExtraIngredientsArrya)
-        // Save all extra ingredients to state;
-        dispatch(addAllExtraIngredientsToSate(receivedExtraIngredientsArrya))
-      })
-
-
-
-
   }, []);
 
   // Updating localStorage in different browser windows ----------------------------------------------------

@@ -1,6 +1,6 @@
 import IExtraIngredient from './IExtraIngredient';
 
-export default interface IExtraIngredientObjectFormDB {
+export default interface IAllAppExtraIngredients {
   _id: string;
   dishType: string;
   listExtraIngredients: IExtraIngredient[];

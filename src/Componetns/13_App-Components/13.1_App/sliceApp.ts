@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import IProduct from '../../../Interfaces/IProduct';
-import IExtraIngredientObjectFormDB from '../../../Interfaces/IExtraIngredientObjectFromDB';
+import IAllAppExtraIngredients from '../../../Interfaces/IAllAppExtraIngredients';
 
 // Interface --------------------
 
 export interface IAppSlice {
-  products: IProduct[];
-  allExtraIngredients: IExtraIngredientObjectFormDB [];
+  allAppProducts: IProduct[];
+  allAppExtraIngredients: IAllAppExtraIngredients [];
 }
 
 // Initial State ---------------
 
-const initialState: IAppSlice = { products: [], allExtraIngredients: [] };
+const initialState: IAppSlice = { allAppProducts: [], allAppExtraIngredients: [] };
 
 // App Slice ------------------
 
@@ -20,17 +20,17 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     // Сохранение всех продуктво полученых из БД в глобальном состоянии;
-    addAllProductsToState(state, actions) {
-      state.products = actions.payload;
+    addAllAppProductsToState(state, actions) {
+      state.allAppProducts = actions.payload;
     },
 
     // Сохраненик всех дополнительных ингридиентов полученных из БД в глобальное состояние;
-    addAllExtraIngredientsToSate(state, actions) {
-      state.allExtraIngredients = actions.payload;
+    addAllAppExtraIngredientsToSate(state, actions) {
+      state.allAppExtraIngredients = actions.payload;
     },
   },
 });
 
-export const { addAllProductsToState, addAllExtraIngredientsToSate } = appSlice.actions;
+export const { addAllAppProductsToState, addAllAppExtraIngredientsToSate } = appSlice.actions;
 
 export default appSlice.reducer;

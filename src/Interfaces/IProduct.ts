@@ -1,6 +1,6 @@
-import ISize from "./ISize";
-import IBasis from "./IBasis";
-import IExtraIngredient from "./IExtraIngredient";
+import ISize from './ISize';
+import IBasis from './IBasis';
+import IExtraIngredient from './IExtraIngredient';
 
 export default interface IProduct {
   _id: string;
@@ -13,4 +13,5 @@ export default interface IProduct {
   isPopular: boolean;
   dishType: string;
   tags: string[];
+  d?: number;
 }

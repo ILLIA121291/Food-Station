@@ -15,7 +15,7 @@ interface IProps {
 // COMPONENT ----------------------------------
 const HomePage: FC<IProps> = ({ langugeApp }) => {
   // Получение всех продуктов из глобального состояния;
-  const allProducts = useSelector<IStateStore, IProduct[]>(state => state.app.products);
+  const allProducts = useSelector<IStateStore, IProduct[]>(state => state.app.allAppProducts);
 
   const queueDisType = ['pizza', 'roll', 'sushi', 'snack', 'soup', 'sauce', 'drink', 'dessert', 'set'];
 
