@@ -1,4 +1,3 @@
-
 export default interface IAddExtraIngredient {
   name: string;
   price: number;

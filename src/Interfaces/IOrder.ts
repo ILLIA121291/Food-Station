@@ -1,7 +1,6 @@
-import IProduct from "./IProduct";
-import IBasis from "./IBasis";
-import IAddExtraIngredient from "./IAddExtraIngredient";
-
+import IProduct from './IProduct';
+import IBasis from './IBasis';
+import IAddExtraIngredient from './IAddExtraIngredient';
 
 export default interface IOrder {
   _id: string;

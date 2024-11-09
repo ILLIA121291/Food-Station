@@ -1,7 +1,7 @@
 import './ImageOrderItem.scss';
 import { FC } from 'react';
-import { IOrder } from '../../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
 import { DOMAIN_NAME } from '../../../../../../../10_Utilities/variables';
+import IOrder from '../../../../../../../../Interfaces/IOrder';
 
 // IProps ----------------------------------
 interface IProps {

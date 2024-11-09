@@ -9,7 +9,7 @@ import RemoveOrderItem from '../6_RemoveOrderItem/RemoveOrderItem';
 import QuantityOrderItem from '../4_QuantityOrderItem/QuantityOrderItem';
 import { useDispatch } from 'react-redux';
 import { updateOrderList } from '../../../../15.2.1_CartPage/sliceCart';
-import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
+import IOrder from '../../../../../../../Interfaces/IOrder';
 
 // Props Interface ------------------------------------------------
 interface IProps {
@@ -27,7 +27,7 @@ const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
   // Updated Order List After Changing --------------------------------------------
   const updateOrderListAfterChangingInCart = () => {
     const newOrderList = orderList.map(value => {
-      if (value.id == updatedOrder.id) {
+      if (value._id == updatedOrder._id) {
         return updatedOrder;
       } else {
         return value;

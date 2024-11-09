@@ -3,7 +3,6 @@ import './CardProduct.scss';
 import { FC, useState } from 'react';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
-import IBasis from '../../../../../../Interfaces/IBasis';
 import IProduct from '../../../../../../Interfaces/IProduct';
 
 import ImagePanel from '../3_ImagePanel/3.1_ImagePanel/ImagePanel';
@@ -15,38 +14,6 @@ import SizePanel from '../7_SizePanel/7.1_SizePanel';
 import QuantityPanel from '../8_QuantityPanel/QuantityPanel';
 import orderInitialState from './orderInitialState';
 import onChangeOrder from './onChangeOrder';
-import { useSelector } from 'react-redux';
-import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
-import IAllAppExtraIngredients from '../../../../../../Interfaces/IAllAppExtraIngredients';
-import IExtraIngredient from '../../../../../../Interfaces/IExtraIngredient';
-
-// Extra Ingredient -----------------------------------
-export interface IAddExtraIngredient {
-  name: string;
-  price: number;
-  quantity: number;
-  cost: number;
-}
-
-// Order Interface -------------------------------------
-export interface IOrder {
-  _id: string;
-  name: string;
-  price: number;
-  data: IProduct;
-  priceExtra: number;
-  quantity: number;
-  dishType: string;
-  parameters: {
-    extraIngredients: IAddExtraIngredient[];
-    basis: IBasis;
-    quantity: number;
-    weight: number;
-    size: number;
-    units: string;
-    [key: string]: any;
-  };
-}
 
 // Component Props Interface --------------------------------------
 interface IProps {

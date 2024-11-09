@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { IOrder } from '../../../../../../14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/CardProduct';
 import QuantityInput from '../../../../../../14_General-Pages-Components/14.5_FormsComponents/QuantityInput';
-
+import IOrder from '../../../../../../../Interfaces/IOrder';
 // Props Interface -----------------------------------
 
 interface IProps {

@@ -5,7 +5,7 @@ import CardProduct from '../../14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_
 import english from '../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
-import { IProduct } from '../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import IProduct from '../../../../Interfaces/IProduct';
 
 interface IProps {
   titel?: string;
@@ -13,6 +13,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
+// COMPONENT ---------------------------------------------------------
 const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
   const refSliderWindow = useRef<HTMLDivElement>(null);
 
@@ -86,6 +87,7 @@ const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
     }
   };
 
+  // RENDERING COMPONENT ----------------------------------------
   return (
     <>
       <div className="f_jc_sb p5 mt30 us-se">

@@ -3,9 +3,9 @@ import { FC } from 'react';
 
 import InfoImages from '../3.2_InfoImages/3.2_InfoImages';
 import InfoIngredients from '../3.3_InfoIngredients/3.3_InfoIngredients';
-import { IProduct } from '../../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
-import { IOrder } from '../../1_CardProduct/CardProduct';
 import { DOMAIN_NAME } from '../../../../../../10_Utilities/variables';
+import IProduct from '../../../../../../../Interfaces/IProduct';
+import IOrder from '../../../../../../../Interfaces/IOrder';
 
 // Interface -----------------------------------
 interface IProps {
@@ -13,6 +13,7 @@ interface IProps {
   order: IOrder;
 }
 
+// COMPONENT ------------------------------------
 const ImagePanel: FC<IProps> = ({ data, order }) => {
   const { dishType, img, name, tags, ingredients } = data;
   const basis = order.parameters.basis;
@@ -47,6 +48,7 @@ const ImagePanel: FC<IProps> = ({ data, order }) => {
     }
   }
 
+  // RENDERING COMPONENT ----------------------------------
   return (
     <div className="wt270 ht230 f_jc-ac pos_rel">
       <img className={`card-product__img ${pizzaBasis} ${typeDish} ${pizzaSiza}`} src={`${DOMAIN_NAME}${img}`} alt={name} />
