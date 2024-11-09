@@ -3,7 +3,8 @@ import './CardProduct.scss';
 import { FC, useState } from 'react';
 import english from '../../../../../12_General-Data-Recourses/12.1_Text/12.1.1_English/1_english';
 
-import { IBasis, IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import IBasis from '../../../../../../Interfaces/IBasis';
+import IProduct from '../../../../../../Interfaces/IProduct';
 
 import ImagePanel from '../3_ImagePanel/3.1_ImagePanel/ImagePanel';
 import TitlePanel from '../4_TitlePanel/4.1_TitlePanel';

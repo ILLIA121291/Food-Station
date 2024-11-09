@@ -73,6 +73,7 @@ if (localStorage.getItem('login') || sessionStorage.getItem('login')) {
   initialIsLoginUser = false;
 }
 
+// COMPONENT ------------------------------------------------------
 const App: FC = () => {
   const dispatch = useDispatch();
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
@@ -92,10 +93,10 @@ const App: FC = () => {
     // Received All Extra Ingredienst 
     fetch(`${DOMAIN_NAME}extra_ingredients`)
       .then(res => res.json())
-      .then(receivedExtraIngredients => {
-        console.log(receivedExtraIngredients)
+      .then(receivedExtraIngredientsArrya => {
+        console.log(receivedExtraIngredientsArrya)
         // Save all extra ingredients to state;
-        dispatch(addAllExtraIngredientsToSate(receivedExtraIngredients))
+        dispatch(addAllExtraIngredientsToSate(receivedExtraIngredientsArrya))
       })
 
 

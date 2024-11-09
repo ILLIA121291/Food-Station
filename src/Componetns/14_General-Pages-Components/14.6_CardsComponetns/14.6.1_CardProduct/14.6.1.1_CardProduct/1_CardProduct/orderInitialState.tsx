@@ -1,5 +1,5 @@
-import { IOrder } from './CardProduct';
-import { IProduct } from '../../../../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import IOrder from '../../../../../../Interfaces/IOrder';
+import IProduct from '../../../../../../Interfaces/IProduct';
 
 const orderInitialState = (data: IProduct) => {
   let basis = data.basis[0] ? data.basis[0] : { name: '', price: 0 };

@@ -1,16 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IProduct } from '../../12_General-Data-Recourses/12.3_FoodMenu/12.3.0_Products/dataProducts';
+import IProduct from '../../../Interfaces/IProduct';
+import IExtraIngredientObjectFormDB from '../../../Interfaces/IExtraIngredientObjectFromDB';
 
 // Interface --------------------
 
 export interface IAppSlice {
   products: IProduct[];
-  extraIngredients: any[]
+  allExtraIngredients: IExtraIngredientObjectFormDB [];
 }
 
 // Initial State ---------------
 
-const initialState: IAppSlice = { products: [], extraIngredients: []};
+const initialState: IAppSlice = { products: [], allExtraIngredients: [] };
 
 // App Slice ------------------
 
@@ -23,10 +24,10 @@ export const appSlice = createSlice({
       state.products = actions.payload;
     },
 
-    // Сохраненик всех дополнительных ингридиентов полученных из БД в глобальное состояние; 
+    // Сохраненик всех дополнительных ингридиентов полученных из БД в глобальное состояние;
     addAllExtraIngredientsToSate(state, actions) {
-      state.extraIngredients = actions.payload
-    }
+      state.allExtraIngredients = actions.payload;
+    },
   },
 });
 
