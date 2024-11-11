@@ -27,7 +27,7 @@ const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
   // Updated Order List After Changing --------------------------------------------
   const updateOrderListAfterChangingInCart = () => {
     const newOrderList = orderList.map(value => {
-      if (value._id == updatedOrder._id) {
+      if (value.id == updatedOrder.id) {
         return updatedOrder;
       } else {
         return value;

@@ -20,7 +20,7 @@ const OrderList: FC<IProps> = ({ orderList, langugeApp, currency }) => {
     displayComponent = (
       <ul className="mt30 mwt700 wt100per">
         {orderList.map(value => {
-          return <OrderItem key={value._id} order={value} orderList={orderList} langugeApp={langugeApp} currency={currency} />;
+          return <OrderItem key={value.id} order={value} orderList={orderList} langugeApp={langugeApp} currency={currency} />;
         })}
       </ul>
     );

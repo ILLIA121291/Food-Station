@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import { IOrder } from './CardProduct';
+import IOrder from '../../../../../../Interfaces/IOrder';
 import onChangeBasis from '../6_BasisPanel/onChangeBasis';
 import onChangeSize from '../7_SizePanel/7.0_onChangeSize';
 
