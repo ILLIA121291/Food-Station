@@ -23,6 +23,9 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
   // Получение всех продуктов из глобального состояния;
   const allProducts = useSelector<IStateStore, IProduct[]>(state => state.app.allAppProducts);
 
+  // Прокрутка страницы на самый вер при рендеренге;
+  document.documentElement.scrollTop = 0;
+
   // RENDERING COMPONENT -------------------------------------------
   return (
     <div className={`${classesGlobal.page_body_border} ${classes.body}`}>

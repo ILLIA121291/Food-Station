@@ -1,6 +1,6 @@
 import classes from './HeaderAppMenu.module.css';
 import { FC } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { DISH_TYPE_NAMES } from '../../../../variables/variables';
 import english from '../../../../language/english';
 import ITextObject from '../../../../Interfaces/ITextObject';
