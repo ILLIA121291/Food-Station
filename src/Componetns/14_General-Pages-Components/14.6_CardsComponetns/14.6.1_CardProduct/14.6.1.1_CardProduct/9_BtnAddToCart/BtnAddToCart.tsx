@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import english from '../../../../../../language/english';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToOrderList } from '../../../../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
+import { addToOrderList } from '../../../../../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
 import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
 import IOrder from '../../../../../../Interfaces/IOrder';
 import IAddExtraIngredient from '../../../../../../Interfaces/IAddExtraIngredient';
