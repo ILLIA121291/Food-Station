@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  user-select: none;
+  padding: 5px;
+}
+
+.window {
+  max-width: 1270px;
+  overflow-x: clip;
+  user-select: none;
+}
+
+.line {
+  display: flex;
+  transition: transform 0.5s;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

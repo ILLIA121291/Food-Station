@@ -1,4 +1,4 @@
-import './SliderProduct.scss';
+import classes from './SliderProuct.module.css';
 import { FC, useRef, useState } from 'react';
 
 import CardProduct from '../../14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
@@ -7,18 +7,27 @@ import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
 import IProduct from '../../../../Interfaces/IProduct';
 
+// Interface Component -----------------------------------------------
 interface IProps {
-  titel?: string;
+  title?: string;
   products: IProduct[];
   langugeApp: typeof english;
 }
 
 // COMPONENT ---------------------------------------------------------
-const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
+const SliderProduct: FC<IProps> = ({ title, products, langugeApp }) => {
+  // Inital State 
+  let initalStatebtnNext = false;
+
+  // Use Ref 
   const refSliderWindow = useRef<HTMLDivElement>(null);
 
+  // State Component
+  let [offset, setOffset] = useState(0);
+  let [btnPrevious, setBtnPrevious] = useState<boolean>(true);
+  let [btnNext, setBtnNext] = useState<boolean>(initalStatebtnNext);
+
   const clientWidth = document.documentElement.clientWidth - 30;
-  let initalStatebtnNext = false;
 
   let firstPadding: string = '0';
   let gap: number = 0;
@@ -38,9 +47,7 @@ const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
 
   const productCardWidth = 310 + gap;
 
-  let [offset, setOffset] = useState(0);
-  let [btnPrevious, setBtnPrevious] = useState<boolean>(true);
-  let [btnNext, setBtnNext] = useState<boolean>(initalStatebtnNext);
+
 
   // Previous Slide ------------------------------------------
   const previousSlide = () => {
@@ -90,12 +97,12 @@ const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
   // RENDERING COMPONENT ----------------------------------------
   return (
     <>
-      <div className="f_jc_sb p5 mt30 us-se">
-        <h4 className="fw900 fs20">{titel}</h4>
+      <div className={classes.wrapper}>
+        <h4 className={classes.title}>{title}</h4>
         <div>
           <button
             disabled={btnPrevious}
-            className="slider__btns wt50 ht50 bdr50 mr10"
+            className={classes.btn}
             onClick={() => {
               previousSlide();
             }}
@@ -105,7 +112,7 @@ const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
 
           <button
             disabled={btnNext}
-            className="slider__btns wt50 ht50 bdr50"
+            className={classes.btn}
             onClick={() => {
               nextSlide();
             }}
@@ -115,8 +122,8 @@ const SliderProduct: FC<IProps> = ({ titel, products, langugeApp }) => {
         </div>
       </div>
 
-      <div ref={refSliderWindow} className="slider__window">
-        <div className="slider__line" style={{ transform: `translateX(-${offset}px)`, gap: `${gap}px` }}>
+      <div ref={refSliderWindow} className={classes.window}>
+        <div className={classes.line} style={{ transform: `translateX(-${offset}px)`, gap: `${gap}px` }}>
           {products.map((value, index) => {
             let paddingLeft = '0';
 

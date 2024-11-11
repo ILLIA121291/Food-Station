@@ -1,9 +1,5 @@
-.div {
-  margin: auto;
-  width: 1300px;
-  border: 1px solid #000;
-  padding: 0px 15px;
-
+.body {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }

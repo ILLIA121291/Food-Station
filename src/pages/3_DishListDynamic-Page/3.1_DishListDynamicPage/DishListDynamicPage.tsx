@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import classes from './DishListDynamicPage.module.css';
+import classesGlobal from '../../../css/globalCCS.module.css';
 import english from '../../../language/english';
 import { useParams } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
 
   // RENDERING COMPONENT -------------------------------------------
   return (
-    <div className={classes.div}>
+    <div className={`${classesGlobal.page_body_border} ${classes.body}`}>
       {allProducts
         // Фильтрация и получение массива только с требуемыми продуктами;
         .filter(product => product.dishType == dishListName?.replace('_list', ''))

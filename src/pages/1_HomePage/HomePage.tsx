@@ -1,6 +1,7 @@
 import './HomePage.scss';
 import { FC } from 'react';
 import english from '../../language/english';
+import classesGlobal from '../../css/globalCCS.module.css';
 
 import SliderProduct from '../../Componetns/14_General-Pages-Components/14.7_SliderComponents/14.7.1_SliderProduct/SliderProduct';
 import { useSelector } from 'react-redux';
@@ -21,12 +22,12 @@ const HomePage: FC<IProps> = ({ langugeApp }) => {
 
   // RENDER COMPONENT -------------------------
   return (
-    <div className="gbs__border">
+    <div className={classesGlobal.page_body_border}>
       {queueDisType.map(dishType => {
         // Фильтрация требуемого продукта;
         const productFilter = allProducts.filter(product => product.dishType == dishType);
         // Рендеринг слайдера с отфельтрованным продуктом;
-        return <SliderProduct titel={dishType} products={productFilter} langugeApp={langugeApp} key={dishType} />;
+        return <SliderProduct title={dishType} products={productFilter} langugeApp={langugeApp} key={dishType} />;
       })}
     </div>
   );
