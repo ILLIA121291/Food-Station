@@ -97,8 +97,10 @@ const SliderProduct: FC<IProps> = ({ title, products, langugeApp }) => {
   // RENDERING COMPONENT ----------------------------------------
   return (
     <>
-      <div className={classes.wrapper}>
+      <div className={classes.container}>
+        {/* Title */}
         <h4 className={classes.title}>{title}</h4>
+        {/* Buttons */}
         <div>
           <button
             disabled={btnPrevious}
@@ -121,7 +123,7 @@ const SliderProduct: FC<IProps> = ({ title, products, langugeApp }) => {
           </button>
         </div>
       </div>
-
+        {/* Slides */}
       <div ref={refSliderWindow} className={classes.window}>
         <div className={classes.line} style={{ transform: `translateX(-${offset}px)`, gap: `${gap}px` }}>
           {products.map((value, index) => {

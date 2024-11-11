@@ -53,7 +53,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
             <HeaderAppMobileLogo />
             <PhoneCallMe />
             <HeaderAppCart />
-            <HeaderAppMenu />
+            <HeaderAppMenu langugeApp={langugeApp}/>
             <LanguagePanel langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
             <CurrencyPanel />
             <HeaderAppLogin langugeApp={langugeApp} isUserAuthorized={isUserAuthorized} />
@@ -62,7 +62,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
       </header>
 
       <div className={`gbs__border header-app__menue-panel ${noDisplay}`}>
-        <HeaderAppMenu />
+        <HeaderAppMenu langugeApp={langugeApp}/>
         <HeaderAppCart />
       </div>
     </>
