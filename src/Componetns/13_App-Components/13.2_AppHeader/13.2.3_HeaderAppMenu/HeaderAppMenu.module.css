@@ -1,0 +1,42 @@
+.menu {
+  flex-grow: 1;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  margin-right: 40px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.item:last-child {
+  margin-right: 0px;
+}
+
+.link {
+  text-transform: capitalize;
+}
+
+/* Media queries 1000 px ----------------------------- */
+@media (max-width: 1000px) {
+  .item {
+    margin-right: 15px;
+  }
+}
+
+/* Media Queries 800px --------------------------------------- */
+
+@media (max-width: 800px) {
+  .list {
+    flex-direction: column;
+  }
+
+  .item {
+    margin: 15px 0px;
+  }
+}

@@ -1,6 +1,6 @@
 import './HomePage.scss';
 import { FC } from 'react';
-import english, { ITextObj } from '../../language/english';
+import english from '../../language/english';
 import classesGlobal from '../../css/globalCCS.module.css';
 
 import SliderProduct from '../../Componetns/14_General-Pages-Components/14.7_SliderComponents/14.7.1_SliderProduct/SliderProduct';
