@@ -1,4 +1,3 @@
-import './App.scss';
 import './13.1.1_Scss/froms.scss';
 import './13.1.1_Scss/flex.scss';
 import './13.1.1_Scss/color.scss';
@@ -22,7 +21,7 @@ import './13.1.1_Scss/transition.scss';
 
 import { FC, useEffect, useState } from 'react';
 
-import HomePage from '../../../pages/1_HomePage/HomePage';
+import HomePage from '../../../pages/1_HomePage/1.1_Page/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
 import ModalWindow from '../../14_General-Pages-Components/14.3_ModalWindow/ModalWindow';
 
@@ -38,28 +37,13 @@ import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_Currenc
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
+import initialLangugeApp from './initialLangugeApp';
 
-// localStorage.removeItem('orderList')
+
 
 // Language App ------------------------------------
 
-let initialLanguge: typeof english;
-if (!localStorage.getItem('language')) {
-  localStorage.setItem('language', 'English');
-  initialLanguge = english;
-} else {
-  switch (localStorage.getItem('language')) {
-    // case 'Russian':
-    //   initialLanguge = russian;
-    //   break;
-    // case 'Japan':
-    //   initialLanguge = japan;
-    //   break;
-    default:
-      initialLanguge = english;
-      break;
-  }
-}
+let initialLanguge = initialLangugeApp()
 
 // Login User -------------------------------------
 

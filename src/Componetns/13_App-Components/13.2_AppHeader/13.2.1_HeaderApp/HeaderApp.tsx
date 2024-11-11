@@ -14,6 +14,8 @@ import HeaderAppLogin from '../13.2.4_HeaderAppLogin/13.2.4.1_HeaderAppLogin/13.
 
 import english from '../../../../language/english';
 
+import classesGlobal from '../../../../css/globalCCS.module.css';
+
 interface IProps {
   langugeApp: typeof english;
   setLangugeApp: React.Dispatch<React.SetStateAction<typeof english>>;
@@ -37,7 +39,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
         <HeaderAppMobileLogo />
         <HeaderAppMobileButton mobileMenuState={mobileMenuState} setMobileMenuState={setMobileMenuState} />
         <div
-          className={`gbs__border header-app${noDisplay}`}
+          className={`${classesGlobal.page_body_border} header-app${noDisplay}`}
           // onClick={(e: MouseEvent<HTMLDivElement>): void => {
           //   if (window.innerWidth <= 800 && !(e.target as HTMLDivElement).classList.contains('header-app')) {
           //     setMobileMenuState(false);
@@ -53,7 +55,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
             <HeaderAppMobileLogo />
             <PhoneCallMe />
             <HeaderAppCart />
-            <HeaderAppMenu langugeApp={langugeApp}/>
+            <HeaderAppMenu langugeApp={langugeApp} />
             <LanguagePanel langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
             <CurrencyPanel />
             <HeaderAppLogin langugeApp={langugeApp} isUserAuthorized={isUserAuthorized} />
@@ -61,8 +63,8 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
         </div>
       </header>
 
-      <div className={`gbs__border header-app__menue-panel ${noDisplay}`}>
-        <HeaderAppMenu langugeApp={langugeApp}/>
+      <div className={`${classesGlobal.page_body_border} header-app__menue-panel ${noDisplay}`}>
+        <HeaderAppMenu langugeApp={langugeApp} />
         <HeaderAppCart />
       </div>
     </>
