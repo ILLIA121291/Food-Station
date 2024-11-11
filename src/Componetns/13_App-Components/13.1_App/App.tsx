@@ -36,7 +36,7 @@ import { useDispatch } from 'react-redux';
 import { updateOrderList } from '../../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
-import { DOMAIN_NAME } from '../../../utilities/variables';
+import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
 
 // localStorage.removeItem('orderList')

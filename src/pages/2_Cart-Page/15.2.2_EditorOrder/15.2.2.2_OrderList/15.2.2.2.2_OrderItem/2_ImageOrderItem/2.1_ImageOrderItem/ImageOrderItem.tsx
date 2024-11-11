@@ -1,6 +1,6 @@
 import './ImageOrderItem.scss';
 import { FC } from 'react';
-import { DOMAIN_NAME } from '../../../../../../../utilities/variables';
+import { DOMAIN_NAME } from '../../../../../../../variables/variables';
 import IOrder from '../../../../../../../Interfaces/IOrder';
 
 // IProps ----------------------------------

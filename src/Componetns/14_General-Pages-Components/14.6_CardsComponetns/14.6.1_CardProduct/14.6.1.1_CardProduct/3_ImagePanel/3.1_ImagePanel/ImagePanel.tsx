@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import InfoImages from '../3.2_InfoImages/3.2_InfoImages';
 import InfoIngredients from '../3.3_InfoIngredients/3.3_InfoIngredients';
-import { DOMAIN_NAME } from '../../../../../../../utilities/variables';
+import { DOMAIN_NAME } from '../../../../../../../variables/variables';
 import IProduct from '../../../../../../../Interfaces/IProduct';
 import IOrder from '../../../../../../../Interfaces/IOrder';
 
