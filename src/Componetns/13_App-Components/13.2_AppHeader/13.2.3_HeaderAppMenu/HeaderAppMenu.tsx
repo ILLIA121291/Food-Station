@@ -1,6 +1,6 @@
 import classes from './HeaderAppMenu.module.css';
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { DISH_TYPE_NAMES } from '../../../../variables/variables';
 import english from '../../../../language/english';
 import ITextObject from '../../../../Interfaces/ITextObject';
@@ -22,9 +22,9 @@ const HeaderAppMenu: FC<IProps> = ({ langugeApp }) => {
         {DISH_TYPE_NAMES.map(typeName => {
           return (
             <li className={classes.item} key={typeName}>
-              <Link className={classes.link} to={`/menu/${typeName}_list`}>
+              <NavLink className={({ isActive }): string => `${classes.link} ${isActive ? classes.active : null}`} to={`/menu/${typeName}_list`}>
                 {textMenu[typeName]}
-              </Link>
+              </NavLink>
             </li>
           );
         })}

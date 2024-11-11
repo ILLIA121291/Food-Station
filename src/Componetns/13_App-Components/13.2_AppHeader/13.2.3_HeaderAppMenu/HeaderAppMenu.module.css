@@ -22,6 +22,11 @@
   text-transform: capitalize;
 }
 
+.active {
+  transition: color ease 150ms;
+  color: rgb(241, 104, 13);
+}
+
 /* Media queries 1000 px ----------------------------- */
 @media (max-width: 1000px) {
   .item {
