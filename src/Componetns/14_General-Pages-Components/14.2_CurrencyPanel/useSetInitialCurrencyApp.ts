@@ -3,23 +3,18 @@ import { ICurrencyPanel } from './sliceCurrencyPanel';
 const useSetInitialCurrencyApp = (): ICurrencyPanel => {
   let initialCurrency: ICurrencyPanel;
 
-  if (!localStorage.getItem('currency')) {
-    localStorage.setItem('currency', 'USD');
-    initialCurrency = { currencyApp: 'USD' };
-  } else {
-    switch (localStorage.getItem('currency')) {
-      case 'USD':
-        initialCurrency = { currencyApp: 'USD' };
-        break;
+  switch (localStorage.getItem('currency')) {
+    case 'USD':
+      initialCurrency = { currencyApp: 'USD' };
+      break;
 
-      case 'EUR':
-        initialCurrency = { currencyApp: 'EUR' };
-        break;
+    case 'EUR':
+      initialCurrency = { currencyApp: 'EUR' };
+      break;
 
-      case 'JPY':
-        initialCurrency = { currencyApp: 'JPY' };
-        break;
-    }
+    case 'JPY':
+      initialCurrency = { currencyApp: 'JPY' };
+      break;
   }
 
   return initialCurrency!;

@@ -1,7 +1,12 @@
 
 
 const initialOrderListLocalStorage = (): void => {
-  localStorage.setItem('orderList', JSON.stringify([]));
+
+  if (!localStorage.getItem('orderList')) {
+
+    localStorage.setItem('orderList', JSON.stringify([]));
+  }
+
 }
 
 export default initialOrderListLocalStorage

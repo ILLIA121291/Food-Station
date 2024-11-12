@@ -24,11 +24,11 @@ import { FC, useEffect, useState } from 'react';
 import HomePage from '../../../pages/1_HomePage/1.1_Page/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
 import ModalWindow from '../../14_General-Pages-Components/14.3_ModalWindow/ModalWindow';
+import CartPage from '../../../pages/2_Cart-Page/2.1_CartPage/CartPage';
 
 import english from '../../../language/english';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CartPage from '../../../pages/2_Cart-Page/2.1_CartPage/CartPage';
 
 import { useDispatch } from 'react-redux';
 
@@ -40,16 +40,21 @@ import { addAllAppProductsToState } from './sliceApp';
 import initialOrderListLocalStorage from '../../../localStorage/initialOrderListLocalStorage';
 import initialLangugeAppLocalStorage from '../../../localStorage/initialLangugeAppLocalStorage';
 import initialIsLoginUserLocalStorage from '../../../localStorage/initialIsLoginUserLocalStorage';
+import initialCurrencyAppLocalStorage from '../../../localStorage/initialCurrencyAppLocalStorage';
 
-// Language App ------------------------------------
-let initialLanguge: typeof english = initialLangugeAppLocalStorage();
+// Initial Language App Local Storage ------------------------------------
+const initialLanguge: typeof english = initialLangugeAppLocalStorage();
 
-// Initial Order List Local Storage ----------------
+// Initial Login User Local Storage --------------------------------------
+const initialIsLoginUser: boolean = initialIsLoginUserLocalStorage()
+
+// Initial Order List Local Storage --------------------------------------
 initialOrderListLocalStorage();
 
-// Login User -------------------------------------
+// Initial Currency App Local Storage ------------------------------------
+initialCurrencyAppLocalStorage(); 
 
-let initialIsLoginUser: boolean = initialIsLoginUserLocalStorage()
+
 
 
 
