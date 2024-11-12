@@ -7,7 +7,7 @@ import { addAllAppProductsToState } from '../Componetns/13_App-Components/13.1_A
 const useProductService = () => {
   // IMPORTS --------------------------------------------------------------
   const dispatch = useDispatch();
-  const { request, stateHTTPprocess, setStateHTTPprocess, clearError } = useHttp();
+  const { request, stateHttpProcess, setStateHttpProcess, clearError } = useHttp();
 
   // GET ALL PRODUCTS --------------------------------------------------------
   const getAllProducts = async () => {
@@ -16,13 +16,13 @@ const useProductService = () => {
 
     // Add all products at App State;
     dispatch(addAllAppProductsToState(getProducts));
-    setStateHTTPprocess('waiting');
+    setStateHttpProcess('received');
   };
 
   // HOOK RETURN ------------------------------------------------------------------
   return {
-    stateHTTPprocess,
-    setStateHTTPprocess,
+    stateHttpProcess,
+    setStateHttpProcess,
     clearError,
     getAllProducts,
   };

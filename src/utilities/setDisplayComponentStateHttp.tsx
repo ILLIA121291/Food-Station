@@ -1,20 +1,19 @@
-import { FC } from 'react';
 import ErrorMessageAnimation from '../infocomponents/ErrorMessageAnimation/ErrorMessageAnimation';
 import LoadingAnimation from '../infocomponents/LoadingAnimation/LoadingAnimation';
 
-const setDisplayComponent = (stateHTTPprocess: string, Component: FC): JSX.Element | Error => {
-  switch (stateHTTPprocess) {
+const setDisplayComponentStateHttp = (stateHttpProcess: string, component: JSX.Element): JSX.Element  => {
+  switch (stateHttpProcess) {
     case 'waiting':
       return <LoadingAnimation />;
     case 'loading':
       return <LoadingAnimation />;
     case 'received':
-      return <Component />;
+      return component;
     case 'error':
       return <ErrorMessageAnimation />;
     default:
-      return new Error('Unexpected process state');
+      return <ErrorMessageAnimation errmessage = 'Unexpected process state'/>;
   }
 };
 
-export default setDisplayComponent;
+export default setDisplayComponentStateHttp;

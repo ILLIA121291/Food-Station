@@ -8,7 +8,7 @@ export interface IDataSendToServer {
 // HOOKS ----------------------------------------------------------
 const useHttp = () => {
   // Состояние HTTP запроса: wating, loading, error ;
-  const [stateHTTPprocess, setStateHTTPprocess] = useState<string>('waiting');
+  const [stateHttpProcess, setStateHttpProcess] = useState<string>('waiting');
 
   // Функция которая формирует fetch запрос;
   const request = useCallback(async (url: string, 
@@ -16,7 +16,7 @@ const useHttp = () => {
                                       body: string | null = null,
                                       headers = { 'Content-type': 'application/json' }) => {
     // Изминение статуса HTTP запроса при выполнеии fetch запрос;
-    setStateHTTPprocess('loading');
+    setStateHttpProcess('loading');
 
     // Попыткак выполения fetch запроса;
     try {
@@ -26,7 +26,7 @@ const useHttp = () => {
 
       // Действия если резултата fetch не успешный;
       if (!response.ok) {
-        setStateHTTPprocess('error-1');
+        setStateHttpProcess('error');
         throw new Error(`Could not fetch ${url}, status: ${response.status}`);
       }
 
@@ -38,21 +38,21 @@ const useHttp = () => {
 
       // Действия на случай если в секции try произошла ошибка;
     } catch (e) {
-      setStateHTTPprocess('error-2');
+      setStateHttpProcess('error');
       throw e;
     }
   }, []);
 
   // Сброс ошибкт 
   const clearError = useCallback(() => {
-    setStateHTTPprocess('loading');
+    setStateHttpProcess('loading');
   }, []);
 
 
   return {
     request,
-    stateHTTPprocess,
-    setStateHTTPprocess,
+    stateHttpProcess,
+    setStateHttpProcess,
     clearError,
   };
 };
