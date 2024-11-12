@@ -38,7 +38,8 @@ import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_Currenc
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
 import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import useProductService from '../../../services/product.service';
-import LoadingAnimation from '../../../spinner/LoadingAnimation/LoadingAnimation';
+import LoadingAnimation from '../../../infocomponents/LoadingAnimation/LoadingAnimation';
+import ErrorMessageAnimation from '../../../infocomponents/ErrorMessageAnimation/ErrorMessageAnimation';
 
 // Set Initial State in LocalStorage ------------------------------
 setInitialCurrencyAppLocalStorage();
@@ -56,7 +57,8 @@ const App: FC = () => {
     // Получение всех продуктов из базы данных;
     getAllProducts();
   }, []);
-
+  
+  console.log(stateHTTPprocess)
   // Updating localStorage in different browser windows ----------------------------------------------------
 
   window.addEventListener('storage', () => {
@@ -85,10 +87,10 @@ const App: FC = () => {
         <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
         <main>
           <Routes>
-            {/* <Route path="/" element={<HomePage langugeApp={langugeApp} />} /> */}
-            <Route path="/" element={stateHTTPprocess == 'loading' ? <LoadingAnimation /> : <HomePage langugeApp={langugeApp} />} />
+            {/* <Route path="/" element={stateHTTPprocess == 'loading' ? <LoadingAnimation /> : <HomePage langugeApp={langugeApp} />} /> */}
+            <Route path="/" element={ <ErrorMessageAnimation/>}/>
             <Route path="/cart" element={<CartPage langugeApp={langugeApp} />} />
-            <Route path="/menu/:dishListName" element={<DishListDynamicPage langugeApp={langugeApp} />} />
+            <Route path="/menu/:dishListName" element={stateHTTPprocess == 'loading' ? <LoadingAnimation /> : <DishListDynamicPage langugeApp={langugeApp} />} />
           </Routes>
         </main>
         <ModalWindow langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />

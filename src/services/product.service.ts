@@ -13,6 +13,7 @@ const useProductService = () => {
   const getAllProducts = async () => {
     // Get all products from database;
     const getProducts = await request(`${DOMAIN_NAME}products`);
+
     // Add all products at App State;
     dispatch(addAllAppProductsToState(getProducts));
     setStateHTTPprocess('waiting');

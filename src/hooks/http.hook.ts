@@ -26,7 +26,7 @@ const useHttp = () => {
 
       // Действия если резултата fetch не успешный;
       if (!response.ok) {
-        setStateHTTPprocess('error');
+        setStateHTTPprocess('error-1');
         throw new Error(`Could not fetch ${url}, status: ${response.status}`);
       }
 
@@ -38,7 +38,7 @@ const useHttp = () => {
 
       // Действия на случай если в секции try произошла ошибка;
     } catch (e) {
-      setStateHTTPprocess('error');
+      setStateHTTPprocess('error-2');
       throw e;
     }
   }, []);
