@@ -39,22 +39,19 @@ import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
 import initialOrderListLocalStorage from '../../../localStorage/initialOrderListLocalStorage';
 import initialLangugeAppLocalStorage from '../../../localStorage/initialLangugeAppLocalStorage';
+import initialIsLoginUserLocalStorage from '../../../localStorage/initialIsLoginUserLocalStorage';
 
 // Language App ------------------------------------
-let initialLanguge = initialLangugeAppLocalStorage();
+let initialLanguge: typeof english = initialLangugeAppLocalStorage();
 
 // Initial Order List Local Storage ----------------
 initialOrderListLocalStorage();
 
 // Login User -------------------------------------
 
-let initialIsLoginUser: boolean;
+let initialIsLoginUser: boolean = initialIsLoginUserLocalStorage()
 
-if (localStorage.getItem('login') || sessionStorage.getItem('login')) {
-  initialIsLoginUser = true;
-} else {
-  initialIsLoginUser = false;
-}
+
 
 // COMPONENT ------------------------------------------------------
 const App: FC = () => {
