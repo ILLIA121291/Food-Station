@@ -1,6 +1,10 @@
+import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import { ICurrencyPanel } from './sliceCurrencyPanel';
 
 const useSetInitialCurrencyApp = (): ICurrencyPanel => {
+
+  setInitialCurrencyAppLocalStorage()
+
   let initialCurrency: ICurrencyPanel;
 
   switch (localStorage.getItem('currency')) {

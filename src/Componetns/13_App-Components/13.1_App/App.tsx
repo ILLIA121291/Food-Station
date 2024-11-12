@@ -38,8 +38,10 @@ import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_Currenc
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
+import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
 
 // Set Initial State in LocalStorage ------------------------------
+setInitialCurrencyAppLocalStorage()
 const { initialLanguge, initialIsLoginUser } = setInitialStateInLocalStorage();
 
 // COMPONENT ------------------------------------------------------
@@ -63,7 +65,11 @@ const App: FC = () => {
 
   window.addEventListener('storage', () => {
     // Updating Cart ---------------------------------------------------------------------------------------
-    const newOrderList = JSON.parse(localStorage.getItem('orderList')!);
+    let newOrderList = JSON.parse(localStorage.getItem('orderList')!);
+    if (newOrderList.length == null ) {
+      newOrderList = []
+    }
+
     dispatch(updateOrderList(newOrderList));
 
     // Updating Currency ---------------------------------------------------------------------------------
