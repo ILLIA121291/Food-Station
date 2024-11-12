@@ -2,24 +2,21 @@ import './CurrencyPanel.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { onChangeCurrency } from './sliceCurrencyPanel';
 
-
 import { FC } from 'react';
 import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
 import english from '../../../language/english';
 
-
 // Interfase ---------------------------------
 
 interface IProp {
-  langugeApp: typeof english
+  langugeApp: typeof english;
 }
 
 // COMPONENT -----------------------------------------------------
-const CurrencyPanel: FC <IProp> = ({langugeApp}) => {
+const CurrencyPanel: FC<IProp> = ({ langugeApp }) => {
   const dispatch = useDispatch();
   const currencyAppState = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
-  const textComponent = langugeApp.textCurrencyPanel
-  
+  const textComponent = langugeApp.textCurrencyPanel;
 
   // Rendering ------------------------------------------------------------------
   return (

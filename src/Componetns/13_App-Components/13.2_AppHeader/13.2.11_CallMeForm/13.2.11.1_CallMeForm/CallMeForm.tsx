@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import FormHttpInformMassege from '../../../../14_General-Pages-Components/14.4_FormHttpInformMassege/FormHttpInformMassege';
-import useHttp from '../../../../../http/useHttp';
+import useHttp from '../../../../../hooks/http.hook';
 
 import { useDispatch } from 'react-redux';
 import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';

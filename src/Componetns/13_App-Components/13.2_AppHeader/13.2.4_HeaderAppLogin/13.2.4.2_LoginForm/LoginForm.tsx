@@ -7,7 +7,7 @@ import FormSignup from '../13.2.4.4_FormSignup/FormSignup';
 import FormForgotPassword from '../13.2.4.3_FormLogin/13.2.4.3.2_FormForgotPassword/FormForgotPassword';
 import FromNewPassword from '../13.2.4.3_FormLogin/13.2.4.3.3_FromNewPassword/FromNewPassword';
 
-import useHttp from '../../../../../http/useHttp';
+import useHttp from '../../../../../hooks/http.hook';
 
 import { IUserLogin } from '../13.2.4.3_FormLogin/13.2.4.3.1_FormLogin/FormLogin';
 import { IUserForotPassword } from '../13.2.4.3_FormLogin/13.2.4.3.2_FormForgotPassword/FormForgotPassword';

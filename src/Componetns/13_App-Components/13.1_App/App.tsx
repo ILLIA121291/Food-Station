@@ -39,6 +39,7 @@ import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishL
 import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
 import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
+import useProductService from '../../../services/product.service';
 
 // Set Initial State in LocalStorage ------------------------------
 setInitialCurrencyAppLocalStorage();
@@ -50,15 +51,13 @@ const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
+  const {getAllProducts } = useProductService()
+
   // Получение данных из базы данных;
   useEffect(() => {
-    // Received All Products;
-    fetch(`${DOMAIN_NAME}products`)
-      .then(res => res.json())
-      .then(receivedAllAppProducts => {
-        // Save all products to state;
-        dispatch(addAllAppProductsToState(receivedAllAppProducts));
-      });
+
+    getAllProducts()
+
   }, []);
 
   // Updating localStorage in different browser windows ----------------------------------------------------
