@@ -36,10 +36,9 @@ import { useDispatch } from 'react-redux';
 import { updateOrderList } from '../../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
 import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
-import { DOMAIN_NAME } from '../../../variables/variables';
-import { addAllAppProductsToState } from './sliceApp';
 import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import useProductService from '../../../services/product.service';
+import LoadingAnimation from '../../../spinner/LoadingAnimation/LoadingAnimation';
 
 // Set Initial State in LocalStorage ------------------------------
 setInitialCurrencyAppLocalStorage();
@@ -51,13 +50,11 @@ const App: FC = () => {
   const [langugeApp, setLangugeApp] = useState<typeof english>(initialLanguge);
   const [isUserAuthorized, setUserAuthorized] = useState<boolean>(initialIsLoginUser);
 
-  const {getAllProducts } = useProductService()
+  const { getAllProducts, stateHTTPprocess } = useProductService();
 
-  // Получение данных из базы данных;
   useEffect(() => {
-
-    getAllProducts()
-
+    // Получение всех продуктов из базы данных;
+    getAllProducts();
   }, []);
 
   // Updating localStorage in different browser windows ----------------------------------------------------
@@ -88,7 +85,8 @@ const App: FC = () => {
         <HeaderApp langugeApp={langugeApp} setLangugeApp={setLangugeApp} isUserAuthorized={isUserAuthorized} />
         <main>
           <Routes>
-            <Route path="/" element={<HomePage langugeApp={langugeApp} />} />
+            {/* <Route path="/" element={<HomePage langugeApp={langugeApp} />} /> */}
+            <Route path="/" element={stateHTTPprocess == 'loading' ? <LoadingAnimation /> : <HomePage langugeApp={langugeApp} />} />
             <Route path="/cart" element={<CartPage langugeApp={langugeApp} />} />
             <Route path="/menu/:dishListName" element={<DishListDynamicPage langugeApp={langugeApp} />} />
           </Routes>

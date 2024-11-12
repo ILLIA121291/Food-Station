@@ -21,14 +21,16 @@ const useHttp = () => {
     // Попыткак выполения fetch запроса;
     try {
       // Запуск выполнения fetch запроса;
+      
       const response = await fetch(url, { method, body, headers });
 
       // Действия если резултата fetch не успешный;
       if (!response.ok) {
+        setStateHTTPprocess('error');
         throw new Error(`Could not fetch ${url}, status: ${response.status}`);
       }
 
-      // Действия если результат fetch запроса успешный;
+      // Конвертация полученных данных из JSON в JS формат;
       const data = await response.json();
 
       // Возврат полученных данных из fetch запроса;
