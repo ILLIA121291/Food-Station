@@ -1,33 +1,31 @@
-import english from "../language/english";
-import initialCurrencyAppLocalStorage from "./initialCurrencyAppLocalStorage";
-import initialIsLoginUserLocalStorage from "./initialIsLoginUserLocalStorage";
-import initialLangugeAppLocalStorage from "./initialLangugeAppLocalStorage";
-import initialOrderListLocalStorage from "./initialOrderListLocalStorage";
+import english from '../language/english';
+import setInitialCurrencyAppLocalStorage from './functions/setInitialCurrencyAppLocalStorage';
+import setInitialIsLoginUserLocalStorage from './functions/setInitialIsLoginUserLocalStorage';
+import setInitialLangugeAppLocalStorage from './functions/setInitialLangugeAppLocalStorage';
+import setInitialOrderListLocalStorage from './functions/setInitialOrderListLocalStorage';
 
 // Interface ---------
 
-interface fn {
-  initialLanguge: typeof english, 
-  initialIsLoginUser: boolean
+interface fnReturn {
+  initialLanguge: typeof english;
+  initialIsLoginUser: boolean;
 }
 
 // FUNCTION ----------------------------------------
-const setInitialStateInLocalStorage = (): fn => {
+const setInitialStateInLocalStorage = (): fnReturn => {
+  // Set Initial Language App Local Storage ------------------------------------
+  const initialLanguge: typeof english = setInitialLangugeAppLocalStorage();
 
-// Initial Language App Local Storage ------------------------------------
-const initialLanguge: typeof english = initialLangugeAppLocalStorage();
+  // Set Initial Login User Local Storage --------------------------------------
+  const initialIsLoginUser: boolean = setInitialIsLoginUserLocalStorage();
 
-// Initial Login User Local Storage --------------------------------------
-const initialIsLoginUser: boolean = initialIsLoginUserLocalStorage();
+  // Set Initial Order List Local Storage --------------------------------------
+  setInitialOrderListLocalStorage();
 
-// Initial Order List Local Storage --------------------------------------
-initialOrderListLocalStorage()
+  // Set Initial Currency App Local Storage ------------------------------------
+  setInitialCurrencyAppLocalStorage();
 
-// Initial Currency App Local Storage ------------------------------------
-initialCurrencyAppLocalStorage ()
+  return { initialLanguge, initialIsLoginUser };
+};
 
-return {initialLanguge, initialIsLoginUser }
-
-}
-
-export default setInitialStateInLocalStorage
+export default setInitialStateInLocalStorage;

@@ -1,6 +1,6 @@
-import english from '../language/english';
+import english from '../../language/english';
 
-const initialLangugeAppLocalStorage = (): typeof english => {
+const setInitialLangugeAppLocalStorage = (): typeof english => {
   // Действия если пользователь первый раз заходит в приложение;
   if (!localStorage.getItem('language')) {
     localStorage.setItem('language', 'English');
@@ -20,4 +20,4 @@ const initialLangugeAppLocalStorage = (): typeof english => {
   }
 };
 
-export default initialLangugeAppLocalStorage;
+export default setInitialLangugeAppLocalStorage;

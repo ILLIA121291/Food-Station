@@ -1,6 +1,6 @@
 
 
-const initialOrderListLocalStorage = (): void => {
+const setInitialOrderListLocalStorage = (): void => {
 
   if (!localStorage.getItem('orderList')) {
 
@@ -9,4 +9,4 @@ const initialOrderListLocalStorage = (): void => {
 
 }
 
-export default initialOrderListLocalStorage
+export default setInitialOrderListLocalStorage
