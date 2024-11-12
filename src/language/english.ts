@@ -2,6 +2,7 @@ import textGeneral from './1_textGeneral';
 import textAppHeader from './2_textAppHeader';
 import textForms from './3_textForms';
 import textCardProduct from './4_textCardProduct';
+import textCurrencyPanel from './5_textCurrencyPanel';
 
 export interface ITextObj {
   [key: string]: string;
@@ -13,6 +14,7 @@ const english = {
   textAppHeader,
   textForms,
   textCardProduct,
+  textCurrencyPanel,
 };
 
 export default english;

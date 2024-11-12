@@ -57,7 +57,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
             <HeaderAppCart />
             <HeaderAppMenu langugeApp={langugeApp} />
             <LanguagePanel langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
-            <CurrencyPanel />
+            <CurrencyPanel langugeApp={langugeApp} />
             <HeaderAppLogin langugeApp={langugeApp} isUserAuthorized={isUserAuthorized} />
           </div>
         </div>

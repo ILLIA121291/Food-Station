@@ -41,7 +41,7 @@ import { addAllAppProductsToState } from './sliceApp';
 import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
 
 // Set Initial State in LocalStorage ------------------------------
-setInitialCurrencyAppLocalStorage()
+setInitialCurrencyAppLocalStorage();
 const { initialLanguge, initialIsLoginUser } = setInitialStateInLocalStorage();
 
 // COMPONENT ------------------------------------------------------
@@ -66,14 +66,17 @@ const App: FC = () => {
   window.addEventListener('storage', () => {
     // Updating Cart ---------------------------------------------------------------------------------------
     let newOrderList = JSON.parse(localStorage.getItem('orderList')!);
-    if (newOrderList.length == null ) {
-      newOrderList = []
+    if (newOrderList.length == null) {
+      newOrderList = [];
     }
 
     dispatch(updateOrderList(newOrderList));
 
     // Updating Currency ---------------------------------------------------------------------------------
-    const newCurrency = localStorage.getItem('currency')!;
+    let newCurrency = localStorage.getItem('currency')!;
+    if (newCurrency == null) {
+      newCurrency = 'USD';
+    }
     dispatch(onChangeCurrency(newCurrency));
 
     console.log('Action in localstorage in extra browser window');

@@ -3,7 +3,7 @@ import { ICurrencyPanel } from './sliceCurrencyPanel';
 
 const useSetInitialCurrencyApp = (): ICurrencyPanel => {
 
-  setInitialCurrencyAppLocalStorage()
+   setInitialCurrencyAppLocalStorage()
 
   let initialCurrency: ICurrencyPanel;
 

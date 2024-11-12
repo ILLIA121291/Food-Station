@@ -16,7 +16,7 @@ interface IProps {
 const CurrencyLanguageLogin: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) => {
   return (
     <div className="cur-lang-log">
-      <CurrencyPanel />
+      <CurrencyPanel langugeApp={langugeApp}/>
       <LanguagePanel langugeApp={langugeApp} setLangugeApp={setLangugeApp} />
       <HeaderAppLogin langugeApp={langugeApp} isUserAuthorized={isUserAuthorized} />
     </div>

@@ -1,28 +1,37 @@
 import './CurrencyPanel.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { onChangeCurrency } from './sliceCurrencyPanel';
-import textObjCurrencyPanel from './textObjCurrencyPanel';
+
 
 import { FC } from 'react';
 import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
+import english from '../../../language/english';
 
 
-// Currency Panel Component -----------------------------------------------------
-const CurrencyPanel: FC = () => {
+// Interfase ---------------------------------
+
+interface IProp {
+  langugeApp: typeof english
+}
+
+// COMPONENT -----------------------------------------------------
+const CurrencyPanel: FC <IProp> = ({langugeApp}) => {
   const dispatch = useDispatch();
   const currencyAppState = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
+  const textComponent = langugeApp.textCurrencyPanel
+  
 
   // Rendering ------------------------------------------------------------------
   return (
     <select className="general-select currency-panel__select" value={currencyAppState} onChange={e => dispatch(onChangeCurrency(e.target.value))}>
       <option className="currency-panel__select-option" value="USD">
-        {textObjCurrencyPanel.USD}
+        {textComponent.USD}
       </option>
       <option className="currency-panel__select-option" value="EUR">
-        {textObjCurrencyPanel.EUR}
+        {textComponent.EUR}
       </option>
       <option className="currency-panel__select-option" value="JPY">
-        {textObjCurrencyPanel.JPY}
+        {textComponent.JPY}
       </option>
     </select>
   );
