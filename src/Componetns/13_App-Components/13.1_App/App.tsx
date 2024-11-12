@@ -20,6 +20,7 @@ import './13.1.1_Scss/visibility.scss';
 import './13.1.1_Scss/transition.scss';
 
 import { FC, useEffect, useState } from 'react';
+import setInitialStateInLocalStorage from '../../../localStorage/setInitialStateInLocalStorage';
 
 import HomePage from '../../../pages/1_HomePage/1.1_Page/HomePage';
 import HeaderApp from '../13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
@@ -37,26 +38,9 @@ import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_Currenc
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
-import initialOrderListLocalStorage from '../../../localStorage/initialOrderListLocalStorage';
-import initialLangugeAppLocalStorage from '../../../localStorage/initialLangugeAppLocalStorage';
-import initialIsLoginUserLocalStorage from '../../../localStorage/initialIsLoginUserLocalStorage';
-import initialCurrencyAppLocalStorage from '../../../localStorage/initialCurrencyAppLocalStorage';
 
-// Initial Language App Local Storage ------------------------------------
-const initialLanguge: typeof english = initialLangugeAppLocalStorage();
-
-// Initial Login User Local Storage --------------------------------------
-const initialIsLoginUser: boolean = initialIsLoginUserLocalStorage()
-
-// Initial Order List Local Storage --------------------------------------
-initialOrderListLocalStorage();
-
-// Initial Currency App Local Storage ------------------------------------
-initialCurrencyAppLocalStorage(); 
-
-
-
-
+// Set Initial State in LocalStorage ------------------------------
+const { initialLanguge, initialIsLoginUser } = setInitialStateInLocalStorage();
 
 // COMPONENT ------------------------------------------------------
 const App: FC = () => {
