@@ -37,13 +37,14 @@ import { onChangeCurrency } from '../../14_General-Pages-Components/14.2_Currenc
 import DishListDynamicPage from '../../../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
 import { DOMAIN_NAME } from '../../../variables/variables';
 import { addAllAppProductsToState } from './sliceApp';
-import initialLangugeApp from './initialLangugeApp';
-
-
+import initialOrderListLocalStorage from '../../../localStorage/initialOrderListLocalStorage';
+import initialLangugeAppLocalStorage from '../../../localStorage/initialLangugeAppLocalStorage';
 
 // Language App ------------------------------------
+let initialLanguge = initialLangugeAppLocalStorage();
 
-let initialLanguge = initialLangugeApp()
+// Initial Order List Local Storage ----------------
+initialOrderListLocalStorage();
 
 // Login User -------------------------------------
 

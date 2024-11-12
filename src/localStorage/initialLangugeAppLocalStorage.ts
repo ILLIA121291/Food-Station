@@ -1,12 +1,10 @@
-import english from '../../../language/english';
+import english from '../language/english';
 
-const initialLangugeApp = (): typeof english => {
-
+const initialLangugeAppLocalStorage = (): typeof english => {
   // Действия если пользователь первый раз заходит в приложение;
   if (!localStorage.getItem('language')) {
     localStorage.setItem('language', 'English');
     return english;
-
   } else {
     switch (localStorage.getItem('language')) {
       // case 'Russian':
@@ -22,4 +20,4 @@ const initialLangugeApp = (): typeof english => {
   }
 };
 
-export default initialLangugeApp;
+export default initialLangugeAppLocalStorage;

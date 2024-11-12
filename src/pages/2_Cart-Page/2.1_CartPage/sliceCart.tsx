@@ -16,7 +16,7 @@ if (localStorage.getItem('orderList')) {
   initialState = {
     orderList: JSON.parse(localStorage.getItem('orderList')!),
   };
-}
+} 
 
 // Cart Slice --------------------------------------------
 
