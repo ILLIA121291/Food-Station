@@ -1,8 +1,8 @@
-import textGeneral from './1_textGeneral';
-import textAppHeader from './2_textAppHeader';
-import textForms from './3_textForms';
-import textCardProduct from './4_textCardProduct';
-import textCurrencyPanel from './5_textCurrencyPanel';
+import textGeneral from './textGeneral';
+import textAppHeader from './textAppHeader';
+import textForms from './textForms';
+import textCardProduct from './textCardProduct';
+import textCurrencyPanel from './textCurrencyPanel';
 
 export interface ITextObj {
   [key: string]: string;
