@@ -1,7 +1,7 @@
 import classes from './SliderProuct.module.css';
 import { FC, useRef, useState } from 'react';
 
-import CardProduct from '../../cards/CardProduct/1_CardProduct/CardProduct';
+import CardProduct from '../../cards/CardProduct/0_CardProduct/CardProduct';
 import english from '../../../language/english';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
