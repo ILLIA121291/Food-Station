@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import currencyPanelReduser, { ICurrencyPanel } from '../components/panels/CurrencyPanel/sliceCurrencyPanel';
 import modalWindowReduser, { IModalWindow } from '../components/modal_window/sliceModalWindow';
-import cartReduser, { ICart } from '../pages/2_Cart-Page/2.1_CartPage/sliceCart';
+import cartReduser, { ICart } from '../pages/2_Cart-Page/0_CartPage/sliceCart';
 import appReduser, { IAppSlice } from './sliceApp';
 
 // Interfase State Store ---------------------

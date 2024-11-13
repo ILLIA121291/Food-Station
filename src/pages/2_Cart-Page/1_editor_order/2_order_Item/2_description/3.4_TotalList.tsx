@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import './3.4_TotalList.scss';
-import english from '../../../../../../language/english';
-import useDisplayPriceInCurrency from '../../../../../../components/panels/CurrencyPanel/useDisplayPriceInCurrency';
-import IOrder from '../../../../../../interfaces/IOrder';
+import english from '../../../../../language/english';
+import useDisplayPriceInCurrency from '../../../../../components/panels/CurrencyPanel/useDisplayPriceInCurrency';
+import IOrder from '../../../../../interfaces/IOrder';
 
 // Props Interface --------------------------------
 

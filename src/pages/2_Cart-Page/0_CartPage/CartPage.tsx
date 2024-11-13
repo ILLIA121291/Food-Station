@@ -1,7 +1,7 @@
 import english from '../../../language/english';
-import EditorOrder from '../15.2.2_EditorOrder/15.2.2.1_EditorOrder/EditorOrder';
-import DetailsOrder from '../15.2.3_DetailsOrder/DetailsOrder';
-import ConfirmationOrder from '../15.2.4_ConfirmationOrder/ConfirmationOrder';
+import EditorOrder from '../1_editor_order/0_EditorOrder/EditorOrder';
+import DetailsOrder from '../2_details_order/DetailsOrder';
+import ConfirmationOrder from '../3_confirmation_order/ConfirmationOrder';
 import classesGlobal from '../../../css/globalCCS.module.css'
 import './CartPage.scss';
 

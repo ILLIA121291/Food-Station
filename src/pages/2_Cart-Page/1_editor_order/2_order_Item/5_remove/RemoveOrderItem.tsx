@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IoMdClose } from 'react-icons/io';
 
 import { useDispatch } from 'react-redux';
-import { removeFromOrderList } from '../../../../2.1_CartPage/sliceCart';
+import { removeFromOrderList } from '../../../0_CartPage/sliceCart';
 
 // Props Interface ----------------------
 

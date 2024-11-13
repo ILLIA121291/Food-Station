@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import './3.5_EditorPanel.scss';
-import BasisPanel from '../../../../../../components/cards/CardProduct/4_basis_panel/BasisPanel';
-import SizePanel from '../../../../../../components/cards/CardProduct/5_size_panel/0_SizePanel/SizePanel';
-import english from '../../../../../../language/english';
-import onChangeOrder from '../../../../../../components/cards/CardProduct/0_CardProduct/onChangeOrder';
-import ExtraIngredientsPanel from '../../../../../../components/cards/CardProduct/3_extra_Ingredients_panel/0_ExtraIngredientsPanel/ExtraIngredientsPanel';
-import IOrder from '../../../../../../interfaces/IOrder';
+import BasisPanel from '../../../../../components/cards/CardProduct/4_basis_panel/BasisPanel';
+import SizePanel from '../../../../../components/cards/CardProduct/5_size_panel/0_SizePanel/SizePanel';
+import english from '../../../../../language/english';
+import onChangeOrder from '../../../../../components/cards/CardProduct/0_CardProduct/onChangeOrder';
+import ExtraIngredientsPanel from '../../../../../components/cards/CardProduct/3_extra_Ingredients_panel/0_ExtraIngredientsPanel/ExtraIngredientsPanel';
+import IOrder from '../../../../../interfaces/IOrder';
 
 // Props Interface ---------------------
 interface IProps {

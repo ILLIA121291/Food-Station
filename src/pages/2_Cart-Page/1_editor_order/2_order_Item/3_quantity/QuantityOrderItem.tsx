@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import QuantityInput from '../../../../../../components/forms/FormsComponents/QuantityInput';
-import IOrder from '../../../../../../interfaces/IOrder';
+import QuantityInput from '../../../../../components/forms/FormsComponents/QuantityInput';
+import IOrder from '../../../../../interfaces/IOrder';
 // Props Interface -----------------------------------
 
 interface IProps {
