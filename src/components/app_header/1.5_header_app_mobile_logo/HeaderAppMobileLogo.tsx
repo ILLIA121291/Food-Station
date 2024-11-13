@@ -1,4 +1,4 @@
-import HeaderAppLogo from '../1.2_HeaderAppLogo/HeaderAppLogo';
+import HeaderAppLogo from '../1_header_app_Logo/HeaderAppLogo';
 import './HeaderAppMobileLogo.scss';
 import { FC } from 'react';
 

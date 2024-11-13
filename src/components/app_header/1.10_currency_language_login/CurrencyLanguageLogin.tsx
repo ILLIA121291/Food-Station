@@ -1,6 +1,6 @@
 import LanguagePanel from '../../panels/LanguagePanel/LanguagePanel';
 import CurrencyPanel from '../../panels/CurrencyPanel/CurrencyPanel';
-import HeaderAppLogin from '../1.4_HeaderAppLogin/1.4.1_HeaderAppLogin/13.2.4.1.1_HeaderAppLogin/HeaderAppLogin';
+import HeaderAppLogin from '../1.3_header_app_login/0_HeaderAppLogin/HeaderAppLogin';
 import './CurrencyLanguageLogin.scss';
 
 import english from '../../../language/english';

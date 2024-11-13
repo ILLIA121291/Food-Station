@@ -1,8 +1,8 @@
 import './HeaderAppLogin.scss';
 import { FC } from 'react';
-import english from '../../../../../language/english';
-import NoLoginBtn from '../13.2.4.1.2_NoLoginBtn/NoLoginBtn';
-import LoginBtn from '../13.2.4.1.3_LoginBtn/LoginBtn';
+import english from '../../../../language/english';
+import NoLoginBtn from '../1_no_login_btn/NoLoginBtn';
+import LoginBtn from '../2_login_btn/LoginBtn';
 
 interface IProps {
   langugeApp: typeof english;

@@ -1,5 +1,5 @@
-import HeaderAppLogo from '../../1.2_HeaderAppLogo/HeaderAppLogo';
-import DeliveryLocation from '../13.2.8.2_DeliveryLocation/DeliveryLocation';
+import HeaderAppLogo from '../../1_header_app_Logo/HeaderAppLogo';
+import DeliveryLocation from '../1.7.1_delivery_location/DeliveryLocation';
 import './LogoDelivery.scss';
 
 import { FC } from 'react';
