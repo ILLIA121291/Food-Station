@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './3.5_EditorPanel.scss';
 import BasisPanel from '../../../../../components/cards/CardProduct/4_basis_panel/BasisPanel';
 import SizePanel from '../../../../../components/cards/CardProduct/5_size_panel/0_SizePanel/SizePanel';
 import english from '../../../../../language/english';
@@ -17,7 +16,7 @@ interface IProps {
   displayEditorPanel: boolean;
 }
 
-const EditorPanel: FC<IProps> = ({ updatedOrder, setUpdateOrder, hiddenEditorPanel, displayEditorPanel, langugeApp }) => {
+const EditorPanelDescription: FC<IProps> = ({ updatedOrder, setUpdateOrder, hiddenEditorPanel, displayEditorPanel, langugeApp }) => {
   return (
     <div className={`tran__ht1000 mt15 wt285 ${hiddenEditorPanel}`} style={displayEditorPanel ? { height: '120px' } : { height: '0px' }}>
       <div onClick={e => onChangeOrder(e, setUpdateOrder)} className="wt285">
@@ -29,4 +28,4 @@ const EditorPanel: FC<IProps> = ({ updatedOrder, setUpdateOrder, hiddenEditorPan
   );
 };
 
-export default EditorPanel;
+export default EditorPanelDescription;

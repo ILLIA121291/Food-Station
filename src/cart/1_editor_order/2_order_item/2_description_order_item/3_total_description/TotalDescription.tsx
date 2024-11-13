@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './3.4_TotalList.scss';
 import english from '../../../../../language/english';
 import useDisplayPriceInCurrency from '../../../../../components/panels/CurrencyPanel/useDisplayPriceInCurrency';
 import IOrder from '../../../../../interfaces/IOrder';
@@ -13,7 +12,7 @@ interface IProps {
   displayEditorPanel: boolean;
 }
 
-const TotalList: FC<IProps> = ({ updatedOrder, currency, displayEditorPanel }) => {
+const TotalDescription: FC<IProps> = ({ updatedOrder, currency, displayEditorPanel }) => {
   const closeSize = updatedOrder.priceExtra == 0 ? '19px' : '57px';
 
   return (
@@ -32,4 +31,4 @@ const TotalList: FC<IProps> = ({ updatedOrder, currency, displayEditorPanel }) =
   );
 };
 
-export default TotalList;
+export default TotalDescription;

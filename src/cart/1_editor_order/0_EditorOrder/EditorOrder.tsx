@@ -1,12 +1,12 @@
 import './EditorOrder.scss';
 import { FC } from 'react';
-import english from '../../../../language/english';
+import english from '../../../language/english';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { IStateStore } from '../../../../app/stateStore';
+import { IStateStore } from '../../../app/stateStore';
 import { clearOrderList } from '../../0_CartPage/sliceCart';
 import OrderList from '../1_order_list/OrderList';
-import IOrder from '../../../../interfaces/IOrder';
+import IOrder from '../../../interfaces/IOrder';
 
 // Props Interface ---------------------------------------------------
 interface IProps {

@@ -1,12 +1,11 @@
-import './3.1_DescriptionOrderItem.scss';
 import { FC, useEffect, useState } from 'react';
-import english from '../../../../../../language/english';
-import IOrder from '../../../../../../interfaces/IOrder';
+import english from '../../../../../language/english';
+import IOrder from '../../../../../interfaces/IOrder';
 
-import EditorPanel from './3.5_EditorPanel';
-import TitelOrder from './3.2_TitelOrder';
-import ExtraIngredientsList from './3.3_ExtraIngredientsList';
-import TotalList from './3.4_TotalList';
+import TitelDescription from '../1_titel_description/TitelDescription';
+import ExtraIngredientListDescription from '../2_extra_ingredient_list_description/ExtraIngredientListDescription';
+import TotalDescription from '../3_total_description/TotalDescription';
+import EditorPanelDescription from '../4_editor_panel_description/EditorPanelDescription';
 
 // Props Interface --------------------------------------------
 interface IProps {
@@ -45,15 +44,15 @@ const DescriptionOrderItem: FC<IProps> = ({ updatedOrder, setUpdateOrder, curren
 
   return (
     <div className="wt270">
-      <TitelOrder updatedOrder={updatedOrder} name={updatedOrder.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />
+      <TitelDescription updatedOrder={updatedOrder} name={updatedOrder.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />
       <ul>
         {size}
         {weight}
         {basis}
-        <ExtraIngredientsList data={updatedOrder.data} list={updatedOrder.parameters.extraIngredients} displayEditorPanel={displayEditorPanel} langugeApp={langugeApp} />
-        <TotalList updatedOrder={updatedOrder} currency={currency} langugeApp={langugeApp} displayEditorPanel={displayEditorPanel} />
+        <ExtraIngredientListDescription data={updatedOrder.data} list={updatedOrder.parameters.extraIngredients} displayEditorPanel={displayEditorPanel} langugeApp={langugeApp} />
+        <TotalDescription updatedOrder={updatedOrder} currency={currency} langugeApp={langugeApp} displayEditorPanel={displayEditorPanel} />
       </ul>
-      <EditorPanel updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} currency={currency} langugeApp={langugeApp} displayEditorPanel={displayEditorPanel} hiddenEditorPanel={hiddenEditorPanel} />
+      <EditorPanelDescription updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} currency={currency} langugeApp={langugeApp} displayEditorPanel={displayEditorPanel} hiddenEditorPanel={hiddenEditorPanel} />
     </div>
   );
 };

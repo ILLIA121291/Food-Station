@@ -1,7 +1,7 @@
-import './3.2_TitelOrder.scss';
+import classes from './TitelDescription.module.css';
 import { FC } from 'react';
 import { FaPencil } from 'react-icons/fa6';
-import IOrder from '../../../../../../interfaces/IOrder';
+import IOrder from '../../../../../interfaces/IOrder';
 
 // Props Interface ------------------------------
 
@@ -13,7 +13,7 @@ interface IProps {
   setDisplayEditorPanel: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TitelOrder: FC<IProps> = ({ updatedOrder, name, disabled, displayEditorPanel, setDisplayEditorPanel }) => {
+const TitelDescription: FC<IProps> = ({ updatedOrder, name, disabled, displayEditorPanel, setDisplayEditorPanel }) => {
   return <>{updatedOrder.data.size.length > 1 || updatedOrder.data.extraIngredients.length != 0 || updatedOrder.data.basis.length != 0 ? <TitelBtn name={name} disabled={disabled} displayEditorPanel={displayEditorPanel} setDisplayEditorPanel={setDisplayEditorPanel} /> : <Titel name={name} />}</>;
 };
 
@@ -37,11 +37,11 @@ interface ITitelBtn {
 
 const TitelBtn: FC<ITitelBtn> = ({ name, disabled, displayEditorPanel, setDisplayEditorPanel }) => {
   return (
-    <button disabled={disabled} onClick={() => setDisplayEditorPanel(!displayEditorPanel)} className="bkgr__tra f order-item__titel-btn">
+    <button disabled={disabled} onClick={() => setDisplayEditorPanel(!displayEditorPanel)} className={`bkgr__tra f ${classes.btn} `}>
       <Titel name={name} />
       <FaPencil />
     </button>
   );
 };
 
-export default TitelOrder;
+export default TitelDescription;

@@ -1,8 +1,9 @@
 import './OrderList.scss';
 import { FC } from 'react';
-import english from '../../../../language/english';
-import OrderItem from '../2_order_Item/0_OrderItem/OrderItem';
-import IOrder from '../../../../interfaces/IOrder';
+import english from '../../../language/english';
+
+import IOrder from '../../../interfaces/IOrder';
+import OrderItem from '../2_order_item/0_OrderItem/OrderItem';
 // Props Interface -------------------------------
 
 interface IProps {

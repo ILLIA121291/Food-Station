@@ -1,15 +1,15 @@
 import './OrderItem.scss';
 import { FC, useState, useEffect } from 'react';
 
-import english from '../../../../../language/english';
-import ImageOrderItem from '../1_image/2.1_ImageOrderItem/ImageOrderItem';
-import DescriptionOrderItem from '../2_description/3.1_DescriptionOrderItem';
-import CostOrderItem from '../4_cost/CostOrderItem';
-import RemoveOrderItem from '../5_remove/RemoveOrderItem';
-import QuantityOrderItem from '../3_quantity/QuantityOrderItem';
+import english from '../../../../language/english';
+import ImageOrderItem from '../1_image_order_item/0_ImageOrderItem/ImageOrderItem';
+import DescriptionOrderItem from '../2_description_order_item/0_DescriptionOrderItem/DescriptionOrderItem';
+import CostOrderItem from '../4_cost_order_item/CostOrderItem';
+import RemoveOrderItem from '../5_remove_order_item/RemoveOrderItem';
+import QuantityOrderItem from '../3_quantity_order_item/QuantityOrderItem';
 import { useDispatch } from 'react-redux';
 import { updateOrderList } from '../../../0_CartPage/sliceCart';
-import IOrder from '../../../../../interfaces/IOrder';
+import IOrder from '../../../../interfaces/IOrder';
 
 // Props Interface ------------------------------------------------
 interface IProps {

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './3.3_ExtraIngredientsList.scss';
 import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 import english from '../../../../../language/english';
 import countingQuantityExtraIngredients from '../../../../../components/cards/CardProduct/3_extra_Ingredients_panel/0_ExtraIngredientsPanel/countingQuantityExtraIngredients';
@@ -14,7 +13,7 @@ interface IExtraIngredientsList {
   displayEditorPanel: boolean;
 }
 
-const ExtraIngredientsList: FC<IExtraIngredientsList> = ({ data, list, displayEditorPanel }) => {
+const ExtraIngredientListDescription: FC<IExtraIngredientsList> = ({ data, list, displayEditorPanel }) => {
   const closeSize = list.length == 0 ? 0 : list.length * 22;
 
   return (
@@ -42,4 +41,4 @@ const ExtraIngredientsList: FC<IExtraIngredientsList> = ({ data, list, displayEd
   );
 };
 
-export default ExtraIngredientsList;
+export default ExtraIngredientListDescription;
