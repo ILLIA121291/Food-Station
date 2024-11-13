@@ -1,6 +1,6 @@
 import CallMeForm from '../forms/CallMeForm/CallMeForm';
 import english from '../../language/english';
-import LoginSignupForm from '../forms/LoginSignupFrom/1_LoginSignupForm/LoginSignupForm';
+import LoginSignupForm from '../forms/LoginSignupFrom/0_LoginSignupForm/LoginSignupForm';
 
 type TUMWCReducer = (langugeApp: typeof english, setUserAuthorized: React.Dispatch<React.SetStateAction<boolean>>, component: string, componentType?: string) => JSX.Element;
 

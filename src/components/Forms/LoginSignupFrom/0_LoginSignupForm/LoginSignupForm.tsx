@@ -2,17 +2,17 @@ import './LoginSignupForm.scss';
 import { FC, useState } from 'react';
 import english from '../../../../language/english';
 
-import FormLogin from '../2_FormLogin/2.1_FormLogin/FormLogin';
-import FormSignup from '../3_FormSignup/FormSignup';
-import FormForgotPassword from '../2_FormLogin/2.2_FormForgotPassword/FormForgotPassword';
-import FromNewPassword from '../2_FormLogin/2.3_FromNewPassword/FromNewPassword';
+import FormLogin from '../1_FormLogin/0_FormLogin/FormLogin';
+import FormSignup from '../2_FormSignup/FormSignup';
+import FormForgotPassword from '../1_FormLogin/1_FormForgotPassword/FormForgotPassword';
+import FromNewPassword from '../1_FormLogin/2_FromNewPassword/FromNewPassword';
 
 import useHttp from '../../../../hooks/http.hook';
 
-import { IUserLogin } from '../2_FormLogin/2.1_FormLogin/FormLogin';
-import { IUserForotPassword } from '../2_FormLogin/2.2_FormForgotPassword/FormForgotPassword';
-import { IUserNewPassword } from '../2_FormLogin/2.3_FromNewPassword/FromNewPassword';
-import { IUserSignup } from '../3_FormSignup/FormSignup';
+import { IUserLogin } from '../1_FormLogin/0_FormLogin/FormLogin';
+import { IUserForotPassword } from '../1_FormLogin/1_FormForgotPassword/FormForgotPassword';
+import { IUserNewPassword } from '../1_FormLogin/2_FromNewPassword/FromNewPassword';
+import { IUserSignup } from '../2_FormSignup/FormSignup';
 
 // import { useDispatch } from 'react-redux';
 // import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';

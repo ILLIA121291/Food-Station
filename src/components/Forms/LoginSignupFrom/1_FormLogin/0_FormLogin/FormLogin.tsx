@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import english from '../../../../../language/english';
 import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInformMassege';
-import { IHttpResponseState } from '../../1_LoginSignupForm/LoginSignupForm';
+import { IHttpResponseState } from '../../0_LoginSignupForm/LoginSignupForm';
 import RememberMeCheckbox from '../../../FormsComponents/RememberMeCheckbox';
 import PasswordInput from '../../../FormsComponents/PasswordInput';
 import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';

@@ -2,7 +2,7 @@ import './FormForgotPassword.scss';
 import { FC, useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import english from '../../../../../language/english';
-import { IHttpResponseState } from '../../1_LoginSignupForm/LoginSignupForm';
+import { IHttpResponseState } from '../../0_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
 import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInformMassege';
 import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
