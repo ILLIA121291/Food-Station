@@ -5,14 +5,14 @@ const onOffBodyScroll = (action: 'hidden' | 'auto'): void => {
 
     document.body.style.overflow = 'hidden';
     document.body.style.paddingRight = `${paddingRight}px`;
-    document.body.style.background = 'red'
+    // document.body.style.background = 'red'
   }
 
   if (action == 'auto') {
     document.body.style.overflow = 'auto';
     document.body.style.paddingRight = '0px';
 
-    document.body.style.background = ''
+    // document.body.style.background = ''
   }
 
 };

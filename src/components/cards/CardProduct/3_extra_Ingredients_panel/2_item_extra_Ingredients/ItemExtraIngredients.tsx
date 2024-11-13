@@ -5,7 +5,6 @@ import useDisplayPriceInCurrency from '../../../../panels/CurrencyPanel/useDispl
 import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 
 // Props Interface -----------------------------------------------------------------------
-
 interface IProps {
   name: string;
   price: number;
@@ -14,6 +13,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
+// COMPONENT --------------------------------------------------------------------------
 const ItemExtraIngredients: FC<IProps> = ({ name, price, order, currency, langugeApp }) => {
   const text: { [key: string]: string } = langugeApp.textCardProduct.textExtraIngredients;
 
@@ -29,6 +29,7 @@ const ItemExtraIngredients: FC<IProps> = ({ name, price, order, currency, langug
 
   let display: 'visible' | 'hidden' = displayAddPanel ? 'visible' : 'hidden';
 
+  // RENDERING COMPONENT ---------------------------------------------------
   return (
     <li data-name={name} data-price={price} className="addIngridient f_jc_sb p5 bkgr__br-lt-hov">
       <p data-name={name} data-price={price} className="addIngridient">

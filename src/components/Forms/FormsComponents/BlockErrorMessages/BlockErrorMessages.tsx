@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import { ErrorMessage } from 'formik';
-import onOffBodyScroll from '../../../utilities/onOffBodyScroll';
+import onOffBodyScroll from '../../../../utilities/onOffBodyScroll';
+import classes from './BlockErrorMessages.module.css';
 
+// Interface --------------------------------------------------
 interface IProps {
   name: string;
   className?: string;
@@ -11,6 +13,7 @@ interface IProps {
   display?: boolean;
 }
 
+// COMPONENT ---------------------------------------------------
 const BlockErrorMessages: FC<IProps> = ({ className = '', color = 'rc', name, httpMessage, message, display }) => {
   let displayBlockErrorMessage: JSX.Element;
   let animationCalss: string;
@@ -19,7 +22,7 @@ const BlockErrorMessages: FC<IProps> = ({ className = '', color = 'rc', name, ht
     case 'extra-ingredient':
       animationCalss = display ? 'bd bkgr__yel dis-bloc-anim ' : 'dis-none-anim';
       displayBlockErrorMessage = (
-        <div onClick={e => e.stopPropagation()} onMouseEnter={() => onOffBodyScroll('hidden')} onMouseLeave={() => onOffBodyScroll('auto')} className={`extra-ingre__info-message   fw600 pr10 pl10 pt5 pb5 bdr15 tx-al-c us-se ${animationCalss}  ${className} ${color}`}>
+        <div onClick={e => e.stopPropagation()} onMouseEnter={() => onOffBodyScroll('hidden')} onMouseLeave={() => onOffBodyScroll('auto')} className={`${classes.extraIngredientsInfoMessage} ${animationCalss}  ${className} ${color}`}>
           {message}
         </div>
       );
@@ -34,6 +37,7 @@ const BlockErrorMessages: FC<IProps> = ({ className = '', color = 'rc', name, ht
       );
   }
 
+  // RENDERING COMPONENT---------------------------------------
   return displayBlockErrorMessage;
 };
 

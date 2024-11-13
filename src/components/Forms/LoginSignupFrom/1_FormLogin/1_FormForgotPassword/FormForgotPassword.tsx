@@ -5,7 +5,7 @@ import english from '../../../../../language/english';
 import { IHttpResponseState } from '../../0_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
 import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInformMassege';
-import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
+import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages/BlockErrorMessages';
 
 export interface IUserForotPassword {
   action: string;

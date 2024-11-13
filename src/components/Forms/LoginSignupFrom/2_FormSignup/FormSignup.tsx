@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import FormHttpInformMassege from '../../FormHttpInformMassege/FormHttpInformMassege';
 import RememberMeCheckbox from '../../FormsComponents/RememberMeCheckbox';
 import PasswordInput from '../../FormsComponents/PasswordInput';
-import BlockErrorMessages from '../../FormsComponents/BlockErrorMessages';
+import BlockErrorMessages from '../../FormsComponents/BlockErrorMessages/BlockErrorMessages';
 
 export interface IUserSignup {
   action: string;

@@ -8,7 +8,7 @@ import useHttp from '../../../hooks/http.hook';
 import { useDispatch } from 'react-redux';
 import { noCloseModalWindow } from '../../modal_window/sliceModalWindow';
 import english from '../../../language/english';
-import BlockErrorMessages from '../FormsComponents/BlockErrorMessages';
+import BlockErrorMessages from '../FormsComponents/BlockErrorMessages/BlockErrorMessages';
 
 interface IUserGetData {
   name: string;

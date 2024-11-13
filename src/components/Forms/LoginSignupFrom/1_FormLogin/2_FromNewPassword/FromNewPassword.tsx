@@ -5,7 +5,7 @@ import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInform
 import { IHttpResponseState } from '../../0_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
 import PasswordInput from '../../../FormsComponents/PasswordInput';
-import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
+import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages/BlockErrorMessages';
 
 export interface IUserNewPassword {
   action: string;

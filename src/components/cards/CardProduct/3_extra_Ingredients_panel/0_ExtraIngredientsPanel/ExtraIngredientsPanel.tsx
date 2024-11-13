@@ -1,4 +1,3 @@
-import './ExtraIngredientsPanel.scss';
 import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 
 import { IoIosCloseCircle } from 'react-icons/io';

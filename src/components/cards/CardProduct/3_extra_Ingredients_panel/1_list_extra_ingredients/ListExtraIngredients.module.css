@@ -1,0 +1,15 @@
+.container {
+  position: absolute;
+  top: 52px;
+  left: -1px;
+  transition: height 300ms;
+  overflow: auto;
+  border-radius: 10px;
+  z-index: 150;
+  background: white;
+  font-weight: 600;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

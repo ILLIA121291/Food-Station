@@ -7,7 +7,7 @@ import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInform
 import { IHttpResponseState } from '../../0_LoginSignupForm/LoginSignupForm';
 import RememberMeCheckbox from '../../../FormsComponents/RememberMeCheckbox';
 import PasswordInput from '../../../FormsComponents/PasswordInput';
-import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
+import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages/BlockErrorMessages';
 
 export interface IUserLogin {
   action: string;
