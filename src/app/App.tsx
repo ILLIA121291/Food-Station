@@ -22,7 +22,7 @@ import '../css/scss/transition.scss';
 import { FC, useEffect, useState } from 'react';
 import setInitialStateInLocalStorage from '../localStorage/setInitialStateInLocalStorage';
 
-import HomePage from '../pages/1_HomePage/1.1_Page/HomePage';
+import HomePage from '../pages/1_HomePage/0_HomePage/HomePage';
 import HeaderApp from '../components/app_header/0_HeaderApp/HeaderApp';
 import ModalWindow from '../components/modal_window/ModalWindow';
 import CartPage from '../pages/2_Cart-Page/2.1_CartPage/CartPage';
