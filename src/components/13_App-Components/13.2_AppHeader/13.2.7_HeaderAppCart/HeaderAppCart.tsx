@@ -5,7 +5,7 @@ import { TiShoppingCart } from 'react-icons/ti';
 import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { IStateStore } from '../../13.1_App/stateStore';
+import { IStateStore } from '../../../../app/stateStore';
 import IOrder from '../../../../Interfaces/IOrder';
 import useDisplayPriceInCurrency from '../../../14_General-Pages-Components/14.2_CurrencyPanel/useDisplayPriceInCurrency';
 

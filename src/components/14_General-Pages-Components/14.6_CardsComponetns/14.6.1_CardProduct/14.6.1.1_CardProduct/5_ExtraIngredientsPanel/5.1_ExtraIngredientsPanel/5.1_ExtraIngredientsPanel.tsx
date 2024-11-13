@@ -6,7 +6,7 @@ import toFixedNumber from '../../../../../../../utilities/toFixedNumber';
 
 import useDisplayPriceInCurrency from '../../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
-import { IStateStore } from '../../../../../../13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../../../../../../app/stateStore';
 
 import ListExtraIngredients from '../5.2_ListExtraIngredients/5.2_ListExtraIngredients';
 import IAddExtraIngredient from '../../../../../../../Interfaces/IAddExtraIngredient';

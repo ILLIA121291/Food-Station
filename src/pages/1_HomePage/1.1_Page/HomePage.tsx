@@ -3,9 +3,9 @@ import english from '../../../language/english';
 import classesGlobal from '../../../css/globalCCS.module.css';
 // import classes from './HomePage.module.css';
 
-import SliderProduct from '../../../Componetns/14_General-Pages-Components/14.7_SliderComponents/14.7.1_SliderProduct/SliderProduct';
+import SliderProduct from '../../../components/14_General-Pages-Components/14.7_SliderComponents/14.7.1_SliderProduct/SliderProduct';
 import { useSelector } from 'react-redux';
-import { IStateStore } from '../../../Componetns/13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../../app/stateStore';
 import IProduct from '../../../Interfaces/IProduct';
 import { DISH_TYPE_NAMES } from '../../../variables/variables';
 import ITextObject from '../../../Interfaces/ITextObject';

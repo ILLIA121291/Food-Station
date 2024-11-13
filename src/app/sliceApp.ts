@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import IProduct from '../../../Interfaces/IProduct';
-import IAllAppExtraIngredients from '../../../Interfaces/IAllAppExtraIngredients';
+import IProduct from '../Interfaces/IProduct';
+import IAllAppExtraIngredients from '../Interfaces/IAllAppExtraIngredients';
 
 // Interface --------------------
 
 export interface IAppSlice {
   allAppProducts: IProduct[];
-  allAppExtraIngredients: IAllAppExtraIngredients [];
+  allAppExtraIngredients: IAllAppExtraIngredients[];
 }
 
 // Initial State ---------------

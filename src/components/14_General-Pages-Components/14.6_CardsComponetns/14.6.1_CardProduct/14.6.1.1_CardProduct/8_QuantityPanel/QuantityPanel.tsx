@@ -3,7 +3,7 @@ import QuantityInput from '../../../../14.5_FormsComponents/QuantityInput';
 import english from '../../../../../../language/english';
 import useDisplayPriceInCurrency from '../../../../14.2_CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
-import { IStateStore } from '../../../../../13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../../../../../app/stateStore';
 import IOrder from '../../../../../../Interfaces/IOrder';
 
 // Interface --------------------------------------------------------

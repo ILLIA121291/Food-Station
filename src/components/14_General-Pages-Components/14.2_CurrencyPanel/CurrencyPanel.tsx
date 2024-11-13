@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { onChangeCurrency } from './sliceCurrencyPanel';
 
 import { FC } from 'react';
-import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../../app/stateStore';
 import english from '../../../language/english';
 
 // Interfase ---------------------------------

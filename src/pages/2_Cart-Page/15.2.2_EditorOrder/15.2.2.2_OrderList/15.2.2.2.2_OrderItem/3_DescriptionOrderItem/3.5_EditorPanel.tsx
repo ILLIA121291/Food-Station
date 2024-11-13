@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import './3.5_EditorPanel.scss';
-import BasisPanel from '../../../../../../Componetns/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/6_BasisPanel/BasisPanel';
-import SizePanel from '../../../../../../Componetns/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/7_SizePanel/7.1_SizePanel';
+import BasisPanel from '../../../../../../components/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/6_BasisPanel/BasisPanel';
+import SizePanel from '../../../../../../components/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/7_SizePanel/7.1_SizePanel';
 import english from '../../../../../../language/english';
-import onChangeOrder from '../../../../../../Componetns/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/onChangeOrder';
-import ExtraIngredientsPanel from '../../../../../../Componetns/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
+import onChangeOrder from '../../../../../../components/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/onChangeOrder';
+import ExtraIngredientsPanel from '../../../../../../components/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
 import IOrder from '../../../../../../Interfaces/IOrder';
 
 // Props Interface ---------------------

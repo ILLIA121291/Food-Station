@@ -7,7 +7,7 @@ import useModalWindowBodyScroll from './useModalWindowBodyScroll';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { noCloseModalWindow, onCloseModalWindowClickOverlay, onCloseModalWindowEscape, resetStateModalWindow } from './sliceModalWindow';
-import { IStateStore } from '../../13_App-Components/13.1_App/stateStore';
+import { IStateStore } from '../../../app/stateStore';
 import { IModalWindow } from './sliceModalWindow';
 import english from '../../../language/english';
 
