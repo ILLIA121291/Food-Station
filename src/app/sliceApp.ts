@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import IProduct from '../Interfaces/IProduct';
-import IAllAppExtraIngredients from '../Interfaces/IAllAppExtraIngredients';
+import IProduct from '../interfaces/IProduct';
+import IAllAppExtraIngredients from '../interfaces/IAllAppExtraIngredients';
 
 // Interface --------------------
 

@@ -3,7 +3,7 @@ import './CardProduct.scss';
 import { FC, useState } from 'react';
 import english from '../../../../language/english';
 
-import IProduct from '../../../../Interfaces/IProduct';
+import IProduct from '../../../../interfaces/IProduct';
 
 import ImagePanel from '../1_image_panel/0_ImagePanel/ImagePanel';
 import TitlePanel from '../2_title_panel/TitlePanel';

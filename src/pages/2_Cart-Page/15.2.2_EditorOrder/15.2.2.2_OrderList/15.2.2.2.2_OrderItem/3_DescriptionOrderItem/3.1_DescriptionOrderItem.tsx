@@ -1,7 +1,7 @@
 import './3.1_DescriptionOrderItem.scss';
 import { FC, useEffect, useState } from 'react';
 import english from '../../../../../../language/english';
-import IOrder from '../../../../../../Interfaces/IOrder';
+import IOrder from '../../../../../../interfaces/IOrder';
 
 import EditorPanel from './3.5_EditorPanel';
 import TitelOrder from './3.2_TitelOrder';

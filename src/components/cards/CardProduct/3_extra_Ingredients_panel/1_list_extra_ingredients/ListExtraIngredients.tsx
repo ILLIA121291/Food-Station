@@ -1,9 +1,9 @@
 import { FC, MouseEvent } from 'react';
-import IOrder from '../../../../../Interfaces/IOrder';
+import IOrder from '../../../../../interfaces/IOrder';
 import english from '../../../../../language/english';
 import BlockErrorMessages from '../../../../forms/FormsComponents/BlockErrorMessages';
 import ItemExtraIngredients from '../2_item_extra_Ingredients/ItemExtraIngredients';
-import IProduct from '../../../../../Interfaces/IProduct';
+import IProduct from '../../../../../interfaces/IProduct';
 import onOffBodyScroll from '../../../../../utilities/onOffBodyScroll';
 // Props Interface -----------------------------------
 

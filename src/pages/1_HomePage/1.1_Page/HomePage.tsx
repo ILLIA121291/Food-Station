@@ -6,9 +6,9 @@ import classesGlobal from '../../../css/globalCCS.module.css';
 import SliderProduct from '../../../components/sliders/SliderProduct/SliderProduct';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../app/stateStore';
-import IProduct from '../../../Interfaces/IProduct';
+import IProduct from '../../../interfaces/IProduct';
 import { DISH_TYPE_NAMES } from '../../../variables/variables';
-import ITextObject from '../../../Interfaces/ITextObject';
+import ITextObject from '../../../interfaces/ITextObject';
 
 // Interface -------------------------------
 interface IProps {

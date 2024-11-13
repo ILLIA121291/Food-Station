@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import IProduct from '../../../../Interfaces/IProduct';
-import IOrder from '../../../../Interfaces/IOrder';
+import IProduct from '../../../../interfaces/IProduct';
+import IOrder from '../../../../interfaces/IOrder';
 import english from '../../../../language/english';
 
 //Props Interfase --------------------------------

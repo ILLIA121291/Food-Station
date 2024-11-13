@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IStateStore } from '../../../../app/stateStore';
 import { clearOrderList } from '../../2.1_CartPage/sliceCart';
 import OrderList from '../15.2.2.2_OrderList/15.2.2.2.1_OrderList/OrderList';
-import IOrder from '../../../../Interfaces/IOrder';
+import IOrder from '../../../../interfaces/IOrder';
 
 // Props Interface ---------------------------------------------------
 interface IProps {

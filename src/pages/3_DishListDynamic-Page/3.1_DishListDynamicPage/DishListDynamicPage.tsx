@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import CardProduct from '../../../components/cards/CardProduct/0_CardProduct/CardProduct';
 import { useSelector } from 'react-redux';
 
-import IProduct from '../../../Interfaces/IProduct';
+import IProduct from '../../../interfaces/IProduct';
 import { IStateStore } from '../../../app/stateStore';
 
 // Props Interfase ----------------------------

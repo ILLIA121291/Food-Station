@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../app/stateStore';
-import IOrder from '../../../Interfaces/IOrder';
+import IOrder from '../../../interfaces/IOrder';
 import useDisplayPriceInCurrency from '../../panels/CurrencyPanel/useDisplayPriceInCurrency';
 
 const HeaderAppCart: FC = () => {

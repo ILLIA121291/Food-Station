@@ -3,8 +3,8 @@ import english from '../../../../language/english';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToOrderList } from '../../../../pages/2_Cart-Page/2.1_CartPage/sliceCart';
 import { IStateStore } from '../../../../app/stateStore';
-import IOrder from '../../../../Interfaces/IOrder';
-import IAddExtraIngredient from '../../../../Interfaces/IAddExtraIngredient';
+import IOrder from '../../../../interfaces/IOrder';
+import IAddExtraIngredient from '../../../../interfaces/IAddExtraIngredient';
 
 // Props Interface --------------------------------------------------
 interface IProps {

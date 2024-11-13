@@ -1,5 +1,5 @@
-import IOrder from '../../../../Interfaces/IOrder';
-import IProduct from '../../../../Interfaces/IProduct';
+import IOrder from '../../../../interfaces/IOrder';
+import IProduct from '../../../../interfaces/IProduct';
 
 const orderInitialState = (data: IProduct) => {
   let basis = data.basis[0] ? data.basis[0] : { name: '', price: 0 };

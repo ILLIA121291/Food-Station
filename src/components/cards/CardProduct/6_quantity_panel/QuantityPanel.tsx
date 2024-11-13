@@ -4,7 +4,7 @@ import english from '../../../../language/english';
 import useDisplayPriceInCurrency from '../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../app/stateStore';
-import IOrder from '../../../../Interfaces/IOrder';
+import IOrder from '../../../../interfaces/IOrder';
 
 // Interface --------------------------------------------------------
 interface IProps {

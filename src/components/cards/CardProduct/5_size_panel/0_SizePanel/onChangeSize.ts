@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import IOrder from '../../../../../Interfaces/IOrder';
+import IOrder from '../../../../../interfaces/IOrder';
 // Types ------------------------------------------
 
 type TE = MouseEvent<HTMLDivElement> | MouseEvent<HTMLUListElement>;

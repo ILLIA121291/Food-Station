@@ -1,4 +1,4 @@
-import IAddExtraIngredient from '../../../../../Interfaces/IAddExtraIngredient';
+import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 
 type Arr = IAddExtraIngredient[];
 

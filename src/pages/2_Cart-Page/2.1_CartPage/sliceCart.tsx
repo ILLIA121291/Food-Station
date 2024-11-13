@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import IOrder from '../../../Interfaces/IOrder';
+import IOrder from '../../../interfaces/IOrder';
 
 // Interface ----------------------------------
 export interface ICart {

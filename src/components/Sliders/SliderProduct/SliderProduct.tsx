@@ -5,7 +5,7 @@ import CardProduct from '../../cards/CardProduct/0_CardProduct/CardProduct';
 import english from '../../../language/english';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
-import IProduct from '../../../Interfaces/IProduct';
+import IProduct from '../../../interfaces/IProduct';
 
 // Interface Component -----------------------------------------------
 interface IProps {

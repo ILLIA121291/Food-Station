@@ -9,11 +9,11 @@ import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../app/stateStore';
 
 import ListExtraIngredients from '../1_list_extra_ingredients/ListExtraIngredients';
-import IAddExtraIngredient from '../../../../../Interfaces/IAddExtraIngredient';
+import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 import countingQuantityExtraIngredients from './countingQuantityExtraIngredients';
 import english from '../../../../../language/english';
-import IProduct from '../../../../../Interfaces/IProduct';
-import IOrder from '../../../../../Interfaces/IOrder';
+import IProduct from '../../../../../interfaces/IProduct';
+import IOrder from '../../../../../interfaces/IOrder';
 
 // Interface -------------------------------------------------------
 interface IProps {
