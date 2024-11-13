@@ -3,7 +3,7 @@ import english from '../../../language/english';
 import classesGlobal from '../../../css/globalCCS.module.css';
 // import classes from './HomePage.module.css';
 
-import SliderProduct from '../../../components/14_General-Pages-Components/14.7_SliderComponents/14.7.1_SliderProduct/SliderProduct';
+import SliderProduct from '../../../components/Sliders/SliderProduct/SliderProduct';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../app/stateStore';
 import IProduct from '../../../Interfaces/IProduct';

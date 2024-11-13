@@ -23,8 +23,8 @@ import { FC, useEffect, useState } from 'react';
 import setInitialStateInLocalStorage from '../localStorage/setInitialStateInLocalStorage';
 
 import HomePage from '../pages/1_HomePage/1.1_Page/HomePage';
-import HeaderApp from '../components/13_App-Components/13.2_AppHeader/13.2.1_HeaderApp/HeaderApp';
-import ModalWindow from '../components/14_General-Pages-Components/14.3_ModalWindow/ModalWindow';
+import HeaderApp from '../components/AppHeader/1.1_HeaderApp/HeaderApp';
+import ModalWindow from '../components/ModalWindow/ModalWindow';
 import CartPage from '../pages/2_Cart-Page/2.1_CartPage/CartPage';
 
 import english from '../language/english';
@@ -34,7 +34,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../pages/2_Cart-Page/2.1_CartPage/sliceCart';
-import { onChangeCurrency } from '../components/14_General-Pages-Components/14.2_CurrencyPanel/sliceCurrencyPanel';
+import { onChangeCurrency } from '../components/Panels/CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../pages/3_DishListDynamic-Page/3.1_DishListDynamicPage/DishListDynamicPage';
 import setInitialCurrencyAppLocalStorage from '../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import useProductService from '../services/product.service';

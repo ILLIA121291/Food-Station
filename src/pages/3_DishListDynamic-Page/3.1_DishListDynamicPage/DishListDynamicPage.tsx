@@ -4,7 +4,7 @@ import classesGlobal from '../../../css/globalCCS.module.css';
 import english from '../../../language/english';
 import { useParams } from 'react-router-dom';
 
-import CardProduct from '../../../components/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/1_CardProduct/CardProduct';
+import CardProduct from '../../../components/Cards/CardProduct/1_CardProduct/CardProduct';
 import { useSelector } from 'react-redux';
 
 import IProduct from '../../../Interfaces/IProduct';

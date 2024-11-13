@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './3.3_ExtraIngredientsList.scss';
 import IAddExtraIngredient from '../../../../../../Interfaces/IAddExtraIngredient';
 import english from '../../../../../../language/english';
-import countingQuantityExtraIngredients from '../../../../../../components/14_General-Pages-Components/14.6_CardsComponetns/14.6.1_CardProduct/14.6.1.1_CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel/countingQuantityExtraIngredients';
+import countingQuantityExtraIngredients from '../../../../../../components/Cards/CardProduct/5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel/countingQuantityExtraIngredients';
 import IProduct from '../../../../../../Interfaces/IProduct';
 
 // Extra Ingridients List ---------------------------
