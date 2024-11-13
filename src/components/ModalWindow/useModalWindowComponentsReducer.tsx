@@ -1,6 +1,6 @@
 import CallMeForm from '../../components/Forms/CallMeForm/CallMeForm';
 import english from '../../language/english';
-import LoginForm from '../../components/AppHeader/1.4_HeaderAppLogin/1.4.1.2_LoginForm/LoginForm';
+import LoginSignupForm from '../Forms/LoginSignupFrom/1_LoginSignupForm/LoginSignupForm';
 
 type TUMWCReducer = (langugeApp: typeof english, setUserAuthorized: React.Dispatch<React.SetStateAction<boolean>>, component: string, componentType?: string) => JSX.Element;
 
@@ -9,7 +9,7 @@ const useModalWindowComponentsReducer: TUMWCReducer = (langugeApp, setUserAuthor
 
   switch (component) {
     case 'LoginForm':
-      displayComponentInModalWindow = <LoginForm langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />;
+      displayComponentInModalWindow = <LoginSignupForm langugeApp={langugeApp} setUserAuthorized={setUserAuthorized} />;
       break;
     case 'CallMeForm':
       displayComponentInModalWindow = <CallMeForm langugeApp={langugeApp} />;

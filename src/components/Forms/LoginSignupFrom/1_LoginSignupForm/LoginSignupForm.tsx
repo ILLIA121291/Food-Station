@@ -1,18 +1,18 @@
-import './LoginForm.scss';
+import './LoginSignupForm.scss';
 import { FC, useState } from 'react';
 import english from '../../../../language/english';
 
-import FormLogin from '../1.4.1.3_FormLogin/1.4.1.3.1_FormLogin/FormLogin';
-import FormSignup from '../1.4.1.4_FormSignup/FormSignup';
-import FormForgotPassword from '../1.4.1.3_FormLogin/1.4.1.3.2_FormForgotPassword/FormForgotPassword';
-import FromNewPassword from '../1.4.1.3_FormLogin/1.4.1.3.3_FromNewPassword/FromNewPassword';
+import FormLogin from '../2_FormLogin/2.1_FormLogin/FormLogin';
+import FormSignup from '../3_FormSignup/FormSignup';
+import FormForgotPassword from '../2_FormLogin/2.2_FormForgotPassword/FormForgotPassword';
+import FromNewPassword from '../2_FormLogin/2.3_FromNewPassword/FromNewPassword';
 
 import useHttp from '../../../../hooks/http.hook';
 
-import { IUserLogin } from '../1.4.1.3_FormLogin/1.4.1.3.1_FormLogin/FormLogin';
-import { IUserForotPassword } from '../1.4.1.3_FormLogin/1.4.1.3.2_FormForgotPassword/FormForgotPassword';
-import { IUserNewPassword } from '../1.4.1.3_FormLogin/1.4.1.3.3_FromNewPassword/FromNewPassword';
-import { IUserSignup } from '../1.4.1.4_FormSignup/FormSignup';
+import { IUserLogin } from '../2_FormLogin/2.1_FormLogin/FormLogin';
+import { IUserForotPassword } from '../2_FormLogin/2.2_FormForgotPassword/FormForgotPassword';
+import { IUserNewPassword } from '../2_FormLogin/2.3_FromNewPassword/FromNewPassword';
+import { IUserSignup } from '../3_FormSignup/FormSignup';
 
 // import { useDispatch } from 'react-redux';
 // import { noCloseModalWindow } from '../../../../14_General-Pages-Components/14.3_ModalWindow/sliceModalWindow';
@@ -40,7 +40,7 @@ interface IProps {
   setUserAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
+const LoginSignupForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
   // const dispatch = useDispatch();
   const text = langugeApp.textForms.textGeneral;
   const [displayFormState, setDisplayFormState] = useState<string>('Form login');
@@ -49,7 +49,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
   // Fetching ------------------------------------------------
 
   // const { request, process, setProcess } = useHttp();
-  const { process, setProcess } = useHttp();
+  const { stateHttpProcess, setStateHttpProcess } = useHttp();
 
   const postUserData = async (userGetData: IUserLogin | IUserForotPassword | IUserNewPassword | IUserSignup) => {
     // Data before sending to server --------------------------------
@@ -68,7 +68,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
 
     // Form Login -------------------------------------------------------------
     if (getResponse.action == 'User try login') {
-      setProcess('success');
+      setStateHttpProcess('success');
 
       if ((getResponse as IUserLogin).save && (getResponse as IUserLogin).login != 'loginError' && (getResponse as IUserLogin).password != '1234') {
         localStorage.setItem('login', (getResponse as IUserLogin).login);
@@ -95,7 +95,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
 
     // Form Forgot Password -------------------------------------------------
     if (getResponse.action == 'User forgot password') {
-      setProcess('success');
+      setStateHttpProcess('success');
       let loginTrueFalse: boolean;
 
       if ((getResponse as IUserForotPassword).login === 'loginError') {
@@ -122,7 +122,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
       if (loginTrueFalse) {
         setTimeout(() => {
           setDisplayFormState('Form new password');
-          setProcess('waiting');
+          setStateHttpProcess('waiting');
         }, 1000);
       }
 
@@ -133,7 +133,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
     // Form New Passwoerd --------------------------------------------------
 
     if (getResponse.action == 'User create new password') {
-      setProcess('success');
+      setStateHttpProcess('success');
 
       if (localStorage.getItem('password')) {
         localStorage.setItem('password', (getResponse as IUserNewPassword).password);
@@ -146,7 +146,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
     // Form Signup -------------------------------------------------------
 
     if (getResponse.action == 'User create account') {
-      setProcess('success');
+      setStateHttpProcess('success');
 
       if ((getResponse as IUserSignup).login === 'loginError') {
         setHttpResponseState({ isResponse: true, isLogin: false, loginStatus: false, passwordStatus: false, login: (getResponse as IUserSignup).login });
@@ -181,28 +181,28 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
   switch (displayFormState) {
     case 'Form Signup':
       formTitel = text.signupForm;
-      displayForm = <FormSignup langugeApp={langugeApp} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
+      displayForm = <FormSignup langugeApp={langugeApp} postUserData={postUserData} process={stateHttpProcess} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__waiting';
       btnStyleSignup = 'fbtn__active';
       break;
 
     case 'Form new password':
       formTitel = text.loginForm;
-      displayForm = <FromNewPassword langugeApp={langugeApp} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
+      displayForm = <FromNewPassword langugeApp={langugeApp} postUserData={postUserData} process={stateHttpProcess} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
 
     case 'Form forgot password':
       formTitel = text.loginForm;
-      displayForm = <FormForgotPassword langugeApp={langugeApp} httpResponseState={httpResponseState} postUserData={postUserData} process={process} />;
+      displayForm = <FormForgotPassword langugeApp={langugeApp} httpResponseState={httpResponseState} postUserData={postUserData} process={stateHttpProcess} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
       break;
 
     default:
       formTitel = text.loginForm;
-      displayForm = <FormLogin langugeApp={langugeApp} setDisplayFormState={setDisplayFormState} postUserData={postUserData} process={process} httpResponseState={httpResponseState} />;
+      displayForm = <FormLogin langugeApp={langugeApp} setDisplayFormState={setDisplayFormState} postUserData={postUserData} process={stateHttpProcess} httpResponseState={httpResponseState} />;
       btnStyleLogin = 'fbtn__active';
       btnStyleSignup = 'fbtn__waiting';
   }
@@ -216,7 +216,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
         <button
           className={`fbtn wt150 ${btnStyleLogin}`}
           onClick={() => {
-            setProcess('waiting'), setDisplayFormState('Form Login'), setHttpResponseState(initStatehttpResponse);
+            setStateHttpProcess('waiting'), setDisplayFormState('Form Login'), setHttpResponseState(initStatehttpResponse);
           }}
         >
           {text.login}
@@ -224,7 +224,7 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
         <button
           className={`fbtn wt150 ${btnStyleSignup}`}
           onClick={() => {
-            setDisplayFormState('Form Signup'), setProcess('waiting'), setHttpResponseState(initStatehttpResponse);
+            setDisplayFormState('Form Signup'), setStateHttpProcess('waiting'), setHttpResponseState(initStatehttpResponse);
           }}
         >
           {text.signup}
@@ -235,4 +235,4 @@ const LoginForm: FC<IProps> = ({ langugeApp, setUserAuthorized }) => {
   );
 };
 
-export default LoginForm;
+export default LoginSignupForm;

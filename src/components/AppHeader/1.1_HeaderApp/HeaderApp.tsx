@@ -5,7 +5,7 @@ import HeaderAppMobileLogo from '../1.6_HeaderAppMobileLogo/HeaderAppMobileLogo'
 // import { FC, useState, MouseEvent } from 'react';
 import { FC, useState } from 'react';
 import HeaderAppCart from '../1.7_HeaderAppCart/HeaderAppCart';
-import LogoDelivery from '../1.8_LogoDeilvery/1.8.1_LogoDelivery/LogoDelivery';
+import LogoDelivery from '../1.8_LogoDeilvery/13.2.8.1_LogoDelivery/LogoDelivery';
 import PhoneCallMe from '../1.9_PhoneCallMe/PhoneCallMe';
 import CurrencyLanguageLogin from '../1.10_CurrencyLanguageLogin/CurrencyLanguageLogin';
 import LanguagePanel from '../../../components/Panels/LanguagePanel/LanguagePanel';

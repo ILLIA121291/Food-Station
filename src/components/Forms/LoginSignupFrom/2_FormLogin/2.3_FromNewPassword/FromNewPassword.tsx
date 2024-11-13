@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Formik, Form } from 'formik';
 import english from '../../../../../language/english';
 import FormHttpInformMassege from '../../../../Forms/FormHttpInformMassege/FormHttpInformMassege';
-import { IHttpResponseState } from '../../1.4.1.2_LoginForm/LoginForm';
+import { IHttpResponseState } from '../../1_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
 import PasswordInput from '../../../../Forms/FormsComponents/PasswordInput';
 import BlockErrorMessages from '../../../../Forms/FormsComponents/BlockErrorMessages';
