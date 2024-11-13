@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import IProduct from '../../../../Interfaces/IProduct';
-import IOrder from '../../../../Interfaces/IOrder';
-import english from '../../../../language/english';
-import ManySizes from './ManySizes';
-import OneSize from './OneSize';
+import IProduct from '../../../../../Interfaces/IProduct';
+import IOrder from '../../../../../Interfaces/IOrder';
+import english from '../../../../../language/english';
+import ManySizes from '../6.3_many_size/ManySizes';
+import OneSize from '../6.2_one_size/OneSize';
 
 //Props Interfase --------------------------------
 

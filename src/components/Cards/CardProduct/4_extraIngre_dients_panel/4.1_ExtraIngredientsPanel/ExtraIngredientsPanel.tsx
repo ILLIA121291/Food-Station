@@ -8,7 +8,7 @@ import useDisplayPriceInCurrency from '../../../../panels/CurrencyPanel/useDispl
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../app/stateStore';
 
-import ListExtraIngredients from '../4.2_ListExtraIngredients/ListExtraIngredients';
+import ListExtraIngredients from '../4.2_list_extra_ingredients/ListExtraIngredients';
 import IAddExtraIngredient from '../../../../../Interfaces/IAddExtraIngredient';
 import countingQuantityExtraIngredients from './countingQuantityExtraIngredients';
 import english from '../../../../../language/english';

@@ -1,11 +1,11 @@
 import './ImagePanel.scss';
 import { FC } from 'react';
 
-import InfoImages from '../2.2_InfoImages/InfoImages';
-import InfoIngredients from '../2.3_InfoIngredients/InfoIngredients';
+import InfoImages from '../2.2_info_images/InfoImages';
 import { DOMAIN_NAME } from '../../../../../variables/variables';
 import IProduct from '../../../../../Interfaces/IProduct';
 import IOrder from '../../../../../Interfaces/IOrder';
+import InfoIngredients from '../2.3_info_ingredients/InfoIngredients';
 
 // Interface -----------------------------------
 interface IProps {

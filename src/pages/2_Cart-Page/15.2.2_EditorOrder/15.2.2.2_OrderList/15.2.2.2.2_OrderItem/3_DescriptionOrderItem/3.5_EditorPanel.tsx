@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import './3.5_EditorPanel.scss';
-import BasisPanel from '../../../../../../components/cards/CardProduct/5_BasisPanel/BasisPanel';
-import SizePanel from '../../../../../../components/cards/CardProduct/6_SizePanel/SizePanel';
+import BasisPanel from '../../../../../../components/cards/CardProduct/5_basis_panel/BasisPanel';
+import SizePanel from '../../../../../../components/cards/CardProduct/6_size_panel/6.1_SizePanel/SizePanel';
 import english from '../../../../../../language/english';
 import onChangeOrder from '../../../../../../components/cards/CardProduct/1_CardProduct/onChangeOrder';
-import ExtraIngredientsPanel from '../../../../../../components/cards/CardProduct/4_ExtraIngredientsPanel/4.1_ExtraIngredientsPanel/ExtraIngredientsPanel';
+import ExtraIngredientsPanel from '../../../../../../components/cards/CardProduct/4_extraIngre_dients_panel/4.1_ExtraIngredientsPanel/ExtraIngredientsPanel';
 import IOrder from '../../../../../../Interfaces/IOrder';
 
 // Props Interface ---------------------
