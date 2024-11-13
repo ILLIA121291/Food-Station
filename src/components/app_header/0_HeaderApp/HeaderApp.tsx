@@ -1,16 +1,16 @@
 import './HeaderApp.scss';
-import HeaderAppMenu from '../1.2_header_app_menu/HeaderAppMenu';
-import HeaderAppMobileButton from '../1.4_header_app_mobile_button/HeaderAppMobileButton';
-import HeaderAppMobileLogo from '../1.5_header_app_mobile_logo/HeaderAppMobileLogo';
+import HeaderAppMenu from '../2_header_app_menu/HeaderAppMenu';
+import HeaderAppMobileButton from '../4_header_app_mobile_button/HeaderAppMobileButton';
+import HeaderAppMobileLogo from '../5_header_app_mobile_logo/HeaderAppMobileLogo';
 // import { FC, useState, MouseEvent } from 'react';
 import { FC, useState } from 'react';
-import HeaderAppCart from '../1.6_header_app_cart/HeaderAppCart';
-import LogoDelivery from '../1.7_logo_deilvery/1.7_LogoDelivery/LogoDelivery';
-import PhoneCallMe from '../1.8_phone_call_Me/PhoneCallMe';
-import CurrencyLanguageLogin from '../1.9_currency_language_login/CurrencyLanguageLogin';
+import HeaderAppCart from '../6_header_app_cart/HeaderAppCart';
+import LogoDelivery from '../7_logo_deilvery/1.7_LogoDelivery/LogoDelivery';
+import PhoneCallMe from '../8_phone_call_Me/PhoneCallMe';
+import CurrencyLanguageLogin from '../9_currency_language_login/CurrencyLanguageLogin';
 import LanguagePanel from '../../panels/LanguagePanel/LanguagePanel';
 import CurrencyPanel from '../../panels/CurrencyPanel/CurrencyPanel';
-import HeaderAppLogin from '../1.3_header_app_login/0_HeaderAppLogin/HeaderAppLogin';
+import HeaderAppLogin from '../3_header_app_login/0_HeaderAppLogin/HeaderAppLogin';
 
 import english from '../../../language/english';
 
