@@ -5,13 +5,13 @@ import english from '../../../../language/english';
 
 import IProduct from '../../../../Interfaces/IProduct';
 
-import ImagePanel from '../3_ImagePanel/3.1_ImagePanel/ImagePanel';
-import TitlePanel from '../4_TitlePanel/4.1_TitlePanel';
-import ExtraIngredientsPanel from '../5_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel/5.1_ExtraIngredientsPanel';
-import BtnAddToCart from '../9_BtnAddToCart/BtnAddToCart';
-import BasisPanel from '../6_BasisPanel/BasisPanel';
-import SizePanel from '../7_SizePanel/7.1_SizePanel';
-import QuantityPanel from '../8_QuantityPanel/QuantityPanel';
+import ImagePanel from '../2_image_panel/2.1_ImagePanel/ImagePanel';
+import TitlePanel from '../3_TitlePanel/TitlePanel';
+import ExtraIngredientsPanel from '../4_ExtraIngredientsPanel/4.1_ExtraIngredientsPanel/ExtraIngredientsPanel';
+import BtnAddToCart from '../8_BtnAddToCart/BtnAddToCart';
+import BasisPanel from '../5_BasisPanel/BasisPanel';
+import SizePanel from '../6_SizePanel/SizePanel';
+import QuantityPanel from '../7_QuantityPanel/QuantityPanel';
 import orderInitialState from './orderInitialState';
 import onChangeOrder from './onChangeOrder';
 

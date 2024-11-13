@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Formik, Form } from 'formik';
 import english from '../../../../../language/english';
-import FormHttpInformMassege from '../../../../Forms/FormHttpInformMassege/FormHttpInformMassege';
+import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../../1_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
-import PasswordInput from '../../../../Forms/FormsComponents/PasswordInput';
-import BlockErrorMessages from '../../../../Forms/FormsComponents/BlockErrorMessages';
+import PasswordInput from '../../../FormsComponents/PasswordInput';
+import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
 
 export interface IUserNewPassword {
   action: string;

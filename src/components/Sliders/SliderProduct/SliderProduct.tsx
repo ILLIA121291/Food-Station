@@ -1,7 +1,7 @@
 import classes from './SliderProuct.module.css';
 import { FC, useRef, useState } from 'react';
 
-import CardProduct from '../../Cards/CardProduct/1_CardProduct/CardProduct';
+import CardProduct from '../../cards/CardProduct/1_CardProduct/CardProduct';
 import english from '../../../language/english';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
@@ -16,10 +16,10 @@ interface IProps {
 
 // COMPONENT ---------------------------------------------------------
 const SliderProduct: FC<IProps> = ({ title, products, langugeApp }) => {
-  // Inital State 
+  // Inital State
   let initalStatebtnNext = false;
 
-  // Use Ref 
+  // Use Ref
   const refSliderWindow = useRef<HTMLDivElement>(null);
 
   // State Component
@@ -46,8 +46,6 @@ const SliderProduct: FC<IProps> = ({ title, products, langugeApp }) => {
   }
 
   const productCardWidth = 310 + gap;
-
-
 
   // Previous Slide ------------------------------------------
   const previousSlide = () => {
@@ -123,7 +121,7 @@ const SliderProduct: FC<IProps> = ({ title, products, langugeApp }) => {
           </button>
         </div>
       </div>
-        {/* Slides */}
+      {/* Slides */}
       <div ref={refSliderWindow} className={classes.window}>
         <div className={classes.line} style={{ transform: `translateX(-${offset}px)`, gap: `${gap}px` }}>
           {products.map((value, index) => {

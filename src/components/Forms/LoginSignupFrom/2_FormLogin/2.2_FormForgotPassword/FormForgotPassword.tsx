@@ -4,8 +4,8 @@ import { Formik, Form, Field } from 'formik';
 import english from '../../../../../language/english';
 import { IHttpResponseState } from '../../1_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
-import FormHttpInformMassege from '../../../../Forms/FormHttpInformMassege/FormHttpInformMassege';
-import BlockErrorMessages from '../../../../Forms/FormsComponents/BlockErrorMessages';
+import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInformMassege';
+import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
 
 export interface IUserForotPassword {
   action: string;

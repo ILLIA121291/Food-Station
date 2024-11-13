@@ -2,13 +2,13 @@ import './CallMeForm.scss';
 import { FC, useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import FormHttpInformMassege from '../../../../src/components/Forms/FormHttpInformMassege/FormHttpInformMassege';
+import FormHttpInformMassege from '../FormHttpInformMassege/FormHttpInformMassege';
 import useHttp from '../../../hooks/http.hook';
 
 import { useDispatch } from 'react-redux';
-import { noCloseModalWindow } from '../../../../src/components/ModalWindow/sliceModalWindow';
+import { noCloseModalWindow } from '../../modal_window/sliceModalWindow';
 import english from '../../../language/english';
-import BlockErrorMessages from '../../../../src/components/Forms/FormsComponents/BlockErrorMessages';
+import BlockErrorMessages from '../FormsComponents/BlockErrorMessages';
 
 interface IUserGetData {
   name: string;

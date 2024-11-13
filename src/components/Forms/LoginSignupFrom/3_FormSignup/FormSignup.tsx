@@ -5,10 +5,10 @@ import { Formik, Form, Field } from 'formik';
 import english from '../../../../language/english';
 import { IHttpResponseState } from '../1_LoginSignupForm/LoginSignupForm';
 import * as Yup from 'yup';
-import FormHttpInformMassege from '../../../../components/Forms/FormHttpInformMassege/FormHttpInformMassege';
-import RememberMeCheckbox from '../../../../components/Forms/FormsComponents/RememberMeCheckbox';
-import PasswordInput from '../../../../components/Forms/FormsComponents/PasswordInput';
-import BlockErrorMessages from '../../../../components/Forms/FormsComponents/BlockErrorMessages';
+import FormHttpInformMassege from '../../FormHttpInformMassege/FormHttpInformMassege';
+import RememberMeCheckbox from '../../FormsComponents/RememberMeCheckbox';
+import PasswordInput from '../../FormsComponents/PasswordInput';
+import BlockErrorMessages from '../../FormsComponents/BlockErrorMessages';
 
 export interface IUserSignup {
   action: string;

@@ -3,11 +3,11 @@ import { FC, useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import english from '../../../../../language/english';
-import FormHttpInformMassege from '../../../../../components/Forms/FormHttpInformMassege/FormHttpInformMassege';
+import FormHttpInformMassege from '../../../FormHttpInformMassege/FormHttpInformMassege';
 import { IHttpResponseState } from '../../1_LoginSignupForm/LoginSignupForm';
-import RememberMeCheckbox from '../../../../../components/Forms/FormsComponents/RememberMeCheckbox';
-import PasswordInput from '../../../../../components/Forms/FormsComponents/PasswordInput';
-import BlockErrorMessages from '../../../../../components/Forms/FormsComponents/BlockErrorMessages';
+import RememberMeCheckbox from '../../../FormsComponents/RememberMeCheckbox';
+import PasswordInput from '../../../FormsComponents/PasswordInput';
+import BlockErrorMessages from '../../../FormsComponents/BlockErrorMessages';
 
 export interface IUserLogin {
   action: string;
