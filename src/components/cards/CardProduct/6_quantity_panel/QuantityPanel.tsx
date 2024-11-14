@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import QuantityInput from '../../../forms/FormsComponents/QuantityInput';
 import english from '../../../../language/english';
-import useDisplayPriceInCurrency from '../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
+import useDisplayPriceInCurrency from '../../../panels/currencypanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../app/stateStore';
 import IOrder from '../../../../interfaces/IOrder';

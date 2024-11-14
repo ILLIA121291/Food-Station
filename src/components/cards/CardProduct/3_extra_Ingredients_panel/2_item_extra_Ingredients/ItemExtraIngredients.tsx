@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import english from '../../../../../language/english';
 import IOrder from '../../../../../interfaces/IOrder';
-import useDisplayPriceInCurrency from '../../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
+import useDisplayPriceInCurrency from '../../../../panels/currencypanel/useDisplayPriceInCurrency';
 import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 
 // Props Interface -----------------------------------------------------------------------

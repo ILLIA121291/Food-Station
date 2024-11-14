@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../app/stateStore';
 import IOrder from '../../../interfaces/IOrder';
-import useDisplayPriceInCurrency from '../../panels/CurrencyPanel/useDisplayPriceInCurrency';
+import useDisplayPriceInCurrency from '../../panels/currencypanel/useDisplayPriceInCurrency';
 
 const HeaderAppCart: FC = () => {
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);

@@ -1,5 +1,5 @@
 import LanguagePanel from '../../panels/LanguagePanel/LanguagePanel';
-import CurrencyPanel from '../../panels/CurrencyPanel/CurrencyPanel';
+import CurrencyPanel from '../../panels/currencypanel/CurrencyPanel';
 import HeaderAppLogin from '../3_header_app_login/0_HeaderAppLogin/HeaderAppLogin';
 import './CurrencyLanguageLogin.scss';
 
