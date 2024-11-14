@@ -34,7 +34,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../cart/0_CartPage/sliceCart';
-import { onChangeCurrency } from '../components/panels/currencypanel/sliceCurrencyPanel';
+import { onChangeCurrency } from '../components/panels/CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../pages/2_DishListDynamic-Page/2.1_DishListDynamicPage/DishListDynamicPage';
 import setInitialCurrencyAppLocalStorage from '../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import useProductService from '../services/product.service';

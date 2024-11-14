@@ -3,7 +3,7 @@ import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 import { IoIosCloseCircle } from 'react-icons/io';
 import toFixedNumber from '../../../../../utilities/toFixedNumber';
 
-import useDisplayPriceInCurrency from '../../../../panels/currencypanel/useDisplayPriceInCurrency';
+import useDisplayPriceInCurrency from '../../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../app/stateStore';
 

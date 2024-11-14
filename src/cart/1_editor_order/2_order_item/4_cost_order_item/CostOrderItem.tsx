@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useDisplayPriceInCurrency from '../../../../components/panels/currencypanel/useDisplayPriceInCurrency';
+import useDisplayPriceInCurrency from '../../../../components/panels/CurrencyPanel/useDisplayPriceInCurrency';
 
 // Props Interface -------------------------------
 interface IProps {
