@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     
     // ------------------------------------
-    //"forceConsistentCasingInFileNames": false
+    "forceConsistentCasingInFileNames": false
   },
   "include": ["src", "src/pages/1_HomePage"],
   "references": [{ "path": "./tsconfig.node.json" }]
