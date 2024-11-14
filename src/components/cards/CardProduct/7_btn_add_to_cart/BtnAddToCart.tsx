@@ -18,14 +18,33 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
   const text = langugeApp.textCardProduct.textGeneral;
 
   const addOrderToCart = () => {
+
+    // Пустая корзина
     if (orderList.length == 0) {
       dispatch(addToOrderList([order]));
-    } else {
-      let thisDishInOrderList = false;
+      return
+    } 
+    // ===============================================
+    // ПОЛНАЯ КОРЗИНА ================================
+    let thisDishInOrderList = false;
 
-      const checkingOrderList = orderList.map((value: IOrder) => {
-        if (value.name == order.name) {
-          if (order.dishType != 'pizza') {
+    const checkingOrderList = orderList.map((value: IOrder) => {
+      if (value.name == order.name) {
+        if (order.dishType != 'pizza') {
+          thisDishInOrderList = true;
+          const quantity = value.quantity + order.quantity;
+
+          return {
+            ...value,
+            quantity,
+          };
+        } else {
+          const size = order.parameters.size == value.parameters.size;
+          const basis = order.parameters.basis == value.parameters.basis;
+          const extraIngredientsZero = order.parameters.extraIngredients.length + value.parameters.extraIngredients.length != 0;
+          const extraIngredientsLenght = order.parameters.extraIngredients.length == value.parameters.extraIngredients.length;
+
+          if (size && basis && extraIngredientsZero == false) {
             thisDishInOrderList = true;
             const quantity = value.quantity + order.quantity;
 
@@ -33,13 +52,19 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
               ...value,
               quantity,
             };
-          } else {
-            const size = order.parameters.size == value.parameters.size;
-            const basis = order.parameters.basis == value.parameters.basis;
-            const extraIngredientsZero = order.parameters.extraIngredients.length + value.parameters.extraIngredients.length != 0;
-            const extraIngredientsLenght = order.parameters.extraIngredients.length == value.parameters.extraIngredients.length;
+          } else if (size && basis && extraIngredientsLenght) {
+            const chekingArr = [];
 
-            if (size && basis && extraIngredientsZero == false) {
+            value.parameters.extraIngredients.forEach((value: IAddExtraIngredient) => {
+              for (let i = 0; i < order.parameters.extraIngredients.length; i++) {
+                const name = value.name == order.parameters.extraIngredients[i].name;
+                const qty = value.quantity == order.parameters.extraIngredients[i].quantity;
+
+                if (name && qty) chekingArr.push(true);
+              }
+            });
+
+            if (chekingArr.length == order.parameters.extraIngredients.length) {
               thisDishInOrderList = true;
               const quantity = value.quantity + order.quantity;
 
@@ -47,45 +72,28 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
                 ...value,
                 quantity,
               };
-            } else if (size && basis && extraIngredientsLenght) {
-              const chekingArr = [];
-
-              value.parameters.extraIngredients.forEach((value: IAddExtraIngredient) => {
-                for (let i = 0; i < order.parameters.extraIngredients.length; i++) {
-                  const name = value.name == order.parameters.extraIngredients[i].name;
-                  const qty = value.quantity == order.parameters.extraIngredients[i].quantity;
-
-                  if (name && qty) chekingArr.push(true);
-                }
-              });
-
-              if (chekingArr.length == order.parameters.extraIngredients.length) {
-                thisDishInOrderList = true;
-                const quantity = value.quantity + order.quantity;
-
-                return {
-                  ...value,
-                  quantity,
-                };
-              } else {
-                return value;
-              }
             } else {
               return value;
             }
+          } else {
+            return value;
           }
-        } else {
-          return value;
         }
-      });
-
-      if (!thisDishInOrderList) {
-        checkingOrderList.push(order);
-        dispatch(addToOrderList(checkingOrderList));
+      } else {
+        return value;
       }
+    });
 
+    if (!thisDishInOrderList) {
+      checkingOrderList.push(order);
       dispatch(addToOrderList(checkingOrderList));
     }
+
+    dispatch(addToOrderList(checkingOrderList));
+
+
+
+
   };
 
   return (

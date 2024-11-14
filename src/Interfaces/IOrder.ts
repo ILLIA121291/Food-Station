@@ -4,6 +4,7 @@ import IAddExtraIngredient from './IAddExtraIngredient';
 
 export default interface IOrder {
   id: string;
+  idOrderList: string;
   name: string;
   price: number;
   data: IProduct;
