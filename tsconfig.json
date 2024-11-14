@@ -19,10 +19,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-
+    
     // ------------------------------------
-    "forceConsistentCasingInFileNames": false
+    //"forceConsistentCasingInFileNames": false
   },
-  "include": ["src/**/*.tsx"],
+  "include": ["src", "src/pages/1_HomePage"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
