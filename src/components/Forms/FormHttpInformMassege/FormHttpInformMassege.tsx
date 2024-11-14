@@ -2,7 +2,7 @@ import './FormHttpInformMassege.scss';
 
 import { FC } from 'react';
 import english from '../../../language/english';
-import { IHttpResponseState } from '../../app_header/3_header_app_login/1.4.1.2_LoginForm/LoginForm';
+import { IHttpResponseState } from '../../../components/forms/LoginSignupFrom/0_LoginSignupForm/LoginSignupForm';
 
 interface IProps {
   langugeApp: typeof english;

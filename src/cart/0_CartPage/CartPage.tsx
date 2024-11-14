@@ -5,7 +5,7 @@ import ConfirmationOrder from '../3_confirmation_order/0_ConfirmationOrder/Confi
 import classesGlobal from '../../css/globalCCS.module.css';
 import './CartPage.scss';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 // Interface -----------------------------------------
 interface IProps {
@@ -14,7 +14,8 @@ interface IProps {
 
 // COMPONENT -----------------------------------------
 const CartPage: FC<IProps> = ({ langugeApp }) => {
-  let [component, setComponent] = useState<string>('EditorOrder');
+  //let [component, setComponent] = useState<string>('EditorOrder');
+  let component = 'EditorOrder';
 
   let displayComponent;
 

@@ -1,9 +1,9 @@
 import './ManySizes.scss';
 import { FC } from 'react';
 
-import IProduct from '../../../../Interfaces/IProduct';
-import IOrder from '../../../../Interfaces/IOrder';
-import english from '../../../../language/english';
+import IProduct from '../../../../../interfaces/IProduct';
+import IOrder from '../../../../../interfaces/IOrder';
+import english from '../../../../../language/english';
 
 // Props Interface -----------------------------------
 interface IProps {
@@ -16,7 +16,7 @@ interface IProps {
 const ManySizes: FC<IProps> = ({ data, order, className = '' }) => {
   return (
     <div className={`f_jc ${className}`}>
-      {data.size.map((value, i) => {
+      {data.size.map((value, i: number) => {
         const activeBtn = value.size == order.parameters.size ? 'btn__active' : 'bkgr__br-lt';
 
         return (
