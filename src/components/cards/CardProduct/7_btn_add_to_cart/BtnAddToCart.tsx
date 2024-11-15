@@ -20,10 +20,12 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
   const text = langugeApp.textCardProduct.textGeneral;
 
   const addOrderToCart = (): void => {
+    // Создание свойства idOrderList;
+    const idOrderList = nanoid();
+
     // Пустой orderList, добовляем первый order;
     if (orderList.length == 0) {
-      order.idOrderList = nanoid();
-      console.log(order.idOrderList)
+      order.idOrderList = idOrderList;
       dispatch(addToOrderList([order]));
       return;
     }
@@ -33,12 +35,12 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
 
     // Добовление нового order в orderList если данного order там нет;
     if (!thisOrderInOrderList) {
-      order.idOrderList = `${nanoid()}`;
-      checkingOrderList.push(order);
+      checkingOrderList.push({ ...order, idOrderList });
+
       dispatch(addToOrderList(checkingOrderList));
+
       return;
     }
-
     // Обновление количетсва order в orderList;
     dispatch(addToOrderList(checkingOrderList));
     return;

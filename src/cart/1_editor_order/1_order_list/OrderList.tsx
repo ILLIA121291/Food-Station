@@ -15,6 +15,8 @@ interface IProps {
 const OrderList: FC<IProps> = ({ orderList, langugeApp, currency }) => {
   let displayComponent: JSX.Element;
 
+  console.log(orderList);
+
   if (orderList.length == 0) {
     displayComponent = <div className="fs20 bd mt30 p5 fw900">Order list is empty</div>;
   } else {

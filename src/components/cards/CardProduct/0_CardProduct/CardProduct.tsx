@@ -26,7 +26,6 @@ interface IProps {
 const CardProduct: FC<IProps> = ({ data, langugeApp, paddingLeft = 0 }) => {
   // CardProduct initial state -----------------------------------------------
   const initialStateCardProduct = orderInitialState(data);
-
   // State of product order --------------------------------------------------
   let [order, setOrder] = useState(initialStateCardProduct);
 

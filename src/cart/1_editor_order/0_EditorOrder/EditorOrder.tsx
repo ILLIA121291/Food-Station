@@ -13,6 +13,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
+// COMPONENT --------------------------------------------------------
 const EditorOrder: FC<IProps> = ({ langugeApp }) => {
   const dispatch = useDispatch();
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
@@ -22,12 +23,11 @@ const EditorOrder: FC<IProps> = ({ langugeApp }) => {
     console.log(orderList)
   }
 
+  // RENDERING COMPONENT -------------------------------------------
   return (
     <div className="fc_ac ht4000">
       <h3 className="mt30 fw600 fs30">Order</h3>
-      <button onClick={() => dispatch(clearOrderList())} className="mt30 fw600 fs30 rc">
-        Очистить
-      </button>
+      <button onClick={() => dispatch(clearOrderList())} className="mt30 fw600 fs30 rc">Очистить</button>
 
       <OrderList orderList={orderList} langugeApp={langugeApp} currency={currency} />
 

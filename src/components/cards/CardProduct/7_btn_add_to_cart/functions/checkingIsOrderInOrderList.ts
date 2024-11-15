@@ -12,6 +12,7 @@ interface IFunReturn {
 const checkingIsOrderInOrderList = (order: IOrder, orderList: IOrder[]): IFunReturn => {
   // Индикатор который сообщает о том существует уже данный order в orderList;
   let thisOrderInOrderList: boolean = false;
+ 
 
   // Перебераем orderList -------------------------------
   const checkingOrderList = orderList.map((value: IOrder) => {
@@ -33,7 +34,6 @@ const checkingIsOrderInOrderList = (order: IOrder, orderList: IOrder[]): IFunRet
           quantity,
         };
       } else {
-        console.log('I work');
         thisOrderInOrderList = false;
         return value;
       }

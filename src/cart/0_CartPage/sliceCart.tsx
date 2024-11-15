@@ -27,6 +27,7 @@ export const cartSlice = createSlice({
     addToOrderList: (state, action) => {
       state.orderList = action.payload;
       localStorage.setItem('orderList', JSON.stringify(action.payload));
+      console.log(action.payload);
     },
 
     removeFromOrderList: (state, action) => {
