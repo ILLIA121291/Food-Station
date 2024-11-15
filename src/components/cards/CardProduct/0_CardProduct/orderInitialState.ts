@@ -28,7 +28,7 @@ const orderInitialState = (data: IProduct) => {
 
   // Order Inisial State ---------------------------------------------
   const inisialOrder: IOrder = {
-    id: data._id,
+    _id: data._id,
     idOrderList: '',
     name: data.name,
     data,

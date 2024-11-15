@@ -3,7 +3,7 @@ import IBasis from './IBasis';
 import IAddExtraIngredient from './IAddExtraIngredient';
 
 export default interface IOrder {
-  id: string;
+  _id: string;
   idOrderList: string;
   name: string;
   price: number;
