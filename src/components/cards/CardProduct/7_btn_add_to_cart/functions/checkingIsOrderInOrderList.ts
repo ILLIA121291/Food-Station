@@ -1,6 +1,5 @@
-import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 import IOrder from '../../../../../interfaces/IOrder';
-import arraysComparisonExtraIngredients from './arraysСomparisonExtraIngredients';
+import arraysComparisonExtraIngredients from './arraysComparisonExtraIngredients';
 
 // Interface Function Return ------------------------------------------------
 interface IFunReturn {
@@ -12,7 +11,6 @@ interface IFunReturn {
 const checkingIsOrderInOrderList = (order: IOrder, orderList: IOrder[]): IFunReturn => {
   // Индикатор который сообщает о том существует уже данный order в orderList;
   let thisOrderInOrderList: boolean = false;
- 
 
   // Перебераем orderList -------------------------------
   const checkingOrderList = orderList.map((value: IOrder) => {
@@ -21,11 +19,11 @@ const checkingIsOrderInOrderList = (order: IOrder, orderList: IOrder[]): IFunRet
       return value;
     } else {
       // Дейстивя если order с такми точно _id уже есть массиве order list;
-
       const size = order.parameters.size == value.parameters.size;
       const basis = order.parameters.basis.name == value.parameters.basis.name;
       const extraIngredients = arraysComparisonExtraIngredients(order.parameters.extraIngredients, value.parameters.extraIngredients);
 
+      // Действия если сравниваемы order одинаковые;
       if (size && basis && extraIngredients) {
         thisOrderInOrderList = true;
         const quantity = value.quantity + order.quantity;
@@ -34,6 +32,7 @@ const checkingIsOrderInOrderList = (order: IOrder, orderList: IOrder[]): IFunRet
           quantity,
         };
       } else {
+        // Дейсстивя если сравниваемы oreder разные;
         thisOrderInOrderList = false;
         return value;
       }

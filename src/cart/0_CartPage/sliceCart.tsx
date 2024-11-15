@@ -38,8 +38,9 @@ export const cartSlice = createSlice({
     },
 
     updateOrderList: (state, action) => {
-      state.orderList = action.payload;
-      localStorage.setItem('orderList', JSON.stringify(action.payload));
+      // ДАнная функция вызывает проблемы при добовленеии обинаковых товаров и переписывает обьект глобальнго состояния; 
+      // state.orderList = action.payload;
+      // localStorage.setItem('orderList', JSON.stringify(action.payload));
     },
 
     clearOrderList: state => {
