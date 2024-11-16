@@ -1,12 +1,14 @@
-import './EditorOrder.scss';
+import './EditorOrderList.scss';
 import { FC } from 'react';
+
 import english from '../../../language/english';
+import IOrder from '../../../interfaces/IOrder';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { IStateStore } from '../../../app/stateStore';
 import { clearOrderList } from '../../0_CartPage/sliceCart';
+
 import OrderList from '../1_order_list/OrderList';
-import IOrder from '../../../interfaces/IOrder';
 
 // Props Interface ---------------------------------------------------
 interface IProps {
@@ -14,7 +16,7 @@ interface IProps {
 }
 
 // COMPONENT --------------------------------------------------------
-const EditorOrder: FC<IProps> = ({ langugeApp }) => {
+const EditorOrderList: FC<IProps> = ({ langugeApp }) => {
   const dispatch = useDispatch();
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
   const orderList = useSelector<IStateStore, IOrder[]>(state => state.cart.orderList);
@@ -39,4 +41,4 @@ const EditorOrder: FC<IProps> = ({ langugeApp }) => {
   );
 };
 
-export default EditorOrder;
+export default EditorOrderList;

@@ -1,11 +1,12 @@
+import './CartPage.scss';
+import classesGlobal from '../../css/globalCCS.module.css';
+import { FC } from 'react';
+
 import english from '../../language/english';
-import EditorOrder from '../1_editor_order/0_EditorOrder/EditorOrder';
+
+import EditorOrderList from '../1_editor_order_list/0_EditorOrderList/EditorOrderList';
 import DetailsOrder from '../2_details_order/0_DetailsOrder/DetailsOrder';
 import ConfirmationOrder from '../3_confirmation_order/0_ConfirmationOrder/ConfirmationOrder';
-import classesGlobal from '../../css/globalCCS.module.css';
-import './CartPage.scss';
-
-import { FC } from 'react';
 
 // Interface -----------------------------------------
 interface IProps {
@@ -15,9 +16,9 @@ interface IProps {
 // COMPONENT -----------------------------------------
 const CartPage: FC<IProps> = ({ langugeApp }) => {
   //let [component, setComponent] = useState<string>('EditorOrder');
-  let component = 'EditorOrder';
+  let component = 'EditorOrderList';
 
-  let displayComponent;
+  let displayComponent: JSX.Element;
 
   switch (component) {
     case 'ConfitmationOrder':
@@ -27,7 +28,7 @@ const CartPage: FC<IProps> = ({ langugeApp }) => {
       displayComponent = <DetailsOrder langugeApp={langugeApp} />;
       break;
     default:
-      displayComponent = <EditorOrder langugeApp={langugeApp} />;
+      displayComponent = <EditorOrderList langugeApp={langugeApp} />;
   }
 
   return <div className={classesGlobal.page_body_border}>{displayComponent}</div>;
