@@ -34,15 +34,15 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
     const { checkingOrderList, thisOrderInOrderList } = checkingIsOrderInOrderList(order, orderList);
 
     // Добовление нового order в orderList если данного order там нет;
-    if (!thisOrderInOrderList) {
-      // Добовление новогo order в массив checkingOrderList; 
+    if (thisOrderInOrderList == false) {
+      // Добовление новогo order в массив checkingOrderList;
       checkingOrderList.push({ ...order, idOrderList });
 
-      // Обновлениее голобального сосояния; 
+      // Обновлениее голобального сосояния добовление обновленного orderList;
       dispatch(addToOrderList(checkingOrderList));
       return;
     }
-    // Обновление количетсва order в orderList;
+    // Обновление количетсва order в orderList так как данный заказ уже есть в orderList;
     dispatch(addToOrderList(checkingOrderList));
     return;
   };

@@ -29,7 +29,7 @@ const arraysComparisonExtraIngredients = ( orderEI: IAddExtraIngredient[] , valu
 // } else {
 
 // RETURN FUNCTION ---------------------------------
-return false
+return true
 
 }
 
