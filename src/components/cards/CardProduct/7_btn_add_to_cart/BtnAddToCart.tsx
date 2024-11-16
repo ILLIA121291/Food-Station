@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import english from '../../../../language/english';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToOrderList } from '../../../../cart/0_CartPage/sliceCart';
+import { addOrderToOrderList } from '../../../../cart/0_CartPage/sliceCart';
 import { IStateStore } from '../../../../app/stateStore';
 import IOrder from '../../../../interfaces/IOrder';
 import { nanoid } from '@reduxjs/toolkit';
@@ -26,7 +26,7 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
     // Пустой orderList, добовляем первый order;
     if (orderList.length == 0) {
       order.idOrderList = idOrderList;
-      dispatch(addToOrderList([order]));
+      dispatch(addOrderToOrderList([order]));
       return;
     }
 
@@ -39,11 +39,11 @@ const BtnAddToCart: FC<IProps> = ({ order, langugeApp }) => {
       checkingOrderList.push({ ...order, idOrderList });
 
       // Обновлениее голобального сосояния добовление обновленного orderList;
-      dispatch(addToOrderList(checkingOrderList));
+      dispatch(addOrderToOrderList(checkingOrderList));
       return;
     }
     // Обновление количетсва order в orderList так как данный заказ уже есть в orderList;
-    dispatch(addToOrderList(checkingOrderList));
+    dispatch(addOrderToOrderList(checkingOrderList));
     return;
   };
 

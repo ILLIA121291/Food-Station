@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import useSetInitialCurrencyApp from './useSetInitialCurrencyApp';
+import setInitialCurrencyApp from './setInitialCurrencyApp';
 
 // Interfase ----------------------------------
 export interface ICurrencyPanel {
@@ -7,7 +7,7 @@ export interface ICurrencyPanel {
 }
 
 // Initial State ------------------------------
-let initialState = useSetInitialCurrencyApp();
+let initialState = setInitialCurrencyApp();
 
 // Currency Panel Slice ----------------------
 export const currencyPanelSlice = createSlice({

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import english from '../../../../../language/english';
 import IOrder from '../../../../../interfaces/IOrder';
-import useDisplayPriceInCurrency from '../../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
+import displayPriceInCurrency from '../../../../panels/CurrencyPanel/displayPriceInCurrency';
 import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 
 // Props Interface -----------------------------------------------------------------------
@@ -50,7 +50,7 @@ const ItemExtraIngredients: FC<IProps> = ({ name, price, order, currency, langug
         </button>
 
         <p data-name={name} data-price={price} className="wt85 addIngridient">
-          {useDisplayPriceInCurrency(currency, price)}
+          {displayPriceInCurrency(currency, price)}
         </p>
       </div>
     </li>

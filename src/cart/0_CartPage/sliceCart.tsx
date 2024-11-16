@@ -24,7 +24,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToOrderList: (state, action) => {
+    addOrderToOrderList: (state, action) => {
       state.orderList = action.payload;
       localStorage.setItem('orderList', JSON.stringify(action.payload));
       console.log(action.payload);
@@ -50,6 +50,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToOrderList, removeOrderFromOrderList, clearOrderList, updateOrderList } = cartSlice.actions;
+export const { addOrderToOrderList, removeOrderFromOrderList, clearOrderList, updateOrderList } = cartSlice.actions;
 
 export default cartSlice.reducer;

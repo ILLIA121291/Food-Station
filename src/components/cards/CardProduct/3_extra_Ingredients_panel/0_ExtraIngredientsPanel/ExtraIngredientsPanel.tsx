@@ -3,7 +3,7 @@ import { FC, MouseEvent, useEffect, useState, useRef } from 'react';
 import { IoIosCloseCircle } from 'react-icons/io';
 import toFixedNumber from '../../../../../utilities/toFixedNumber';
 
-import useDisplayPriceInCurrency from '../../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
+import displayPriceInCurrency from '../../../../panels/CurrencyPanel/displayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../../app/stateStore';
 
@@ -207,7 +207,7 @@ const ExtraIngredientsPanel: FC<IProps> = ({ order, setOrder, data, langugeApp, 
           </button>
         </div>
 
-        <div className=" f_jc-ac">+ {useDisplayPriceInCurrency(currency, order.priceExtra)}</div>
+        <div className=" f_jc-ac">+ {displayPriceInCurrency(currency, order.priceExtra)}</div>
 
         <p style={{ color: colorImgBtnAdd }} className="extra-ingre__btn fs16 wt45 bkgr__tra fw600 tx-al-l r">
           + {textGen.add}

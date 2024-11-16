@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import english from '../../../../../language/english';
-import useDisplayPriceInCurrency from '../../../../../components/panels/CurrencyPanel/useDisplayPriceInCurrency';
+import displayPriceInCurrency from '../../../../../components/panels/CurrencyPanel/displayPriceInCurrency';
 import IOrder from '../../../../../interfaces/IOrder';
 
 // Props Interface --------------------------------
@@ -23,9 +23,9 @@ const TotalDescription: FC<IProps> = ({ updatedOrder, currency, displayEditorPan
           height: displayEditorPanel ? '57px' : closeSize,
         }}
       >
-        <li>Price: {useDisplayPriceInCurrency(currency, updatedOrder.price)}</li>
-        <li>Extra: {useDisplayPriceInCurrency(currency, updatedOrder.priceExtra)}</li>
-        <li>Total: {useDisplayPriceInCurrency(currency, updatedOrder.priceExtra + updatedOrder.price)}</li>
+        <li>Price: {displayPriceInCurrency(currency, updatedOrder.price)}</li>
+        <li>Extra: {displayPriceInCurrency(currency, updatedOrder.priceExtra)}</li>
+        <li>Total: {displayPriceInCurrency(currency, updatedOrder.priceExtra + updatedOrder.price)}</li>
       </ul>
     </li>
   );

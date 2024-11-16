@@ -1,9 +1,8 @@
 import setInitialCurrencyAppLocalStorage from '../../../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import { ICurrencyPanel } from './sliceCurrencyPanel';
 
-const useSetInitialCurrencyApp = (): ICurrencyPanel => {
-
-   setInitialCurrencyAppLocalStorage()
+const setInitialCurrencyApp = (): ICurrencyPanel => {
+  setInitialCurrencyAppLocalStorage();
 
   let initialCurrency: ICurrencyPanel;
 
@@ -24,4 +23,4 @@ const useSetInitialCurrencyApp = (): ICurrencyPanel => {
   return initialCurrency!;
 };
 
-export default useSetInitialCurrencyApp;
+export default setInitialCurrencyApp;

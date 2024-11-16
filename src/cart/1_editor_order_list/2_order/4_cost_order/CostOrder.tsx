@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import useDisplayPriceInCurrency from '../../../../components/panels/CurrencyPanel/useDisplayPriceInCurrency';
+import displayPriceInCurrency from '../../../../components/panels/CurrencyPanel/displayPriceInCurrency';
 
 // Props Interface -------------------------------
 interface IProps {
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const CostOrder: FC<IProps> = ({ currency, price }) => {
-  return <div className="f_jc-ac wt110 fw600 editor-order__item-cost">{useDisplayPriceInCurrency(currency, price)}</div>;
+  return <div className="f_jc-ac wt110 fw600 editor-order__item-cost">{displayPriceInCurrency(currency, price)}</div>;
 };
 
 export default CostOrder;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import QuantityInput from '../../../forms/FormsComponents/QuantityInput';
 import english from '../../../../language/english';
-import useDisplayPriceInCurrency from '../../../panels/CurrencyPanel/useDisplayPriceInCurrency';
+import displayPriceInCurrency from '../../../panels/CurrencyPanel/displayPriceInCurrency';
 import { useSelector } from 'react-redux';
 import { IStateStore } from '../../../../app/stateStore';
 import IOrder from '../../../../interfaces/IOrder';
@@ -49,7 +49,7 @@ const QuantityPanel: FC<IProps> = ({ order, setOrder, langugeApp, className = 0 
 
       <div className=" wt150 tx-al-c">
         {totalWeight}
-        <p className="mt10 fs20 fw900">{useDisplayPriceInCurrency(currency, totalPrice)}</p>
+        <p className="mt10 fs20 fw900">{displayPriceInCurrency(currency, totalPrice)}</p>
       </div>
     </div>
   );

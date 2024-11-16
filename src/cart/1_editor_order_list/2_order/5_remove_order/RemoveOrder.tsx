@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { removeOrderFromOrderList } from '../../../0_CartPage/sliceCart';
 
 // Props Interface ----------------------
-
 interface IProps {
   idOrderList: string;
 }
