@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 import english from '../../../../../language/english';
-import countingQuantityExtraIngredients from '../../../../../components/cards/CardProduct/3_extra_Ingredients_panel/0_ExtraIngredientsPanel/countingQuantityExtraIngredients';
 import IProduct from '../../../../../interfaces/IProduct';
+import countingQuantityExtraIngredients from '../../../../../card_product/3_extra_Ingredients_panel/0_ExtraIngredientsPanel/countingQuantityExtraIngredients';
 
 // Extra Ingridients List ---------------------------
 

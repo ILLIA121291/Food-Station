@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import currencyPanelReduser, { ICurrencyPanel } from '../components/panels/CurrencyPanel/sliceCurrencyPanel';
-import modalWindowReduser, { IModalWindow } from '../components/modal_window/sliceModalWindow';
+import currencyPanelReduser, { ICurrencyPanel } from '../panels/CurrencyPanel/sliceCurrencyPanel';
+import modalWindowReduser, { IModalWindow } from '../modal_window/sliceModalWindow';
 import cartReduser, { ICart } from '../cart/0_CartPage/sliceCart';
 import appReduser, { IAppSlice } from './sliceApp';
 

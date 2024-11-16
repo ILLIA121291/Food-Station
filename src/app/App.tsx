@@ -23,8 +23,8 @@ import { FC, useEffect, useState } from 'react';
 import setInitialStateInLocalStorage from '../localStorage/setInitialStateInLocalStorage';
 
 import HomePage from '../pages/1_HomePage/0_HomePage/HomePage';
-import HeaderApp from '../components/app_header/0_HeaderApp/HeaderApp';
-import ModalWindow from '../components/modal_window/ModalWindow';
+import HeaderApp from '../app_header/0_HeaderApp/HeaderApp';
+import ModalWindow from '../modal_window/ModalWindow';
 import CartPage from '../cart/0_CartPage/CartPage';
 
 import english from '../language/english';
@@ -34,7 +34,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { updateOrderList } from '../cart/0_CartPage/sliceCart';
-import { onChangeCurrency } from '../components/panels/CurrencyPanel/sliceCurrencyPanel';
+import { onChangeCurrency } from '../panels/CurrencyPanel/sliceCurrencyPanel';
 import DishListDynamicPage from '../pages/2_DishListDynamic-Page/2.1_DishListDynamicPage/DishListDynamicPage';
 import setInitialCurrencyAppLocalStorage from '../localStorage/functions/setInitialCurrencyAppLocalStorage';
 import useProductService from '../services/product.service';

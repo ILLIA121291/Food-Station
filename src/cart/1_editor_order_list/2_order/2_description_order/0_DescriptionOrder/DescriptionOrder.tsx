@@ -15,11 +15,15 @@ interface IProps {
   langugeApp: typeof english;
 }
 
+// COMPONENT -----------------------------------------------------
 const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, langugeApp }) => {
+
+  // COMPONENT STATE --------------------------------------------------------------
   const [displayEditorPanel, setDisplayEditorPanel] = useState<boolean>(false);
   const [hiddenEditorPanel, setHiddenEditorPanel] = useState<string>('over-hid');
   const [btnEditor, setBtnEditor] = useState<boolean>(false);
 
+  // -------------------------------------------------------------------------
   const sizeText = `${updatedOrder.parameters.size} ${updatedOrder.parameters.units}`;
   const size =
     updatedOrder.parameters.size && sizeText != '1 qty' ? (
@@ -30,6 +34,7 @@ const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, 
   const weight = updatedOrder.parameters.weight ? <LI>Weight: {updatedOrder.parameters.weight} g.</LI> : null;
   const basis = updatedOrder.parameters.basis.name ? <LI>Basis: {updatedOrder.parameters.basis.name}</LI> : null;
 
+  // useEffect -----------------------------------------------------------------
   useEffect(() => {
     if (displayEditorPanel) {
       setBtnEditor(true);
@@ -42,6 +47,9 @@ const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, 
     }
   }, [displayEditorPanel]);
 
+
+
+  // RENDERING COMPONENT --------------------------------------------------------
   return (
     <div className="wt270">
       <TitelDescription updatedOrder={updatedOrder} name={updatedOrder.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />

@@ -1,14 +1,17 @@
 import { FC } from 'react';
-import QuantityInput from '../../../../components/forms/FormsComponents/QuantityInput';
+import QuantityInput from '../../../../forms/FormsComponents/QuantityInput';
 import IOrder from '../../../../interfaces/IOrder';
-// Props Interface -----------------------------------
 
+// Props Interface -----------------------------------
 interface IProps {
   updatedOrder: IOrder;
   setUpdateOrder: React.Dispatch<React.SetStateAction<IOrder>>;
 }
 
+// COMPONENT --------------------------------------------
 const QuantityOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder }) => {
+
+  
   // Update Quantity Item ----------------------------------------------
   const onUpdateQuantityItem = (num: 1 | -1) => {
     let quantity = updatedOrder.quantity;
@@ -27,6 +30,7 @@ const QuantityOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder }) => {
     });
   };
 
+  // RENDERING COMPONENT ---------------------------------------------
   return <QuantityInput calFunction={onUpdateQuantityItem} displayNumber={updatedOrder.quantity} />;
 };
 
