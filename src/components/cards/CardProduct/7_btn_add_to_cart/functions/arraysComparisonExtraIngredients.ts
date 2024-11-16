@@ -1,36 +1,29 @@
-import IAddExtraIngredient from "../../../../../interfaces/IAddExtraIngredient"
+import IAddExtraIngredient from '../../../../../interfaces/IAddExtraIngredient';
 
+const arraysComparisonExtraIngredients = (orderEI: IAddExtraIngredient[], valueEI: IAddExtraIngredient[]): boolean => {
+  // Результат сравнеия массивов orderEI и valueEI;
+  let checkResult: boolean = false;
 
-const arraysComparisonExtraIngredients = ( orderEI: IAddExtraIngredient[] , valueEI: IAddExtraIngredient[]  ): boolean => {
+  // Массив для вычислений;
+  const chekingArr = [];
 
-// } else if (size && basis && extraIngredientsLenght) {
-//   const chekingArr = [];
+  // Процес перебора мыссивов;
+  valueEI.forEach((value: IAddExtraIngredient) => {
+    for (let i = 0; i < orderEI.length; i++) {
+      const name = value.name == orderEI[i].name;
+      const qty = value.quantity == orderEI[i].quantity;
 
-//   value.parameters.extraIngredients.forEach((value: IAddExtraIngredient) => {
-//     for (let i = 0; i < order.parameters.extraIngredients.length; i++) {
-//       const name = value.name == order.parameters.extraIngredients[i].name;
-//       const qty = value.quantity == order.parameters.extraIngredients[i].quantity;
+      if (name && qty) chekingArr.push(true);
+    }
+  });
 
-//       if (name && qty) chekingArr.push(true);
-//     }
-//   });
+  // Процес вычисления результатов;
+  if (chekingArr.length == orderEI.length) {
+    checkResult = true;
+  }
 
-//   if (chekingArr.length == order.parameters.extraIngredients.length) {
-//     thisOrderInOrderList = true;
-//     const quantity = value.quantity + order.quantity;
+  // RETURN FUNCTION ---------------------------------
+  return checkResult;
+};
 
-//     return {
-//       ...value,
-//       quantity,
-//     };
-//   } else {
-//     return value;
-//   }
-// } else {
-
-// RETURN FUNCTION ---------------------------------
-return true
-
-}
-
-export default arraysComparisonExtraIngredients
+export default arraysComparisonExtraIngredients;
