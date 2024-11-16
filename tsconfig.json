@@ -20,13 +20,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    // ------------------------------------
-    "forceConsistentCasingInFileNames": false
+    // Jest ----------------------
+    "esModuleInterop": true,
 
+    // Varcel ------------------------------
+    "forceConsistentCasingInFileNames": false
   },
   "include": ["src", "src/pages/1_HomePage"],
-
-
 
   "references": [{ "path": "./tsconfig.node.json" }]
 }
