@@ -16,8 +16,8 @@ interface IProps {
 // COMPONENT ------------------------------------
 const ImagePanel: FC<IProps> = ({ data, order }) => {
   const { dishType, img, name, tags, ingredients } = data;
-  const basis = order.parameters.basis;
-  const size = order.parameters.size;
+  const basis = order.basis;
+  const size = order.size;
 
   const infoImagesComponent = tags.includes('spicy') || tags.includes('vegetarian') ? <InfoImages tags={tags} /> : null;
   const infoIngredientsComponent = ingredients.length != 0 ? <InfoIngredients ingredients={ingredients} /> : null;

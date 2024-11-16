@@ -20,7 +20,7 @@ const ItemExtraIngredients: FC<IProps> = ({ name, price, order, currency, langug
   let displayAddPanel: boolean = false;
   let displayQty: number = 0;
 
-  order.parameters.extraIngredients!.forEach((value: IAddExtraIngredient) => {
+  order.extraIngredients!.forEach((value: IAddExtraIngredient) => {
     if (value.name == name) {
       displayAddPanel = true;
       displayQty = value.quantity;

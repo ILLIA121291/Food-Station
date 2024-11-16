@@ -17,9 +17,9 @@ const checkingIsOrderInOrderList = (order: IOrder, orderList: IOrder[]): IFunRet
     // Дейстивя если order с такми точно _id уже есть массиве orderList;
     if (order._id == value._id) {
       // Действия по сравнению параметров order и value;
-      const size = order.parameters.size == value.parameters.size;
-      const basis = order.parameters.basis.name == value.parameters.basis.name;
-      const extraIngredients = arraysComparisonExtraIngredients(order.parameters.extraIngredients, value.parameters.extraIngredients);
+      const size = order.size == value.size;
+      const basis = order.basis.name == value.basis.name;
+      const extraIngredients = arraysComparisonExtraIngredients(order.extraIngredients, value.extraIngredients);
 
       // Дейстия если параметры order и value несовпадают - это ознчает что это разные заказы;
       if (!size || !basis || !extraIngredients) {

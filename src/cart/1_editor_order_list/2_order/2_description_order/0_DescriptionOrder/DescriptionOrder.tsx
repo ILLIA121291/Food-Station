@@ -17,22 +17,21 @@ interface IProps {
 
 // COMPONENT -----------------------------------------------------
 const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, langugeApp }) => {
-
   // COMPONENT STATE --------------------------------------------------------------
   const [displayEditorPanel, setDisplayEditorPanel] = useState<boolean>(false);
   const [hiddenEditorPanel, setHiddenEditorPanel] = useState<string>('over-hid');
   const [btnEditor, setBtnEditor] = useState<boolean>(false);
 
   // -------------------------------------------------------------------------
-  const sizeText = `${updatedOrder.parameters.size} ${updatedOrder.parameters.units}`;
+  const sizeText = `${updatedOrder.size} ${updatedOrder.units}`;
   const size =
-    updatedOrder.parameters.size && sizeText != '1 qty' ? (
+    updatedOrder.size && sizeText != '1 qty' ? (
       <LI>
-        Size: {updatedOrder.parameters.size} {updatedOrder.parameters.units}
+        Size: {updatedOrder.size} {updatedOrder.units}
       </LI>
     ) : null;
-  const weight = updatedOrder.parameters.weight ? <LI>Weight: {updatedOrder.parameters.weight} g.</LI> : null;
-  const basis = updatedOrder.parameters.basis.name ? <LI>Basis: {updatedOrder.parameters.basis.name}</LI> : null;
+  const weight = updatedOrder.weight ? <LI>Weight: {updatedOrder.weight} g.</LI> : null;
+  const basis = updatedOrder.basis.name ? <LI>Basis: {updatedOrder.basis.name}</LI> : null;
 
   // useEffect -----------------------------------------------------------------
   useEffect(() => {
@@ -47,17 +46,15 @@ const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, 
     }
   }, [displayEditorPanel]);
 
-
-
   // RENDERING COMPONENT --------------------------------------------------------
   return (
     <div className="wt270">
-      <TitelDescription updatedOrder={updatedOrder} name={updatedOrder.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />
+      <TitelDescription updatedOrder={updatedOrder} name={updatedOrder.data.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />
       <ul>
         {size}
         {weight}
         {basis}
-        <ExtraIngredientListDescription data={updatedOrder.data} list={updatedOrder.parameters.extraIngredients} displayEditorPanel={displayEditorPanel} langugeApp={langugeApp} />
+        <ExtraIngredientListDescription data={updatedOrder.data} list={updatedOrder.extraIngredients} displayEditorPanel={displayEditorPanel} langugeApp={langugeApp} />
         <TotalDescription updatedOrder={updatedOrder} currency={currency} langugeApp={langugeApp} displayEditorPanel={displayEditorPanel} />
       </ul>
       <EditorPanelDescription updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} currency={currency} langugeApp={langugeApp} displayEditorPanel={displayEditorPanel} hiddenEditorPanel={hiddenEditorPanel} />

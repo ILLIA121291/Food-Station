@@ -18,7 +18,7 @@ const BasisPanel: FC<IProps> = ({ data, order, langugeApp, className = '' }) => 
   return (
     <div className={`f_jc ${className}`}>
       {data.basis.map((value, i) => {
-        const activeBtn = value.name == order.parameters.basis.name ? 'btn__active' : 'bkgr__br-lt';
+        const activeBtn = value.name == order.basis.name ? 'btn__active' : 'bkgr__br-lt';
 
         return (
           <button key={i} className={`fw600 wt139 fs16 bd bdr5  ${activeBtn}`} data-basis={value.name} data-price={value.price}>

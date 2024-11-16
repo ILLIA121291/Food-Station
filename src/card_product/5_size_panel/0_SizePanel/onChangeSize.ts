@@ -18,12 +18,9 @@ const onChangeSize = (e: TE, setOrder: TSetOrder) => {
       return {
         ...order,
         price,
-        parameters: {
-          ...order.parameters,
-          size,
-          units,
-          weight,
-        },
+        size,
+        units,
+        weight,
       };
     });
   }

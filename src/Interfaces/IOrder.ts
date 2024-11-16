@@ -5,19 +5,15 @@ import IAddExtraIngredient from './IAddExtraIngredient';
 export default interface IOrder {
   _id: string;
   idOrderList: string;
-  name: string;
   price: number;
   data: IProduct;
   priceExtra: number;
   quantity: number;
-  dishType: string;
-  parameters: {
-    extraIngredients: IAddExtraIngredient[];
-    basis: IBasis;
-    quantity: number;
-    weight: number;
-    size: number;
-    units: string;
-    [key: string]: any;
-  };
+
+  extraIngredients: IAddExtraIngredient[];
+  basis: IBasis;
+  quantityPcsInOrder: number;
+  weight: number;
+  size: number;
+  units: string;
 }

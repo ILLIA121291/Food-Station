@@ -20,9 +20,9 @@ const QuantityPanel: FC<IProps> = ({ order, setOrder, langugeApp, className = 0 
 
   const totalPrice = (order.price + order.priceExtra) * order.quantity;
   const totalWeight =
-    order.parameters.weight != 0 ? (
+    order.weight != 0 ? (
       <p>
-        {order.parameters.weight * order.quantity} {text.grams}
+        {order.weight * order.quantity} {text.grams}
       </p>
     ) : null;
 

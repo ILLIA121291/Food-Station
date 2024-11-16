@@ -12,12 +12,9 @@ const onChangeBasis = (e: TE, setOrder: TSetOrder) => {
     setOrder(order => {
       return {
         ...order,
-        parameters: {
-          ...order.parameters,
-          basis: {
-            name: (e.target as HTMLButtonElement).dataset.basis!,
-            price: 0,
-          },
+        basis: {
+          name: (e.target as HTMLButtonElement).dataset.basis!,
+          price: 0,
         },
       };
     });

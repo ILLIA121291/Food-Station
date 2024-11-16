@@ -12,8 +12,8 @@ interface IProps {
 const ImageOrder: FC<IProps> = ({ updatedOrder }) => {
   let pizzaBasis = '';
 
-  if (updatedOrder.dishType == 'pizza') {
-    pizzaBasis = updatedOrder.parameters.basis.name == 'standard' ? '' : 'pizza-thin';
+  if (updatedOrder.data.dishType == 'pizza') {
+    pizzaBasis = updatedOrder.basis.name == 'standard' ? '' : 'pizza-thin';
   }
 
   return <img className={`wt100 ht100 tran__all1000 l ${pizzaBasis}`} src={DOMAIN_NAME + updatedOrder.data.img} alt={updatedOrder.data.name} />;

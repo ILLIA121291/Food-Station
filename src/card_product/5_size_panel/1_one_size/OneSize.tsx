@@ -15,9 +15,9 @@ interface IProps {
 const OneSize: FC<IProps> = ({ order, className }) => {
   return (
     <>
-      {order.parameters.size > 1 ? (
+      {order.size > 1 ? (
         <div className={`p5 fs20 fw600 tx-al-c ${className}`}>
-          {order.parameters.size} {order.parameters.units}
+          {order.size} {order.units}
         </div>
       ) : null}
     </>
