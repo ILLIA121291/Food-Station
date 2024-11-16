@@ -1,4 +1,4 @@
-import './Order.scss';
+import classes from './Order.module.css'
 import { FC, useState, useEffect } from 'react';
 
 import english from '../../../../language/english';
@@ -42,7 +42,7 @@ const Order: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
   }, [updatedOrder]);
 
   return (
-    <li className="f_jc_sb bd__b1-or p10 mt15 pos_rel editor-order__item">
+    <li className={classes.container}>
       <ImageOrderItem updatedOrder={updatedOrder} />
       <DescriptionOrderItem updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} currency={currency} langugeApp={langugeApp} />
       <QuantityOrderItem updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} />

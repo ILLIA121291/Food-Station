@@ -1,3 +1,4 @@
+import classes from './CostOrder.module.css';
 import { FC } from 'react';
 import displayPriceInCurrency from '../../../../panels/CurrencyPanel/displayPriceInCurrency';
 
@@ -8,7 +9,7 @@ interface IProps {
 }
 
 const CostOrder: FC<IProps> = ({ currency, price }) => {
-  return <div className="f_jc-ac wt110 fw600 editor-order__item-cost">{displayPriceInCurrency(currency, price)}</div>;
+  return <div className={classes.container}>{displayPriceInCurrency(currency, price)}</div>;
 };
 
 export default CostOrder;

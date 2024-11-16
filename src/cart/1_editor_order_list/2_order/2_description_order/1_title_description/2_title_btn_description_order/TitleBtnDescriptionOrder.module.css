@@ -1,0 +1,8 @@
+.btn {
+  display: flex;
+  background: transparent;
+}
+
+.btn:disabled {
+  color: black;
+}

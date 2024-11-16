@@ -1,3 +1,4 @@
+import classes from './RemoveOrder.module.css';
 import { FC } from 'react';
 import { IoMdClose } from 'react-icons/io';
 
@@ -15,7 +16,7 @@ const RemoveOrder: FC<IProps> = ({ idOrderList }) => {
 
   // RENDERING COMPONENT -------------------
   return (
-    <button className="bkgr__tra editor-order__item-remove" onClick={() => dispatch(removeOrderFromOrderList(idOrderList))}>
+    <button className={classes.btn} onClick={() => dispatch(removeOrderFromOrderList(idOrderList))}>
       <IoMdClose size={12} color="red" />
     </button>
   );

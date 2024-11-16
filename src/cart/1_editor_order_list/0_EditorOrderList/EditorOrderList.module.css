@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 4000px;
+}
+
+.title {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.resetBtn {
+  margin-top: 30px;
+  font-weight: 600;
+  font-size: 30px;
+  color: red;
+}
+
+.orderDetailsBtn {
+  padding: 15px;
+  font-size: 20px;
+  margin-top: 30px;
+  font-weight: 600;
+  background: var(--MainColor);
+  border-radius: 15px;
+  width: 100%;
+  color: white;
+}

@@ -1,4 +1,4 @@
-import './EditorOrderList.scss';
+import classes from './EditorOrderList.module.css'
 import { FC } from 'react';
 
 import english from '../../../language/english';
@@ -13,30 +13,37 @@ import OrderList from '../1_order_list/OrderList';
 // Props Interface ---------------------------------------------------
 interface IProps {
   langugeApp: typeof english;
+  setDisplayCartPageComponent: React.Dispatch<React.SetStateAction<string>>;
 }
 
 // COMPONENT --------------------------------------------------------
-const EditorOrderList: FC<IProps> = ({ langugeApp }) => {
+const EditorOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
   const dispatch = useDispatch();
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
   const orderList = useSelector<IStateStore, IOrder[]>(state => state.cart.orderList);
 
-  const sendOrderList = () => {
-    console.log(orderList)
-  }
+  // const sendOrderList = () => {
+  //   console.log(orderList)
+  // }
 
   // RENDERING COMPONENT -------------------------------------------
   return (
-    <div className="fc_ac ht4000">
-      <h3 className="mt30 fw600 fs30">Order</h3>
-      <button onClick={() => dispatch(clearOrderList())} className="mt30 fw600 fs30 rc">Очистить</button>
+    <div className={classes.container}>
+      <h3 className={classes.title}>Order</h3>
+      <button onClick={() => dispatch(clearOrderList())} className={classes.resetBtn}>Очистить</button>
 
       <OrderList orderList={orderList} langugeApp={langugeApp} currency={currency} />
 
-      <button className="p15 fs20 mt30 fw600 bkgr__ora wc bdr15 wt100per " 
-              style={{ maxWidth: '600px' }} 
-              onClick={sendOrderList}
-      >Go to order details </button>
+      <div>Total: </div>
+      <button
+        className={classes.orderDetailsBtn}
+        style={{ maxWidth: '600px' }}
+        onClick={() => {
+          setDisplayCartPageComponent('DetailsOrder');
+        }}
+      >
+        Go to order details{' '}
+      </button>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import english from '../../../../../language/english';
 import IOrder from '../../../../../interfaces/IOrder';
 
-import TitelDescription from '../1_titel_description/TitelDescription';
+import TitleDescription from '../1_title_description/0_TitleDescription/TitleDescription';
 import ExtraIngredientListDescription from '../2_extra_ingredient_list_description/ExtraIngredientListDescription';
 import TotalDescription from '../3_total_description/TotalDescription';
 import EditorPanelDescription from '../4_editor_panel_description/EditorPanelDescription';
@@ -49,7 +49,7 @@ const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, 
   // RENDERING COMPONENT --------------------------------------------------------
   return (
     <div className="wt270">
-      <TitelDescription updatedOrder={updatedOrder} name={updatedOrder.data.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />
+      <TitleDescription updatedOrder={updatedOrder} name={updatedOrder.data.name} disabled={btnEditor} setDisplayEditorPanel={setDisplayEditorPanel} displayEditorPanel={displayEditorPanel} />
       <ul>
         {size}
         {weight}

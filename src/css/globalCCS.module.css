@@ -1,14 +1,17 @@
+/* Переменную использовать так background: var(--MainColor); */
+:root {
+  --MainColor: rgb(241, 104, 13);
+}
+
 .page_body_border {
   max-width: 1300px;
   width: 100%;
   margin: 0px auto;
   padding-left: 15px;
   padding-right: 15px;
-
-  /* border: 1px solid #000; */
 }
 
 .color {
   color: red;
-  background: rgb(238, 125, 97);
+  background: var(--MainColor);
 }
