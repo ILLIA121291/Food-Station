@@ -1,12 +1,12 @@
-import './OrderItem.scss';
+import './Order.scss';
 import { FC, useState, useEffect } from 'react';
 
 import english from '../../../../language/english';
-import ImageOrderItem from '../1_image_order_item/0_ImageOrderItem/ImageOrderItem';
-import DescriptionOrderItem from '../2_description_order_item/0_DescriptionOrderItem/DescriptionOrderItem';
-import CostOrderItem from '../4_cost_order_item/CostOrderItem';
-import RemoveOrderItem from '../5_remove_order_item/RemoveOrderItem';
-import QuantityOrderItem from '../3_quantity_order_item/QuantityOrderItem';
+import ImageOrderItem from '../1_image_order/0_ImageOrder/ImageOrder';
+import DescriptionOrderItem from '../2_description_order/0_DescriptionOrder/DescriptionOrder';
+import CostOrderItem from '../4_cost_order/CostOrder';
+import RemoveOrderItem from '../5_remove_order/RemoveOrder';
+import QuantityOrderItem from '../3_quantity_order/QuantityOrder';
 import { useDispatch } from 'react-redux';
 import { updateOrderList } from '../../../0_CartPage/sliceCart';
 import IOrder from '../../../../interfaces/IOrder';
@@ -20,21 +20,19 @@ interface IProps {
 }
 
 // COMPONENT -----------------------------------------------------
-const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
+const Order: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
   const dispatch = useDispatch();
   const [updatedOrder, setUpdateOrder] = useState<IOrder>(order);
 
   // Updated Order List After Changing --------------------------------------------
   const updateOrderListAfterChangingInCart = () => {
-
     const newOrderList = orderList.map(value => {
-
-      // Действия если id 
+      // Действия если id
       if (value.idOrderList == updatedOrder.idOrderList) {
         return updatedOrder;
-      } 
+      }
 
-        return value
+      return value;
     });
     dispatch(updateOrderList(newOrderList));
   };
@@ -54,4 +52,4 @@ const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
   );
 };
 
-export default OrderItem;
+export default Order;

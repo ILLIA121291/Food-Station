@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
       console.log(action.payload);
     },
 
-    removeFromOrderList: (state, action) => {
+    removeOrderFromOrderList: (state, action) => {
       const newOrderList = state.orderList.filter(value => value.idOrderList != action.payload);
 
       state.orderList = newOrderList;
@@ -50,6 +50,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToOrderList, removeFromOrderList, clearOrderList, updateOrderList } = cartSlice.actions;
+export const { addToOrderList, removeOrderFromOrderList, clearOrderList, updateOrderList } = cartSlice.actions;
 
 export default cartSlice.reducer;

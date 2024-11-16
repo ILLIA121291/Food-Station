@@ -15,7 +15,7 @@ interface IProps {
   langugeApp: typeof english;
 }
 
-const DescriptionOrderItem: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, langugeApp }) => {
+const DescriptionOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder, currency, langugeApp }) => {
   const [displayEditorPanel, setDisplayEditorPanel] = useState<boolean>(false);
   const [hiddenEditorPanel, setHiddenEditorPanel] = useState<string>('over-hid');
   const [btnEditor, setBtnEditor] = useState<boolean>(false);
@@ -67,4 +67,4 @@ const LI: FC<ILI> = ({ children }) => {
   return <li className="mt5">{children}</li>;
 };
 
-export default DescriptionOrderItem;
+export default DescriptionOrder;

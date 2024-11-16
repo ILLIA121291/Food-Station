@@ -3,7 +3,7 @@ import { FC } from 'react';
 import english from '../../../language/english';
 
 import IOrder from '../../../interfaces/IOrder';
-import OrderItem from '../2_order_item/0_OrderItem/OrderItem';
+import Order from '../2_order/0_Order/Order';
 
 // Props Interface -------------------------------
 interface IProps {
@@ -23,7 +23,7 @@ const OrderList: FC<IProps> = ({ orderList, langugeApp, currency }) => {
     displayComponent = (
       <ul className="mt30 mwt700 wt100per">
         {orderList.map(value => {
-          return <OrderItem key={value.idOrderList} 
+          return <Order key={value.idOrderList} 
                             order={value} 
                             orderList={orderList} 
                             langugeApp={langugeApp} 

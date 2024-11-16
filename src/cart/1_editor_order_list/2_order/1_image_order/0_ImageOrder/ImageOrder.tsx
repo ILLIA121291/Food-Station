@@ -1,4 +1,4 @@
-import './ImageOrderItem.scss';
+import './ImageOrder.scss';
 import { FC } from 'react';
 import { DOMAIN_NAME } from '../../../../../variables/variables';
 import IOrder from '../../../../../interfaces/IOrder';
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 // COMPONENT ----------------------------------------
-const ImageOrderItem: FC<IProps> = ({ updatedOrder }) => {
+const ImageOrder: FC<IProps> = ({ updatedOrder }) => {
   let pizzaBasis = '';
 
   if (updatedOrder.dishType == 'pizza') {
@@ -19,4 +19,4 @@ const ImageOrderItem: FC<IProps> = ({ updatedOrder }) => {
   return <img className={`wt100 ht100 tran__all1000 l ${pizzaBasis}`} src={DOMAIN_NAME + updatedOrder.data.img} alt={updatedOrder.data.name} />;
 };
 
-export default ImageOrderItem;
+export default ImageOrder;

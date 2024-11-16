@@ -8,7 +8,7 @@ interface IProps {
   setUpdateOrder: React.Dispatch<React.SetStateAction<IOrder>>;
 }
 
-const QuantityOrderItem: FC<IProps> = ({ updatedOrder, setUpdateOrder }) => {
+const QuantityOrder: FC<IProps> = ({ updatedOrder, setUpdateOrder }) => {
   // Update Quantity Item ----------------------------------------------
   const onUpdateQuantityItem = (num: 1 | -1) => {
     let quantity = updatedOrder.quantity;
@@ -30,4 +30,4 @@ const QuantityOrderItem: FC<IProps> = ({ updatedOrder, setUpdateOrder }) => {
   return <QuantityInput calFunction={onUpdateQuantityItem} displayNumber={updatedOrder.quantity} />;
 };
 
-export default QuantityOrderItem;
+export default QuantityOrder;
