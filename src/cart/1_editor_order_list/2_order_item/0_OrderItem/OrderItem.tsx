@@ -49,7 +49,7 @@ const OrderItem: FC<IProps> = ({ order, orderList, currency, langugeApp }) => {
       <DescriptionOrderItem updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} currency={currency} langugeApp={langugeApp} />
       <QuantityOrderItem updatedOrder={updatedOrder} setUpdateOrder={setUpdateOrder} />
       <CostOrderItem currency={currency} price={(updatedOrder.price + updatedOrder.priceExtra) * updatedOrder.quantity} />
-      <RemoveOrderItem name={updatedOrder.name} />
+      <RemoveOrderItem idOrderList={updatedOrder.idOrderList} />
     </li>
   );
 };

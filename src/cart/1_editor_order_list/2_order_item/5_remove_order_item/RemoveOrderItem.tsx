@@ -7,14 +7,14 @@ import { removeFromOrderList } from '../../../0_CartPage/sliceCart';
 // Props Interface ----------------------
 
 interface IProps {
-  name: string;
+  idOrderList: string;
 }
 
-const RemoveOrderItem: FC<IProps> = ({ name }) => {
+const RemoveOrderItem: FC<IProps> = ({ idOrderList }) => {
   const dispatch = useDispatch();
 
   return (
-    <button className="bkgr__tra editor-order__item-remove" onClick={() => dispatch(removeFromOrderList(name))}>
+    <button className="bkgr__tra editor-order__item-remove" onClick={() => dispatch(removeFromOrderList(idOrderList))}>
       <IoMdClose size={12} color="red" />
     </button>
   );
