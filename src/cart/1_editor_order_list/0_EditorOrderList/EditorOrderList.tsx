@@ -56,7 +56,7 @@ const EditorOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }
         className={classes.orderDetailsBtn}
         style={{ maxWidth: '600px' }}
         onClick={() => {
-          setDisplayCartPageComponent('DetailsOrder');
+          setDisplayCartPageComponent('DeliveryDetails');
         }}
       >
         Go to order details{' '}

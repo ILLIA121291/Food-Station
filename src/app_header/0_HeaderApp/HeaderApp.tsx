@@ -39,7 +39,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
         <HeaderAppMobileLogo />
         <HeaderAppMobileButton mobileMenuState={mobileMenuState} setMobileMenuState={setMobileMenuState} />
         <div
-          className={`${classesGlobal.page_body_border} header-app${noDisplay}`}
+          className={`${classesGlobal.pageBodyBorder} header-app${noDisplay}`}
           // onClick={(e: MouseEvent<HTMLDivElement>): void => {
           //   if (window.innerWidth <= 800 && !(e.target as HTMLDivElement).classList.contains('header-app')) {
           //     setMobileMenuState(false);
@@ -63,7 +63,7 @@ const HeaderApp: FC<IProps> = ({ langugeApp, setLangugeApp, isUserAuthorized }) 
         </div>
       </header>
 
-      <div className={`${classesGlobal.page_body_border} header-app__menue-panel ${noDisplay}`}>
+      <div className={`${classesGlobal.pageBodyBorder} header-app__menue-panel ${noDisplay}`}>
         <HeaderAppMenu langugeApp={langugeApp} />
         <HeaderAppCart />
       </div>

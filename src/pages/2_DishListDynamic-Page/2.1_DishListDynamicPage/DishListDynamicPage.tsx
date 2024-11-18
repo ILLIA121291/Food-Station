@@ -28,7 +28,7 @@ const DishListDynamicPage: FC<IProps> = ({ langugeApp }) => {
 
   // RENDERING COMPONENT -------------------------------------------
   return (
-    <div className={`${classesGlobal.page_body_border} ${classes.body}`}>
+    <div className={`${classesGlobal.pageBodyBorder} ${classes.body}`}>
       {allProducts
         // Фильтрация и получение массива только с требуемыми продуктами;
         .filter(product => product.dishType == dishListName?.replace('_list', ''))

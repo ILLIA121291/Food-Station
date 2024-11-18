@@ -23,7 +23,7 @@ const HomePage: FC<IProps> = ({ langugeApp }) => {
 
   // RENDER COMPONENT -------------------------
   return (
-    <div className={classesGlobal.page_body_border}>
+    <div className={classesGlobal.pageBodyBorder}>
       {DISH_TYPE_NAMES.map(dishType => {
         // Фильтрация требуемого продукта;
         const productFilter = allProducts.filter(product => product.dishType == dishType);
