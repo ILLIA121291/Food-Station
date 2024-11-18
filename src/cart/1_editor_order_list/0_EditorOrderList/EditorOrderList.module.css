@@ -18,10 +18,15 @@
   color: red;
 }
 
+.total {
+  padding: 25px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
 .orderDetailsBtn {
   padding: 15px;
   font-size: 20px;
-  margin-top: 30px;
   font-weight: 600;
   background: var(--MainColor);
   border-radius: 15px;

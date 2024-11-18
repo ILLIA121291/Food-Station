@@ -27,6 +27,7 @@ const HeaderAppCart: FC = () => {
     });
   }
 
+  // RENDERING COMPONENT ---------------------------------------------------------
   return (
     <NavLink end to="/cart" className="wt150 f_ac pos_rel cart__container" onClick={() => window.scrollTo(0, 0)}>
       <span className="f_jc-ac wt25 ht25 bdr50 bkgr__ora fs16 wc cart__qty">{quantity}</span>
