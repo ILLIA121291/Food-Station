@@ -18,7 +18,7 @@ const arraysComparisonExtraIngredients = (orderEI: IAddExtraIngredient[], valueE
   });
 
   // Процес вычисления результатов;
-  if (chekingArr.length == orderEI.length) {
+  if (chekingArr.length == orderEI.length && chekingArr.length == valueEI.length) {
     checkResult = true;
   }
 

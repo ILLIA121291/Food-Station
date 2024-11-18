@@ -1,4 +1,4 @@
-import classes from './EditorOrderList.module.css'
+import classes from './EditorOrderList.module.css';
 import { FC } from 'react';
 
 import english from '../../../language/english';
@@ -30,7 +30,9 @@ const EditorOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }
   return (
     <div className={classes.container}>
       <h3 className={classes.title}>Order</h3>
-      <button onClick={() => dispatch(clearOrderList())} className={classes.resetBtn}>Очистить</button>
+      <button onClick={() => dispatch(clearOrderList())} className={classes.resetBtn}>
+        Очистить
+      </button>
 
       <OrderList orderList={orderList} langugeApp={langugeApp} currency={currency} />
 
