@@ -1,4 +1,4 @@
-import classes from './BlockEditorOrderList.module.css';
+import classes from './BlockOrderList.module.css';
 import { FC } from 'react';
 
 import english from '../../../language/english';
@@ -18,7 +18,7 @@ interface IProps {
 }
 
 // COMPONENT --------------------------------------------------------
-const BlockEditorOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
+const BlockOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
   const dispatch = useDispatch();
   const currency = useSelector<IStateStore, string>(state => state.currencyPanel.currencyApp);
   const orderList = useSelector<IStateStore, IOrder[]>(state => state.cart.orderList);
@@ -56,7 +56,7 @@ const BlockEditorOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageCompon
         className={classes.orderDetailsBtn}
         style={{ maxWidth: '600px' }}
         onClick={() => {
-          setDisplayCartPageComponent('BlockDeliveryDetails');
+          setDisplayCartPageComponent('BlockDeliveryOrder');
         }}
       >
         Go to order details{' '}
@@ -65,4 +65,4 @@ const BlockEditorOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageCompon
   );
 };
 
-export default BlockEditorOrderList;
+export default BlockOrderList;

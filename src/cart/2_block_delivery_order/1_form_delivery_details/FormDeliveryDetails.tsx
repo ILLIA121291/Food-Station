@@ -44,7 +44,7 @@ const FormDeliveryDetails: FC<IProps> = ({ setDisplayCartPageComponent }) => {
         // Данное дейстие записывает полученне данные для доставки в глобальное состояние;
         dispatch(addDeliveryDetails(delivery));
 
-        setDisplayCartPageComponent('BlockPayment');
+        setDisplayCartPageComponent('BlockPaymentOrder');
       }}
     >
       <Form className={classeForm.form}>

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import classes from './BlockDeliveryDetails.module.css';
+import classes from './BlockDeliveryOrder.module.css';
 import classesGlobal from '../../../css/globalCCS.module.css';
 import english from '../../../language/english';
 import FormDeliveryDetails from '../1_form_delivery_details/FormDeliveryDetails';
@@ -11,7 +11,7 @@ interface IProps {
 }
 
 // COMPONENT -----------------------------------------------------------------
-const DeliveryDetailsBlock: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
+const BlockDeliveryOrder: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
   // RENDERING COMPONENT -----------------------------------------------------
   return (
     <div className={`${classesGlobal.pageBodyBorder} ${classes.container}`}>
@@ -20,4 +20,4 @@ const DeliveryDetailsBlock: FC<IProps> = ({ langugeApp, setDisplayCartPageCompon
   );
 };
 
-export default DeliveryDetailsBlock;
+export default BlockDeliveryOrder;

@@ -9,7 +9,7 @@ interface IProps {
 }
 
 // COMPONENT -------------------------
-const PaymentBlock: FC<IProps> = ({ setDisplayCartPageComponent }) => {
+const BlockPaymentOrder: FC<IProps> = ({ setDisplayCartPageComponent }) => {
   // RENDERING OREDER ----------------
   return (
     <div className={classesGlobal.pageBodyBorder}>
@@ -19,4 +19,4 @@ const PaymentBlock: FC<IProps> = ({ setDisplayCartPageComponent }) => {
   );
 };
 
-export default PaymentBlock;
+export default BlockPaymentOrder;
