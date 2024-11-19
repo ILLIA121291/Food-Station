@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import classes from './DeliveryDetails.module.css';
+import classes from './BlockDeliveryDetails.module.css';
 import classesGlobal from '../../../css/globalCCS.module.css';
 import english from '../../../language/english';
-import FormDeliveryDetails from '../../../forms/FormDeliveryDetails/FormDeliveryDetails';
+import FormDeliveryDetails from '../1_form_delivery_details/FormDeliveryDetails';
 
 // Interface -------------------------------------------------------------
 interface IProps {
@@ -11,8 +11,7 @@ interface IProps {
 }
 
 // COMPONENT -----------------------------------------------------------------
-const DeliveryDetails: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
-
+const DeliveryDetailsBlock: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
   // RENDERING COMPONENT -----------------------------------------------------
   return (
     <div className={`${classesGlobal.pageBodyBorder} ${classes.container}`}>
@@ -21,4 +20,4 @@ const DeliveryDetails: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }
   );
 };
 
-export default DeliveryDetails;
+export default DeliveryDetailsBlock;

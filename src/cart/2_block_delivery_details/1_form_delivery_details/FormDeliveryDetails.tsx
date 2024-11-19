@@ -1,12 +1,12 @@
-import classeForm from '../../css/globalForm.module.css';
+import classeForm from '../../../css/globalForm.module.css';
 import { Formik, Form, Field } from 'formik';
 import { FC } from 'react';
 import * as Yup from 'yup';
-import BlockErrorMessages from '../FormsComponents/BlockErrorMessages/BlockErrorMessages';
-import english from '../../language/english';
+import BlockErrorMessages from '../../../forms/FormsComponents/BlockErrorMessages/BlockErrorMessages';
+import english from '../../../language/english';
 import { useDispatch } from 'react-redux';
-import { addDeliveryDetails } from '../../cart/0_CartPage/sliceCart';
-import IDelivery from '../../interfaces/IDelivery';
+import { addDeliveryDetails } from '../../0_CartPage/sliceCart';
+import IDelivery from '../../0_CartPage/interface/IDelivery';
 
 // Interface -----------------------------------
 interface IProps {
@@ -15,7 +15,7 @@ interface IProps {
 }
 
 // COMPONENT -----------------------------------
-const FormDeliveryDetails: FC<IProps> = ({setDisplayCartPageComponent}) => {
+const FormDeliveryDetails: FC<IProps> = ({ setDisplayCartPageComponent }) => {
   const dispatch = useDispatch();
 
   // RENDERING COMPONENT ------------------------
@@ -44,7 +44,7 @@ const FormDeliveryDetails: FC<IProps> = ({setDisplayCartPageComponent}) => {
         // Данное дейстие записывает полученне данные для доставки в глобальное состояние;
         dispatch(addDeliveryDetails(delivery));
 
-        setDisplayCartPageComponent('')
+        setDisplayCartPageComponent('BlockPayment');
       }}
     >
       <Form className={classeForm.form}>

@@ -1,4 +1,4 @@
-import './ConfirmationOrder.scss';
+import classes from './BlockCompletedOrder.module.css';
 import english from '../../../language/english';
 
 import { FC } from 'react';
@@ -8,8 +8,8 @@ interface IProps {
   setDisplayCartPageComponent: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ConfirmationOrder: FC<IProps> = () => {
-  return <div>DetailsOrder</div>;
+const BlockCompletedOrder: FC<IProps> = () => {
+  return <div>BlockCompletedOrder</div>;
 };
 
-export default ConfirmationOrder;
+export default BlockCompletedOrder;
