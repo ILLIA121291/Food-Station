@@ -15,15 +15,19 @@ interface IProps {
 
 // COMPONENT -----------------------------------------
 const CartPage: FC<IProps> = ({ langugeApp }) => {
-  let [component, setDisplayCartPageComponent] = useState<string>('Payment Block');
+  let [component, setDisplayCartPageComponent] = useState<string>('BlockPaymentOrder');
 
   switch (component) {
+    // 4. Block Complered Order --------------------------------------------------------------------------------------------
     case 'BlockCompletedOrder':
       return <BlockCompletedOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+    // 3. Block Payment Order --------------------------------------------------------------------------------------------
     case 'BlockPaymentOrder':
       return <BlockPayment setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+    // 2. Block Delivery Order --------------------------------------------------------------------------------------------
     case 'BlockDeliveryOrder':
       return <BlockDeliveryOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+    // 1. Block OrderList --------------------------------------------------------------------------------------------
     default:
       return <BlockOrderList setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
   }

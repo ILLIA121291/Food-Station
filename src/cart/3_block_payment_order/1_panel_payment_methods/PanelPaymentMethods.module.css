@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  padding: 10px;
+  gap: 20px;
+}
+
+.btn {
+  padding: 5px 20px;
+  border: 1px solid #000;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  font-weight: 900;
+  background: transparent;
+}
+
+.btnActive {
+  background: var(--MainColor);
+}

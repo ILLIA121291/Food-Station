@@ -1,6 +1,10 @@
 import classesGlobal from '../../../css/globalCCS.module.css';
-import { FC } from 'react';
+import classes from './BlockPaymentOrder.module.css';
+import { FC, useState } from 'react';
 import english from '../../../language/english';
+import PanelPaymentMethods from '../1_panel_payment_methods/PanelPaymentMethods';
+import FormCardPaymentMethod from '../2_form_card_payment_methods/FormCardPaymentMethod';
+import FormCashPaymentMethod from '../3_form_cash_payment_method/FormCashPaymentMethod';
 
 // Interface -------------------------
 interface IProps {
@@ -9,12 +13,28 @@ interface IProps {
 }
 
 // COMPONENT -------------------------
-const BlockPaymentOrder: FC<IProps> = ({ setDisplayCartPageComponent }) => {
-  // RENDERING OREDER ----------------
+const BlockPaymentOrder: FC<IProps> = ({ langugeApp }) => {
+  let [paymentMethod, setPaymentMethod] = useState<string>('CardPaymentMethod');
+  let displayPaymentMethod: JSX.Element;
+
+  // Reduser --------------------------------------------------------------------------
+  switch (paymentMethod) {
+
+    // Cash Payment Method;
+    case 'CashPaymentMethod':
+      displayPaymentMethod = <FormCashPaymentMethod />;
+      break;
+    // Card Payment Method;
+    default:
+      displayPaymentMethod = <FormCardPaymentMethod />;
+      break;
+  }
+
+  // RENDERING OREDER --------------------------------------------------------------------------------------
   return (
-    <div className={classesGlobal.pageBodyBorder}>
-      Payment Block
-      <button onClick={() => setDisplayCartPageComponent('BlockCompletedOrder')}>Block confirmation order</button>
+    <div className={`${classesGlobal.pageBodyBorder}  ${classes.container}`}>
+      <PanelPaymentMethods langugeApp={langugeApp} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} />
+      {displayPaymentMethod}
     </div>
   );
 };
