@@ -6,6 +6,7 @@ import IDelivery from './interface/IDelivery';
 export interface ICart {
   orderList: IOrder[];
   delivery: IDelivery;
+  payment: IPayment;
 }
 
 // Local Storage and InitialState ------------------------------
@@ -13,6 +14,7 @@ export interface ICart {
 let initialState: ICart = {
   orderList: [],
   delivery: { name: '', surname: '', phone: 0, address: '' },
+  payment: { type: '', cardNumber: '', cvcCode: '', month: '', year: '', cashAmount: '' },
 };
 
 if (localStorage.getItem('orderList')) {
@@ -61,9 +63,25 @@ export const cartSlice = createSlice({
     addDeliveryDetails: (state, action) => {
       state.delivery = action.payload;
     },
+
+    // PAYMENT =============================================================
+
+    // Add Payment;
+    addPayment: (state, action) => {
+      const oldState = state.payment;
+      state.payment = { ...oldState, ...action.payload };
+
+      const orderList = state.orderList;
+      const delivery = state.delivery;
+      const payment = state.payment
+
+      console.log(orderList)
+      console.log(delivery)
+      console.log(payment)
+    },
   },
 });
 
-export const { addOrderToOrderList, removeOrderFromOrderList, clearOrderList, updateOrderList, addDeliveryDetails } = cartSlice.actions;
+export const { addOrderToOrderList, removeOrderFromOrderList, clearOrderList, updateOrderList, addDeliveryDetails, addPayment } = cartSlice.actions;
 
 export default cartSlice.reducer;

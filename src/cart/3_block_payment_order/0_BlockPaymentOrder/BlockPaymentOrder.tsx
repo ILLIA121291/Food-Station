@@ -1,4 +1,3 @@
-import classesGlobal from '../../../css/globalCCS.module.css';
 import classes from './BlockPaymentOrder.module.css';
 import { FC, useState } from 'react';
 import english from '../../../language/english';
@@ -16,7 +15,7 @@ interface IProps {
 
 // COMPONENT -------------------------
 const BlockPaymentOrder: FC<IProps> = ({ setDisplayCartPageComponent, langugeApp }) => {
-  let [paymentMethod, setPaymentMethod] = useState<string>('CashPaymentMethod');
+  let [paymentMethod, setPaymentMethod] = useState<string>('CardPaymentMethod');
   let displayPaymentMethod: JSX.Element;
 
   // Reduser --------------------------------------------------------------------------

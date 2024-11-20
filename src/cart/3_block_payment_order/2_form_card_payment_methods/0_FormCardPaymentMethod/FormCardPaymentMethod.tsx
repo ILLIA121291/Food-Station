@@ -6,6 +6,8 @@ import * as Yup from 'yup';
 import english from '../../../../language/english';
 import BlockCardNumber from '../1_block_card_number/BlockCardNumber';
 import BlockCvcCode from '../2_block_cvc_code/BlockCvcCode';
+import { useDispatch } from 'react-redux';
+import { addPayment } from '../../../0_CartPage/sliceCart';
 
 // Interface -----------------------------------
 interface IProps {
@@ -14,11 +16,14 @@ interface IProps {
 
 // COMPONENT -----------------------------------
 const FormCardPaymentMethod: FC<IProps> = () => {
+  const dispatch = useDispatch();
+
   // RENDERING COMPONENT ----------------------------------------------------
   return (
     <Formik
       // Начальное состояние формы;
       initialValues={{
+        type: 'card',
         cardNumber: '',
         cvcCode: '',
         month: '',
@@ -36,7 +41,7 @@ const FormCardPaymentMethod: FC<IProps> = () => {
       }}
       // Submit формы;
       onSubmit={value => {
-        console.log(value);
+        dispatch(addPayment(value));
       }}
     >
       <Form className={classes.form}>

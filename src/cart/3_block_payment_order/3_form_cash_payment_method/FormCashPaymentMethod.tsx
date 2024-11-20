@@ -5,6 +5,8 @@ import { FC } from 'react';
 import english from '../../../language/english';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { addPayment } from '../../0_CartPage/sliceCart';
 
 // Interface -----------------------------------
 
@@ -14,11 +16,14 @@ interface IProps {
 
 // COMPONENT ------------------------------------
 const FormCashPaymentMethod: FC<IProps> = () => {
+  const dispatch = useDispatch();
+
   // RENDERING COMPONENT -------------------------
   return (
     <Formik
       // Начальное состояние формы;
       initialValues={{
+        type: 'cash',
         cashAmount: 0,
       }}
       // Валидация формы;
@@ -27,7 +32,7 @@ const FormCashPaymentMethod: FC<IProps> = () => {
       })}
       // Submit формы;
       onSubmit={value => {
-        console.log(value);
+        dispatch(addPayment(value));
       }}
     >
       <Form className={`${classesForm.form} ${classes.form}`}>
