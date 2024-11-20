@@ -17,27 +17,27 @@ interface IProps {
 const CartPage: FC<IProps> = ({ langugeApp }) => {
   let [component, setDisplayCartPageComponent] = useState<string>('BlockDeliveryOrder');
 
-  let desplayBlock: JSX.Element
+  let desplayBlock: JSX.Element;
 
   switch (component) {
     // 4. Block Complered Order --------------------------------------------------------------------------------------------
     case 'BlockCompletedOrder':
       desplayBlock = <BlockCompletedOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
-      break
-      // 3. Block Payment Order --------------------------------------------------------------------------------------------
+      break;
+    // 3. Block Payment Order --------------------------------------------------------------------------------------------
     case 'BlockPaymentOrder':
       desplayBlock = <BlockPayment setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
-      break
-      // 2. Block Delivery Order --------------------------------------------------------------------------------------------
+      break;
+    // 2. Block Delivery Order --------------------------------------------------------------------------------------------
     case 'BlockDeliveryOrder':
       desplayBlock = <BlockDeliveryOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
-      break
-      // 1. Block OrderList --------------------------------------------------------------------------------------------
+      break;
+    // 1. Block OrderList --------------------------------------------------------------------------------------------
     default:
       desplayBlock = <BlockOrderList setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
   }
 
-  return <div className={classesGlobal.pageBodyBorder}>{desplayBlock}</div>
+  return <div className={classesGlobal.pageBodyBorder}>{desplayBlock}</div>;
 };
 
 export default CartPage;

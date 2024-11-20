@@ -1,5 +1,6 @@
 import classes from './FormCardPaymentMethod.module.css';
-import { Form, Formik,} from 'formik';
+import classesGlobal from '../../../../css/globalCCS.module.css';
+import { Form, Formik } from 'formik';
 import { FC } from 'react';
 import * as Yup from 'yup';
 import english from '../../../../language/english';
@@ -13,7 +14,6 @@ interface IProps {
 
 // COMPONENT -----------------------------------
 const FormCardPaymentMethod: FC<IProps> = () => {
-
   // RENDERING COMPONENT ----------------------------------------------------
   return (
     <Formik
@@ -26,16 +26,15 @@ const FormCardPaymentMethod: FC<IProps> = () => {
       }}
       // Валидация формы;
       validationSchema={Yup.object({
-        cardNumber: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(16, 'Должно быть 16 символов').max(16, "Должно быть не больше 16").required('Введите номер карты'),
-        cvcCode: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(3, "CVC - Минему 3 символа").max(3, "CVC - Максимум 3 символа").required('Укажите CVC код'),
-        month: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(2, ).max(2).required('Укажите месяц'),
-        year: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(2).max(2).required('Укажите год')
+        //cardNumber: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(16, 'Должно быть 16 символов').max(16, "Должно быть не больше 16").required('Введите номер карты'),
+        //cvcCode: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(3, "CVC - Минему 3 символа").max(3, "CVC - Максимум 3 символа").required('Укажите CVC код'),
+        //month: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(2, ).max(2).required('Укажите месяц'),
+        //year: Yup.string().matches(/^[0-9]+$/, 'Только цыфры').min(2).max(2).required('Укажите год')
       })}
-      onChange = {(value:any )=> {
-        console.log(value)
+      onChange={(value: any) => {
+        console.log(value);
       }}
-
-      // Submit формы; 
+      // Submit формы;
       onSubmit={value => {
         console.log(value);
       }}
@@ -45,7 +44,9 @@ const FormCardPaymentMethod: FC<IProps> = () => {
           <BlockCardNumber />
           <BlockCvcCode />
         </div>
-        <button type="submit">Pay</button>
+        <button type="submit" className={classesGlobal.btn}>
+          Pay
+        </button>
       </Form>
     </Formik>
   );

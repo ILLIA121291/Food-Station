@@ -1,9 +1,11 @@
-
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid #000;
-  height: 500px;
+}
+
+.btnBack {
+  display: flex;
+  width: 375px;
+  padding-bottom: 20px;
 }
