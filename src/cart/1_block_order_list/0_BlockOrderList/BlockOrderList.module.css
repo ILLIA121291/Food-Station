@@ -5,12 +5,6 @@
   height: 4000px;
 }
 
-.title {
-  margin-top: 30px;
-  font-weight: 600;
-  font-size: 30px;
-}
-
 .resetBtn {
   margin-top: 30px;
   font-weight: 600;
@@ -24,12 +18,7 @@
   font-size: 30px;
 }
 
-.orderDetailsBtn {
-  padding: 15px;
-  font-size: 20px;
-  font-weight: 600;
-  background: var(--MainColor);
-  border-radius: 15px;
-  width: 100%;
-  color: white;
+.btn {
+  max-width: 700px;
+  margin: 0px 15px;
 }

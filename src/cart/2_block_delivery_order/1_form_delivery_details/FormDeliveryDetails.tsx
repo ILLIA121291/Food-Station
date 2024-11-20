@@ -1,4 +1,6 @@
 import classeForm from '../../../css/globalForm.module.css';
+import classesGlobal from '../../../css/globalCCS.module.css';
+import classesCartPage from '../../0_CartPage/CartPage.module.css';
 import { Formik, Form, Field } from 'formik';
 import { FC } from 'react';
 import * as Yup from 'yup';
@@ -26,49 +28,50 @@ const FormDeliveryDetails: FC<IProps> = ({ setDisplayCartPageComponent }) => {
         name: '',
         surname: '',
         phone: '',
-        addressOne: '',
-        addressTwo: '',
+        address: '',
       }}
       validationSchema={Yup.object({
         // login: Yup.string().min(2, textValidation.minimumSymbols).required(textValidation.enterLogin),
         // password: Yup.string().min(2, textValidation.minimumSymbols).required(textValidation.enterPassword),
       })}
       onSubmit={value => {
-        const delivery: IDelivery = {
-          name: value.name,
-          surname: value.surname,
-          phone: +value.phone,
-          address: value.addressOne + ' ' + value.addressTwo,
-        };
-
         // Данное дейстие записывает полученне данные для доставки в глобальное состояние;
-        dispatch(addDeliveryDetails(delivery));
-
+        dispatch(addDeliveryDetails(value));
+        // Данное действие переключае на следующий компонент;
         setDisplayCartPageComponent('BlockPaymentOrder');
       }}
     >
       <Form className={classeForm.form}>
         {/* Name */}
-        <Field name="name" className={classeForm.formInput} type="text" placeholder="Name" />
+        <label htmlFor="name" className={classesCartPage.label}>
+          Name
+        </label>
+        <Field name="name" className={classeForm.formInput} type="text" placeholder="Bob" />
         <BlockErrorMessages name="name" />
 
         {/* Surname */}
-        <Field name="surname" className={classeForm.formInput} type="text" placeholder="Surname" />
+        <label htmlFor="surname" className={classesCartPage.label}>
+          Sername
+        </label>
+        <Field name="surname" className={classeForm.formInput} type="text" placeholder="Tompsan" />
         <BlockErrorMessages name="surname" />
 
         {/* Phone */}
-        <Field name="phone" className={classeForm.formInput} type="number" placeholder="Phone" />
+        <label htmlFor="phone" className={classesCartPage.label}>
+          Phone
+        </label>
+        <Field name="phone" className={classeForm.formInput} type="number" placeholder="201-997-9458" />
         <BlockErrorMessages name="phone" />
 
-        {/* Address line - 1 */}
-        <Field name="addressOne" className={classeForm.formInput} type="text" placeholder="Address Line - 1" />
-        <BlockErrorMessages name="addressOne" />
+        {/* Address*/}
+        <label htmlFor="address" className={classesCartPage.label}>
+          Address
+        </label>
+        <Field name="address" className={classeForm.formInput} type="text" placeholder="155-135 Morgan Pl, North Arlington" />
+        <BlockErrorMessages name="address" />
 
-        {/* Address line - 2 */}
-        <Field name="addressTwo" className={classeForm.formInput} type="text" placeholder="Address Line - 2" />
-        <BlockErrorMessages name="addressTwo" />
-
-        <button className={`${classeForm.formBtn} ${classeForm.formBtnActive}`} type="submit">
+        {/* Submit BTN */}
+        <button className={`${classesGlobal.btn} `} type="submit">
           Submit
         </button>
       </Form>

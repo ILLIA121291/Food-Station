@@ -15,22 +15,29 @@ interface IProps {
 
 // COMPONENT -----------------------------------------
 const CartPage: FC<IProps> = ({ langugeApp }) => {
-  let [component, setDisplayCartPageComponent] = useState<string>('BlockPaymentOrder');
+  let [component, setDisplayCartPageComponent] = useState<string>('BlockDeliveryOrder');
+
+  let desplayBlock: JSX.Element
 
   switch (component) {
     // 4. Block Complered Order --------------------------------------------------------------------------------------------
     case 'BlockCompletedOrder':
-      return <BlockCompletedOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
-    // 3. Block Payment Order --------------------------------------------------------------------------------------------
+      desplayBlock = <BlockCompletedOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+      break
+      // 3. Block Payment Order --------------------------------------------------------------------------------------------
     case 'BlockPaymentOrder':
-      return <BlockPayment setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
-    // 2. Block Delivery Order --------------------------------------------------------------------------------------------
+      desplayBlock = <BlockPayment setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+      break
+      // 2. Block Delivery Order --------------------------------------------------------------------------------------------
     case 'BlockDeliveryOrder':
-      return <BlockDeliveryOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
-    // 1. Block OrderList --------------------------------------------------------------------------------------------
+      desplayBlock = <BlockDeliveryOrder setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+      break
+      // 1. Block OrderList --------------------------------------------------------------------------------------------
     default:
-      return <BlockOrderList setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
+      desplayBlock = <BlockOrderList setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />;
   }
+
+  return <div className={classesGlobal.pageBodyBorder}>{desplayBlock}</div>
 };
 
 export default CartPage;

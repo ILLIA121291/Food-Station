@@ -1,4 +1,5 @@
 import classes from './BlockOrderList.module.css';
+import classesGlobal from '../../../css/globalCCS.module.css';
 import { FC } from 'react';
 
 import english from '../../../language/english';
@@ -10,6 +11,7 @@ import { clearOrderList } from '../../0_CartPage/sliceCart';
 
 import OrderList from '../1_order_list/OrderList';
 import displayPriceInCurrency from '../../../panels/CurrencyPanel/displayPriceInCurrency';
+import TitleBlockComponentInCart from '../../0_CartPage/component/TitleBlockComponentInCart/TitleBlockComponentInCart';
 
 // Props Interface ---------------------------------------------------
 interface IProps {
@@ -44,7 +46,7 @@ const BlockOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent })
   // RENDERING COMPONENT -------------------------------------------
   return (
     <div className={classes.container}>
-      <h3 className={classes.title}>Order</h3>
+      <TitleBlockComponentInCart title='Order'/>
       <button onClick={() => dispatch(clearOrderList())} className={classes.resetBtn}>
         Очистить
       </button>
@@ -53,13 +55,12 @@ const BlockOrderList: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent })
 
       <div className={classes.total}>Total: {displayPriceInCurrency(currency, cost)} </div>
       <button
-        className={classes.orderDetailsBtn}
-        style={{ maxWidth: '600px' }}
+        className={`${classesGlobal.btn} ${classes.btn}`}
         onClick={() => {
           setDisplayCartPageComponent('BlockDeliveryOrder');
         }}
       >
-        Go to order details{' '}
+        Go to order details
       </button>
     </div>
   );

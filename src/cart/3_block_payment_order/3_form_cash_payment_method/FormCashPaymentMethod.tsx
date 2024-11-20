@@ -1,10 +1,11 @@
 import {FC} from 'react'
+import english from '../../../language/english'
 
 
 // Interface -----------------------------------
 
 interface IProps {
-
+  langugeApp: typeof english
 }
 
 

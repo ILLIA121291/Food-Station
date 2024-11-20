@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import classes from './BlockDeliveryOrder.module.css';
-import classesGlobal from '../../../css/globalCCS.module.css';
 import english from '../../../language/english';
 import FormDeliveryDetails from '../1_form_delivery_details/FormDeliveryDetails';
+import BtnBackInCart from '../../0_CartPage/component/BtnBackInCart/BtnBackInCart';
+import TitleBlockComponentInCart from '../../0_CartPage/component/TitleBlockComponentInCart/TitleBlockComponentInCart';
 
 // Interface -------------------------------------------------------------
 interface IProps {
@@ -14,7 +15,9 @@ interface IProps {
 const BlockDeliveryOrder: FC<IProps> = ({ langugeApp, setDisplayCartPageComponent }) => {
   // RENDERING COMPONENT -----------------------------------------------------
   return (
-    <div className={`${classesGlobal.pageBodyBorder} ${classes.container}`}>
+    <div className={` ${classes.container}`}>
+      <TitleBlockComponentInCart title='Delivery Details'/>
+      <BtnBackInCart backTo="BlockOrderList" setDisplayCartPageComponent={setDisplayCartPageComponent} />
       <FormDeliveryDetails setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />
     </div>
   );
