@@ -15,7 +15,7 @@ interface IProps {
 
 // COMPONENT -----------------------------------------
 const CartPage: FC<IProps> = ({ langugeApp }) => {
-  let [component, setDisplayCartPageComponent] = useState<string>('BlockDeliveryOrder');
+  let [component, setDisplayCartPageComponent] = useState<string>('BlockPaymentOrder');
 
   let desplayBlock: JSX.Element;
 

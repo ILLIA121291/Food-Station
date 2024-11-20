@@ -16,7 +16,7 @@ interface IProps {
 
 // COMPONENT -------------------------
 const BlockPaymentOrder: FC<IProps> = ({ setDisplayCartPageComponent, langugeApp }) => {
-  let [paymentMethod, setPaymentMethod] = useState<string>('CardPaymentMethod');
+  let [paymentMethod, setPaymentMethod] = useState<string>('CashPaymentMethod');
   let displayPaymentMethod: JSX.Element;
 
   // Reduser --------------------------------------------------------------------------
