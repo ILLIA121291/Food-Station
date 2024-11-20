@@ -16,8 +16,10 @@ const BlockDeliveryOrder: FC<IProps> = ({ langugeApp, setDisplayCartPageComponen
   // RENDERING COMPONENT -----------------------------------------------------
   return (
     <div className={` ${classes.container}`}>
-      <TitleBlockComponentInCart title='Delivery Details'/>
-      <BtnBackInCart backTo="BlockOrderList" setDisplayCartPageComponent={setDisplayCartPageComponent} />
+      <TitleBlockComponentInCart title="Delivery Details" />
+      <div className={classes.btnBack}>
+        <BtnBackInCart backTo="BlockOrderList" setDisplayCartPageComponent={setDisplayCartPageComponent} />
+      </div>
       <FormDeliveryDetails setDisplayCartPageComponent={setDisplayCartPageComponent} langugeApp={langugeApp} />
     </div>
   );

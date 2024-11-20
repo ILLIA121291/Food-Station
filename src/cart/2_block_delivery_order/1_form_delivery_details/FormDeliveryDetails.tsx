@@ -1,3 +1,4 @@
+import classe from './FormDeliveryDetails.module.css';
 import classeForm from '../../../css/globalForm.module.css';
 import classesGlobal from '../../../css/globalCCS.module.css';
 import classesCartPage from '../../0_CartPage/CartPage.module.css';
@@ -8,7 +9,6 @@ import BlockErrorMessages from '../../../forms/FormsComponents/BlockErrorMessage
 import english from '../../../language/english';
 import { useDispatch } from 'react-redux';
 import { addDeliveryDetails } from '../../0_CartPage/sliceCart';
-import IDelivery from '../../0_CartPage/interface/IDelivery';
 
 // Interface -----------------------------------
 interface IProps {
@@ -39,9 +39,11 @@ const FormDeliveryDetails: FC<IProps> = ({ setDisplayCartPageComponent }) => {
         dispatch(addDeliveryDetails(value));
         // Данное действие переключае на следующий компонент;
         setDisplayCartPageComponent('BlockPaymentOrder');
+
+        console.log(value);
       }}
     >
-      <Form className={classeForm.form}>
+      <Form className={`${classeForm.form} ${classe.from}`}>
         {/* Name */}
         <label htmlFor="name" className={classesCartPage.label}>
           Name
@@ -72,7 +74,7 @@ const FormDeliveryDetails: FC<IProps> = ({ setDisplayCartPageComponent }) => {
 
         {/* Submit BTN */}
         <button className={`${classesGlobal.btn} `} type="submit">
-          Submit
+          Proceed to payment
         </button>
       </Form>
     </Formik>
